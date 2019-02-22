@@ -1,0 +1,30 @@
+@import "smart-grid";
+@fontMain: 'ProximaNova', 'Arial', sans-serif;
+@fontBebas: 'BebasNeue', 'Arial', sans-serif;
+@fontBeabsBook: 'BebasNeueBook', 'Arial', sans-serif;
+@colorMainSec: #df2f2f;
+@colorSecFonts: #666666;
+
+@colorBorder: #dadada;
+@colorBgMain: #f5f5f5;
+
+.bottom-hover (@bg: #fff) {
+  position: relative;
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: @bg;
+    transition: 0.3s;
+  }
+}
+
+

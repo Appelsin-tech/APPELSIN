@@ -1,0 +1,74 @@
+.reset();
+html{
+  font-size: 62.5%;
+  .lg-block({font-size: 56.2%;});
+  .sm-block({ font-size: 50%;});
+}
+body {
+  font-family: @fontMain;
+  min-height: 100vh;
+  font-weight: normal;
+  font-size: 1.8rem;
+  color: #fff;
+}
+main {
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+button {
+  font-family: @fontMain;
+  border: none;
+  padding: 0;
+  background: none;
+  outline: none;
+}
+.container {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+  .wrapper()
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.g-caption-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .g-caption {
+    font-family: @fontBebas;
+    font-weight: bold;
+    font-size: 9rem;
+    letter-spacing: 3rem;
+    text-transform: uppercase;
+    .lg-block({ font-size: 7rem; });
+    .sm-block({ font-size: 4rem; });
+  }
+}
+
+.hooper {
+  outline: none;
+}
+.hooper-track {
+  outline: none;
+}
+.s-services .hooper-list{
+  padding: 30px;
+  width: calc(~"100% + 60px");
+  transform: translate(-30px);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+

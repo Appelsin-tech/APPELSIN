@@ -1,0 +1,68 @@
+.modal-default {
+  background-color: #fff;
+  border-radius: 10px;
+}
+.modal {
+  display: flex;
+  padding: 50px 50px;
+  flex-direction: column;
+  align-items: center;
+  .xs-block({ padding: 60px 20px; });
+  .close-modal {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #dadada;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    border: 1px solid #dadada;
+    border-radius: 50%;
+    transition: 0.3s;
+    .xs-block({width: 25px;
+      height: 25px; font-size: 30px; top: 10px; right: 10px;});
+    &:hover {
+      background: @colorMainSec;
+      border: 1px solid transparent;
+      box-shadow: 0px 0px 40px 5px rgba(233,47,47,0.5);
+      color: #fff;
+    }
+  }
+  .title {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .content {
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 200;
+    text-align: justify;
+    .sm-block({ font-size: 1.8rem;});
+  }
+  &.b-modal-form {
+    padding: 100px 20px 50px;
+    .xs-block({ padding: 60px 20px 30px});
+  }
+  &.b-modal-dok {
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+.pop-out-enter-active,
+.pop-out-leave-active {
+  transition: all 0.3s;
+}
+.pop-out-enter,
+.pop-out-leave-active {
+  opacity: 0;
+  transform: translateY(24px);
+}
