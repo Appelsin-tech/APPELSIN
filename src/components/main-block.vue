@@ -64,7 +64,7 @@
       height: 100%;
       align-items: center;
       justify-content: center;
-      background-image: url("../assets/img/appelsin-small-11.png"),
+      background-image: url("../assets/img/appelsin.png"), url("../assets/img/appelsin-small-11.png"),
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 110% 100%, 0% 0%, 95% 10%;
