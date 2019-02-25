@@ -60,6 +60,48 @@
             </div>
           </div>
         </slide>
+        <slide>
+          <div class="wrapper wrapper-1">
+            <div class="grow"></div>
+            <div class="services-item">
+              <div class="text-wrapper">
+                <h3 class="caption-services">Крипто-сфера</h3>
+                <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
+              </div>
+              <a class="circle-btn" href="#">
+                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+              </a>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class="wrapper wrapper-2">
+            <div class="grow"></div>
+            <div class="services-item">
+              <div class="text-wrapper">
+                <h3 class="caption-services">Реклама и продвижение</h3>
+                <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг, аналитика</p>
+              </div>
+              <a class="circle-btn" href="#">
+                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+              </a>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class="wrapper wrapper-3">
+            <div class="grow"></div>
+            <div class="services-item">
+              <div class="text-wrapper">
+                <h3 class="caption-services">Дизайн и брендинг</h3>
+                <p class="desc">Графический дизайн сайтов, приложений, презентаций, UI дизайн, брендинг</p>
+              </div>
+              <a class="circle-btn" href="#">
+                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+              </a>
+            </div>
+          </div>
+        </slide>
       </hooper>
     </div>
   </section>
@@ -110,9 +152,6 @@
   @import '~hooper/dist/hooper.css';
 
   .s-services {
-    display: flex;
-    align-items: center;
-    justify-content: stretch;
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0,0,0,0) 25%),
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0,0,0,0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0,0,0,0) 30%) #23ade0;
