@@ -102,6 +102,7 @@
         }
       }
     }
+
     .hooper-slide {
       display: flex;
       flex-grow: 1;
@@ -129,11 +130,12 @@
           margin-bottom: 50px;
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 5rem;
+          font-size: 4.7rem;
           letter-spacing: 1.4rem;
         }
         .desc-case {
           margin-bottom: 50px;
+          font-size: 1.7rem;
           font-weight: 300;
           color: @colorSecFonts;
           letter-spacing: 0.14rem;
@@ -144,6 +146,7 @@
           display: flex;
           align-items: center;
           span {
+            font-size: 1.7rem;
             .bottom-hover(#666);
           }
           &::before {

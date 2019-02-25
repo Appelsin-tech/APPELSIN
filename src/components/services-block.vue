@@ -22,6 +22,8 @@
             <div class="services-item">
               <div class="text-wrapper">
                 <h3 class="caption-services">Серверные решения</h3>
+                <p class="desc">Проектирование и реализация проекта, разработка API, работа с БД, автоматизация, боты.
+                </p>
               </div>
               <a class="circle-btn" href="#">
                 <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -36,6 +38,7 @@
             <div class="services-item">
               <div class="text-wrapper">
                 <h3 class="caption-services">WEB - разработка</h3>
+                <p class="desc">От лендинга до высоконагруженного сайта любой сложности</p>
               </div>
               <a class="circle-btn" href="#">
                 <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -115,7 +118,7 @@
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0,0,0,0) 30%) #23ade0;
     .caption-wrapper {
       display: flex;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
       justify-content: space-between;
       .nav-slider {
         display: flex;
@@ -142,7 +145,7 @@
   .hooper-slide {
     display: flex;
     flex-grow: 1;
-    height: auto;
+    height: 540px;
     outline: none;
     transition: 0.3s;
     z-index: 1;
@@ -174,6 +177,14 @@
             transform: rotate(90deg);
           }
         }
+        .services-item {
+          .text-wrapper {
+            .desc {
+              opacity: 1;
+              height: 70px;
+            }
+          }
+        }
       }
       &-1 {
         &::after {
@@ -187,7 +198,7 @@
       }
       &-3 {
         &::after {
-          background: url("../assets/img/services/item-3.png") no-repeat top center #2d2633;
+          background: url("../assets/img/services/item-3.png") no-repeat 100% -15% #2d2633;
         }
       }
       &::after {
@@ -215,15 +226,18 @@
         .caption-services {
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 3.2rem;
+          font-size: 3.04rem;
           letter-spacing: 0.8rem;
           text-transform: uppercase;
         }
         .desc {
           margin-top: 20px;
           font-weight: 300;
-          font-size: 1.8rem;
+          font-size: 1.7rem;
           letter-spacing: 0.14rem;
+          opacity: 0;
+          height: 0px;
+          transition: 0.3s;
         }
       }
       .circle-btn {

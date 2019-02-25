@@ -42,8 +42,8 @@
     .item {
       &-link {
         display: flex;
-        width: 85px;
-        height: 85px;
+        width: 72px;
+        height: 72px;
         align-items: center;
         justify-content: center;
         color: #fff;
@@ -57,8 +57,8 @@
         }
         >svg {
           width: 100%;
-          max-width: 25px;
-          max-height: 25px;
+          max-width: 22px;
+          max-height: 22px;
           path {
             fill: #fff;
             transition: 0.3s;

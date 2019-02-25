@@ -30,13 +30,13 @@
       .submit {
         font-family: @fontBebas;
         font-weight: bold;
-        font-size: 2.6rem;
+        font-size: 2.47rem;
         letter-spacing: 0.7rem;
         color: #fff;
         .bottom-hover();
       }
       .policy {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         font-weight: 300;
         color: #fff;
         transition: 0.3s;

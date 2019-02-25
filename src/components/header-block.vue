@@ -40,13 +40,13 @@
     display: flex;
     align-items: center;
     .svg-logo {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       margin-right: 60px;
     }
     .name {
       font-family: @fontBebas;
-      font-size: 3rem;
+      font-size: 2.9rem;
       letter-spacing: 0.8rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -54,6 +54,7 @@
   }
   .agency {
     margin-right: auto;
+    font-size: 1.7rem;
     font-weight: 300;
     &::before {
       content: '|';
@@ -62,6 +63,7 @@
   }
   .phone {
     margin-right: 80px;
+    font-size: 1.7rem;
     color: #fff;
   }
   .menu-wrapper {

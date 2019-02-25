@@ -64,7 +64,7 @@
       height: 100%;
       align-items: center;
       justify-content: center;
-      background-image: url("../assets/img/appelsin.png"), url("../assets/img/appelsin-small-11.png"),
+      background-image: url("../assets/img/appelsin-small-11.png"),
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 110% 100%, 0% 0%, 95% 10%;
@@ -109,8 +109,8 @@
           margin-bottom: 40px;
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 6rem;
-          letter-spacing: 1.7rem;
+          font-size: 5.7rem;
+          letter-spacing: 1.6rem;
           text-transform: uppercase;
         }
         .servises-list {
@@ -121,8 +121,8 @@
             }
             .item-link {
               position: relative;
-              font-size: 2.2rem;
-              font-weight: bold;
+              font-size: 2.1rem;
+              font-weight: 600;
               text-transform: uppercase;
               color: #fff;
               .bottom-hover();
