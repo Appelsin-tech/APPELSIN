@@ -2,46 +2,47 @@
   <section class="s-main fullpage-section active">
     <div class="bg-wrapper">
       <div class="bg-small"></div>
+      <div class="bg-big"></div>
       <div class="container">
-        <div class="caption-wrapper">
-          <h1 class="visually-hidden">Appelsin</h1>
-          <div class="grid-app">
-            <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
-            <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
+          <div class="caption-wrapper">
+            <h1 class="visually-hidden">Appelsin</h1>
+            <div class="grid-app">
+              <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
+              <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
+            </div>
+          </div>
+          <div class="desc-wrapper">
+            <strong class="desc-caption">Комплексные IT - решения</strong>
+            <ul class="servises-list">
+              <li class="item">
+                <a class="item-link" href="#">Серверные решения</a>
+              </li>
+              <li class="item">
+                <a class="item-link" href="#">WEB - разработка</a>
+              </li>
+              <li class="item">
+                <a class="item-link" href="#">Мобильные игры и приложения</a>
+              </li>
+              <li class="item">
+                <a class="item-link" href="#">Криптовалюты</a>
+              </li>
+              <li class="item">
+                <a class="item-link" href="#">Реклама и продвижение</a>
+              </li>
+              <li class="item">
+                <a class="item-link" href="#">Дизайн и брендинг</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="desc-wrapper">
-          <strong class="desc-caption">Комплексные IT - решения</strong>
-          <ul class="servises-list">
-            <li class="item">
-              <a class="item-link" href="#">Серверные решения</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#">WEB - разработка</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#">Мобильные игры и приложения</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#">Криптовалюты</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#">Реклама и продвижение</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#">Дизайн и брендинг</a>
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -64,15 +65,26 @@
       height: 100%;
       align-items: center;
       justify-content: center;
-      background-image: url("../assets/img/appelsin.png"), url("../assets/img/appelsin-small-11.png"),
+      background-image: url("../assets/img/appelsin-small-11.png"),
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
-      background-position: 110% 100%, 0% 0%, 95% 10%;
+      background-position: 0% 0%, 95% 10%;
       .bg-small {
         position: absolute;
         top: 85%;
         left: 10%;
         box-shadow: 0px 0px 50px 20px rgb(243, 117, 14);
+      }
+      .bg-big {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: url("../assets/img/appelsin-1.png");
+        background-repeat: no-repeat;
+        background-position: 70% 100%;
+        .xl-block({background-position: 80% 120%;})
       }
     }
     .container {
@@ -115,7 +127,7 @@
         }
         .servises-list {
           .item {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             &:last-child {
               margin-bottom: 0;
             }

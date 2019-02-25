@@ -44,21 +44,15 @@
         display: flex;
         width: 72px;
         height: 72px;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
         transition: 0.3s;
         &:hover {
-          background: #fff;
-          color: transparent;
           path {
             fill: #000;
           }
         }
         >svg {
           width: 100%;
-          max-width: 22px;
-          max-height: 22px;
+          height: 100%;
           path {
             fill: #fff;
             transition: 0.3s;

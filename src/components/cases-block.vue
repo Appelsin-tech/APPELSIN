@@ -6,10 +6,10 @@
           <h2 class="g-caption">Кейсы </h2>
         </div>
         <div class="nav-slider">
-          <button class="next" @click.prevent="slideNext">
+          <button class="next" @click.prevent="slidePrev">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
-          <button class="prev" @click.prevent="slidePrev">
+          <button class="prev" @click.prevent="slideNext">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
         </div>
@@ -119,6 +119,7 @@
     .slide-wrapper {
       display: flex;
       position: relative;
+      flex-grow: 1;
       padding: 100px 80px;
       background: #fff;
       .col {

@@ -6,10 +6,10 @@
           <h2 class="g-caption">Услуги</h2>
         </div>
         <div class="nav-slider">
-          <button class="next" @click.prevent="slideNext">
+          <button class="next" @click.prevent="slidePrev">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
-          <button class="prev" @click.prevent="slidePrev">
+          <button class="prev" @click.prevent="slideNext">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
         </div>
@@ -65,7 +65,7 @@
             <div class="grow"></div>
             <div class="services-item">
               <div class="text-wrapper">
-                <h3 class="caption-services">Крипто-сфера</h3>
+                <h3 class="caption-services">Блокчейн и криптовалюты</h3>
                 <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
               </div>
               <a class="circle-btn" href="#">
@@ -261,7 +261,7 @@
       position: relative;
       z-index: 5;
       .text-wrapper {
-        margin-bottom: 70px;
+        margin-bottom: 50px;
         .caption-services {
           font-family: @fontBebas;
           font-weight: bold;

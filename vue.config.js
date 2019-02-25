@@ -43,8 +43,11 @@ var settings = {
     fields: '20px' /* side fields */
   },
   breakPoints: {
+    xl: {
+      width: '1920px', /* -> @media (max-width: 1100px) */
+    },
     lg: {
-      width: '1170px', /* -> @media (max-width: 1100px) */
+      width: '1170px',
     },
     md: {
       width: '990px'
