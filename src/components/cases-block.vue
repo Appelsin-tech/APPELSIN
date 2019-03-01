@@ -106,10 +106,6 @@
               transform: rotate(180deg);
             }
           }
-          &.swiper-button-disabled {
-            opacity: 0.7;
-            cursor: auto;
-          }
           svg {
             width: 30px;
             height: 30px;
