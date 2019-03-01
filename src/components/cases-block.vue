@@ -14,9 +14,9 @@
           </button>
         </div>
       </div>
-      <hooper :settings="hooperSettings" ref="carousel" style="height: auto">
+      <swiper :options="swiperOption" ref="mySwiper" >
 
-        <slide>
+        <swiper-slide>
           <div class="slide-wrapper">
             <div class="col col-3">
               <h3 class="caption-slide">Community generation</h3>
@@ -30,40 +30,43 @@
             </div>
             <img class="cgen-img" src="../assets/img/cgen.png" alt="CGEN">
           </div>
-        </slide>
+        </swiper-slide>
 
-      </hooper>
+      </swiper>
     </div>
   </section>
 </template>
 
 <script>
-  import {
-    Hooper,
-    Slide,
-  } from 'hooper';
-
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     name: 'cases-block',
     components: {
-      Hooper,
-      Slide,
+      swiper,
+      swiperSlide,
     },
     data () {
       return {
-        hooperSettings: {
-          itemsToShow: 1,
-          wheelControl: false,
-          infiniteScroll: true
-        },
+        swiperOption: {
+          height: 530,
+          slidesPerView: 1
+        }
       }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    mounted() {
+      console.log('this is current swiper instance object', this.swiper)
     },
     methods: {
       slidePrev() {
-        this.$refs.carousel.slidePrev();
+        this.$refs.mySwiper.swiper.slidePrev();
       },
       slideNext() {
-        this.$refs.carousel.slideNext();
+        this.$refs.mySwiper.swiper.slideNext();
       }
     }
   }
@@ -71,7 +74,7 @@
 
 <style scoped lang="less">
   @import "../assets/less/_variables";
-  @import '~hooper/dist/hooper.css';
+  @import '~swiper/dist/css/swiper.css';
 
   .s-case {
     background:
@@ -102,20 +105,13 @@
         }
       }
     }
-
-    .hooper-slide {
-      display: flex;
-      flex-grow: 1;
-      height: auto;
-      outline: none;
-      transition: 0.3s;
-      z-index: 5;
-      opacity: 1;
-      &.is-prev,
-      &.is-next {
-        opacity: 0;
-      }
+    .swiper-container {
+      overflow: visible;
     }
+    .swiper-slide {
+
+    }
+
     .slide-wrapper {
       display: flex;
       position: relative;

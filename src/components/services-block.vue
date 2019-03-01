@@ -14,9 +14,9 @@
           </button>
         </div>
       </div>
-      <hooper :settings="hooperSettings" ref="carousel" style="height: auto">
+      <swiper :options="swiperOption" ref="mySwiper">
 
-        <slide>
+        <swiper-slide>
           <div class="wrapper wrapper-1">
             <div class="grow"></div>
             <div class="services-item">
@@ -31,8 +31,8 @@
             </div>
           </div>
 
-        </slide>
-        <slide>
+        </swiper-slide>
+        <swiper-slide>
           <div class="wrapper wrapper-2">
             <div class="grow"></div>
             <div class="services-item">
@@ -45,8 +45,8 @@
               </a>
             </div>
           </div>
-        </slide>
-        <slide>
+        </swiper-slide>
+        <swiper-slide>
           <div class="wrapper wrapper-3">
             <div class="grow"></div>
             <div class="services-item">
@@ -59,8 +59,8 @@
               </a>
             </div>
           </div>
-        </slide>
-        <slide>
+        </swiper-slide>
+        <swiper-slide>
           <div class="wrapper wrapper-1">
             <div class="grow"></div>
             <div class="services-item">
@@ -73,8 +73,8 @@
               </a>
             </div>
           </div>
-        </slide>
-        <slide>
+        </swiper-slide>
+        <swiper-slide>
           <div class="wrapper wrapper-2">
             <div class="grow"></div>
             <div class="services-item">
@@ -87,8 +87,8 @@
               </a>
             </div>
           </div>
-        </slide>
-        <slide>
+        </swiper-slide>
+        <swiper-slide>
           <div class="wrapper wrapper-3">
             <div class="grow"></div>
             <div class="services-item">
@@ -101,47 +101,51 @@
               </a>
             </div>
           </div>
-        </slide>
-      </hooper>
+        </swiper-slide>
+      </swiper>
     </div>
   </section>
 </template>
 
 <script>
-  import {
-    Hooper,
-    Slide,
-  } from 'hooper';
 
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     name: 'services-block',
     components: {
-      Hooper,
-      Slide,
+      swiper,
+      swiperSlide,
     },
     data () {
       return {
-        hooperSettings: {
-          itemsToShow: 1,
-          wheelControl: false,
-          infiniteScroll: true,
-          breakpoints: {
-            750: {
-              itemsToShow: 2
-            },
-            1170: {
-              itemsToShow: 3,
-            }
-          }
-        },
+        swiperOption: {
+          height: 500,
+          slidesPerView: 3,
+          speed: 300,
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+
+          // some swiper options/callbacks
+
+        }
       }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    mounted() {
+      // current swiper instance
+
+      console.log('this is current swiper instance object', this.swiper)
     },
     methods: {
       slidePrev() {
-        this.$refs.carousel.slidePrev();
+        this.$refs.mySwiper.swiper.slidePrev();
       },
       slideNext() {
-        this.$refs.carousel.slideNext();
+        this.$refs.mySwiper.swiper.slideNext();
       }
     }
   }
@@ -149,7 +153,7 @@
 
 <style scoped lang="less">
   @import "../assets/less/_variables";
-  @import '~hooper/dist/hooper.css';
+  @import '~swiper/dist/css/swiper.css';
 
   .s-services {
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0,0,0,0) 25%),
@@ -181,26 +185,31 @@
       }
     }
   }
-  .hooper-slide {
+  .swiper-container {
+    padding: 30px;
+    margin: 0 -30px;
+  }
+  .swiper-slide {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 2;
     height: 540px;
-    outline: none;
-    transition: 0.3s;
     z-index: 1;
-    opacity: 1;
+    opacity: 0;
+    transition: 0.3s;
     &:hover {
-      z-index: 2;
+      z-index: 6;
     }
-    &.is-prev,
-    &.is-next {
-      opacity: 0;
+    &-visible {
+      opacity: 1;
+      transition: 0.3s;
     }
+  }
     .wrapper {
       position: relative;
       display: flex;
       padding: 50px;
       flex-grow: 1;
+
       flex-direction: column;
       align-items: flex-start;
       .xs-block({ padding: 30px;});
@@ -254,7 +263,7 @@
       }
     }
     .grow {
-      height: 170px;
+      height: 1px;
       flex-grow: 5;
     }
     .services-item {
@@ -294,5 +303,4 @@
         }
       }
     }
-  }
 </style>
