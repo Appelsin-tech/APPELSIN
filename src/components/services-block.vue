@@ -6,10 +6,10 @@
           <h2 class="g-caption">Услуги</h2>
         </div>
         <div class="nav-slider">
-          <button class="next" @click.prevent="slidePrev">
+          <button class="next">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
-          <button class="prev" @click.prevent="slideNext">
+          <button class="prev">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
         </div>
@@ -122,11 +122,10 @@
           height: 500,
           slidesPerView: 3,
           speed: 300,
-          watchSlidesVisibility: true,
-          watchSlidesProgress: true,
-
-          // some swiper options/callbacks
-
+          navigation: {
+            nextEl: '.prev',
+            prevEl: '.next',
+          },
         }
       }
     },
@@ -137,17 +136,8 @@
     },
     mounted() {
       // current swiper instance
-
       console.log('this is current swiper instance object', this.swiper)
     },
-    methods: {
-      slidePrev() {
-        this.$refs.mySwiper.swiper.slidePrev();
-      },
-      slideNext() {
-        this.$refs.mySwiper.swiper.slideNext();
-      }
-    }
   }
 </script>
 
@@ -168,6 +158,16 @@
         align-items: center;
         button {
           cursor: pointer;
+          &.next {
+            margin-right: 20px;
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+          &.swiper-button-disabled {
+            opacity: 0.7;
+            cursor: auto;
+          }
           svg {
             width: 30px;
             height: 30px;
@@ -175,18 +175,12 @@
               fill: #fff;
             }
           }
-          &.next {
-            margin-right: 20px;
-            svg {
-              transform: rotate(180deg);
-            }
-          }
         }
       }
     }
   }
   .swiper-container {
-    padding: 30px;
+    padding: 30px 0;
     margin: 0 -30px;
   }
   .swiper-slide {
@@ -194,14 +188,9 @@
     flex-grow: 2;
     height: 540px;
     z-index: 1;
-    opacity: 0;
     transition: 0.3s;
     &:hover {
       z-index: 6;
-    }
-    &-visible {
-      opacity: 1;
-      transition: 0.3s;
     }
   }
     .wrapper {

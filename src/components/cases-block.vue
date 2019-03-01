@@ -6,10 +6,10 @@
           <h2 class="g-caption">Кейсы </h2>
         </div>
         <div class="nav-slider">
-          <button class="next" @click.prevent="slidePrev">
+          <button class="next">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
-          <button class="prev" @click.prevent="slideNext">
+          <button class="prev">
             <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
           </button>
         </div>
@@ -31,6 +31,20 @@
             <img class="cgen-img" src="../assets/img/cgen.png" alt="CGEN">
           </div>
         </swiper-slide>
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">Test Testovich</h3>
+              <p class="desc-case">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi commodi delectus explicabo, itaque mollitia nesciunt obcaecati officiis ratione ut.
+              </p>
+              <a class="line" href="#">
+                <span>cgen.network</span>
+              </a>
+            </div>
+            <img class="cgen-img" height="200" src="../assets/img/services/item-1.png" alt="CGEN">
+          </div>
+        </swiper-slide>
 
       </swiper>
     </div>
@@ -49,7 +63,12 @@
       return {
         swiperOption: {
           height: 530,
-          slidesPerView: 1
+          slidesPerView: 1,
+          effect: 'flip',
+          navigation: {
+            nextEl: '.prev',
+            prevEl: '.next',
+          },
         }
       }
     },
@@ -60,14 +79,6 @@
     },
     mounted() {
       console.log('this is current swiper instance object', this.swiper)
-    },
-    methods: {
-      slidePrev() {
-        this.$refs.mySwiper.swiper.slidePrev();
-      },
-      slideNext() {
-        this.$refs.mySwiper.swiper.slideNext();
-      }
     }
   }
 </script>
@@ -89,6 +100,16 @@
         align-items: center;
         button {
           cursor: pointer;
+          &.next {
+            margin-right: 20px;
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+          &.swiper-button-disabled {
+            opacity: 0.7;
+            cursor: auto;
+          }
           svg {
             width: 30px;
             height: 30px;
@@ -96,22 +117,9 @@
               fill: #fff;
             }
           }
-          &.next {
-            margin-right: 20px;
-            svg {
-              transform: rotate(180deg);
-            }
-          }
         }
       }
     }
-    .swiper-container {
-      overflow: visible;
-    }
-    .swiper-slide {
-
-    }
-
     .slide-wrapper {
       display: flex;
       position: relative;
