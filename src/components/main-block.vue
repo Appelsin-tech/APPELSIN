@@ -4,6 +4,7 @@
       <div class="bg-small"></div>
       <div class="bg-big"></div>
       <div class="container">
+        <div class="custom-container">
           <div class="caption-wrapper">
             <h1 class="visually-hidden">Appelsin</h1>
             <div class="grid-app">
@@ -41,6 +42,7 @@
               </li>
             </ul>
           </div>
+        </div>
         </div>
       </div>
   </section>
@@ -84,13 +86,16 @@
         background-image: url("../assets/img/appelsin-1.png");
         background-repeat: no-repeat;
         background-position: 70% 100%;
-        .xl-block({background-position: 80% 120%;})
+        .xxl-block({background-position: 80% 120%;})
       }
     }
     .container {
-      display: grid;
-      grid-template-columns: minmax(0px, 50%) minmax(0px, 50%);
-      grid-template-rows: 1fr;
+      .custom-container {
+        display: grid;
+        grid-template-columns: minmax(0px, 50%) minmax(0px, 50%);
+        grid-template-rows: 1fr;
+        .xl-block({ padding: 0 25px;})
+      }
       .caption-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;

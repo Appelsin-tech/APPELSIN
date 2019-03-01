@@ -1,6 +1,7 @@
 <template>
   <section class="s-services fullpage-section">
     <div class="container">
+
       <div class="caption-wrapper">
         <div class="g-caption-block">
           <h2 class="g-caption">Услуги</h2>
@@ -14,6 +15,7 @@
           </button>
         </div>
       </div>
+      <div class="custom-container">
       <swiper :options="swiperOption" ref="mySwiper">
 
         <swiper-slide>
@@ -103,6 +105,7 @@
           </div>
         </swiper-slide>
       </swiper>
+      </div>
     </div>
   </section>
 </template>
@@ -177,7 +180,6 @@
   }
   .swiper-container {
     padding: 30px 0;
-    margin: 0 -30px;
   }
   .swiper-slide {
     display: flex;

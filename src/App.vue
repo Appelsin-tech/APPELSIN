@@ -94,6 +94,7 @@ export default {
     right: 100px;
     top: 50%;
     transform: translateY(-50%);
+    .xl-block({ right: 5px;});
     .arrow {
       width: 36px;
       height: 36px;

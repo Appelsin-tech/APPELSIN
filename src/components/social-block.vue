@@ -50,6 +50,7 @@
         width: 72px;
         height: 72px;
         transition: 0.3s;
+        .xl-block({ width: 45px; height: 45px;});
         &:hover {
           svg {
             &.hover-none {

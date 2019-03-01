@@ -14,6 +14,7 @@
           </button>
         </div>
       </div>
+      <div class="custom-container">
       <swiper :options="swiperOption" ref="mySwiper" >
 
         <swiper-slide>
@@ -47,6 +48,7 @@
         </swiper-slide>
 
       </swiper>
+      </div>
     </div>
   </section>
 </template>
