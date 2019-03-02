@@ -4,7 +4,6 @@
       <div class="bg-small"></div>
       <div class="bg-big"></div>
       <div class="container">
-        <div class="custom-container">
           <div class="caption-wrapper">
             <h1 class="visually-hidden">Appelsin</h1>
             <div class="grid-app">
@@ -20,7 +19,7 @@
             </div>
           </div>
           <div class="desc-wrapper">
-            <strong class="desc-caption">Комплексные IT - решения</strong>
+            <strong class="desc-caption">Комплексные <br> IT  - решения</strong>
             <ul class="servises-list">
               <li class="item">
                 <a class="item-link" href="#">Серверные решения</a>
@@ -44,7 +43,6 @@
           </div>
         </div>
         </div>
-      </div>
   </section>
 </template>
 
@@ -58,6 +56,7 @@
   @import "../assets/less/_variables";
 
   .s-main {
+    min-height: 100vh;
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
     .bg-wrapper {
@@ -71,6 +70,7 @@
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
+      .md-block({align-items: flex-start});
       .bg-small {
         position: absolute;
         top: 85%;
@@ -86,19 +86,22 @@
         background-image: url("../assets/img/appelsin-1.png");
         background-repeat: no-repeat;
         background-position: 70% 100%;
-        .xxl-block({background-position: 80% 120%;})
+        .xxl-block({background-position: 80% 120%;});
+        .md-block({background-position: 30% 180%;});
+        .xs-block({background-position: 30% 50px;});
       }
     }
     .container {
-      .custom-container {
-        display: grid;
-        grid-template-columns: minmax(0px, 50%) minmax(0px, 50%);
-        grid-template-rows: 1fr;
-        .xl-block({ padding: 0 25px;})
-      }
+      display: grid;
+      grid-template-columns: minmax(0px, 50%) minmax(500px, 50%);
+      grid-template-rows: 1fr;
+      width: 100%;
+      .md-block({ display: block; margin-top: 170px; margin-bottom: 100px;});
       .caption-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
+        .lg-block({ padding: 50px;});
+        .md-block({ display: none;});
         .caption {
           font-size: 1.8rem;
         }
@@ -108,6 +111,8 @@
           grid-template-rows: repeat(3, minmax(80px, 150px));
           grid-row-gap: 60px;
           grid-column-gap: 20px;
+          .lg-block({grid-template-rows: repeat(3, minmax(50px, 135px)); grid-row-gap: 40px;});
+
           svg {
             max-width: 100%;
             height: 100%;
@@ -121,6 +126,8 @@
       .desc-wrapper {
         padding-left: 130px;
         padding-top: 40px;
+        .lg-block({ padding-left: 100px;});
+        .sm-block({ padding-left: 10%;});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
@@ -129,6 +136,7 @@
           font-size: 5.7rem;
           letter-spacing: 1.6rem;
           text-transform: uppercase;
+          .sm-block({font-size: 4rem; letter-spacing: 1.2rem;})
         }
         .servises-list {
           .item {

@@ -62,8 +62,8 @@ export default {
         anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
         menu: '#maimMenu',
         //scrollBar: true,
-        responsiveHeight: 850,
-        responsiveWidth: 320,
+        responsiveHeight: 730,
+        responsiveWidth: 319,
         css3: true,
         sectionSelector: '.fullpage-section',
         afterLoad: this.afterLoad,
@@ -94,7 +94,7 @@ export default {
     right: 100px;
     top: 50%;
     transform: translateY(-50%);
-    .xl-block({ right: 5px;});
+    .xl-block({ display: none;});
     .arrow {
       width: 36px;
       height: 36px;

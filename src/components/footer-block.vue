@@ -23,10 +23,12 @@
     left: 0;
     right: 0;
     z-index: 999;
+    .sm-block({ padding-bottom: 15px;});
     .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .sm-block({ justify-content: center;});
       .submit {
         font-family: @fontBebas;
         font-weight: bold;
@@ -41,6 +43,7 @@
         color: #fff;
         transition: 0.3s;
         border-bottom: 1px solid #fff;
+        .sm-block({ display: none;});
         &:hover {
           border-bottom-color: transparent;
         }

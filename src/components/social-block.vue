@@ -43,6 +43,7 @@
     flex-direction: column;
     transform: translateY(-50%);
     z-index: 99;
+    .xl-block({ display: none;});
     .item {
       &-link {
         display: flex;
@@ -50,7 +51,6 @@
         width: 72px;
         height: 72px;
         transition: 0.3s;
-        .xl-block({ width: 45px; height: 45px;});
         &:hover {
           svg {
             &.hover-none {

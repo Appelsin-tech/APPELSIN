@@ -15,7 +15,6 @@
           </button>
         </div>
       </div>
-      <div class="custom-container">
       <swiper :options="swiperOption" ref="mySwiper">
 
         <swiper-slide>
@@ -105,7 +104,6 @@
           </div>
         </swiper-slide>
       </swiper>
-      </div>
     </div>
   </section>
 </template>
@@ -122,13 +120,26 @@
     data () {
       return {
         swiperOption: {
-          height: 500,
           slidesPerView: 3,
           speed: 300,
           navigation: {
             nextEl: '.prev',
             prevEl: '.next',
           },
+          breakpoints: {
+            // when window width is <= 320px
+            990: {
+              slidesPerView: 2,
+            },
+            750: {
+              freeMode: true,
+              slidesPerView: 'auto'
+            },
+            425: {
+              freeMode: false,
+              slidesPerView: 1
+            },
+          }
         }
       }
     },
@@ -149,9 +160,14 @@
   @import '~swiper/dist/css/swiper.css';
 
   .s-services {
+    min-height: 100vh;
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0,0,0,0) 25%),
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0,0,0,0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0,0,0,0) 30%) #23ade0;
+    .container {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
     .caption-wrapper {
       display: flex;
       margin-bottom: 25px;
@@ -180,6 +196,7 @@
   }
   .swiper-container {
     padding: 30px 0;
+    .md-block({ padding: 0;});
   }
   .swiper-slide {
     display: flex;
@@ -187,107 +204,109 @@
     height: 540px;
     z-index: 1;
     transition: 0.3s;
+    .sm-block({ height: 440px; width: 300px;});
     &:hover {
       z-index: 6;
     }
   }
-    .wrapper {
-      position: relative;
-      display: flex;
-      padding: 50px;
-      flex-grow: 1;
-
-      flex-direction: column;
-      align-items: flex-start;
-      .xs-block({ padding: 30px;});
-      &:hover {
-        &::after {
-          top: -30px;
-          bottom: -30px;
-          left: -30px;
-          right: -30px;
-        }
-        .circle-btn {
-          svg {
-            transform: rotate(90deg);
-          }
-        }
-        .services-item {
-          .text-wrapper {
-            .desc {
-              opacity: 1;
-              height: 70px;
-            }
-          }
-        }
-      }
-      &-1 {
-        &::after {
-          background: url("../assets/img/services/item-1.png") no-repeat top center #151e33;
-        }
-      }
-      &-2 {
-        &::after {
-          background: url("../assets/img/services/item-2.png") no-repeat top center #111310;
-        }
-      }
-      &-3 {
-        &::after {
-          background: url("../assets/img/services/item-3.png") no-repeat 100% -15% #2d2633;
-        }
-      }
+  .wrapper {
+    position: relative;
+    display: flex;
+    padding: 50px;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    .sm-block({ padding: 30px;});
+    &:hover {
       &::after {
-        position: absolute;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        transition: 0.3s;
-        background-size: contain;
-        z-index: 1;
-        box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
-      }
-    }
-    .grow {
-      height: 1px;
-      flex-grow: 5;
-    }
-    .services-item {
-      position: relative;
-      z-index: 5;
-      .text-wrapper {
-        margin-bottom: 50px;
-        .caption-services {
-          font-family: @fontBebas;
-          font-weight: bold;
-          font-size: 3.04rem;
-          letter-spacing: 0.8rem;
-          text-transform: uppercase;
-        }
-        .desc {
-          margin-top: 20px;
-          font-weight: 300;
-          font-size: 1.7rem;
-          letter-spacing: 0.14rem;
-          opacity: 0;
-          height: 0px;
-          transition: 0.3s;
-        }
+        top: -30px;
+        bottom: -30px;
+        left: -30px;
+        right: -30px;
       }
       .circle-btn {
-        display: inline-flex;
-        width: 65px;
-        height: 65px;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #fff;
-        border-radius: 50%;
         svg {
-          width: 25px;
-          height: 20px;
-          transition: 0.3s;
+          transform: rotate(90deg);
+        }
+      }
+      .services-item {
+        .text-wrapper {
+          .desc {
+            opacity: 1;
+            height: 70px;
+          }
         }
       }
     }
+    &-1 {
+      &::after {
+        background: url("../assets/img/services/item-1.png") no-repeat top center #151e33;
+      }
+    }
+    &-2 {
+      &::after {
+        background: url("../assets/img/services/item-2.png") no-repeat top center #111310;
+      }
+    }
+    &-3 {
+      &::after {
+        background: url("../assets/img/services/item-3.png") no-repeat 100% -15% #2d2633;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: 0.3s;
+      background-size: contain;
+      z-index: 1;
+      box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
+    }
+  }
+  .grow {
+    height: 1px;
+    flex-grow: 5;
+  }
+  .services-item {
+    position: relative;
+    z-index: 5;
+    .text-wrapper {
+      margin-bottom: 50px;
+      .caption-services {
+        font-family: @fontBebas;
+        font-weight: bold;
+        font-size: 3.04rem;
+        letter-spacing: 0.8rem;
+        text-transform: uppercase;
+      }
+      .desc {
+        margin-top: 20px;
+        font-weight: 300;
+        font-size: 1.7rem;
+        letter-spacing: 0.14rem;
+        opacity: 0;
+        height: 0px;
+        transition: 0.3s;
+      }
+    }
+    .circle-btn {
+      display: inline-flex;
+      width: 65px;
+      height: 65px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      .sm-block({ width: 50px; height: 50px;});
+      svg {
+        width: 25px;
+        height: 20px;
+        transition: 0.3s;
+        .sm-block({ width: 20px; height: 20px;});
+      }
+    }
+  }
 </style>

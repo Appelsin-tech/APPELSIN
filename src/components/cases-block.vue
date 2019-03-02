@@ -14,7 +14,6 @@
           </button>
         </div>
       </div>
-      <div class="custom-container">
       <swiper :options="swiperOption" ref="mySwiper" >
 
         <swiper-slide>
@@ -48,7 +47,6 @@
         </swiper-slide>
 
       </swiper>
-      </div>
     </div>
   </section>
 </template>
@@ -64,7 +62,6 @@
     data () {
       return {
         swiperOption: {
-          height: 530,
           slidesPerView: 1,
           effect: 'flip',
           navigation: {
@@ -90,9 +87,14 @@
   @import '~swiper/dist/css/swiper.css';
 
   .s-case {
+    min-height: 100vh;
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
+    .container {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
     .caption-wrapper {
       display: flex;
       margin-bottom: 40px;
@@ -118,16 +120,25 @@
         }
       }
     }
+    .swiper-slide {
+      display: flex;
+      height: 500px;
+      .sm-block({ height: 440px; width: 300px;});
+
+    }
     .slide-wrapper {
       display: flex;
       position: relative;
       flex-grow: 1;
       padding: 100px 80px;
       background: #fff;
+      .md-block({ padding: 70px 60px;});
+      .xs-block({ padding: 40px 30px;});
       .col {
         color: #000;
         &-3 {
           width: 33%;
+          .sm-block({ width: 100%;});
         }
         .caption-slide {
           margin-bottom: 50px;
@@ -166,6 +177,7 @@
         position: absolute;
         right: -230px;
         top: 70px;
+        .sm-block({ display: none;});
       }
     }
   }
