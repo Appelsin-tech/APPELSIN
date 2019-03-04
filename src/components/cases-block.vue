@@ -94,10 +94,6 @@
     .container {
       padding-top: 20px;
       padding-bottom: 20px;
-      @media (max-height: 700px) and (min-width: 1024px) {
-        margin-top: 70px;
-      }
-      .sm-block({ margin-top: 60px;});
     }
     .caption-wrapper {
       display: flex;
