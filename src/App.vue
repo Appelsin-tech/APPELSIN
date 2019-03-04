@@ -88,7 +88,6 @@
 
   #app {
     position: relative;
-    .sm-block({ padding-top: 60px;});
   }
   .navigation-wrapper {
     position: fixed;
