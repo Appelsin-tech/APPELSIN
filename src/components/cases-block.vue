@@ -94,7 +94,6 @@
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
     .case-wrapper {
-      .sm-block({ padding-top: 60px;});
     }
     .container {
       padding-top: 20px;

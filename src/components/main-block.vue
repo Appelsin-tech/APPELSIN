@@ -73,7 +73,6 @@
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
       .md-block({align-items: flex-start});
-      .sm-block({ margin-top: 80px;});
       .bg-small {
         position: absolute;
         top: 85%;
