@@ -103,7 +103,7 @@
       .xxl-comb({grid-template-columns: minmax(0px, 45%) minmax(500px, 55%);});
       .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh;});
       .sm-comb({ padding-top: 70px; padding-bottom: 20px;});
-      .xs-comb({padding-top: 70px; padding-bottom: 20px;});
+      .xs-comb({padding-top: 100px; padding-bottom: 20px;});
       .caption-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
