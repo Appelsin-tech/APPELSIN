@@ -242,7 +242,11 @@
         .lg-block({top: -20px;
           bottom: -20px;
           left: -20px;
-          right: -20px;})
+          right: -20px;});
+        .xs-block({top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;});
       }
       .circle-btn {
         svg {
@@ -323,7 +327,7 @@
         height: 0px;
         transition: 0.3s;
         .sm-comb({ margin-top: 15px; font-size: 1.4rem;});
-        .xs-block({margin-top: 15px;});
+        .xs-block({margin-top: 15px; opacity: 1; height: 50px;});
       }
     }
     .circle-btn {
