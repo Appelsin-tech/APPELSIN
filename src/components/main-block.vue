@@ -56,7 +56,6 @@
   @import "../assets/less/_variables";
 
   .s-main {
-    min-height: 100vh;
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
 
