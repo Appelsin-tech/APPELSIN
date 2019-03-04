@@ -91,6 +91,14 @@
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
+    .container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @media (max-height: 700px) and (min-width: 1024px) {
+        margin-top: 70px;
+      }
+      .sm-block({ margin-top: 60px;});
+    }
     .caption-wrapper {
       display: flex;
       margin-bottom: 40px;

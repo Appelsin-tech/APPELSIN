@@ -59,6 +59,7 @@
     min-height: 100vh;
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
+
     .bg-wrapper {
       position: relative;
       display: flex;
@@ -70,7 +71,12 @@
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
+      box-sizing: border-box;
       .md-block({align-items: flex-start});
+      @media (max-height: 700px) and (min-width: 1024px) {
+        margin-top: 70px;
+      }
+      .sm-block({ margin-top: 60px;});
       .bg-small {
         position: absolute;
         top: 85%;

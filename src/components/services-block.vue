@@ -166,6 +166,14 @@
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0, 0, 0, 0) 25%),
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0, 0, 0, 0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
+    .container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @media (max-height: 700px) and (min-width: 1024px) {
+        margin-top: 70px;
+      }
+      .sm-block({ margin-top: 60px;});
+    }
     .caption-wrapper {
       display: flex;
       margin-bottom: 25px;
