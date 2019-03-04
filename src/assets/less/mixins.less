@@ -1,0 +1,37 @@
+
+/* --- для апельсина и главного блока--- */
+/* если высота меньше 950, ширина не меньше 1500 и не больше 1920 N*/
+.xxl-comb(@content){
+  @media (max-height: 950px) and (min-width: @break_lg) and (max-width: 1920px){
+    @content();
+  }
+}
+
+/* если высота меньше 950, ширина не меньше 990 и не больше 1500 */
+.xl-comb(@content){
+  @media (max-height: 950px) and (min-width: @break_md) and (max-width: @break_xl){
+    @content();
+  }
+}
+
+/* если высота меньше 700, ширина не меньше 750 и не больше 990 */
+.md-comb(@content){
+  @media (max-height: 700px) and (min-width: @break_sm) and (max-width: @break_md){
+    @content();
+  }
+}
+
+/* если высота меньше 610, ширина не меньше 425 и не больше 750 */
+.sm-comb(@content){
+  @media (max-height: 610px) and (min-width: @break_xs) and (max-width: @break_sm){
+    @content();
+  }
+}
+
+/* если высота меньше 610, ширина не меньше 320 и не больше 425 */
+.xs-comb(@content){
+  @media (max-height: 610px) and (min-width: 320px) and (max-width: @break_xs){
+    @content();
+  }
+}
+

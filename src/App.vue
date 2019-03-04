@@ -29,72 +29,72 @@
 </template>
 
 <script>
-import SocialBlock from './components/social-block'
-import HeaderBlock from './components/header-block'
-import MainBlock from './components/main-block'
-import ServicesBlock from './components/services-block'
-import SkillsBlock from './components/skills-block'
-import PriceBlock from './components/price-block'
-import CaseBlock from './components/cases-block'
-import ContactsBlock from './components/contacts-block'
+  import SocialBlock from './components/social-block'
+  import HeaderBlock from './components/header-block'
+  import MainBlock from './components/main-block'
+  import ServicesBlock from './components/services-block'
+  import SkillsBlock from './components/skills-block'
+  import PriceBlock from './components/price-block'
+  import CaseBlock from './components/cases-block'
+  import ContactsBlock from './components/contacts-block'
 
-import FooterBlock from './components/footer-block'
+  import FooterBlock from './components/footer-block'
 
-export default {
-  name: 'app',
-  components: {
-    HeaderBlock,
-    SocialBlock,
-    MainBlock,
-    ServicesBlock,
-    SkillsBlock,
-    PriceBlock,
-    CaseBlock,
-    ContactsBlock,
-    FooterBlock
-  },
-  data () {
-    return {
-      options: {
-        licenseKey: '',
-        controlArrows: true,
-        fixedElements: '#nav-menu',
-        anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
-        menu: '#maimMenu',
-        //scrollBar: true,
-        responsiveHeight: 730,
-        responsiveWidth: 319,
-        css3: true,
-        sectionSelector: '.fullpage-section',
-        afterLoad: this.afterLoad,
-        onLeave: this.onLeave
+  export default {
+    name: 'app',
+    components: {
+      HeaderBlock,
+      SocialBlock,
+      MainBlock,
+      ServicesBlock,
+      SkillsBlock,
+      PriceBlock,
+      CaseBlock,
+      ContactsBlock,
+      FooterBlock
+    },
+    data() {
+      return {
+        options: {
+          licenseKey: '',
+          controlArrows: true,
+          fixedElements: '#nav-menu',
+          anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
+          menu: '#maimMenu',
+          //scrollBar: true,
+          responsiveHeight: 500,
+          responsiveWidth: 319,
+          css3: true,
+          sectionSelector: '.fullpage-section',
+          afterLoad: this.afterLoad,
+          onLeave: this.onLeave
+        }
+      }
+    },
+    methods: {
+      prevSlide() {
+        fullpage_api.moveSectionUp();
+      },
+      nextSlide() {
+        fullpage_api.moveSectionDown();
       }
     }
-  },
-  methods: {
-    prevSlide () {
-      fullpage_api.moveSectionUp();
-    },
-    nextSlide () {
-      fullpage_api.moveSectionDown();
-    }
   }
-}
 </script>
 
 <style lang="less">
   @import "~fullpage.js/dist/fullpage.min.css";
   @import "assets/less/main.less";
 
-#app {
-  position: relative;
-}
+  #app {
+    position: relative;
+  }
   .navigation-wrapper {
     position: fixed;
     right: 100px;
     top: 50%;
     transform: translateY(-50%);
-    .xl-block({ display: none;});
+    .xl-block({ display: none; });
     .arrow {
       width: 36px;
       height: 36px;
@@ -115,7 +115,7 @@ export default {
         background: linear-gradient(to right, #fff, #fff) no-repeat center;
         background-size: 20px 1px;
         &.active {
-            background-size: 35px 1px;
+          background-size: 35px 1px;
         }
       }
     }

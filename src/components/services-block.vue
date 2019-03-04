@@ -81,7 +81,8 @@
             <div class="services-item">
               <div class="text-wrapper">
                 <h3 class="caption-services">Реклама и продвижение</h3>
-                <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг, аналитика</p>
+                <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг,
+                  аналитика</p>
               </div>
               <a class="circle-btn" href="#">
                 <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -110,14 +111,15 @@
 
 <script>
 
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+
   export default {
     name: 'services-block',
     components: {
       swiper,
       swiperSlide,
     },
-    data () {
+    data() {
       return {
         swiperOption: {
           slidesPerView: 3,
@@ -161,17 +163,15 @@
 
   .s-services {
     min-height: 100vh;
-    background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0,0,0,0) 25%),
-    radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0,0,0,0) 50%),
-    radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0,0,0,0) 30%) #23ade0;
-    .container {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
+    background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0, 0, 0, 0) 25%),
+    radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
     .caption-wrapper {
       display: flex;
       margin-bottom: 25px;
       justify-content: space-between;
+      .xl-comb({ margin-bottom: 15px;});
+      .sm-block({ margin-bottom: 10px; });
       .nav-slider {
         display: flex;
         align-items: center;
@@ -186,6 +186,7 @@
           svg {
             width: 30px;
             height: 30px;
+            .sm-block({ width: 25px; height: 25px;});
             path {
               fill: #fff;
             }
@@ -196,7 +197,7 @@
   }
   .swiper-container {
     padding: 30px 0;
-    .md-block({ padding: 0;});
+    .md-block({ padding: 0; });
   }
   .swiper-slide {
     display: flex;
@@ -204,7 +205,12 @@
     height: 540px;
     z-index: 1;
     transition: 0.3s;
-    .sm-block({ height: 440px; width: 300px;});
+    .xl-comb({ height: 440px;});
+    .md-block({ height: 440px;});
+    .md-comb({ height: 380px;});
+    .sm-block({ width: 300px;});
+    .sm-comb({ height: 300px;});
+    .xs-comb({ height: 270px;});
     &:hover {
       z-index: 6;
     }
@@ -216,13 +222,24 @@
     flex-grow: 1;
     flex-direction: column;
     align-items: flex-start;
-    .sm-block({ padding: 30px;});
+    .md-comb({ padding: 30px;});
+    .sm-block({ padding: 30px; });
+    .sm-comb({ padding: 25px;});
+    .xs-block({ padding: 25px; });
     &:hover {
       &::after {
         top: -30px;
         bottom: -30px;
         left: -30px;
         right: -30px;
+        .xl-comb({ top: -20px;
+          bottom: -20px;
+          left: -20px;
+          right: -20px;});
+        .lg-block({top: -20px;
+          bottom: -20px;
+          left: -20px;
+          right: -20px;})
       }
       .circle-btn {
         svg {
@@ -234,23 +251,30 @@
           .desc {
             opacity: 1;
             height: 70px;
+            .sm-block({ height: 50px; });
           }
         }
       }
     }
     &-1 {
       &::after {
-        background: url("../assets/img/services/item-1.png") no-repeat top center #151e33;
+        background-image: url("../assets/img/services/item-1.png");
+        background-position:  top center;
+        background-color: #151e33;
       }
     }
     &-2 {
       &::after {
-        background: url("../assets/img/services/item-2.png") no-repeat top center #111310;
+        background-image: url("../assets/img/services/item-2.png");
+        background-position: top center;
+        background-color: #111310;
       }
     }
     &-3 {
       &::after {
-        background: url("../assets/img/services/item-3.png") no-repeat 100% -15% #2d2633;
+        background-image: url("../assets/img/services/item-3.png");
+        background-position: 100% -15%;
+        background-color: #2d2633;
       }
     }
     &::after {
@@ -262,8 +286,12 @@
       right: 0;
       transition: 0.3s;
       background-size: contain;
+      background-repeat: no-repeat;
       z-index: 1;
       box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
+      .md-comb({ background-image: none;});
+      .sm-comb({ background-image: none;});
+      .xs-comb({ background-image: none;});
     }
   }
   .grow {
@@ -281,6 +309,7 @@
         font-size: 3.04rem;
         letter-spacing: 0.8rem;
         text-transform: uppercase;
+        .sm-comb({ font-size: 2rem; letter-spacing: 0.5rem; margin-bottom: 20px;});
       }
       .desc {
         margin-top: 20px;
@@ -290,6 +319,8 @@
         opacity: 0;
         height: 0px;
         transition: 0.3s;
+        .sm-comb({ margin-top: 15px; font-size: 1.4rem;});
+        .xs-block({margin-top: 15px;});
       }
     }
     .circle-btn {
@@ -300,12 +331,16 @@
       align-items: center;
       border: 1px solid #fff;
       border-radius: 50%;
-      .sm-block({ width: 50px; height: 50px;});
+      .sm-block({ width: 50px; height: 50px; });
+      .sm-comb({ width: 35px; height: 35px;});
+      .xs-block({ width: 35px; height: 35px;});
       svg {
         width: 25px;
         height: 20px;
         transition: 0.3s;
-        .sm-block({ width: 20px; height: 20px;});
+        .sm-block({ width: 20px; height: 20px; });
+        .sm-comb({ width: 15px; height: 15px; });
+        .xs-block({ width: 15px; height: 15px; });
       }
     }
   }

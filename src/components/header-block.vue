@@ -6,7 +6,7 @@
         <strong class="name">Appelsin</strong>
       </div>
       <span class="agency">Digital agency</span>
-      <a class="phone" href="tel:+792037777777">+7 (495) 32-15-297</a>
+      <a class="phone" href="tel:+79644952929">+7 (964) 495 29 29</a>
       <div class="menu-wrapper">
         <button class="menu">
           <img svg-inline src="../assets/img/icon/menu.svg" alt="">
@@ -31,6 +31,7 @@
     left: 0;
     right: 0;
     z-index: 999;
+    .xl-comb({ padding-top: 20px;});
     .md-block({padding-top: 20px;});
     .sm-block({padding-top: 10px;});
   }
@@ -74,7 +75,7 @@
     font-size: 1.7rem;
     color: #fff;
     .sm-block({ margin-right: 50px;});
-    .xs-block({order: 3; width: 100%; margin-right: 0; margin-top: 4px; margin-left: 53px;});
+    .xs-block({ display: none;});
   }
   .menu-wrapper {
     .xs-block({order: 2;});
@@ -84,6 +85,7 @@
       .svg-menu {
         width: 35px;
         height: 35px;
+        .sm-block({ width: 30px; height: 30px;})
       }
     }
   }

@@ -91,14 +91,12 @@
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
-    .container {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
     .caption-wrapper {
       display: flex;
       margin-bottom: 40px;
       justify-content: space-between;
+      .xl-comb({ margin-bottom: 15px;});
+      .sm-block({ margin-bottom: 10px; });
       .nav-slider {
         display: flex;
         align-items: center;
@@ -113,6 +111,7 @@
           svg {
             width: 30px;
             height: 30px;
+            .sm-block({ width: 25px; height: 25px;});
             path {
               fill: #fff;
             }
@@ -123,8 +122,12 @@
     .swiper-slide {
       display: flex;
       height: 500px;
-      .sm-block({ height: 440px; width: 300px;});
-
+      .xl-comb({ height: 440px;});
+      .md-block({ height: 440px;});
+      .md-comb({ height: 380px;});
+      .sm-block({ width: 300px;});
+      .sm-comb({ height: 300px;});
+      .xs-comb({ height: 270px;});
     }
     .slide-wrapper {
       display: flex;
@@ -133,7 +136,8 @@
       padding: 100px 80px;
       background: #fff;
       .md-block({ padding: 70px 60px;});
-      .xs-block({ padding: 40px 30px;});
+      .sm-block({ padding: 40px 30px;});
+      .sm-comb({  padding: 40px 30px;});
       .col {
         color: #000;
         &-3 {
@@ -146,6 +150,7 @@
           font-weight: bold;
           font-size: 4.7rem;
           letter-spacing: 1.4rem;
+          .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 1rem;});
         }
         .desc-case {
           margin-bottom: 50px;
@@ -153,6 +158,7 @@
           font-weight: 300;
           color: @colorSecFonts;
           letter-spacing: 0.14rem;
+          .sm-block({ margin-bottom: 30px;});
         }
         .line {
           font-weight: 300;

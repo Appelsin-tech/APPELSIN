@@ -87,7 +87,9 @@
         background-repeat: no-repeat;
         background-position: 70% 100%;
         .xxl-block({background-position: 80% 120%;});
-        .md-block({background-position: 30% 180%;});
+        .xxl-comb({background-position: 80% 250px;});
+        .lg-block({background-position: 30% 100%;});
+        .xl-comb({background-position: 50% 300px;});
         .xs-block({background-position: 30% 50px;});
       }
     }
@@ -96,23 +98,24 @@
       grid-template-columns: minmax(0px, 50%) minmax(500px, 50%);
       grid-template-rows: 1fr;
       width: 100%;
-      .md-block({ display: block; margin-top: 170px; margin-bottom: 100px;});
+      .lg-block({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%);});
+      .xxl-comb({grid-template-columns: minmax(0px, 45%) minmax(500px, 55%);});
+      .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh;});
+      .sm-comb({ padding-top: 70px; padding-bottom: 20px;});
+      .xs-comb({padding-top: 70px; padding-bottom: 20px;});
       .caption-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
         .lg-block({ padding: 50px;});
         .md-block({ display: none;});
-        .caption {
-          font-size: 1.8rem;
-        }
         .grid-app {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: repeat(3, minmax(80px, 150px));
+          grid-template-rows: repeat(3, minmax(40px, 150px));
           grid-row-gap: 60px;
           grid-column-gap: 20px;
-          .lg-block({grid-template-rows: repeat(3, minmax(50px, 135px)); grid-row-gap: 40px;});
-
+          .xl-comb({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 40px;});
+          .lg-block({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 30px; grid-column-gap: 15px;});
           svg {
             max-width: 100%;
             height: 100%;
@@ -126,8 +129,9 @@
       .desc-wrapper {
         padding-left: 130px;
         padding-top: 40px;
+        .xl-comb({ padding-left: 100px; padding-top: 30px;});
         .lg-block({ padding-left: 100px;});
-        .sm-block({ padding-left: 10%;});
+        .sm-block({ padding-left: 10%; padding-top: 0;});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
@@ -136,11 +140,14 @@
           font-size: 5.7rem;
           letter-spacing: 1.6rem;
           text-transform: uppercase;
-          .sm-block({font-size: 4rem; letter-spacing: 1.2rem;})
+          .xl-comb({ font-size: 4rem;});
+          .sm-block({font-size: 4rem; letter-spacing: 1.2rem;});
+          .xs-block({ margin-bottom: 30px;});
         }
         .servises-list {
           .item {
             margin-bottom: 22px;
+            .xs-comb({ margin-bottom: 15px;});
             &:last-child {
               margin-bottom: 0;
             }
