@@ -3,7 +3,7 @@
     <div class="container">
       <div class="logo-wrapper">
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
-        <strong class="name">Appelsin</strong>
+        <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
       </div>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495 29 29</a>
@@ -51,12 +51,14 @@
       .md-block({margin-right: 40px;});
       .sm-block({ width: 30px; height: 30px; margin-right: 25px;});
     }
-    .name {
-      font-family: @fontBebas;
-      font-size: 2.9rem;
-      letter-spacing: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
+    .svg-logo-appelsin {
+      width: 140px;
+      height: 22px;
+      .lg-block({ width: 130px; height: 20px;});
+      .sm-block({ width: 110px; height: 16px;});
+      path {
+        fill: #fff;
+      }
     }
   }
   .agency {

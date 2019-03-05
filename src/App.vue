@@ -4,14 +4,26 @@
     <social-block/>
     <div id="nav-menu" class="navigation-wrapper">
       <button class="arrow next-slide" @click="prevSlide"></button>
-      <div id="mainMenu" class="main-nav-menu">
-        <a data-menuanchor="main" class="link-section" href="#main"></a>
-        <a data-menuanchor="services" class="link-section" href="#services"></a>
-        <a data-menuanchor="skills" class="link-section" href="#skills"></a>
-        <a data-menuanchor="price" class="link-section" href="#price"></a>
-        <a data-menuanchor="case" class="link-section" href="#case"></a>
-        <a data-menuanchor="contacts" class="link-section" href="#contacts"></a>
-      </div>
+      <ul id="mainMenu" class="main-nav-menu">
+        <li data-menuanchor="main" class="active">
+          <a  class="link-section" href="#main"></a>
+        </li>
+        <li data-menuanchor="services">
+          <a  class="link-section" href="#services"></a>
+        </li>
+        <li data-menuanchor="skills">
+          <a  class="link-section" href="#skills"></a>
+        </li>
+        <li data-menuanchor="price">
+          <a  class="link-section" href="#price"></a>
+        </li>
+        <li data-menuanchor="case">
+          <a  class="link-section" href="#case"></a>
+        </li>
+        <li data-menuanchor="contacts">
+          <a  class="link-section" href="#contacts"></a>
+        </li>
+      </ul>
       <button class="arrow prev-slide" @click="nextSlide"></button>
     </div>
     <main>
@@ -60,14 +72,14 @@
           controlArrows: true,
           fixedElements: '#nav-menu',
           anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
-          menu: '#maimMenu',
+          menu: '#mainMenu',
           //scrollBar: true,
           responsiveHeight: 500,
           responsiveWidth: 319,
           css3: true,
           sectionSelector: '.fullpage-section',
           afterLoad: this.afterLoad,
-          onLeave: this.onLeave
+          onLeave: this.onLeave,
         }
       }
     },
@@ -93,30 +105,59 @@
     position: fixed;
     right: 100px;
     top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transform: translateY(-50%);
+    @media screen and (max-width: 1700px) {
+      right: 50px;
+    }
     .xl-block({ display: none; });
     .arrow {
-      width: 36px;
-      height: 36px;
-      background: url("assets/img/icon/down-arrow.svg") no-repeat center / contain;
+      position: relative;
+      width: 26px;
+      height: 26px;
       cursor: pointer;
       outline: none;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 26px;
+        height: 26px;
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+      }
+      &.prev-slide {
+        transform: rotate(135deg);
+      }
       &.next-slide {
-        transform: rotate(180deg);
+        transform: rotate(-45deg);
       }
     }
+
     .main-nav-menu {
       display: flex;
       flex-direction: column;
+      margin: 35px 0;
+      li {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &.active {
+          .link-section {
+            background-size: 35px 1px;
+          }
+        }
+      }
       .link-section {
         display: inline-block;
-        width: 35px;
-        height: 23px;
+        width: 40px;
+        height: 25px;
         background: linear-gradient(to right, #fff, #fff) no-repeat center;
         background-size: 20px 1px;
-        &.active {
-          background-size: 35px 1px;
-        }
       }
     }
   }
