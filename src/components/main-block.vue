@@ -4,18 +4,36 @@
       <div class="bg-small"></div>
       <div class="bg-big"></div>
       <div class="container">
-          <div class="caption-wrapper">
+          <div class="grid-wrapper">
             <h1 class="visually-hidden">Appelsin</h1>
             <div class="grid-app">
-              <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
-              <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
+              </div>
+              <div class="item-app">
+                <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
+              </div>
             </div>
           </div>
           <div class="desc-wrapper">
@@ -89,9 +107,9 @@
         background-position: 70% 100%;
         .xxl-block({background-position: 80% 120%;});
         .xxl-comb({background-position: 80% 250px;});
-        .lg-block({background-position: 30% 100%;});
+        .lg-block({background-position: 30% 180%;});
         .xl-comb({background-position: 50% 300px;});
-        .xs-block({background-position: 30% 50px;});
+        .xs-block({background-position: 30% bottom;});
       }
     }
     .container {
@@ -104,7 +122,7 @@
       .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh;});
       .sm-comb({ padding-top: 70px; padding-bottom: 20px;});
       .xs-comb({padding-top: 100px; padding-bottom: 20px;});
-      .caption-wrapper {
+      .grid-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
         .lg-block({ padding: 50px;});

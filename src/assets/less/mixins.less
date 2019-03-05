@@ -7,9 +7,9 @@
   }
 }
 
-/* если высота меньше 950, ширина не меньше 990 и не больше 1500 */
+/* если высота меньше 900, ширина не меньше 990 и не больше 1500 */
 .xl-comb(@content){
-  @media (max-height: 950px) and (min-width: @break_md) and (max-width: @break_xl){
+  @media (max-height: 900px) and (min-width: @break_md) and (max-width: @break_xl){
     @content();
   }
 }
@@ -35,4 +35,7 @@
   }
 }
 
-
+.container-pdd(@pdt: 20px, @pdb: 20px) {
+  padding-top: @pdt;
+  padding-bottom: @pdb;
+}

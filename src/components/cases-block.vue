@@ -1,6 +1,5 @@
 <template>
   <section class="s-case fullpage-section">
-    <div class="case-wrapper">
     <div class="container">
       <div class="caption-wrapper">
         <div class="g-caption-block">
@@ -49,7 +48,6 @@
 
       </swiper>
     </div>
-    </div>
   </section>
 </template>
 
@@ -92,18 +90,11 @@
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
-    .case-wrapper {
-    }
     .container {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      .container-pdd();
     }
     .caption-wrapper {
-      display: flex;
-      margin-bottom: 40px;
       justify-content: space-between;
-      .xl-comb({ margin-bottom: 15px;});
-      .sm-block({ margin-bottom: 10px; });
       .nav-slider {
         display: flex;
         align-items: center;
@@ -128,7 +119,7 @@
     }
     .swiper-slide {
       display: flex;
-      height: 500px;
+      height: 540px;
       .xl-comb({ height: 440px;});
       .md-block({ height: 440px;});
       .md-comb({ height: 380px;});

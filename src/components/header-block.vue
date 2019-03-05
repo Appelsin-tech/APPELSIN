@@ -6,7 +6,7 @@
         <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
       </div>
       <span class="agency">Digital agency</span>
-      <a class="phone" href="tel:+79644952929">+7 (964) 495 29 29</a>
+      <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <div class="menu-wrapper">
         <button class="menu">
           <img svg-inline src="../assets/img/icon/menu.svg" alt="">

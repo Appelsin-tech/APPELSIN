@@ -166,15 +166,13 @@
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0, 0, 0, 0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
     .container {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      .container-pdd();
     }
     .caption-wrapper {
-      display: flex;
-      margin-bottom: 25px;
+      margin-bottom: 0px;
       justify-content: space-between;
-      .xl-comb({ margin-bottom: 15px;});
-      .sm-block({ margin-bottom: 10px; });
+      .xl-comb({ margin-bottom: -5px;});
+      .md-block({ margin-bottom: 15px; });
       .nav-slider {
         display: flex;
         align-items: center;
@@ -200,6 +198,7 @@
   }
   .swiper-container {
     padding: 30px 0;
+    .xl-comb({ padding: 20px 0;});
     .md-block({ padding: 0; });
   }
   .swiper-slide {

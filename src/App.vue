@@ -31,8 +31,8 @@
         <main-block/>
         <services-block/>
         <case-block/>
-        <skills-block/>
         <price-block/>
+        <skills-block/>
         <contacts-block/>
       </full-page>
     </main>
