@@ -210,7 +210,7 @@
     .xl-comb({ height: 440px;});
     .md-block({ height: 440px;});
     .md-comb({ height: 380px;});
-    .sm-block({ width: 300px;});
+    .sm-block({ height: 300px;});
     .sm-comb({ height: 300px;});
     .xs-comb({ height: 270px;});
     &:hover {
@@ -296,6 +296,7 @@
       z-index: 1;
       box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
       .md-comb({ background-image: none;});
+      .sm-block({ background-image: none;});
       .sm-comb({ background-image: none;});
       .xs-comb({ background-image: none;});
     }

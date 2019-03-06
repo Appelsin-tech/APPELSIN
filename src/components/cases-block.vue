@@ -123,7 +123,7 @@
       .xl-comb({ height: 440px;});
       .md-block({ height: 440px;});
       .md-comb({ height: 380px;});
-      .sm-block({ width: 300px;});
+      .sm-block({ height: 300px;});
       .sm-comb({ height: 300px;});
       .xs-comb({ height: 270px;});
     }
