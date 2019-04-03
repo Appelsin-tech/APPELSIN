@@ -84,7 +84,7 @@
       display: flex;
       width: 100%;
       height: 100%;
-      min-height: calc(~"100vh - 60px");
+      min-height: 100vh;
       align-items: center;
       justify-content: center;
       background-image: url("../assets/img/appelsin-small-11.png"),
@@ -119,7 +119,7 @@
       .phone {
         display: none;
         position: absolute;
-        bottom: 20px;
+        bottom: 50px;
         right: 50%;
         transform: translateX(50%);
         font-size: 2rem;
@@ -136,7 +136,9 @@
       .xxl-comb({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%); });
       .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh; });
       .sm-comb({ padding-top: 70px; padding-bottom: 20px; });
-      .xs-comb({ padding-top: 100px; padding-bottom: 50px; });
+      .xs-block({padding-top: 140px; padding-bottom: 20px;});
+      .xs-comb({ padding-top: 140px; padding-bottom: 20px; });
+
       .grid-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
