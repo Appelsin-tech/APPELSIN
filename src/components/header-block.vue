@@ -7,11 +7,11 @@
       </div>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <div class="menu-wrapper">
-        <button class="menu">
-          <img svg-inline src="../assets/img/icon/menu.svg" alt="">
-        </button>
-      </div>
+      <!--<div class="menu-wrapper">-->
+        <!--<button class="menu">-->
+          <!--<img svg-inline src="../assets/img/icon/menu.svg" alt="">-->
+        <!--</button>-->
+      <!--</div>-->
     </div>
   </header>
 </template>
@@ -39,6 +39,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    .xs-block({ flex-direction: column; align-items: flex-start;})
   }
   .logo-wrapper {
     display: flex;
@@ -73,11 +74,9 @@
     }
   }
   .phone {
-    margin-right: 80px;
     font-size: 1.7rem;
     color: #fff;
-    .sm-block({ margin-right: 50px;});
-    .xs-block({ display: none;});
+    .xs-block({ display: none;})
   }
   .menu-wrapper {
     .xs-block({order: 2;});
