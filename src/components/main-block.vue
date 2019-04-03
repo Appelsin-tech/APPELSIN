@@ -78,13 +78,13 @@
 
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
-
+    min-height: 100vh;
     .bg-wrapper {
       position: relative;
       display: flex;
       width: 100%;
       height: 100%;
-      min-height: 100vh;
+      min-height: calc(~"100vh - 60px");
       align-items: center;
       justify-content: center;
       background-image: url("../assets/img/appelsin-small-11.png"),
@@ -136,7 +136,7 @@
       .xxl-comb({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%); });
       .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh; });
       .sm-comb({ padding-top: 70px; padding-bottom: 20px; });
-      .xs-comb({ padding-top: 100px; padding-bottom: 20px; });
+      .xs-comb({ padding-top: 100px; padding-bottom: 50px; });
       .grid-wrapper {
         padding: 60px 75px;
         border: 22px solid #fff;
