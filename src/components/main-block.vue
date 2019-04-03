@@ -115,6 +115,7 @@
         .lg-block({ background-position: 30% 180%; });
         .xl-comb({ background-position: 50% 300px; });
         .xs-block({ background-position: 30% bottom; display: none; });
+        .xs-orientation({ display: none;})
       }
       .phone {
         display: none;

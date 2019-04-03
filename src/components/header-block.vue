@@ -25,7 +25,7 @@
 <style scoped lang="less">
   @import "../assets/less/_variables";
   .b-header {
-    position: fixed;
+    position: absolute;
     padding-top: 30px;
     top: 0;
     left: 0;

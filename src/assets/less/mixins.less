@@ -35,6 +35,13 @@
   }
 }
 
+/* если высота меньше 500, ширина не меньше 500 и не больше 425 */
+.xs-orientation(@content) {
+  @media (max-height: 500px) and (min-width: 500px) {
+    @content();
+  }
+}
+
 .container-pdd(@pdt: 20px, @pdb: 20px) {
   padding-top: @pdt;
   padding-bottom: @pdb;
