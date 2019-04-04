@@ -13,6 +13,10 @@ module.exports = {
           from: './src/assets/.htaccess',
           to: '[name].[ext]'
         },
+        {
+          from: 'favicon.png',
+          to: '[name].[ext]'
+        },
       ]]
     })
   },
