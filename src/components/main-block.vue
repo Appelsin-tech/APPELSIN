@@ -132,6 +132,8 @@
       display: grid;
       grid-template-columns: minmax(0px, 50%) minmax(500px, 50%);
       grid-template-rows: 1fr;
+      padding-top: 80px;
+      padding-bottom: 80px;
       width: 100%;
       .lg-block({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%); });
       .xxl-comb({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%); });
