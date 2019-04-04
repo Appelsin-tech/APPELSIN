@@ -109,12 +109,16 @@
         left: 0;
         background-image: url("../assets/img/appelsin-1.png");
         background-repeat: no-repeat;
-        background-position: 70% 100%;
-        .xxl-block({ background-position: 80% 120%; });
+        background-position: 20vh 120%;
+        .lg-block({background-position: -25vh 150%;});
+        .xl-comb({ background-position: -10vh 250px; });
+        .md-comb({background-position: -10vh 100%;});
+        .sm-block({background-position: -75vh 25vh;});
+       /* .xxl-block({ background-position: 80% 120%; });
         .xxl-comb({ background-position: 80% 250px; });
         .lg-block({ background-position: 30% 180%; });
-        .xl-comb({ background-position: 50% 300px; });
-        .xs-block({ background-position: 30% bottom; display: none; });
+        .xl-comb({ background-position: 50% 300px; });*/
+        .xs-block({ display: none; });
         .xs-orientation({ display: none;})
       }
       .phone {
