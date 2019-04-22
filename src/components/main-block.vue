@@ -89,7 +89,7 @@
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
-      .md-block({align-items: flex-start});
+      .xs-block({background-position: 0% 0%, 95% 95%;});
       .bg-small {
         position: absolute;
         top: 85%;
@@ -109,20 +109,22 @@
         .xxl-comb({background-position: 80% 250px;});
         .lg-block({background-position: 30% 180%;});
         .xl-comb({background-position: 50% 300px;});
-        .xs-block({background-position: 30% bottom;});
+        .md-comb({background-position: 0% 100%;});
+        .sm-block({background-position: 0% 100%;});
+        .xs-block({ display: none;});
       }
     }
     .container {
-      display: grid;
-      grid-template-columns: minmax(0px, 50%) minmax(500px, 50%);
-      grid-template-rows: 1fr;
+      height: calc(~"100% - 160px");
+      display: flex;
       width: 100%;
-      .lg-block({ grid-template-columns: minmax(0px, 45%) minmax(500px, 55%);});
-      .xxl-comb({grid-template-columns: minmax(0px, 45%) minmax(500px, 55%);});
-      .md-block({ display: block; padding-top: 20vh; padding-bottom: 15vh;});
-      .sm-comb({ padding-top: 70px; padding-bottom: 20px;});
-      .xs-comb({padding-top: 100px; padding-bottom: 20px;});
+      align-items: center;
+      .lg-block({ height: auto;});
+      .md-block({ display: block; padding-top: 70px; padding-bottom: 70px;});
+      .sm-comb({  padding-bottom: 50px;});
+      .xs-comb({padding-top: 100px; padding-bottom: 50px;});
       .grid-wrapper {
+        width: 35%;
         padding: 60px 75px;
         border: 22px solid #fff;
         .lg-block({ padding: 50px;});
@@ -133,6 +135,7 @@
           grid-template-rows: repeat(3, minmax(40px, 150px));
           grid-row-gap: 60px;
           grid-column-gap: 20px;
+          height: 100%;
           .xl-comb({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 40px;});
           .lg-block({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 30px; grid-column-gap: 15px;});
           svg {
@@ -146,8 +149,11 @@
         }
       }
       .desc-wrapper {
+        align-self: flex-start;
+        width: 50%;
         padding-left: 130px;
-        padding-top: 40px;
+        padding-top: 60px;
+        .md-block({ width: auto;});
         .xl-comb({ padding-left: 100px; padding-top: 30px;});
         .lg-block({ padding-left: 100px;});
         .sm-block({ padding-left: 10%; padding-top: 0;});
