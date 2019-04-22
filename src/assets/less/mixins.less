@@ -16,7 +16,7 @@
 
 /* если высота меньше 700, ширина не меньше 750 и не больше 990 */
 .md-comb(@content){
-  @media (max-height: 700px) and (min-width: @break_sm) and (max-width: @break_md){
+  @media (max-height: 800px) and (min-width: @break_sm) and (max-width: @break_md){
     @content();
   }
 }
@@ -31,6 +31,13 @@
 /* если высота меньше 610, ширина не меньше 320 и не больше 425 */
 .xs-comb(@content){
   @media (max-height: 610px) and (min-width: 320px) and (max-width: @break_xs){
+    @content();
+  }
+}
+
+/* если высота меньше 500, ширина не меньше 500 и не больше 425 */
+.xs-orientation(@content) {
+  @media (max-height: 500px) and (min-width: 500px) {
     @content();
   }
 }

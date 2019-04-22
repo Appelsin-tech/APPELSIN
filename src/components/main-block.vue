@@ -4,63 +4,64 @@
       <div class="bg-small"></div>
       <div class="bg-big"></div>
       <div class="container">
-          <div class="grid-wrapper">
-            <h1 class="visually-hidden">Appelsin</h1>
-            <div class="grid-app">
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
-              </div>
-              <div class="item-app">
-                <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
-              </div>
+        <div class="grid-wrapper">
+          <h1 class="visually-hidden">Appelsin</h1>
+          <div class="grid-app">
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
+            </div>
+            <div class="item-app">
+              <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
             </div>
           </div>
-          <div class="desc-wrapper">
-            <strong class="desc-caption">Комплексные <br> IT  - решения</strong>
-            <ul class="servises-list">
-              <li class="item">
-                <a class="item-link" href="#">Серверные решения</a>
-              </li>
-              <li class="item">
-                <a class="item-link" href="#">WEB - разработка</a>
-              </li>
-              <li class="item">
-                <a class="item-link" href="#">Мобильные игры и приложения</a>
-              </li>
-              <li class="item">
-                <a class="item-link" href="#">Криптовалюты</a>
-              </li>
-              <li class="item">
-                <a class="item-link" href="#">Реклама и продвижение</a>
-              </li>
-              <li class="item">
-                <a class="item-link" href="#">Дизайн и брендинг</a>
-              </li>
-            </ul>
-          </div>
         </div>
+        <div class="desc-wrapper">
+          <strong class="desc-caption">Комплексные <br> IT - решения</strong>
+          <ul class="servises-list">
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">Серверные решения</a>
+            </li>
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">WEB - разработка</a>
+            </li>
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">Мобильные игры и приложения</a>
+            </li>
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">Криптовалюты</a>
+            </li>
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">Реклама и продвижение</a>
+            </li>
+            <li class="item">
+              <a class="item-link" href="#" @click.prevent="">Дизайн и брендинг</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
+    </div>
   </section>
 </template>
 
