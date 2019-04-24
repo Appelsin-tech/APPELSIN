@@ -68,7 +68,7 @@
           {
             id: 1,
             stepCaption: 'Выберите необходимые вам продукты',
-            type: '',
+            type: 'checkbox',
             variant: [
               {
                 name: 'Сайт / Сервер',
@@ -99,6 +99,7 @@
           {
             id: 2,
             stepCaption: 'Какие еще продукты вас интересуют',
+            type: 'checkbox',
             variant: [
               {
                 name: 'Брендинг',
@@ -128,6 +129,7 @@
           {
             id: 3,
             stepCaption: 'Уточните продукт категории Сайт / Сервер',
+            type: 'radio',
             variant: [
               {
                 name: 'Лэндинг',
@@ -142,7 +144,7 @@
                 price: 300000
               },
               {
-                name: 'Высоконагруженный сервис',
+                name: 'Сервис с высокой нагрузкой',
                 img: 'item-3-2.png',
                 val: 'high-services',
                 price: 1000000
@@ -158,6 +160,7 @@
           {
             id: 4,
             stepCaption: 'Какое мобильное приложение вам необходимо',
+            type: 'radio',
             variant: [
               {
                 name: 'Нативное приложение',
@@ -191,6 +194,7 @@
           {
             id: 5,
             stepCaption: 'На какой платформе нужно приложение / Игра',
+            type: 'checkbox',
             variant: [
               {
                 name: 'iOS',
@@ -209,6 +213,7 @@
           {
             id: 6,
             stepCaption: 'На какой платформе нужно приложение / Игра',
+            type: 'checkbox',
             variant: [
               {
                 name: 'iOS',
@@ -225,6 +230,7 @@
           {
             id: 7,
             stepCaption: 'Что из рекламы вам потребуется',
+            type: 'checkbox',
             variant: [
               {
                 name: 'Сео и аналитика',
@@ -249,6 +255,7 @@
           {
             id: 8,
             stepCaption: 'Какие услуги в криптосфере вас интересуют',
+            type: 'checkbox',
             variant: [
               {
                 name: 'Криптовалюта на базе сторонней разработки / форк',
@@ -273,6 +280,7 @@
           {
             id: 9,
             stepCaption: 'Выберите продукт для дизайна',
+            type: 'checkbox',
             variant: [
               {
                 name: 'Дизайн сайта',
@@ -331,6 +339,7 @@
       preventStepsClick() {
         if(this.activeSteps > 0){
           this.activeSteps--
+          this.answers.pop()
         }
       },
       getImgUrl(src) {
@@ -338,12 +347,26 @@
         return image;
       },
       clickVariant(variant) {
-        let index = this.answers.findIndex(i => i.val === variant.val)
-        if (index === -1) {
-          this.answers.push(variant)
+        let index = this.answers.findIndex((i) => {
+          if (i.val === variant.val) {
+            return true
+          }
+        })
+        if (this.activeQuestion.type === 'checkbox') {
+          if (index === -1) {
+            this.answers.push(variant)
+          } else {
+            this.answers.splice(index, 1)
+          }
         } else {
-          this.answers.splice(index, 1)
+          if (index === -1) {
+            this.answers = [variant]
+          } else {
+            this.answers = []
+          }
+
         }
+
       },
     },
   }
@@ -369,6 +392,7 @@
           letter-spacing: 1.3rem;
           text-transform: uppercase;
           .xl-comb({ font-size: 3rem; letter-spacing: 1rem; });
+          .md-block({ font-size: 3rem; letter-spacing: 1rem; });
           .sm-block({ font-size: 3rem; letter-spacing: 1rem; });
           .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; });
         }
@@ -376,14 +400,14 @@
     }
     .steps-wrapper {
       height: 550px;
-      .xl-comb({ height: 400px; });
-      .md-block({ height: 500px; });
+      .xl-comb({ height: 450px;});
+      .md-block({ height: 450px; });
       .md-comb({ height: 330px; });
       .sm-block({ height: 330px; });
       .xs-block({ height: 300px; });
       .steps {
         display: flex;
-        padding-top: 60px;
+        padding-top: 45px;
         height: 100%;
         flex-direction: column;
         background: #fff;
@@ -398,7 +422,7 @@
       }
       .steps-num {
         margin-bottom: 20px;
-        padding-left: 80px;
+        padding-left: 50px;
         padding-right: 80px;
         font-family: @fontBebas;
         font-weight: bold;
@@ -408,11 +432,13 @@
         text-transform: uppercase;
         .xl-comb({ margin-bottom: 15px; });
         .md-block({ margin-bottom: 15px; padding-left: 60px; padding-right: 60px; });
+        .md-comb({ margin-bottom: 10px; padding-left: 40px; padding-right: 40px; });
         .xs-block({ margin-bottom: 10px; padding-left: 30px; padding-right: 30px; });
         .arrow {
           display: inline-block;
           transform: rotate(45deg);
           margin-right: 10px;
+          margin-bottom: 1px;
           width: 12px;
           height: 12px;
           border-left: 3px solid #dd4858;
@@ -449,7 +475,7 @@
           flex-grow: 1;
           .steps-caption {
             margin-bottom: 40px;
-            padding-left: 80px;
+            padding-left: 50px;
             padding-right: 80px;
             font-family: @fontBebas;
             font-weight: bold;
@@ -459,20 +485,22 @@
             text-transform: uppercase;
             .xl-comb({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; });
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 60px; padding-right: 60px; });
-            .md-comb({ margin-bottom: 30px; });
-            .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 0.8rem; });
+            .md-comb({ margin-bottom: 20px;  font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 40px; padding-right: 40px; });
+            .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem;  padding-left: 20px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
           }
           .variant-wrapper {
             display: flex;
+            margin-top: auto;
             justify-content: space-between;
             flex-grow: 1;
+            max-height: 305px;
             .item-wrapper {
               display: grid;
               grid-template-columns: repeat(4, minmax(100px, 1fr));
               z-index: 0;
               flex-grow: 1;
-              .md-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%;});
+              .sm-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%;});
               .item {
                 position: relative;
                 display: flex;
@@ -513,7 +541,7 @@
                   flex-direction: column;
                   align-items: flex-start;
                   .lg-block({ padding-right: 0; });
-                  .md-block({ padding-left: 60px; padding-top: 0;  flex-direction: row; align-items: center; });
+                  .sm-block({ padding-left: 20px; padding-top: 0;  flex-direction: row; align-items: center; });
                   .xs-block({ padding-left: 30px; });
                   .img {
                     margin-bottom: 25px;
@@ -522,7 +550,8 @@
                     background-repeat: no-repeat;
                     background-size: contain;
                     .xl-comb({ width: 60px; height: 60px; margin-bottom: 20px; });
-                    .md-block({ margin-bottom: 0; margin-right: 30px; width: 35px; height: 35px; });
+                    .md-block({ width: 45px; height: 45px; });
+                    .sm-block({ margin-bottom: 0; margin-right: 30px; width: 35px; height: 35px; });
                     .xs-block({ width: 30px; height: 30px; });
                   }
                   .name-project {
@@ -538,21 +567,24 @@
               position: relative;
               display: flex;
               flex-shrink: 0;
+              justify-content: center;
               background: #f8f5f5;
               cursor: pointer;
               transition: 0.3s;
               box-sizing: border-box;
               .btn-next {
                 display: flex;
-                padding: 75px 20px 20px 65px;
+                padding-top: 50px;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
                 .img {
-                  margin-bottom: 40px;
+                  margin-bottom: 50px;
                   width: 60px;
                   height: 60px;
                   background: url("../assets/img/icon/arrow-calc.png") no-repeat center / contain;
+                  .md-block({width: 45px;
+                    height: 45px;})
                 }
                 span {
                   font-family: @fontBebas;

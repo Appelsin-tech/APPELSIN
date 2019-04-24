@@ -2,7 +2,7 @@
 /* --- для апельсина и главного блока--- */
 /* если высота меньше 950, ширина не меньше 1500 и не больше 1920 N*/
 .xxl-comb(@content){
-  @media (max-height: 950px) and (min-width: @break_lg) and (max-width: 1920px){
+  @media (max-height: 950px) and (min-width: @break_xl) and (max-width: 1920px){
     @content();
   }
 }
@@ -35,7 +35,7 @@
   }
 }
 
-/* если высота меньше 500, ширина не меньше 500 и не больше 425 */
+/* если высота меньше 500, ширина не меньше 500 */
 .xs-orientation(@content) {
   @media (max-height: 500px) and (min-width: 500px) {
     @content();

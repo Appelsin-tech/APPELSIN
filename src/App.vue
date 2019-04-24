@@ -74,7 +74,7 @@
           anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
           menu: '#mainMenu',
           //scrollBar: true,
-          responsiveHeight: 500,
+          responsiveHeight: 530,
           responsiveWidth: 319,
           css3: true,
           sectionSelector: '.fullpage-section',
