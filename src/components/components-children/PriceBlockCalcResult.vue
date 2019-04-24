@@ -47,7 +47,7 @@
   export default {
     name: "PriceBlockCalcResult",
     props: ['answers', 'steps', 'activeSteps'],
-    data () {
+    data() {
       return {
         form: {
           name: '',
@@ -61,31 +61,37 @@
       }
     },
     methods: {
-      onSubmit () {
+      onSubmit() {
 
       }
     },
     computed: {
-      price () {
+      price() {
         let sum = 0;
         this.answers.forEach((item) => {
-          if(item.price !== undefined) {
+          if (item.price !== undefined) {
             sum += item.price
           }
-          if(item.val === 'crossplatform-app' || item.val === '2d-game' || item.val === '3d-game') {
-
+          if (item.val === 'crossplatform-app' || item.val === '2d-game' || item.val === '3d-game') {
+            let price = item.price
+            let vars = this.answers.filter(a => {
+              return a.val === 'ios' || a.val === 'android'
+            })
+            if (vars.length > 1) {
+              sum += price * 0.5
+            }
           }
         })
         return sum
       },
-      questionsName () {
+      questionsName() {
         let nameQuestions = [];
         this.answers.forEach((item) => {
           nameQuestions.push(item.name)
         })
         return nameQuestions
       },
-      iosAndroid () {
+      iosAndroid() {
         this.answers.forEach((item) => {
           nameQuestions.push(item.name)
         })

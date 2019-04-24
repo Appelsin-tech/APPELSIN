@@ -11,7 +11,8 @@
         </div>
       </div>
       <div class="steps-wrapper">
-        <result-form v-if="showResult" :answers="answers" v-on:go-back-step="preventStepsClick" :steps="steps" :activeSteps="activeSteps"/>
+        <result-form v-if="showResult" :answers="answers" v-on:go-back-step="preventStepsClick" :steps="steps"
+                     :activeSteps="activeSteps"/>
         <div class="steps" v-if="!showResult">
           <div class="steps-num">
             <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
@@ -19,7 +20,7 @@
             <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
           </div>
           <div class="steps-content">
-            <div  class="step">
+            <div class="step">
               <h3 class="steps-caption">{{activeQuestion.stepCaption}}</h3>
               <div class="variant-wrapper">
                 <div class="item-wrapper">
@@ -27,7 +28,7 @@
                   <div class="item" v-for="(item, index) in activeQuestion.variant"
                        :key="index"
                        :class="answers.findIndex(i=>i.val === item.val) === -1? '' : 'check'"
-                       @click="clickVariant(item)">
+                       @click="clickVariant(item,activeQuestion.type)">
                     <div class="content">
                       <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
                       <p class="name-project">{{item.name}}</p>
@@ -333,40 +334,53 @@
       }
     },
     methods: {
-      submitButton (){
+      submitButton() {
         this.activeSteps++
       },
       preventStepsClick() {
-        if(this.activeSteps > 0){
+        if (this.activeSteps > 0) {
           this.activeSteps--
-          this.answers.pop()
+          // this.answers.pop()
         }
       },
       getImgUrl(src) {
         const image = require(`../../src/assets/img/icon/steps/${src}`)
         return image;
       },
-      clickVariant(variant) {
+      clickVariant(variant, type) {
         let index = this.answers.findIndex((i) => {
           if (i.val === variant.val) {
             return true
           }
         })
-        if (this.activeQuestion.type === 'checkbox') {
-          if (index === -1) {
-            this.answers.push(variant)
-          } else {
-            this.answers.splice(index, 1)
+        if (index === -1) {
+          if (type === 'radio') {
+            this.answers.forEach((a, ia) => {
+              this.activeQuestion.variant.forEach(v => {
+                if (a.val === v.val) {
+                  this.answers.splice(ia, 1)
+                }
+              })
+            })
           }
+          this.answers.push(variant)
+
         } else {
-          if (index === -1) {
-            this.answers = [variant]
-          } else {
-            this.answers = []
-          }
-
+          this.answers.splice(index, 1)
         }
-
+        /*        if (this.activeQuestion.type === 'checkbox') {
+                  if (index === -1) {
+                    this.answers.push(variant)
+                  } else {
+                    this.answers.splice(index, 1)
+                  }
+                } else {
+                  if (index === -1) {
+                    this.answers = [variant]
+                  } else {
+                    this.answers = []
+                  }
+                }*/
       },
     },
   }
@@ -400,7 +414,7 @@
     }
     .steps-wrapper {
       height: 550px;
-      .xl-comb({ height: 450px;});
+      .xl-comb({ height: 450px; });
       .md-block({ height: 450px; });
       .md-comb({ height: 330px; });
       .sm-block({ height: 330px; });
@@ -485,8 +499,8 @@
             text-transform: uppercase;
             .xl-comb({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; });
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 60px; padding-right: 60px; });
-            .md-comb({ margin-bottom: 20px;  font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 40px; padding-right: 40px; });
-            .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem;  padding-left: 20px; padding-right: 20px; });
+            .md-comb({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 40px; padding-right: 40px; });
+            .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 20px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
           }
           .variant-wrapper {
@@ -500,7 +514,7 @@
               grid-template-columns: repeat(4, minmax(100px, 1fr));
               z-index: 0;
               flex-grow: 1;
-              .sm-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%;});
+              .sm-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%; });
               .item {
                 position: relative;
                 display: flex;
@@ -541,7 +555,7 @@
                   flex-direction: column;
                   align-items: flex-start;
                   .lg-block({ padding-right: 0; });
-                  .sm-block({ padding-left: 20px; padding-top: 0;  flex-direction: row; align-items: center; });
+                  .sm-block({ padding-left: 20px; padding-top: 0; flex-direction: row; align-items: center; });
                   .xs-block({ padding-left: 30px; });
                   .img {
                     margin-bottom: 25px;
@@ -583,8 +597,7 @@
                   width: 60px;
                   height: 60px;
                   background: url("../assets/img/icon/arrow-calc.png") no-repeat center / contain;
-                  .md-block({width: 45px;
-                    height: 45px;})
+                  .md-block({ width: 45px; height: 45px; })
                 }
                 span {
                   font-family: @fontBebas;
