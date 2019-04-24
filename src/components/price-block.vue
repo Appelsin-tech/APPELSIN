@@ -264,7 +264,7 @@
               },
               {
                 name: 'ICO',
-                img: 'item-7-1.png',
+                img: 'item-7-2.png',
                 val: 'ico',
                 price: 500000
               },
@@ -457,10 +457,10 @@
             letter-spacing: 1.3rem;
             color: #000;
             text-transform: uppercase;
-            .xl-comb({ margin-bottom: 60px; font-size: 3rem; letter-spacing: 1rem; });
-            .md-block({ margin-bottom: 60px; padding-left: 60px; padding-right: 60px; });
+            .xl-comb({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; });
+            .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 60px; padding-right: 60px; });
             .md-comb({ margin-bottom: 30px; });
-            .sm-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 0.8rem; });
+            .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 0.8rem; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
           }
           .variant-wrapper {
@@ -472,10 +472,7 @@
               grid-template-columns: repeat(4, minmax(100px, 1fr));
               z-index: 0;
               flex-grow: 1;
-              .md-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)) });
-              .md-comb({ padding-bottom: 10px; grid-gap: 10px 10px; padding-right: 20px; });
-              .sm-block({ grid-template-columns: 1fr; grid-gap: 15px 0; padding-bottom: 15px; padding-right: 0; });
-              .xs-block({ grid-gap: 10px 0; padding-bottom: 10px; });
+              .md-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%;});
               .item {
                 position: relative;
                 display: flex;
@@ -516,7 +513,7 @@
                   flex-direction: column;
                   align-items: flex-start;
                   .lg-block({ padding-right: 0; });
-                  .md-block({ padding-left: 60px; flex-direction: row; align-items: center; });
+                  .md-block({ padding-left: 60px; padding-top: 0;  flex-direction: row; align-items: center; });
                   .xs-block({ padding-left: 30px; });
                   .img {
                     margin-bottom: 25px;
@@ -525,8 +522,7 @@
                     background-repeat: no-repeat;
                     background-size: contain;
                     .xl-comb({ width: 60px; height: 60px; margin-bottom: 20px; });
-                    .md-block({ margin-bottom: 0; margin-right: 30px; width: 50px; height: 50px; });
-                    .sm-block({ width: 35px; height: 35px; });
+                    .md-block({ margin-bottom: 0; margin-right: 30px; width: 35px; height: 35px; });
                     .xs-block({ width: 30px; height: 30px; });
                   }
                   .name-project {
