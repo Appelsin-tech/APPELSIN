@@ -1,44 +1,42 @@
 <template>
   <div id="app">
     <header-block/>
-    <main-block/>
-    <!--<header-block/>-->
-    <!--<social-block/>-->
-    <!--<div id="nav-menu" class="navigation-wrapper">-->
-      <!--<button class="arrow next-slide" @click="prevSlide"></button>-->
-      <!--<ul id="mainMenu" class="main-nav-menu">-->
-        <!--<li data-menuanchor="main" class="active">-->
-          <!--<a  class="link-section" href="#main"></a>-->
-        <!--</li>-->
-        <!--<li data-menuanchor="services">-->
-          <!--<a  class="link-section" href="#services"></a>-->
-        <!--</li>-->
-        <!--<li data-menuanchor="skills">-->
-          <!--<a  class="link-section" href="#skills"></a>-->
-        <!--</li>-->
-        <!--<li data-menuanchor="price">-->
-          <!--<a  class="link-section" href="#price"></a>-->
-        <!--</li>-->
-        <!--<li data-menuanchor="case">-->
-          <!--<a  class="link-section" href="#case"></a>-->
-        <!--</li>-->
-        <!--<li data-menuanchor="contacts">-->
-          <!--<a  class="link-section" href="#contacts"></a>-->
-        <!--</li>-->
-      <!--</ul>-->
-      <!--<button class="arrow prev-slide" @click="nextSlide"></button>-->
-    <!--</div>-->
-    <!--<main>-->
-      <!--<full-page ref="fullpage" :options="options" id="fullpage">-->
-        <!--<main-block/>-->
-        <!--<services-block/>-->
-        <!--<case-block/>-->
-        <!--<price-block/>-->
-        <!--<skills-block/>-->
-        <!--<contacts-block/>-->
-      <!--</full-page>-->
-    <!--</main>-->
-    <!--<footer-block/>-->
+    <social-block/>
+    <div id="nav-menu" class="navigation-wrapper">
+      <button class="arrow next-slide" @click="prevSlide"></button>
+      <ul id="mainMenu" class="main-nav-menu">
+        <li data-menuanchor="main" class="active">
+          <a  class="link-section" href="#main"></a>
+        </li>
+        <li data-menuanchor="services">
+          <a  class="link-section" href="#services"></a>
+        </li>
+        <li data-menuanchor="skills">
+          <a  class="link-section" href="#skills"></a>
+        </li>
+        <li data-menuanchor="price">
+          <a  class="link-section" href="#price"></a>
+        </li>
+        <li data-menuanchor="case">
+          <a  class="link-section" href="#case"></a>
+        </li>
+        <li data-menuanchor="contacts">
+          <a  class="link-section" href="#contacts"></a>
+        </li>
+      </ul>
+      <button class="arrow prev-slide" @click="nextSlide"></button>
+    </div>
+    <main>
+      <full-page ref="fullpage" :options="options" id="fullpage">
+        <main-block/>
+        <services-block/>
+        <case-block/>
+        <price-block/>
+        <skills-block/>
+        <contacts-block/>
+      </full-page>
+    </main>
+    <footer-block/>
   </div>
 </template>
 

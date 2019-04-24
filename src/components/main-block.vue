@@ -114,6 +114,16 @@
         .sm-block({background-position: 0% 100%;});
         .xs-block({ display: none;});
       }
+      .phone {
+        display: none;
+        position: absolute;
+        bottom: 50px;
+        right: 50%;
+        transform: translateX(50%);
+        font-size: 2rem;
+        color: #fff;
+        .xs-block({ display: inline-block;})
+      }
     }
     .container {
       height: calc(~"100% - 160px");
