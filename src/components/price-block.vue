@@ -27,7 +27,7 @@
 
                   <div class="item" v-for="(item, index) in activeQuestion.variant"
                        :key="index"
-                       :class="answers.findIndex(i=>i.val === item.val) === -1? '' : 'check'"
+                       :class="answers.findIndex(i=>i.val === item.val) === -1 ? '' : 'check'"
                        @click="clickVariant(item,activeQuestion.type)">
                     <div class="content">
                       <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
@@ -37,9 +37,12 @@
 
                 </div>
 
-                <div class="item-btn" @click="submitButton">
+                <div class="item-btn" @click="submitButton" :class="answers.length > 0 ? 'active' : 'disabled'">
                   <div class="btn-next">
-                    <div class="img"></div>
+                    <div class="img">
+                      <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
+                    </div>
+
                     <span>Далее</span>
                   </div>
 
@@ -335,7 +338,9 @@
     },
     methods: {
       submitButton() {
-        this.activeSteps++
+        if (this.answers.length > 0) {
+          this.activeSteps++
+        }
       },
       preventStepsClick() {
         if (this.activeSteps > 0) {
@@ -368,19 +373,6 @@
         } else {
           this.answers.splice(index, 1)
         }
-        /*        if (this.activeQuestion.type === 'checkbox') {
-                  if (index === -1) {
-                    this.answers.push(variant)
-                  } else {
-                    this.answers.splice(index, 1)
-                  }
-                } else {
-                  if (index === -1) {
-                    this.answers = [variant]
-                  } else {
-                    this.answers = []
-                  }
-                }*/
       },
     },
   }
@@ -542,7 +534,7 @@
                 &.check {
                   background: #fff;
                   &::after {
-                    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 1);
+                    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
                   }
                 }
                 .content {
@@ -586,6 +578,25 @@
               cursor: pointer;
               transition: 0.3s;
               box-sizing: border-box;
+              &.active {
+                &:active,
+                &:focus,
+                &:hover {
+                  .btn-next {
+                    .img {
+                      border: 2px solid #dd4858;
+                      svg {
+                        path {
+                          fill: #dd4858;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &.disabled {
+                pointer-events: none;
+              }
               .btn-next {
                 display: flex;
                 padding-top: 50px;
@@ -596,10 +607,24 @@
                   margin-bottom: 50px;
                   width: 60px;
                   height: 60px;
-                  background: url("../assets/img/icon/arrow-calc.png") no-repeat center / contain;
-                  .md-block({ width: 45px; height: 45px; })
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 2px solid @colorBorder;
+                  border-radius: 50%;
+                  transition: 0.3s;
+                  .md-block({ width: 45px; height: 45px; });
+                  svg {
+                    width: 25px;
+                    height: 25px;
+                    path {
+                      fill: @colorBorder;
+                      transition: 0.3s;
+                    }
+                  }
                 }
                 span {
+                  margin-left: 3px;
                   font-family: @fontBebas;
                   font-weight: bold;
                   font-size: 2.4rem;

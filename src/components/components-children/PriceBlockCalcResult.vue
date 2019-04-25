@@ -260,6 +260,7 @@
               flex-grow: 1;
               textarea {
                 padding-top: 25px;
+                resize: none;
               }
             }
           }
