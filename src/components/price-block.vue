@@ -28,7 +28,7 @@
                   <div class="item" v-for="(item, index) in activeQuestion.variant"
                        :key="index"
                        :class="answers.findIndex(i=>i.val === item.val) === -1 ? '' : 'check'"
-                       @click="clickVariant(item,activeQuestion.type)">
+                       @click="clickVariant(item, activeQuestion.type)">
                     <div class="content">
                       <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
                       <p class="name-project">{{item.name}}</p>
@@ -321,13 +321,21 @@
     computed: {
       activeQuestion() {
         let id = this.steps[this.activeSteps]
-        return this.questions.filter(i => i.id === id)[0]
+        return this.questions.filter((i) => {
+          if (i.id === id) {
+            return true
+          }
+        })[0]
       },
       steps() {
         let res = [1]
-        this.answers.forEach(i => {
-          if (i.addQuestion !== undefined) {
-            res.push(i.addQuestion)
+        this.answers.forEach(item => {
+          if (item.addQuestion !== undefined) {
+            if (item.val === 'other') {
+              res.splice(1, 0, item.addQuestion)
+            } else {
+              res.push(item.addQuestion)
+            }
           }
         })
         return res
@@ -345,7 +353,6 @@
       preventStepsClick() {
         if (this.activeSteps > 0) {
           this.activeSteps--
-          // this.answers.pop()
         }
       },
       getImgUrl(src) {
@@ -367,8 +374,20 @@
                 }
               })
             })
+          } else {
+            if (this.activeQuestion.id === 2) {
+              let delVariant = ['brand', 'crypto', 'design']
+              if (variant.val === 'other-1') {
+                this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
+              } else {
+                let oi = this.answers.findIndex(i => i.val === 'other-1')
+                if(oi !== -1){
+                  this.answers.splice(oi, 1)
+                }
+              }
+            }
+            this.answers.push(variant)
           }
-          this.answers.push(variant)
 
         } else {
           this.answers.splice(index, 1)
