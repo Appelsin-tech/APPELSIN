@@ -120,12 +120,8 @@
     .swiper-slide {
       display: flex;
       height: 540px;
-      .xl-comb({ height: 440px;});
-      .md-block({ height: 440px;});
-      .md-comb({ height: 380px;});
+      .md-block({ height: 440px;});;
       .sm-block({ height: 300px;});
-      .sm-comb({ height: 300px;});
-      .xs-comb({ height: 270px;});
     }
     .slide-wrapper {
       display: flex;
@@ -135,7 +131,6 @@
       background: #fff;
       .md-block({ padding: 70px 60px;});
       .sm-block({ padding: 40px 30px;});
-      .sm-comb({  padding: 40px 30px;});
       .col {
         color: #000;
         &-3 {

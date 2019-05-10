@@ -128,7 +128,6 @@
             letter-spacing: 0.4rem;
             color: #000;
             text-transform: uppercase;
-            .xl-comb({ margin-bottom: 15px; });
             .md-block({ margin-bottom: 15px; padding-left: 60px; padding-right: 60px; });
             .xs-block({ margin-bottom: 10px; padding-left: 30px; padding-right: 30px; });
             .arrow {

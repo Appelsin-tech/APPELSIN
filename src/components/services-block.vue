@@ -171,7 +171,6 @@
     .caption-wrapper {
       margin-bottom: 0px;
       justify-content: space-between;
-      .xl-comb({ margin-bottom: -5px;});
       .md-block({ margin-bottom: 15px; });
       .nav-slider {
         display: flex;
@@ -198,7 +197,6 @@
   }
   .swiper-container {
     padding: 30px 0;
-    .xl-comb({ padding: 20px 0;});
     .md-block({ padding: 0; });
   }
   .swiper-slide {
@@ -207,12 +205,8 @@
     height: 540px;
     z-index: 1;
     transition: 0.3s;
-    .xl-comb({ height: 440px;});
     .md-block({ height: 440px;});
-    .md-comb({ height: 380px;});
     .sm-block({ height: 300px;});
-    .sm-comb({ height: 300px;});
-    .xs-comb({ height: 270px;});
     &:hover {
       z-index: 6;
     }
@@ -224,9 +218,7 @@
     flex-grow: 1;
     flex-direction: column;
     align-items: flex-start;
-    .md-comb({ padding: 30px;});
     .sm-block({ padding: 30px; });
-    .sm-comb({ padding: 25px;});
     .xs-block({ padding: 25px; });
     &:hover {
       &::after {
@@ -234,10 +226,6 @@
         bottom: -30px;
         left: -30px;
         right: -30px;
-        .xl-comb({ top: -20px;
-          bottom: -20px;
-          left: -20px;
-          right: -20px;});
         .lg-block({top: -20px;
           bottom: -20px;
           left: -20px;
@@ -295,10 +283,7 @@
       background-repeat: no-repeat;
       z-index: 1;
       box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
-      .md-comb({ background-image: none;});
       .sm-block({ background-image: none;});
-      .sm-comb({ background-image: none;});
-      .xs-comb({ background-image: none;});
     }
   }
   .grow {
@@ -316,7 +301,6 @@
         font-size: 3.04rem;
         letter-spacing: 0.8rem;
         text-transform: uppercase;
-        .sm-comb({ font-size: 2rem; letter-spacing: 0.5rem; margin-bottom: 20px;});
       }
       .desc {
         margin-top: 20px;
@@ -326,7 +310,6 @@
         opacity: 0;
         height: 0px;
         transition: 0.3s;
-        .sm-comb({ margin-top: 15px; font-size: 1.4rem;});
         .xs-block({margin-top: 15px; opacity: 1; height: 50px;});
       }
     }
@@ -339,14 +322,12 @@
       border: 1px solid #fff;
       border-radius: 50%;
       .sm-block({ width: 50px; height: 50px; });
-      .sm-comb({ width: 35px; height: 35px;});
       .xs-block({ width: 35px; height: 35px;});
       svg {
         width: 25px;
         height: 20px;
         transition: 0.3s;
         .sm-block({ width: 20px; height: 20px; });
-        .sm-comb({ width: 15px; height: 15px; });
         .xs-block({ width: 15px; height: 15px; });
       }
     }

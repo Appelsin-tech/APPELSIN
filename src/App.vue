@@ -74,7 +74,7 @@
           anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
           menu: '#mainMenu',
           //scrollBar: true,
-          responsiveHeight: 530,
+          responsiveHeight: 320,
           responsiveWidth: 319,
           css3: true,
           sectionSelector: '.fullpage-section',
@@ -141,6 +141,7 @@
       display: flex;
       flex-direction: column;
       margin: 35px 0;
+      .sm-height({ margin: 15px 0;});
       li {
         margin-bottom: 10px;
         &:last-child {
@@ -158,6 +159,7 @@
         height: 25px;
         background: linear-gradient(to right, #fff, #fff) no-repeat center;
         background-size: 20px 1px;
+        .sm-height({ height: 18px;});
       }
     }
   }

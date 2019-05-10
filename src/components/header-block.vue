@@ -31,9 +31,9 @@
     left: 0;
     right: 0;
     z-index: 999;
-    .xl-comb({ padding-top: 20px;});
     .md-block({padding-top: 20px;});
     .sm-block({padding-top: 10px;});
+    .md-max-height({ padding-top: 15px;});
   }
   .container {
     display: flex;
@@ -51,12 +51,14 @@
       margin-right: 60px;
       .md-block({margin-right: 40px;});
       .sm-block({ width: 30px; height: 30px; margin-right: 25px;});
+      .xs-max-height({ width: 30px; height: 30px; margin-right: 30px;});
     }
     .svg-logo-appelsin {
       width: 140px;
       height: 22px;
       .lg-block({ width: 130px; height: 20px;});
       .sm-block({ width: 110px; height: 16px;});
+      .xs-max-height({ width: 110px; height: 20px;});
       path {
         fill: #fff;
       }
@@ -71,6 +73,7 @@
       content: '|';
       margin: 0 60px;
       .md-block({margin: 0 30px;});
+      .xs-max-height({ margin: 0 40px;})
     }
   }
   .phone {

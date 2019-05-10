@@ -3,62 +3,35 @@
     <div class="bg-wrapper">
       <div class="bg-small"></div>
       <div class="bg-big"></div>
-      <div class="container">
-        <div class="grid-wrapper">
+      <div class="desc-wrapper">
+        <strong class="desc-caption">Комплексные <br> IT - решения</strong>
+        <ul class="servises-list">
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">Серверные решения</a>
+          </li>
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">WEB - разработка</a>
+          </li>
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">Мобильные игры и приложения</a>
+          </li>
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">Криптовалюты</a>
+          </li>
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">Реклама и продвижение</a>
+          </li>
+          <li class="item">
+            <a class="item-link" href="#" @click.prevent="">Дизайн и брендинг</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container container-box-sizing">
+        <div class="app-wrapper">
           <h1 class="visually-hidden">Appelsin</h1>
-          <div class="grid-app">
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/a.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/p.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/e.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/l.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/s.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/i.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/n.svg" alt="">
-            </div>
-            <div class="item-app">
-              <img svg-inline src="../assets/img/appelsin/dash.svg" alt="">
-            </div>
-          </div>
+          <img svg-inline src="../assets/img/appelsin/app.svg" alt="">
         </div>
-        <div class="desc-wrapper">
-          <strong class="desc-caption">Комплексные <br> IT - решения</strong>
-          <ul class="servises-list">
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">Серверные решения</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">WEB - разработка</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">Мобильные игры и приложения</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">Криптовалюты</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">Реклама и продвижение</a>
-            </li>
-            <li class="item">
-              <a class="item-link" href="#" @click.prevent="">Дизайн и брендинг</a>
-            </li>
-          </ul>
-        </div>
+
       </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
     </div>
@@ -84,13 +57,14 @@
       width: 100%;
       height: 100%;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       background-image: url("../assets/img/appelsin-small-11.png"),
       url("../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
-      .xs-block({background-position: 0% 0%, 95% 95%;});
+      .lg-width__xs-height({ align-items: flex-end;});
+      .xs-block({background-position: 0% 0%, 95% 80%;});
       .bg-small {
         position: absolute;
         top: 85%;
@@ -105,14 +79,71 @@
         left: 0;
         background-image: url("../assets/img/appelsin-1.png");
         background-repeat: no-repeat;
-        background-position: 70% 100%;
-        .xxl-block({background-position: 80% 120%;});
-        .xxl-comb({background-position: 80% 250px;});
-        .lg-block({background-position: 30% 180%;});
-        .xl-comb({background-position: 50% 300px;});
-        .md-comb({background-position: 0% 100%;});
-        .sm-block({background-position: 0% 100%;});
+        background-position: 65% 100%;
+        z-index: 9;
+        .xl-max-height({background-position: 60% 320px;});
+        .lg-width__lg-height({background-position: 80% 250px;});
+        .md-width__xl-height({background-position: 60% 320px;});
+        .md-width__lg-height({background-position: 60% 230px;});
+        .md-max-height({ display: none;});
         .xs-block({ display: none;});
+      }
+      .desc-wrapper {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(520px, -290px);
+        z-index: 10;
+        .lg-width__lg-height({transform: translate(520px, -260px);});
+        .md-max-height({transform: translate(400px, -220px);});
+        .sm-max-height({transform: translate(250px, -180px);});
+        .xs-max-height({transform: translate(50px, -150px);});
+        .s-max-height({transform: translate(0, -100px);});
+        .lg-block({ position: relative; transform: translate(0, -80px); top: auto; left: 10%; right:auto;});
+        .md-width__sm-height({transform: translate(0, -30px);});
+        .md-width__xs-height({transform: translate(0, 0);});
+        .sm-width__sm-height({transform: translate(0, -30px);});
+        .sm-width__xs-height({transform: translate(0, 0);});
+        .xs-width__sm-height({transform: translate(0, -30px);});
+        .xs-width__xs-height({transform: translate(0, 0);});
+        .desc-caption {
+          display: inline-block;
+          margin-bottom: 40px;
+          font-family: @fontBebas;
+          font-weight: bold;
+          font-size: 5.7rem;
+          letter-spacing: 1.6rem;
+          text-transform: uppercase;
+          .md-max-height({ font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
+          .xs-max-height({ font-size: 2.5rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
+          .lg-width__s-height({ font-size: 2.2rem; margin-bottom: 15px;});
+        }
+        .servises-list {
+          .item {
+            margin-bottom: 22px;
+            .sm-max-height({ margin-bottom: 15px;});
+            .xs-max-height({ margin-bottom: 7%;});
+            .s-max-height({ margin-bottom: 5%;});
+            &:last-child {
+              margin-bottom: 0;
+            }
+            .item-link {
+              position: relative;
+              font-size: 2.1rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              color: #fff;
+              .bottom-hover();
+              .sm-max-height({ font-size: 1.8rem;});
+              .xs-max-height({ font-size: 1.5rem;});
+              .lg-width__s-height({ font-size: 1.3rem;});
+            }
+          }
+        }
+      }
+      .container-box-sizing {
+        max-width: 1210px;
+        z-index: 8;
       }
       .phone {
         display: none;
@@ -126,78 +157,22 @@
       }
     }
     .container {
-      height: calc(~"100% - 160px");
+      height: calc(~"100% - 180px");
       display: flex;
       width: 100%;
       align-items: center;
-      .lg-block({ height: auto;});
-      .md-block({ display: block; padding-top: 70px; padding-bottom: 70px;});
-      .sm-comb({  padding-bottom: 50px;});
-      .xs-comb({padding-top: 100px; padding-bottom: 50px;});
-      .grid-wrapper {
-        width: 35%;
-        padding: 60px 75px;
-        border: 22px solid #fff;
-        .lg-block({ padding: 50px;});
-        .md-block({ display: none;});
-        .grid-app {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: repeat(3, minmax(40px, 150px));
-          grid-row-gap: 60px;
-          grid-column-gap: 20px;
-          height: 100%;
-          .xl-comb({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 40px;});
-          .lg-block({grid-template-rows: repeat(3, minmax(50px, 100px)); grid-row-gap: 30px; grid-column-gap: 15px;});
-          svg {
-            max-width: 100%;
-            height: 100%;
-            max-height: 100%;
-            path {
-              fill: #fff;
-            }
-          }
+      box-sizing: border-box;
+      .lg-block({ display: none;});
+      .xl-max-height({ padding-bottom: 80px; padding-top: 70px; height: 100%;});
+      .app-wrapper {
+        width: 45%;
+        box-sizing: border-box;
+        .md-max-height({ width: auto; height:100%; });
+        svg {
+          .md-max-height({  height:100%;});
         }
       }
-      .desc-wrapper {
-        align-self: flex-start;
-        width: 50%;
-        padding-left: 130px;
-        padding-top: 60px;
-        .md-block({ width: auto;});
-        .xl-comb({ padding-left: 100px; padding-top: 30px;});
-        .lg-block({ padding-left: 100px;});
-        .sm-block({ padding-left: 10%; padding-top: 0;});
-        .desc-caption {
-          display: inline-block;
-          margin-bottom: 40px;
-          font-family: @fontBebas;
-          font-weight: bold;
-          font-size: 5.7rem;
-          letter-spacing: 1.6rem;
-          text-transform: uppercase;
-          .xl-comb({ font-size: 4rem;});
-          .sm-block({font-size: 4rem; letter-spacing: 1.2rem;});
-          .xs-block({ margin-bottom: 30px;});
-        }
-        .servises-list {
-          .item {
-            margin-bottom: 22px;
-            .xs-comb({ margin-bottom: 15px;});
-            &:last-child {
-              margin-bottom: 0;
-            }
-            .item-link {
-              position: relative;
-              font-size: 2.1rem;
-              font-weight: 600;
-              text-transform: uppercase;
-              color: #fff;
-              .bottom-hover();
-            }
-          }
-        }
-      }
+
     }
   }
 </style>

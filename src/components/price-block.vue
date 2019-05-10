@@ -406,7 +406,6 @@
       .container-pdd();
     }
     .caption-wrapper {
-      .xs-comb({ margin-bottom: 5px; });
       .text-wrapper {
         display: flex;
         flex-direction: column;
@@ -416,7 +415,6 @@
           font-size: 4.5rem;
           letter-spacing: 1.3rem;
           text-transform: uppercase;
-          .xl-comb({ font-size: 3rem; letter-spacing: 1rem; });
           .md-block({ font-size: 3rem; letter-spacing: 1rem; });
           .sm-block({ font-size: 3rem; letter-spacing: 1rem; });
           .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; });
@@ -425,9 +423,7 @@
     }
     .steps-wrapper {
       height: 550px;
-      .xl-comb({ height: 450px; });
       .md-block({ height: 450px; });
-      .md-comb({ height: 330px; });
       .sm-block({ height: 330px; });
       .xs-block({ height: 300px; });
       .steps {
@@ -438,12 +434,9 @@
         background: #fff;
         overflow: hidden;
         box-sizing: border-box;
-        .xl-comb({ padding-top: 40px; });
         .md-block({ padding-top: 40px; });
-        .md-comb({ padding-top: 30px; });
         .sm-block({ padding-top: 30px; });
         .xs-block({ padding-top: 30px; });
-        .xs-comb({ padding-top: 20px; });
       }
       .steps-num {
         margin-bottom: 20px;
@@ -455,9 +448,7 @@
         letter-spacing: 0.4rem;
         color: #000;
         text-transform: uppercase;
-        .xl-comb({ margin-bottom: 15px; });
         .md-block({ margin-bottom: 15px; padding-left: 60px; padding-right: 60px; });
-        .md-comb({ margin-bottom: 10px; padding-left: 40px; padding-right: 40px; });
         .xs-block({ margin-bottom: 10px; padding-left: 30px; padding-right: 30px; });
         .arrow {
           display: inline-block;
@@ -508,9 +499,7 @@
             letter-spacing: 1.3rem;
             color: #000;
             text-transform: uppercase;
-            .xl-comb({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; });
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 60px; padding-right: 60px; });
-            .md-comb({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 40px; padding-right: 40px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 20px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
           }
@@ -574,7 +563,6 @@
                     height: 85px;
                     background-repeat: no-repeat;
                     background-size: contain;
-                    .xl-comb({ width: 60px; height: 60px; margin-bottom: 20px; });
                     .md-block({ width: 45px; height: 45px; });
                     .sm-block({ margin-bottom: 0; margin-right: 30px; width: 35px; height: 35px; });
                     .xs-block({ width: 30px; height: 30px; });

@@ -23,9 +23,9 @@
     left: 0;
     right: 0;
     z-index: 999;
-    .md-comb({ padding-bottom: 15px;});
-    .sm-block({ padding-bottom: 15px;});
-    .xs-block({ padding-bottom: 10px;});
+    .sm-block({ padding-bottom: 50px;});
+    .xs-block({ display: none;});
+    .xs-max-height({ display: none;});
     .container {
       display: flex;
       justify-content: space-between;
