@@ -30,6 +30,7 @@
         <div class="app-wrapper">
           <h1 class="visually-hidden">Appelsin</h1>
           <img svg-inline src="../assets/img/appelsin/app.svg" alt="">
+          <!--<img src="../assets/img/1556425601194769590.jpg" alt="">-->
         </div>
 
       </div>
@@ -63,7 +64,7 @@
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
-      .lg-width__xs-height({ align-items: flex-end;});
+/*      .lg-width__xs-height({ align-items: flex-end;});*/
       .xs-block({background-position: 0% 0%, 95% 80%;});
       .bg-small {
         position: absolute;
@@ -163,13 +164,13 @@
       align-items: center;
       box-sizing: border-box;
       .lg-block({ display: none;});
-      .xl-max-height({ padding-bottom: 80px; padding-top: 70px; height: 100%;});
+    /*  .xl-max-height({ padding-bottom: 80px; padding-top: 70px; height: 100%;});*/
       .app-wrapper {
         width: 45%;
         box-sizing: border-box;
         .md-max-height({ width: auto; height:100%; });
         svg {
-          .md-max-height({  height:100%;});
+          .xl-max-height({  height: 100%;});
         }
       }
 

@@ -4,10 +4,10 @@ import VueModal from 'vue-js-modal'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 
-import VueFullPage from 'vue-fullpage.js'
+
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
-Vue.use(VueFullPage);
+
 Vue.config.productionTip = false
 Vue.use(VueModal, {dialog: true, dynamic: true, injectModalsContainer: true})
 
