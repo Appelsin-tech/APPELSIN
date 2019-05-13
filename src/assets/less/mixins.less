@@ -67,6 +67,12 @@
   }
 }
 
+.md-width__s-height (@content){
+  @media (max-height: 435px) and (min-width: @break_sm) and (max-width: @break_lg){
+    @content();
+  }
+}
+
 .sm-width__xl-height (@content){
   @media (max-height: 1080px) and (min-width: @break_xs) and (max-width: @break_sm){
     @content();

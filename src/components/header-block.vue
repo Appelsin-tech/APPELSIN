@@ -7,6 +7,7 @@
       </div>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
+      <a class="submit" href="#">Оставить заявку</a>
       <!--<div class="menu-wrapper">-->
         <!--<button class="menu">-->
           <!--<img svg-inline src="../assets/img/icon/menu.svg" alt="">-->
@@ -79,7 +80,19 @@
   .phone {
     font-size: 1.7rem;
     color: #fff;
-    .xs-block({ display: none;})
+    .xs-block({ display: none;});
+    .xs-max-height({ display: none;});
+  }
+  .submit {
+    display: none;
+    font-family: @fontBebas;
+    font-weight: bold;
+    font-size: 2.47rem;
+    letter-spacing: 0.7rem;
+    color: #fff;
+    .bottom-hover();
+    .xs-max-height({ display: block;});
+    .xs-block({ display: none;});
   }
   .menu-wrapper {
     .xs-block({order: 2;});
