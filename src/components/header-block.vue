@@ -34,7 +34,7 @@
     z-index: 999;
     .md-max-height({ padding-top: 15px;});
     .xs-max-height({ padding-top: 10px;});
-    .md-block({padding-top: 20px;});
+    .md-block({padding-top: 15px;});
     .sm-block({padding-top: 10px;});
 
   }
