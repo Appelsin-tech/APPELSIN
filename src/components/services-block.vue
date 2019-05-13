@@ -1,110 +1,111 @@
 <template>
   <section class="s-services fullpage-section">
-    <div class="container">
+    <div class="wrapper-container">
+      <div class="container">
+        <div class="caption-wrapper">
+          <div class="g-caption-block">
+            <h2 class="g-caption">Услуги</h2>
+          </div>
+          <div class="nav-slider">
+            <button class="next">
+              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+            </button>
+            <button class="prev">
+              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+            </button>
+          </div>
+        </div>
+        <swiper :options="swiperOption" ref="mySwiper">
 
-      <div class="caption-wrapper">
-        <div class="g-caption-block">
-          <h2 class="g-caption">Услуги</h2>
-        </div>
-        <div class="nav-slider">
-          <button class="next">
-            <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
-          </button>
-          <button class="prev">
-            <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
-          </button>
-        </div>
+          <swiper-slide>
+            <div class="wrapper wrapper-1">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">Серверные решения</h3>
+                  <p class="desc">Проектирование и реализация проекта, разработка API, работа с БД, автоматизация, боты.
+                  </p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+
+          </swiper-slide>
+          <swiper-slide>
+            <div class="wrapper wrapper-2">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">WEB - разработка</h3>
+                  <p class="desc">От лендинга до высоконагруженного сайта любой сложности</p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="wrapper wrapper-3">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">Мобильные игры и приложения</h3>
+                  <p class="desc">Кросс-платформенные и нативные бизнес решения, 2D и 3D игры, AR/VR</p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="wrapper wrapper-1">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">Блокчейн и криптовалюты</h3>
+                  <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="wrapper wrapper-2">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">Реклама и продвижение</h3>
+                  <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг,
+                    аналитика</p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="wrapper wrapper-3">
+              <div class="grow"></div>
+              <div class="services-item">
+                <div class="text-wrapper">
+                  <h3 class="caption-services">Дизайн и брендинг</h3>
+                  <p class="desc">Графический дизайн сайтов, приложений, презентаций, UI дизайн, брендинг</p>
+                </div>
+                <a class="circle-btn" href="#">
+                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
-      <swiper :options="swiperOption" ref="mySwiper">
-
-        <swiper-slide>
-          <div class="wrapper wrapper-1">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">Серверные решения</h3>
-                <p class="desc">Проектирование и реализация проекта, разработка API, работа с БД, автоматизация, боты.
-                </p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-
-        </swiper-slide>
-        <swiper-slide>
-          <div class="wrapper wrapper-2">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">WEB - разработка</h3>
-                <p class="desc">От лендинга до высоконагруженного сайта любой сложности</p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="wrapper wrapper-3">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">Мобильные игры и приложения</h3>
-                <p class="desc">Кросс-платформенные и нативные бизнес решения, 2D и 3D игры, AR/VR</p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="wrapper wrapper-1">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">Блокчейн и криптовалюты</h3>
-                <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="wrapper wrapper-2">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">Реклама и продвижение</h3>
-                <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг,
-                  аналитика</p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="wrapper wrapper-3">
-            <div class="grow"></div>
-            <div class="services-item">
-              <div class="text-wrapper">
-                <h3 class="caption-services">Дизайн и брендинг</h3>
-                <p class="desc">Графический дизайн сайтов, приложений, презентаций, UI дизайн, брендинг</p>
-              </div>
-              <a class="circle-btn" href="#">
-                <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
-              </a>
-            </div>
-          </div>
-        </swiper-slide>
-      </swiper>
     </div>
   </section>
 </template>
@@ -165,12 +166,23 @@
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0, 0, 0, 0) 25%),
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0, 0, 0, 0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
+    .wrapper-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      .xs-max-height({ align-items: flex-end;});
+    }
     .container {
-      .container-pdd();
+      display: flex;
+      flex-direction: column;
+      .lg-max-height({height: calc(~"100% - 180px");});
+      .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
     }
     .caption-wrapper {
       margin-bottom: 0px;
       justify-content: space-between;
+      .md-max-height({ margin-bottom: 15px;});
       .md-block({ margin-bottom: 15px; });
       .nav-slider {
         display: flex;
@@ -186,6 +198,7 @@
           svg {
             width: 30px;
             height: 30px;
+            .xs-max-height({width: 25px; height: 25px;});
             .sm-block({ width: 25px; height: 25px;});
             path {
               fill: #fff;
@@ -197,16 +210,20 @@
   }
   .swiper-container {
     padding: 30px 0;
+    height: 540px;
+    width: 100%;
+    .lg-max-height({height: auto; flex-grow: 1; });
+    .md-max-height({padding: 0;});
+    .sm-max-height({padding: 0;});
     .md-block({ padding: 0; });
   }
   .swiper-slide {
     display: flex;
     flex-grow: 2;
-    height: 540px;
+    height: 100%;
     z-index: 1;
     transition: 0.3s;
-    .md-block({ height: 440px;});
-    .sm-block({ height: 300px;});
+    .md-max-height({});
     &:hover {
       z-index: 6;
     }
@@ -267,7 +284,7 @@
     &-3 {
       &::after {
         background-image: url("../assets/img/services/item-3.png");
-        background-position: 100% -15%;
+        background-position: top -15%;
         background-color: #2d2633;
       }
     }
@@ -283,6 +300,8 @@
       background-repeat: no-repeat;
       z-index: 1;
       box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
+      .sm-max-height({background-position: -30% -15%;});
+      .xs-max-height({background-image: none;});
       .sm-block({ background-image: none;});
     }
   }
@@ -298,9 +317,10 @@
       .caption-services {
         font-family: @fontBebas;
         font-weight: bold;
-        font-size: 3.04rem;
+        font-size: 3rem;
         letter-spacing: 0.8rem;
         text-transform: uppercase;
+        .sm-max-height({font-size: 2.4rem; letter-spacing: 0.6rem;});
       }
       .desc {
         margin-top: 20px;
@@ -310,6 +330,7 @@
         opacity: 0;
         height: 0px;
         transition: 0.3s;
+        .sm-max-height({font-size: 1.4rem; letter-spacing: 0.1rem; margin-top: 15px;});
         .xs-block({margin-top: 15px; opacity: 1; height: 50px;});
       }
     }
@@ -321,6 +342,7 @@
       align-items: center;
       border: 1px solid #fff;
       border-radius: 50%;
+      .md-max-height({ display: none;});
       .sm-block({ width: 50px; height: 50px; });
       .xs-block({ width: 35px; height: 35px;});
       svg {

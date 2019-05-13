@@ -32,9 +32,11 @@
     left: 0;
     right: 0;
     z-index: 999;
+    .md-max-height({ padding-top: 15px;});
+    .xs-max-height({ padding-top: 10px;});
     .md-block({padding-top: 20px;});
     .sm-block({padding-top: 10px;});
-    .md-max-height({ padding-top: 15px;});
+
   }
   .container {
     display: flex;
@@ -50,16 +52,18 @@
       width: 38px;
       height: 38px;
       margin-right: 60px;
+      .xs-max-height({ width: 30px; height: 30px; margin-right: 30px;});
       .md-block({margin-right: 40px;});
       .sm-block({ width: 30px; height: 30px; margin-right: 25px;});
-      .xs-max-height({ width: 30px; height: 30px; margin-right: 30px;});
+
     }
     .svg-logo-appelsin {
       width: 140px;
       height: 22px;
+      .xs-max-height({ width: 110px; height: 20px;});
       .lg-block({ width: 130px; height: 20px;});
       .sm-block({ width: 110px; height: 16px;});
-      .xs-max-height({ width: 110px; height: 20px;});
+
       path {
         fill: #fff;
       }

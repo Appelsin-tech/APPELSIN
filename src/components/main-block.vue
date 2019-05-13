@@ -1,6 +1,6 @@
 <template>
   <section class="s-main fullpage-section active">
-    <div class="bg-wrapper">
+    <div class="wrapper-container bg-wrapper">
       <div class="bg-small"></div>
       <div class="bg-big"></div>
 
@@ -65,7 +65,6 @@
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
       .xs-max-height({ align-items: flex-end;});
-     /* .md-width__md-height({});*/
       .xs-block({background-position: 0% 0%, 95% 80%;});
       .bg-small {
         position: absolute;
@@ -83,7 +82,7 @@
         background-repeat: no-repeat;
         background-position: 45% 100%;
         z-index: 9;
-        .xl-max-height({background-position: 55% 220px;});
+        .xl-max-height({background-position: 55% 120%;});
         .lg-width__lg-height({background-position: 45% 250px;});
         .md-width__xl-height({background-position: 60% 320px;});
         .md-width__lg-height({background-position: 60% 230px;});
@@ -163,12 +162,12 @@
     .container {
       max-width: 1210px;
       z-index: 8;
-      height: calc(~"100% - 180px");
       display: flex;
       width: 100%;
       align-items: center;
       box-sizing: border-box;
-      .xs-max-height({height: calc(~"100% - 80px"); margin-bottom: 25px;});
+      .lg-max-height({height: calc(~"100% - 180px");});
+      .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
       .md-width__md-height({ width:auto; margin: 0 0 25px 0;});
 
       .sm-block({ display: none;});
