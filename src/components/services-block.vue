@@ -168,7 +168,7 @@
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
     .wrapper-container {
       width: 100%;
-      height: 100vh;
+      /*height: 100%;*/
       display: flex;
       align-items: center;
       .xs-max-height({ align-items: flex-end;});

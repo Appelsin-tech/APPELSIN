@@ -79,7 +79,6 @@
           menu: '#mainMenu',
           responsiveHeight: 320,
           responsiveWidth: 319,
-          // css3: false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section'
         }
