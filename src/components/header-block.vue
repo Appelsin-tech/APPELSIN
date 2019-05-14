@@ -28,8 +28,8 @@
       <li class="item">
         <a href="#contacts" class="link" @click="menu">Контакты</a>
       </li>
-      <li class="item">
-        <a href="#price" class="link" @click="menu">Начать проект</a>
+      <li class="item item--submit">
+        <a href="#contacts" class="link" @click="menu">Оставить заявку</a>
       </li>
     </ul>
   </header>
@@ -116,7 +116,7 @@
   .logo-wrapper {
     display: flex;
     align-items: center;
-    .sm-block({ margin-right: auto; });
+    .md-block({ margin-right: auto; });
     .svg-logo {
       width: 38px;
       height: 38px;
@@ -140,7 +140,7 @@
     margin-right: auto;
     font-size: 1.7rem;
     font-weight: 300;
-    .sm-block({ display: none; });
+    .md-block({ display: none; });
     &::before {
       content: '|';
       margin: 0 60px;
@@ -149,24 +149,25 @@
     }
   }
   .phone {
+    display: none;
+    margin-right: 80px;
     font-size: 1.7rem;
     color: #fff;
-    .xs-block({ display: none; });
-    .xs-max-height({ display: none; });
   }
   .submit {
-    display: none;
+    display: block;
+    margin-right: 30px;
+    transform: translateY(3px);
     font-family: @fontBebas;
     font-weight: bold;
     font-size: 2.47rem;
     letter-spacing: 0.7rem;
     color: #fff;
     .bottom-hover();
-    .xs-max-height({ display: block; });
-    .xs-block({ display: none; });
+    .sm-block({ display: none;});
   }
   .burger {
-    margin-left: 80px;
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -194,17 +195,23 @@
   .menu-list {
     position: absolute;
     display: none;
-    left: 50%;
+    left: 0;
+    right: 0;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
     flex-direction: column;
     align-items: center;
-    .xs-max-height({transform: translate(-50%, -40%);});
+    .sm-width__xs-height({transform: translateY(-60%);});
     .item {
       margin-bottom: 25px;
       text-align: center;
+      .sm-block({ margin-bottom: 17px;});
       &:last-child {
         margin-bottom: 0;
+      }
+      &--submit {
+        display: none;
+        .sm-block({ display: block;});
       }
       .link {
         font-family: @fontBebas;
@@ -214,6 +221,8 @@
         color: #000;
         text-transform: uppercase;
         transition: 0.3s;
+        .sm-block({font-size: 2.4rem;
+          letter-spacing: 0.6rem;});
         &:hover {
           color: #ffba00;
         }

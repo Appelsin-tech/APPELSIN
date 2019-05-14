@@ -77,7 +77,6 @@
           fixedElements: '#nav-menu',
           anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
           menu: '#mainMenu',
-          //scrollBar: true,
           responsiveHeight: 320,
           responsiveWidth: 319,
           // css3: false,
