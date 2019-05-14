@@ -56,7 +56,7 @@
       position: relative;
       display: flex;
       width: 100%;
-      /*height: 100vh;*/
+      height: 100vh;
       align-items: center;
       justify-content: flex-start;
       background-image: url("../assets/img/appelsin-small-11.png"),
