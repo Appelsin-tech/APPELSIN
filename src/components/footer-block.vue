@@ -1,5 +1,5 @@
 <template>
-  <footer class="b-footer">
+  <footer class="b-footer" :class="{active : showMenu}">
     <div class="container">
       <a class="submit" href="#">Оставить заявку</a>
       <a class="policy" href="#">Политика конфиденциальности</a>
@@ -10,6 +10,7 @@
 <script>
   export default {
     name: 'footer-block',
+    props: ['showMenu']
   }
 </script>
 
@@ -26,6 +27,20 @@
     .sm-block({ padding-bottom: 50px;});
     .xs-block({ display: none;});
     .xs-max-height({ display: none;});
+    &.active {
+      .container {
+        .submit,
+        .policy {
+          color: #000;
+        }
+        .submit {
+          .bottom-hover(#000);
+        }
+        .policy {
+          border-bottom: 1px solid #000;
+        }
+      }
+    }
     .container {
       display: flex;
       justify-content: space-between;

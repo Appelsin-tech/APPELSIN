@@ -176,6 +176,10 @@
     .container {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      max-width: 1210px;
+      box-sizing: border-box;
       .lg-max-height({height: calc(~"100% - 180px");});
       .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
     }
@@ -212,10 +216,11 @@
     padding: 30px 0;
     height: 540px;
     width: 100%;
-    .lg-max-height({height: auto; flex-grow: 1; });
+    .md-max-height({height: auto; flex-grow: 1; });
     .md-max-height({padding: 0;});
     .sm-max-height({padding: 0;});
     .md-block({ padding: 0; });
+    .xs-block({ height: 480px;});
   }
   .swiper-slide {
     display: flex;
@@ -235,6 +240,7 @@
     flex-grow: 1;
     flex-direction: column;
     align-items: flex-start;
+    .s-max-height({ padding: 25px 50px;});
     .sm-block({ padding: 30px; });
     .xs-block({ padding: 25px; });
     &:hover {
@@ -302,7 +308,6 @@
       box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
       .sm-max-height({background-position: -30% -15%;});
       .xs-max-height({background-image: none;});
-      .sm-block({ background-image: none;});
     }
   }
   .grow {

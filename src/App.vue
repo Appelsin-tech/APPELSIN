@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-block/>
+    <header-block @menu="activeMenu" :showMenu="showMenu"/>
     <social-block/>
     <div id="nav-menu" class="navigation-wrapper">
       <button class="arrow next-slide" @click="prevSlide"></button>
@@ -36,12 +36,11 @@
         <contacts-block/>
       </full-page>
     </main>
-    <footer-block/>
+    <footer-block :showMenu="showMenu"/>
   </div>
 </template>
 
 <script>
-  import Vue from 'vue'
 
   import SocialBlock from './components/social-block'
   import HeaderBlock from './components/header-block'
@@ -53,8 +52,7 @@
   import ContactsBlock from './components/contacts-block'
   import FooterBlock from './components/footer-block'
 
-  import VueFullPage from 'vue-fullpage.js'
-  Vue.use(VueFullPage);
+
 
   export default {
     name: 'app',
@@ -71,6 +69,7 @@
     },
     data() {
       return {
+        showMenu: false,
         options: {
           licenseKey: '',
           verticalCentered: true,
@@ -80,7 +79,7 @@
           menu: '#mainMenu',
           //scrollBar: true,
           responsiveHeight: 320,
-          // responsiveWidth: 319,
+          responsiveWidth: 319,
           // css3: false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section'
@@ -93,6 +92,21 @@
       },
       nextSlide() {
         fullpage_api.moveSectionDown();
+      },
+      activeMenu() {
+        this.showMenu = !this.showMenu
+      }
+    },
+    watch: {
+      showMenu (newVal, oldVal) {
+        if(newVal === true) {
+
+          fullpage_api.setAllowScrolling(false);
+          fullpage_api.setKeyboardScrolling(false)
+        } else {
+          fullpage_api.setAllowScrolling(true);
+          fullpage_api.setKeyboardScrolling(true)
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <header class="b-header">
+  <header class="b-header" :class="{active : showMenu}">
     <div class="container">
       <div class="logo-wrapper">
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
@@ -8,62 +8,129 @@
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <a class="submit" href="#">Оставить заявку</a>
-      <!--<div class="menu-wrapper">-->
-        <!--<button class="menu">-->
-          <!--<img svg-inline src="../assets/img/icon/menu.svg" alt="">-->
-        <!--</button>-->
-      <!--</div>-->
+      <button class="burger" @click="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <!--<img svg-inline src="../assets/img/icon/menu.svg" alt="">-->
+      </button>
     </div>
+    <ul class="menu-list">
+      <li class="item">
+        <a href="#" class="link" >О нас</a>
+      </li>
+      <li class="item">
+        <a href="#services" class="link" @click="menu">Услуги</a>
+      </li>
+      <li class="item">
+        <a href="#" class="link">Наши работы</a>
+      </li>
+      <li class="item">
+        <a href="#contacts" class="link" @click="menu">Контакты</a>
+      </li>
+      <li class="item">
+        <a href="#price" class="link" @click="menu">Начать проект</a>
+      </li>
+    </ul>
   </header>
 </template>
 
 <script>
   export default {
     name: 'header-block',
+    props: ['showMenu'],
+    data() {
+      return {
+      }
+    },
+    methods: {
+      menu() {
+        this.$emit('menu')
+      },
+      moveSlide() {
+        this.fullpage_api.moveTo('services', 1)
+      }
+    }
   }
 </script>
 
 <style scoped lang="less">
   @import "../assets/less/_variables";
   .b-header {
-    position: absolute;
+    position: fixed;
     padding-top: 30px;
     top: 0;
     left: 0;
     right: 0;
     z-index: 999;
-    .md-max-height({ padding-top: 15px;});
-    .xs-max-height({ padding-top: 10px;});
-    .md-block({padding-top: 15px;});
-    .sm-block({padding-top: 10px;});
-
+    .md-max-height({ padding-top: 15px; });
+    .xs-max-height({ padding-top: 10px; });
+    .md-block({ padding-top: 15px; });
+    .sm-block({ padding-top: 10px; });
+    &.active {
+      bottom: 0;
+      background: #fff;
+      color: #000;
+      .svg-logo {
+        path {
+          fill: #ffba00;
+        }
+      }
+      .svg-logo-appelsin {
+        path {
+          fill: #000;
+        }
+      }
+      .submit,
+      .phone {
+        color: #000;
+      }
+      .burger {
+        span {
+          background: #000;
+          &:nth-child(1) {
+            width: 35px;
+            transform: rotate(45deg);
+            transform-origin: 5px 9px;
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            width: 35px;
+            transform: rotate(-45deg);
+            transform-origin: 5px -5px;
+          }
+        }
+      }
+      .menu-list {
+        display: flex;
+      }
+    }
   }
   .container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    .xs-block({ flex-direction: column; align-items: flex-start;})
   }
   .logo-wrapper {
     display: flex;
     align-items: center;
-    .sm-block({ margin-right: auto;});
+    .sm-block({ margin-right: auto; });
     .svg-logo {
       width: 38px;
       height: 38px;
       margin-right: 60px;
-      .xs-max-height({ width: 30px; height: 30px; margin-right: 30px;});
-      .md-block({margin-right: 40px;});
-      .sm-block({ width: 30px; height: 30px; margin-right: 25px;});
-
+      .xs-max-height({ width: 30px; height: 30px; margin-right: 30px; });
+      .md-block({ margin-right: 40px; });
+      .sm-block({ width: 30px; height: 30px; margin-right: 25px; });
     }
     .svg-logo-appelsin {
       width: 140px;
       height: 22px;
-      .xs-max-height({ width: 110px; height: 20px;});
-      .lg-block({ width: 130px; height: 20px;});
-      .sm-block({ width: 110px; height: 16px;});
-
+      .xs-max-height({ width: 110px; height: 20px; });
+      .lg-block({ width: 130px; height: 20px; });
+      .sm-block({ width: 110px; height: 16px; });
       path {
         fill: #fff;
       }
@@ -73,19 +140,19 @@
     margin-right: auto;
     font-size: 1.7rem;
     font-weight: 300;
-    .sm-block({ display: none;});
+    .sm-block({ display: none; });
     &::before {
       content: '|';
       margin: 0 60px;
-      .md-block({margin: 0 30px;});
-      .xs-max-height({ margin: 0 40px;})
+      .md-block({ margin: 0 30px; });
+      .xs-max-height({ margin: 0 40px; })
     }
   }
   .phone {
     font-size: 1.7rem;
     color: #fff;
-    .xs-block({ display: none;});
-    .xs-max-height({ display: none;});
+    .xs-block({ display: none; });
+    .xs-max-height({ display: none; });
   }
   .submit {
     display: none;
@@ -95,18 +162,61 @@
     letter-spacing: 0.7rem;
     color: #fff;
     .bottom-hover();
-    .xs-max-height({ display: block;});
-    .xs-block({ display: none;});
+    .xs-max-height({ display: block; });
+    .xs-block({ display: none; });
   }
-  .menu-wrapper {
-    .xs-block({order: 2;});
-    .menu {
-      display: flex;
-      align-items: center;
-      .svg-menu {
+  .burger {
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    cursor: pointer;
+    .xs-block({ order: 2; });
+    span {
+      display: block;
+      height: 3px;
+      margin-bottom: 8px;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: all 0.2s ease 0.1s;
+      &:nth-child(1) {
+        width: 20px;
+      }
+      &:nth-child(2) {
         width: 35px;
-        height: 35px;
-        .sm-block({ width: 30px; height: 30px;})
+      }
+      &:nth-child(3) {
+        width: 20px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .menu-list {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    .xs-max-height({transform: translate(-50%, -40%);});
+    .item {
+      margin-bottom: 25px;
+      text-align: center;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .link {
+        font-family: @fontBebas;
+        font-size: 3rem;
+        letter-spacing: 0.8rem;
+        font-weight: bold;
+        color: #000;
+        text-transform: uppercase;
+        transition: 0.3s;
+        &:hover {
+          color: #ffba00;
+        }
       }
     }
   }

@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueModal from 'vue-js-modal'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-
+import VueFullPage from 'vue-fullpage.js'
+Vue.use(VueFullPage);
 
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
