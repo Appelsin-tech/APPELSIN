@@ -12,7 +12,7 @@
           <a  class="link-section" href="#services"></a>
         </li>
         <li data-menuanchor="skills">
-          <a  class="link-section" href="#skills"></a>
+          <a  class="link-section" href="#about"></a>
         </li>
         <li data-menuanchor="price">
           <a  class="link-section" href="#price"></a>
@@ -32,7 +32,7 @@
         <services-block/>
         <case-block/>
         <price-block/>
-        <skills-block/>
+        <about-block/>
         <contacts-block/>
       </full-page>
     </main>
@@ -46,7 +46,7 @@
   import HeaderBlock from './components/header-block'
   import MainBlock from './components/main-block'
   import ServicesBlock from './components/services-block'
-  import SkillsBlock from './components/skills-block'
+  import AboutBlock from './components/about-block'
   import PriceBlock from './components/price-block'
   import CaseBlock from './components/cases-block'
   import ContactsBlock from './components/contacts-block'
@@ -61,7 +61,7 @@
       SocialBlock,
       MainBlock,
       ServicesBlock,
-      SkillsBlock,
+      AboutBlock,
       PriceBlock,
       CaseBlock,
       ContactsBlock,
@@ -75,9 +75,9 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'services', 'skills', 'price', 'case', 'contacts'],
+          anchors: ['main', 'services', 'about', 'price', 'case', 'contacts'],
           menu: '#mainMenu',
-          responsiveHeight: 320,
+          responsiveHeight: 655,
           responsiveWidth: 319,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section'

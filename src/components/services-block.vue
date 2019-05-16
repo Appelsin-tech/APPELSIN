@@ -1,7 +1,7 @@
 <template>
   <section class="s-services fullpage-section">
     <div class="wrapper-container">
-      <div class="container">
+      <div class="container section">
         <div class="caption-wrapper">
           <div class="g-caption-block">
             <h2 class="g-caption">Услуги</h2>
@@ -174,48 +174,17 @@
       .xs-max-height({ align-items: flex-end;});
     }
     .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
       max-width: 1210px;
       box-sizing: border-box;
-      .lg-max-height({height: calc(~"100% - 180px");});
       .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
-    }
-    .caption-wrapper {
-      margin-bottom: 0px;
-      justify-content: space-between;
-      .md-max-height({ margin-bottom: 15px;});
-      .md-block({ margin-bottom: 15px; });
-      .nav-slider {
-        display: flex;
-        align-items: center;
-        button {
-          cursor: pointer;
-          &.next {
-            margin-right: 20px;
-            svg {
-              transform: rotate(180deg);
-            }
-          }
-          svg {
-            width: 30px;
-            height: 30px;
-            .xs-max-height({width: 25px; height: 25px;});
-            .sm-block({ width: 25px; height: 25px;});
-            path {
-              fill: #fff;
-            }
-          }
-        }
-      }
     }
   }
   .swiper-container {
     padding: 30px 0;
-    height: 540px;
+    flex-grow: 1;
+    margin-bottom: -30px;
     width: 100%;
+    max-height: 560px;
     .md-max-height({height: auto; flex-grow: 1; });
     .md-max-height({padding: 0;});
     .sm-max-height({padding: 0;});
@@ -228,7 +197,6 @@
     height: 100%;
     z-index: 1;
     transition: 0.3s;
-    .md-max-height({});
     &:hover {
       z-index: 6;
     }

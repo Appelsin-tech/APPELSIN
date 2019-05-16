@@ -1,6 +1,6 @@
 <template>
   <section class="s-case fullpage-section">
-    <div class="container">
+    <div class="container section">
       <div class="caption-wrapper">
         <div class="g-caption-block">
           <h2 class="g-caption">Кейсы </h2>
@@ -21,8 +21,7 @@
             <div class="col col-3">
               <h3 class="caption-slide">Community generation</h3>
               <p class="desc-case">
-                Проектирование и разработка
-                front-end / back-end, полное обслуживание платформы и связанных ресурсов
+                Разработана криптовалюта CGEN на базе технологии Quark, листинг монеты на биржах. Проведен SWAP монеты. Разработан сайт, личный кабинет с онлайн кошельком. Полная разработка и ведение платформы
               </p>
               <a class="line" href="#">
                 <span>cgen.network</span>
@@ -34,18 +33,61 @@
         <swiper-slide>
           <div class="slide-wrapper">
             <div class="col col-3">
-              <h3 class="caption-slide">Test Testovich</h3>
+              <h3 class="caption-slide">API Решения для ресурсов</h3>
               <p class="desc-case">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi commodi delectus explicabo, itaque mollitia nesciunt obcaecati officiis ratione ut.
+                Разработаны API для Федеральной службы судебных приставов, единого федеральный реестра сведений о банкротстве, картотеки арбитражных дел РФ.
               </p>
-              <a class="line" href="#">
-                <span>cgen.network</span>
-              </a>
             </div>
-            <img class="cgen-img" height="200" src="../assets/img/services/item-1.png" alt="CGEN">
           </div>
         </swiper-slide>
-
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">Crowdsale Network</h3>
+              <p class="desc-case">
+                Краудфандинг платформа для сбора средств и подбора специалистов на базе блокчейн технологий. Полная разработка и ведение платформы. Разработана криптовалюта CSNP на базе технологии ERC20. Листинг монеты на биржах.
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">WHIZ BIZ</h3>
+              <p class="desc-case">
+                Фонд поддержки и развития современного искусства на базе блокчейн технологий. Разработка сайта.
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">Леталки для детей развивающие</h3>
+              <p class="desc-case">
+                Мобильная 2D-игра, разработанная под iOS. Паззл для детей, оффлайн. Опубликовано в AppStore. Полная разработка.              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">FURY RIDE</h3>
+              <p class="desc-case">
+                Мобильная 3D-игра, разработанная под iOS. Гонки на мотоциклах, сражения, реалистичная физика, более 10км уникальной трассы, умные противники - боты. Оффлайн. Опубликовано в AppStore. Полная разработка.              </p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="slide-wrapper">
+            <div class="col col-3">
+              <h3 class="caption-slide">SNIPER ARENA</h3>
+              <p class="desc-case">
+                Мобильная 3D-игра в жанре экнш, разработанная под iOS и Android. Программирование поведения персонажей, классов серверной логики и UI. Проектирование классов игрового контента, анимационной FSM. Подготовка\сборка\финализация контента.
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
       </swiper>
     </div>
   </section>
@@ -63,7 +105,10 @@
       return {
         swiperOption: {
           slidesPerView: 1,
+          lazy: true,
           effect: 'flip',
+          preloadImages: false,
+          loadPrevNext: true,
           navigation: {
             nextEl: '.prev',
             prevEl: '.next',
@@ -90,59 +135,34 @@
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
-    .container {
-      .container-pdd();
-    }
-    .caption-wrapper {
-      justify-content: space-between;
-      .nav-slider {
-        display: flex;
-        align-items: center;
-        button {
-          cursor: pointer;
-          &.next {
-            margin-right: 20px;
-            svg {
-              transform: rotate(180deg);
-            }
-          }
-          svg {
-            width: 30px;
-            height: 30px;
-            .sm-block({ width: 25px; height: 25px;});
-            path {
-              fill: #fff;
-            }
-          }
-        }
-      }
+    .swiper-container {
+      flex-grow: 1;
+      width: 100%;
+      max-height: 560px;
     }
     .swiper-slide {
       display: flex;
-      height: 540px;
-      .md-block({ height: 440px;});;
-      .sm-block({ height: 300px;});
     }
     .slide-wrapper {
       display: flex;
       position: relative;
-      flex-grow: 1;
-      padding: 100px 80px;
+      flex-grow: 2;
+      padding: 100px 50px;
       background: #fff;
       .md-block({ padding: 70px 60px;});
       .sm-block({ padding: 40px 30px;});
       .col {
         color: #000;
         &-3 {
-          width: 33%;
+          width: 35%;
           .sm-block({ width: 100%;});
         }
         .caption-slide {
           margin-bottom: 50px;
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 4.7rem;
-          letter-spacing: 1.4rem;
+          font-size: 4.5rem;
+          letter-spacing: 1.3rem;
           .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 1rem;});
         }
         .desc-case {

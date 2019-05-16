@@ -1,6 +1,6 @@
 <template>
   <section class="s-price fullpage-section">
-    <div class="container">
+    <div class="container section">
       <div class="caption-wrapper">
         <div class="g-caption-block">
           <h2 class="visually-hidden">Расчет стоимости проекта</h2>
@@ -369,6 +369,8 @@
           if (type === 'radio') {
             this.answers.forEach((a, ia) => {
               this.activeQuestion.variant.forEach(v => {
+                console.log(a)
+                console.log(v)
                 if (a.val === v.val) {
                   this.answers.splice(ia, 1)
                 }
@@ -402,9 +404,6 @@
 
   .s-price {
     background: #d94a50;
-    .container {
-      .container-pdd();
-    }
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -422,7 +421,8 @@
       }
     }
     .steps-wrapper {
-      height: 550px;
+      flex-grow: 1;
+      max-height: 560px;
       .md-block({ height: 450px; });
       .sm-block({ height: 330px; });
       .xs-block({ height: 300px; });

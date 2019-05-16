@@ -4,7 +4,7 @@
       <div class="bg-small"></div>
       <div class="bg-big"></div>
 
-      <div class="container container-app">
+      <div class="container container-app section">
         <div class="app-wrapper">
           <h1 class="visually-hidden">Appelsin</h1>
           <img svg-inline src="../assets/img/appelsin/app.svg" alt="">
@@ -64,7 +64,6 @@
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
-      .xs-max-height({ align-items: flex-end;});
       .xs-block({background-position: 0% 0%, 95% 80%;});
       .bg-small {
         position: absolute;
@@ -82,12 +81,11 @@
         background-repeat: no-repeat;
         background-position: 45% 100%;
         z-index: 9;
-        .xl-max-height({background-position: 55% 120%;});
+        .xl-max-height({background-position: 55% 130%;});
         .lg-width__lg-height({background-position: 45% 250px;});
         .md-width__xl-height({background-position: 60% 320px;});
         .md-width__lg-height({background-position: 60% 230px;});
         .md-max-height({ display: none;});
-        .sm-width__xl-height({background-position: 55% 100%;});
         .xs-block({ display: none;});
       }
       .container-app {
@@ -96,14 +94,12 @@
         display: flex;
         width: 100%;
         align-items: center;
+        flex-direction: row;
         box-sizing: border-box;
-        .lg-max-height({height: calc(~"100% - 180px");});
-        .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
         .md-width__md-height({width:auto; margin: 0 ;});
-        .md-width__xs-height({ width:auto; margin: 0 0 25px 0;});
         .sm-block({ display: none;});
         .app-wrapper {
-          width: 45%;
+          height: 100%;
           max-height: 100%;
           box-sizing: border-box;
           .lg-max-height({ height:100%; });
@@ -111,6 +107,7 @@
           svg {
             max-width: 100%;
             max-height: 100%;
+            height: 100%;
             .xl-max-height({  height: 100%;});
           }
         }
@@ -124,16 +121,11 @@
         z-index: 10;
         .lg-width__lg-height({transform: translate(520px, -260px);});
         .md-max-height({transform: translate(400px, -50%);});
-        .sm-max-height({transform: translate(250px, -50%);});
-        .xs-max-height({transform: translate(100px, 0); height: calc(~"100% - 90px"); display: flex; flex-direction: column; justify-content: center; top: auto; bottom: 25px;});
-        .s-max-height({transform: translate(0, 0);});
         .lg-block({ transform: translate(380px, -240px);});
         .md-block({ transform: translate(350px, -200px);});
         .sm-block({ position: relative; transform: translate(0, -80px); top: auto; left: 10%; right:auto;});
 
         .md-width__md-height({ position: relative; transform: translate(0, 0px); top: auto; left: auto; right:auto; flex-shrink: 0; padding-left: 70px; padding-right: 20px;});
-        .md-width__xs-height({height: calc(~"100% - 90px"); display: flex; flex-direction: column; justify-content: center; top: auto; bottom: 25px;});
-        .sm-width__xs-height({transform: translate(30px, 0); height: calc(~"100% - 90px"); display: flex; flex-direction: column; justify-content: center; top: auto; bottom: 25px;});
         .xs-block({ position: relative; top: auto; left: auto; right:auto; transform: translate(0, 0); flex-shrink: 1; padding-left: 40px; padding-right: 20px; align-self: center});
         .desc-caption {
           display: inline-block;
@@ -144,19 +136,12 @@
           letter-spacing: 1.6rem;
           text-transform: uppercase;
           .md-max-height({ font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
-          .xs-max-height({ font-size: 2.5rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
-          .s-max-height({ font-size: 2.2rem; margin-bottom: 15px;});
           .lg-block({font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
-          .md-width__xs-height({ font-size: 2.5rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
-          .md-width__s-height({ font-size: 2.2rem; margin-bottom: 15px;});
           .sm-block({ font-size: 3rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
         }
         .servises-list {
           .item {
             margin-bottom: 22px;
-            .sm-max-height({ margin-bottom: 15px;});
-            .xs-max-height({ margin-bottom: 7%;});
-            .s-max-height({ margin-bottom: 5%;});
             &:last-child {
               margin-bottom: 0;
             }
@@ -167,9 +152,6 @@
               text-transform: uppercase;
               color: #fff;
               .bottom-hover();
-              .sm-max-height({ font-size: 1.8rem;});
-              .xs-max-height({ font-size: 1.5rem;});
-              .s-max-height({ font-size: 1.3rem;});
               .sm-block({ font-size: 1.8rem;})
             }
           }
@@ -184,7 +166,6 @@
         font-size: 2rem;
         color: #fff;
         .xs-block({ display: inline-block;});
-        .xs-width__xs-height({ display: none;});
       }
     }
 
