@@ -34,8 +34,8 @@
           </li>
         </ul>
       </div>
-      <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
     </div>
+    <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
   </section>
 </template>
 
@@ -64,7 +64,7 @@
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
-      .xs-block({background-position: 0% 0%, 95% 80%;});
+      .xs-block({background-position: 0% 0%, 95% 80%; height: 100%;});
       .bg-small {
         position: absolute;
         top: 85%;
@@ -123,8 +123,8 @@
         .lg-block({ transform: translate(380px, -240px);});
         .md-block({ transform: translate(0, 0); position: relative; top: auto; right:auto; padding: 0 20px;});
         .md-width__md-height({ position: relative; transform: translate(0, 0px); top: auto; left: auto; right:auto; flex-shrink: 0; padding-left: 70px; padding-right: 20px;});
-        .sm-block({transform: translateY(-80px);
-          left: 10%;});
+        .sm-block({transform: translateY(-80px)});
+        .xs-block({transform: translateY(0px); left: 10%;});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
@@ -155,17 +155,16 @@
           }
         }
       }
-      .phone {
-        display: none;
-        position: absolute;
-        bottom: 50px;
-        right: 50%;
-        transform: translateX(50%);
-        font-size: 2rem;
-        color: #fff;
-        .xs-block({ display: inline-block;});
-      }
     }
-
+    .phone {
+      display: none;
+      position: absolute;
+      bottom: 50px;
+      right: 50%;
+      transform: translateX(50%);
+      font-size: 2rem;
+      color: #fff;
+      .xs-block({ display: inline-block; position: absolute; bottom: 70px;});
+    }
   }
 </style>
