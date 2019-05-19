@@ -168,15 +168,14 @@
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
     .wrapper-container {
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      position: relative;
       display: flex;
       align-items: center;
-      .xs-max-height({ align-items: flex-end;});
     }
     .container {
       max-width: 1210px;
       box-sizing: border-box;
-      .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
       .caption-wrapper {
         .md-max-height({ margin-bottom: 30px;});
         .md-block({ margin-bottom: 30px;});

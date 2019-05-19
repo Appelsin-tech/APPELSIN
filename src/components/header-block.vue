@@ -68,6 +68,7 @@
     .md-block({ position: absolute; padding-top: 15px; });
     .sm-block({ padding-top: 10px; });
     &.active {
+      position: fixed;
       bottom: 0;
       background: #fff;
       color: #000;

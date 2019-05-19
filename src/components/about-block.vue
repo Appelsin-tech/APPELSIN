@@ -212,7 +212,6 @@
       height: 100vh;
       align-items: center;
       justify-content: flex-start;
-
       .swiper-container {
 
         .swiper-slide {

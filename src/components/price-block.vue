@@ -1,58 +1,60 @@
 <template>
   <section class="s-price fullpage-section">
-    <div class="container section">
-      <div class="caption-wrapper">
-        <div class="g-caption-block">
-          <h2 class="visually-hidden">Расчет стоимости проекта</h2>
-          <p class="text-wrapper">
-            <span class="g-caption">Рассчитайте</span>
-            <span class="small">стоимость вашего проекта</span>
-          </p>
-        </div>
-      </div>
-      <div class="steps-wrapper">
-        <result-form v-if="showResult" :answers="answers" v-on:go-back-step="preventStepsClick" :steps="steps"
-                     :activeSteps="activeSteps"/>
-        <div class="steps" v-if="!showResult">
-          <div class="steps-num">
-            <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
-            <span>Шаг </span>
-            <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
+    <div class="wrapper-container">
+      <div class="container section">
+        <div class="caption-wrapper">
+          <div class="g-caption-block">
+            <h2 class="visually-hidden">Расчет стоимости проекта</h2>
+            <p class="text-wrapper">
+              <span class="g-caption">Рассчитайте</span>
+              <span class="small">стоимость вашего проекта</span>
+            </p>
           </div>
-          <div class="steps-content">
-            <div class="step">
-              <h3 class="steps-caption">{{activeQuestion.stepCaption}}</h3>
-              <div class="variant-wrapper">
-                <div class="item-wrapper">
+        </div>
+        <div class="steps-wrapper">
+          <result-form v-if="showResult" :answers="answers" v-on:go-back-step="preventStepsClick" :steps="steps"
+                       :activeSteps="activeSteps"/>
+          <div class="steps" v-if="!showResult">
+            <div class="steps-num">
+              <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
+              <span>Шаг </span>
+              <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
+            </div>
+            <div class="steps-content">
+              <div class="step">
+                <h3 class="steps-caption">{{activeQuestion.stepCaption}}</h3>
+                <div class="variant-wrapper">
+                  <div class="item-wrapper">
 
-                  <div class="item" v-for="(item, index) in activeQuestion.variant"
-                       :key="index"
-                       :class="answers.findIndex(i=>i.val === item.val) === -1 ? '' : 'check'"
-                       @click="clickVariant(item, activeQuestion.type)">
-                    <div class="content">
-                      <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
-                      <p class="name-project">{{item.name}}</p>
+                    <div class="item" v-for="(item, index) in activeQuestion.variant"
+                         :key="index"
+                         :class="answers.findIndex(i=>i.val === item.val) === -1 ? '' : 'check'"
+                         @click="clickVariant(item, activeQuestion.type)">
+                      <div class="content">
+                        <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
+                        <p class="name-project">{{item.name}}</p>
+                      </div>
                     </div>
+
+                  </div>
+
+                  <div class="item-btn" @click="submitButton" :class="answers.length > 0 ? 'active' : 'disabled'">
+                    <div class="btn-next">
+                      <div class="img">
+                        <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
+                      </div>
+
+                      <span>Далее</span>
+                    </div>
+
                   </div>
 
                 </div>
-
-                <div class="item-btn" @click="submitButton" :class="answers.length > 0 ? 'active' : 'disabled'">
-                  <div class="btn-next">
-                    <div class="img">
-                      <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
-                    </div>
-
-                    <span>Далее</span>
-                  </div>
-
-                </div>
-
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
@@ -418,6 +420,14 @@
 
   .s-price {
     background: #d94a50;
+    .wrapper-container {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      align-items: center;
+      justify-content: flex-start;
+    }
     .caption-wrapper {
       .text-wrapper {
         display: flex;
