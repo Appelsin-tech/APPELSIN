@@ -1,6 +1,5 @@
 <template>
   <section class="s-case fullpage-section">
-    <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
           <div class="g-caption-block">
@@ -100,7 +99,6 @@
           </swiper-slide>
         </swiper>
       </div>
-    </div>
   </section>
 </template>
 
