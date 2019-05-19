@@ -107,18 +107,7 @@
           fullpage_api.setKeyboardScrolling(true)
         }
       },
-      windowHeight(newHeight, oldHeight) {
-        console.log(newHeight, oldHeight)
-      }
-    },
-    mounted() {
-      this.$nextTick(() => {
-        window.addEventListener('resize', () => {
-          this.windowHeight = window.innerHeight * 0.01
-          document.documentElement.style.setProperty('--vh', `${this.windowHeight}px`);
-        });
-      })
-    },
+    }
   }
 </script>
 
@@ -194,8 +183,6 @@
   }
   .wrapper-container {
     width: 100%;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     position: relative;
     display: flex;
     align-items: center;
