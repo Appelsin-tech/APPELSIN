@@ -164,7 +164,6 @@
       transform: translateX(50%);
       font-size: 2rem;
       color: #fff;
-      .xs-block({ display: inline-block; position: absolute; bottom: 70px;});
     }
   }
 </style>

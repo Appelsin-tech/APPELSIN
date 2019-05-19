@@ -1,6 +1,5 @@
 <template>
   <section class="s-services fullpage-section">
-    <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper">
           <div class="g-caption-block">
@@ -16,7 +15,6 @@
           </div>
         </div>
         <swiper :options="swiperOption" ref="mySwiper">
-
           <swiper-slide>
             <div class="wrapper wrapper-1">
               <div class="grow"></div>
@@ -62,7 +60,7 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="wrapper wrapper-1">
+            <div class="wrapper wrapper-4">
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
@@ -76,7 +74,7 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="wrapper wrapper-2">
+            <div class="wrapper wrapper-5">
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
@@ -91,7 +89,7 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="wrapper wrapper-3">
+            <div class="wrapper wrapper-6">
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
@@ -106,7 +104,6 @@
           </swiper-slide>
         </swiper>
       </div>
-    </div>
   </section>
 </template>
 
@@ -150,11 +147,7 @@
       swiper() {
         return this.$refs.mySwiper.swiper
       }
-    },
-    mounted() {
-      // current swiper instance
-      console.log('this is current swiper instance object', this.swiper)
-    },
+    }
   }
 </script>
 
@@ -249,6 +242,21 @@
         background-image: url("../assets/img/services/item_3.png");
       }
     }
+    &-4 {
+      &::after {
+        background-image: url("../assets/img/services/item_4.png");
+      }
+    }
+    &-5 {
+      &::after {
+        background-image: url("../assets/img/services/item_5.png");
+      }
+    }
+    &-6 {
+      &::after {
+        background-image: url("../assets/img/services/item_6.png");
+      }
+    }
     &::after {
       position: absolute;
       content: '';
@@ -261,9 +269,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       z-index: 1;
-
-      /*.sm-max-height({background-position: -30% -15%;});
-      .xs-max-height({background-image: none;});*/
     }
   }
   .grow {

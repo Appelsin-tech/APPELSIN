@@ -130,9 +130,6 @@
       swiper() {
         return this.$refs.mySwiper.swiper
       }
-    },
-    mounted() {
-      console.log('this is current swiper instance object', this.swiper)
     }
   }
 </script>

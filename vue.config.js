@@ -17,6 +17,10 @@ module.exports = {
           from: 'favicon.png',
           to: '[name].[ext]'
         },
+        {
+          from: './mail.php',
+          to: '[name].[ext]'
+        },
       ]]
     })
   },

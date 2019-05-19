@@ -44,6 +44,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: "PriceBlockCalcResult",
     props: ['answers', 'steps', 'activeSteps'],
@@ -62,7 +64,17 @@
     },
     methods: {
       onSubmit() {
-
+        axios.post('/mail.php', {
+          name: 'pelkin',
+          phone: '8920000000000',
+          formName: 'GetConsultation',
+        })
+          .then(response => {
+            console.log(response)
+          })
+          .catch(response => {
+            console.log(response)
+          })
       }
     },
     computed: {
