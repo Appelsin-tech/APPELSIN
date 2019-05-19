@@ -193,7 +193,7 @@
         return this.$refs.mySwiper.swiper
       }
     },
-    mounted () {
+    mounted() {
       console.log(this.swiper)
     }
   }
@@ -205,128 +205,126 @@
 
   .s-about {
     background: linear-gradient(to top right, #3fbc47, #59c259) no-repeat;
-      .swiper-container {
+    .swiper-container {
 
-        .swiper-slide {
-          display: flex;
-          flex-grow: 2;
-          height: 100%;
-          z-index: 1;
-          background: #fff;
-          .slide-wrapper {
-            padding: 80px 60px;
-            .md-block({ padding: 60px 40px;});
-            &.main-slide {
-              display: flex;
-              justify-content: space-between;
-              .svg-wrapper {
-                margin-right: 30px;
-                flex-shrink: 0;
+      .swiper-slide {
+        display: flex;
+        flex-grow: 2;
+        height: 100%;
+        z-index: 1;
+        background: #fff;
+        .slide-wrapper {
+          padding: 80px 60px;
+          .md-block({ padding: 60px 40px; });
+          &.main-slide {
+            display: flex;
+            justify-content: space-between;
+            .svg-wrapper {
+              margin-right: 30px;
+              flex-shrink: 0;
+              height: 100%;
+              .md-block({ max-width: 32% });
+              .sm-block({ display: none; });
+              > svg {
                 height: 100%;
-                .md-block({max-width:  32%});
-                .sm-block({ display: none;});
+                .md-block({ width: 100%; height: auto; });
+              }
+            }
+            .text-wrapper {
+              display: flex;
+              flex-direction: column;
+              max-width: 60%;
+              .md-block({ max-width: 70%; });
+              .sm-block({ max-width: 100%; });
+              .symbol {
+                margin-bottom: 40px;
+                width: 30px;
+                height: 30px;
+                transform: rotate(180deg);
                 > svg {
+                  width: 100%;
                   height: 100%;
-                  .md-block({ width: 100%; height: auto;});
                 }
               }
-              .text-wrapper {
-                display: flex;
-                flex-direction: column;
-                max-width: 60%;
-                .md-block({max-width: 70%;});
-                .sm-block({max-width: 100%;});
-                .symbol {
-                  margin-bottom: 40px;
-                  width: 30px;
-                  height: 30px;
-                  transform: rotate(180deg);
-                  > svg {
-                    width: 100%;
-                    height: 100%;
-                  }
-                }
-                .description {
-                  margin-bottom: auto;
+              .description {
+                margin-bottom: auto;
+                color: #000;
+                font-size: 1.8rem;
+              }
+              .admin {
+                > strong {
+                  display: block;
+                  margin-bottom: 15px;
                   color: #000;
-                  font-size: 1.8rem;
+                  font-family: @fontBebas;
+                  font-weight: bold;
+                  font-size: 2.4rem;
+                  letter-spacing: 0.7rem;
+                  text-transform: uppercase;
                 }
-                .admin {
-                  > strong {
-                    display: block;
-                    margin-bottom: 15px;
-                    color: #000;
-                    font-family: @fontBebas;
-                    font-weight: bold;
-                    font-size: 2.4rem;
-                    letter-spacing: 0.7rem;
-                    text-transform: uppercase;
-                  }
-                  > span {
-                    font-size: 2rem;
-                    color: #3fbc47;
-                  }
+                > span {
+                  font-size: 2rem;
+                  color: #3fbc47;
                 }
               }
             }
-            &.skills-slide {
-              .skills-desc {
-                margin-bottom: 40px;
-                font-size: 1.8rem;
-                color: @colorSecFonts;
+          }
+          &.skills-slide {
+            .skills-desc {
+              margin-bottom: 40px;
+              font-size: 1.8rem;
+              color: @colorSecFonts;
+            }
+            .skills-list {
+              display: flex;
+              flex-wrap: wrap;
+              .skills {
+                margin-right: 15px;
+                font-family: @fontBebas;
+                font-weight: bold;
+                font-size: 4.5rem;
+                letter-spacing: 1.3rem;
+                color: #000;
+                .md-block({ font-size: 3rem; letter-spacing: 1rem; });
               }
-              .skills-list {
-                display: flex;
-                flex-wrap: wrap;
+              &.api {
                 .skills {
-                  margin-right: 15px;
-                  font-family: @fontBebas;
-                  font-weight: bold;
-                  font-size: 4.5rem;
-                  letter-spacing: 1.3rem;
-                  color: #000;
-                  .md-block({font-size: 3rem;
-                    letter-spacing: 1rem;});
-                }
-                &.api {
-                  .skills {
-                    font-size: 3rem;
-                    letter-spacing: 0.8rem;
-                    .lg-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
-                  }
+                  font-size: 3rem;
+                  letter-spacing: 0.8rem;
+                  .lg-block({ font-size: 2.5rem; letter-spacing: 0.6rem; });
                 }
               }
             }
           }
         }
-        .swiper-wrapper {
+      }
+      .swiper-wrapper {
+        display: flex;
+        flex-direction: column;
+        .num-slides {
           display: flex;
-          flex-direction: column;
-          .num-slides {
+          height: 200px;
+          border-top: 1px solid @colorBorder;
+          .lg-block({ height: 150px; });
+          .md-block({ height: 100px; });
+          .sm-block({ height: 60px; });
+          .swiper-pagination {
+            position: relative;
+            height: 100%;
             display: flex;
-            height: 200px;
-            border-top: 1px solid @colorBorder;
-            .lg-block({ height: 150px;});
-            .md-block({ height: 100px;});
-            .sm-block({ height: 60px;});
-            .swiper-pagination {
-              position: relative;
-              height: 100%;
-              display: flex;
-              flex-grow: 1;
-            }
-            .nav-slider {
-              display: flex;
-              max-width: 195px;
-              width: 100%;
-              justify-content: center;
-              align-items: center;
-              .sm-block({max-width: 150px});
-              .xs-block({max-width: 120px});
-              svg {
-                path {
-                  fill: #000;
-                }
+            flex-grow: 1;
+          }
+          .nav-slider {
+            display: flex;
+            max-width: 195px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            .sm-block({ max-width: 150px });
+            .xs-block({ max-width: 120px });
+            svg {
+              path {
+                fill: #000;
               }
             }
           }
@@ -334,4 +332,5 @@
       }
     }
   }
+
 </style>
