@@ -177,19 +177,19 @@
       max-width: 1210px;
       box-sizing: border-box;
       .xs-max-height({height: calc(~"100% - 90px"); margin-bottom: 25px;});
+      .caption-wrapper {
+        .md-max-height({ margin-bottom: 30px;});
+        .md-block({ margin-bottom: 30px;});
+      }
     }
   }
   .swiper-container {
     padding: 30px 0;
-    flex-grow: 1;
     margin-bottom: -30px;
-    width: 100%;
-    max-height: 560px;
-    .md-max-height({height: auto; flex-grow: 1; });
-    .md-max-height({padding: 0;});
+    .md-max-height({height: auto;});
+    .md-max-height({padding: 0; margin-bottom: 0;});
     .sm-max-height({padding: 0;});
-    .md-block({ padding: 0; });
-    .xs-block({ height: 480px;});
+    .md-block({ padding: 0; margin-bottom: 0;});
   }
   .swiper-slide {
     display: flex;
@@ -243,23 +243,17 @@
     }
     &-1 {
       &::after {
-        background-image: url("../assets/img/services/item-1.png");
-        background-position:  top center;
-        background-color: #151e33;
+        background-image: url("../assets/img/services/item_1.png");
       }
     }
     &-2 {
       &::after {
-        background-image: url("../assets/img/services/item-2.png");
-        background-position: top center;
-        background-color: #111310;
+        background-image: url("../assets/img/services/item_2.png");
       }
     }
     &-3 {
       &::after {
-        background-image: url("../assets/img/services/item-3.png");
-        background-position: top -15%;
-        background-color: #2d2633;
+        background-image: url("../assets/img/services/item_3.png");
       }
     }
     &::after {
@@ -270,12 +264,13 @@
       left: 0;
       right: 0;
       transition: 0.3s;
-      background-size: contain;
+      background-position:  center;
+      background-size: cover;
       background-repeat: no-repeat;
       z-index: 1;
-      box-shadow: 0px 0px 170px -10px rgba(0, 0, 0, 0.75) inset;
-      .sm-max-height({background-position: -30% -15%;});
-      .xs-max-height({background-image: none;});
+
+      /*.sm-max-height({background-position: -30% -15%;});
+      .xs-max-height({background-image: none;});*/
     }
   }
   .grow {

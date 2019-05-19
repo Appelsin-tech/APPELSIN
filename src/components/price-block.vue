@@ -341,7 +341,8 @@
         return res
       },
       showResult() {
-        return this.activeSteps >= this.steps.length
+        return true
+        // return this.activeSteps >= this.steps.length
       }
     },
     methods: {
@@ -359,6 +360,22 @@
         const image = require(`../../src/assets/img/icon/steps/${src}`)
         return image;
       },
+      removeAnswer(index) {
+        let removeAnswer = this.answers[index]
+        if (removeAnswer.addQuestion !== undefined) {
+          let findIndexQuestion = this.questions.findIndex((q) => q.id === removeAnswer.addQuestion)
+          if (findIndexQuestion !== -1) {
+            this.questions[findIndexQuestion].variant.forEach(v => {
+              this.answers.forEach((a, ia) => {
+                if (a.val === v.val) {
+                  this.removeAnswer(ia)
+                }
+              })
+            })
+          }
+        }
+        this.answers.splice(index, 1)
+      },
       clickVariant(variant, type) {
         let index = this.answers.findIndex((i) => {
           if (i.val === variant.val) {
@@ -369,10 +386,8 @@
           if (type === 'radio') {
             this.answers.forEach((a, ia) => {
               this.activeQuestion.variant.forEach(v => {
-                console.log(a)
-                console.log(v)
                 if (a.val === v.val) {
-                  this.answers.splice(ia, 1)
+                  this.removeAnswer(ia)
                 }
               })
             })
@@ -383,16 +398,15 @@
                 this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
               } else {
                 let oi = this.answers.findIndex(i => i.val === 'other-1')
-                if(oi !== -1){
-                  this.answers.splice(oi, 1)
+                if (oi !== -1) {
+                  this.removeAnswer(oi)
                 }
               }
             }
-            this.answers.push(variant)
           }
-
+          this.answers.push(variant)
         } else {
-          this.answers.splice(index, 1)
+          this.removeAnswer(index)
         }
       },
     },
@@ -423,7 +437,7 @@
     .steps-wrapper {
       flex-grow: 1;
       max-height: 560px;
-      .md-block({ height: 450px; });
+      .lg-block({ max-height: 500px;; });
       .sm-block({ height: 330px; });
       .xs-block({ height: 300px; });
       .steps {
@@ -448,7 +462,7 @@
         letter-spacing: 0.4rem;
         color: #000;
         text-transform: uppercase;
-        .md-block({ margin-bottom: 15px; padding-left: 60px; padding-right: 60px; });
+        .md-block({ margin-bottom: 15px; padding-left: 40px; padding-right: 20px; });
         .xs-block({ margin-bottom: 10px; padding-left: 30px; padding-right: 30px; });
         .arrow {
           display: inline-block;
@@ -499,7 +513,7 @@
             letter-spacing: 1.3rem;
             color: #000;
             text-transform: uppercase;
-            .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 60px; padding-right: 60px; });
+            .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 20px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
           }
@@ -514,6 +528,7 @@
               grid-template-columns: repeat(4, minmax(100px, 1fr));
               z-index: 0;
               flex-grow: 1;
+              .md-block({ grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr); height: 100%; });
               .sm-block({ grid-template-columns: minmax(100px, 1fr); grid-template-rows: repeat(4, minmax(50px, 100px)); height: 100%; });
               .item {
                 position: relative;
@@ -554,7 +569,7 @@
                   flex-grow: 1;
                   flex-direction: column;
                   align-items: flex-start;
-                  .lg-block({ padding-right: 0; });
+                  .md-block({ padding-top: 25px; padding-left: 40px; padding-right: 25px;});
                   .sm-block({ padding-left: 20px; padding-top: 0; flex-direction: row; align-items: center; });
                   .xs-block({ padding-left: 30px; });
                   .img {

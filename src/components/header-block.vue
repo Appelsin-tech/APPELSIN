@@ -65,7 +65,7 @@
     z-index: 999;
     .md-max-height({ padding-top: 15px; });
     .xs-max-height({ padding-top: 10px; });
-    .md-block({ padding-top: 15px; });
+    .md-block({ position: absolute; padding-top: 15px; });
     .sm-block({ padding-top: 10px; });
     &.active {
       bottom: 0;

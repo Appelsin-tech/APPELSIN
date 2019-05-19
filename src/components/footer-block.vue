@@ -26,7 +26,8 @@
     left: 0;
     right: 0;
     z-index: 999;
-    .sm-block({ padding-bottom: 50px;});
+
+    .sm-block({ display: none; padding-bottom: 50px;});
     .xs-block({ display: none;});
     .xs-max-height({ display: none;});
     &.active {

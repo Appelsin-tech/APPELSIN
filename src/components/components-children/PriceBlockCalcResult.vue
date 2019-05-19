@@ -120,6 +120,7 @@
           padding: 45px 50px 55px 50px;
           flex-direction: column;
           border-right: 1px solid @colorBorder;
+          .md-block({padding: 40px;});
           .steps-num {
             margin-bottom: 20px;
             font-family: @fontBebas;
@@ -128,8 +129,8 @@
             letter-spacing: 0.4rem;
             color: #000;
             text-transform: uppercase;
-            .md-block({ margin-bottom: 15px; padding-left: 60px; padding-right: 60px; });
-            .xs-block({ margin-bottom: 10px; padding-left: 30px; padding-right: 30px; });
+            .md-block({ margin-bottom: 15px; });
+            .xs-block({ margin-bottom: 10px;});
             .arrow {
               display: inline-block;
               transform: rotate(45deg);
@@ -150,6 +151,7 @@
             font-size: 3rem;
             line-height: 4rem;
             letter-spacing: 0.7rem;
+
           }
           .ans {
             font-size: 1.8rem;
@@ -163,10 +165,12 @@
               line-height: 1;
               letter-spacing: 2rem;
               color: #db4954;
+              .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem;});
             }
             .currency {
               font-size: 3rem;
               letter-spacing: 0.7rem;
+              .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
             }
           }
           .file-link {
@@ -174,6 +178,7 @@
             margin-top: auto;
             padding-left: 60px;
             color: #000;
+            .md-block({ padding-left: 45px;});
             &::after {
               position: absolute;
               content: '';
@@ -182,6 +187,7 @@
               width: 42px;
               height: 42px;
               background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
+              .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px");});
             }
             .file-text--big {
               position: relative;
@@ -219,6 +225,7 @@
           text-align: left;
           text-transform: uppercase;
           cursor: pointer;
+          .md-block({ height: 60px; padding-left: 40px;});
         }
       }
       &--input {
@@ -235,6 +242,7 @@
             textarea,
             input {
               padding-left: 25px;
+              padding-right: 15px;
               height: 100%;
               width: 100%;
               font-size: 2rem;
@@ -268,7 +276,9 @@
           display: flex;
           height: 85px;
           padding-left: 25px;
+          padding-right: 15px;
           align-items: center;
+          .md-block({ height: 60px; });
           input {
             display: none;
             &:checked + label::after {
@@ -279,6 +289,7 @@
             position: relative;
             padding-left: 55px;
             font-size: 1.6rem;
+            .md-block({padding-left: 40px;});
             &::before,
             &::after {
               position: absolute;

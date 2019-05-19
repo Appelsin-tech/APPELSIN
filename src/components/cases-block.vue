@@ -1,7 +1,7 @@
 <template>
   <section class="s-case fullpage-section">
     <div class="container section">
-      <div class="caption-wrapper">
+      <div class="caption-wrapper default-margin-bottom">
         <div class="g-caption-block">
           <h2 class="g-caption">Кейсы </h2>
         </div>
@@ -135,11 +135,7 @@
     background:
     radial-gradient(circle farthest-corner at top right, rgba(171,23,216, 0.7) 0%, rgba(0,0,0,0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171,23,216, 0.5) 5%, rgba(0,0,0,0) 30%) #672fda;
-    .swiper-container {
-      flex-grow: 1;
-      width: 100%;
-      max-height: 560px;
-    }
+
     .swiper-slide {
       display: flex;
     }
@@ -147,14 +143,15 @@
       display: flex;
       position: relative;
       flex-grow: 2;
-      padding: 100px 50px;
+      padding: 88px 50px;
       background: #fff;
-      .md-block({ padding: 70px 60px;});
+      .md-block({ padding: 70px 40px;});
       .sm-block({ padding: 40px 30px;});
       .col {
         color: #000;
         &-3 {
           width: 35%;
+          .md-block({ width: 50%;});
           .sm-block({ width: 100%;});
         }
         .caption-slide {
@@ -196,6 +193,7 @@
         position: absolute;
         right: -230px;
         top: 70px;
+        .md-block({right: -300px;});
         .sm-block({ display: none;});
       }
     }

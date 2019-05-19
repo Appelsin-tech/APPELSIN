@@ -77,8 +77,8 @@
           fixedElements: '#nav-menu',
           anchors: ['main', 'services', 'about', 'price', 'case', 'contacts'],
           menu: '#mainMenu',
-          responsiveHeight: 655,
-          responsiveWidth: 319,
+          responsiveHeight: 750,
+          responsiveWidth: 750,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section'
         }
