@@ -166,13 +166,7 @@
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0, 0, 0, 0) 25%),
     radial-gradient(circle farthest-corner at top right, #02d8d5 15%, rgba(0, 0, 0, 0) 50%),
     radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 5%, rgba(0, 0, 0, 0) 30%) #23ade0;
-    .wrapper-container {
-      width: 100%;
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
+
     .container {
       max-width: 1210px;
       box-sizing: border-box;

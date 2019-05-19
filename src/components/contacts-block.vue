@@ -1,6 +1,9 @@
 <template>
   <section class="s-contacts fullpage-section">
-    <p>6</p>
+    <div class="wrapper-container">
+      <p>6</p>
+    </div>
+
   </section>
 </template>
 

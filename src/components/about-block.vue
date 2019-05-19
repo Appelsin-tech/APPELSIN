@@ -205,13 +205,6 @@
 
   .s-about {
     background: linear-gradient(to top right, #3fbc47, #59c259) no-repeat;
-    .wrapper-container {
-      position: relative;
-      display: flex;
-      width: 100%;
-      height: 100vh;
-      align-items: center;
-      justify-content: flex-start;
       .swiper-container {
 
         .swiper-slide {

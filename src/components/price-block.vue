@@ -420,14 +420,6 @@
 
   .s-price {
     background: #d94a50;
-    .wrapper-container {
-      position: relative;
-      display: flex;
-      width: 100%;
-      height: 100vh;
-      align-items: center;
-      justify-content: flex-start;
-    }
     .caption-wrapper {
       .text-wrapper {
         display: flex;
