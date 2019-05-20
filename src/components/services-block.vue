@@ -1,5 +1,6 @@
 <template>
   <section class="s-services fullpage-section">
+    <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper">
           <div class="g-caption-block">
@@ -14,7 +15,7 @@
             </button>
           </div>
         </div>
-        <swiper :options="swiperOption" ref="mySwiper">
+        <swiper :options="swiperOptions" ref="mySwiperServices">
           <swiper-slide>
             <div class="wrapper wrapper-1">
               <div class="grow"></div>
@@ -104,6 +105,7 @@
           </swiper-slide>
         </swiper>
       </div>
+    </div>
   </section>
 </template>
 
@@ -119,12 +121,12 @@
     },
     data() {
       return {
-        swiperOption: {
+        swiperOptions: {
           slidesPerView: 3,
           speed: 300,
           navigation: {
-            nextEl: '.prev',
-            prevEl: '.next',
+            nextEl: '.s-services .prev',
+            prevEl: '.s-services .next',
           },
           breakpoints: {
             // when window width is <= 320px
@@ -145,7 +147,7 @@
     },
     computed: {
       swiper() {
-        return this.$refs.mySwiper.swiper
+        return this.$refs.mySwiperServices.swiper
       }
     }
   }

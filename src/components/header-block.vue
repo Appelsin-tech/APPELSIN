@@ -1,13 +1,14 @@
 <template>
-  <header class="b-header" :class="{active : showMenu}">
+  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]" v-scroll="handleScroll">
     <div class="container">
-      <div class="logo-wrapper">
+      <a class="logo-wrapper" href="#main">
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
-      </div>
+      </a>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <a class="submit" href="#price">Оставить заявку</a>
+      <a class="submit default" href="#price">Оставить заявку</a>
+      <a class="submit menu" href="#price" @click="menu">Оставить заявку</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -41,11 +42,20 @@
     props: ['showMenu'],
     data() {
       return {
+        fixedMenu: false
       }
     },
     methods: {
       menu() {
         this.$emit('menu')
+      },
+      hideMenu () {
+        if (showMenu) {
+          this.$emit('menu')
+        }
+      },
+      handleScroll: function (evt, el) {
+        this.fixedMenu = window.pageYOffset > 0
       },
       moveSlide() {
         this.fullpage_api.moveTo('services', 1)
@@ -67,6 +77,9 @@
     .xs-max-height({ padding-top: 10px; });
     .md-block({ position: absolute; padding-top: 15px; });
     .sm-block({ padding-top: 10px; });
+   /* &.scroll {
+      position: fixed;
+    }*/
     &.active {
       position: fixed;
       bottom: 0;
@@ -84,6 +97,12 @@
       }
       .submit {
         .bottom-hover(#000);
+        &.default {
+          display: none;
+        }
+        &.menu {
+          display: block;
+        }
       }
       .submit,
       .phone {
@@ -161,7 +180,7 @@
   }
   .submit {
     display: block;
-    margin-right: 30px;
+    margin-right: 60px;
     transform: translateY(3px);
     font-family: @fontBebas;
     font-weight: bold;
@@ -169,7 +188,11 @@
     letter-spacing: 0.7rem;
     color: #fff;
     .bottom-hover();
+    .md-block({ margin-right: 40px;});
     .sm-block({ display: none;});
+    &.menu {
+      display: none;
+    }
   }
   .burger {
 

@@ -1,5 +1,6 @@
 <template>
   <section class="s-case fullpage-section">
+    <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
           <div class="g-caption-block">
@@ -14,7 +15,7 @@
             </button>
           </div>
         </div>
-        <swiper :options="swiperOption" ref="mySwiper">
+        <swiper :options="swiperOption" ref="mySwiperCases">
 
           <swiper-slide>
             <div class="slide-wrapper">
@@ -99,6 +100,7 @@
           </swiper-slide>
         </swiper>
       </div>
+    </div>
   </section>
 </template>
 
@@ -120,17 +122,17 @@
           preloadImages: false,
           loadPrevNext: true,
           navigation: {
-            nextEl: '.prev',
-            prevEl: '.next',
+            nextEl: '.s-case .prev',
+            prevEl: '.s-case .next',
           },
         }
       }
     },
     computed: {
       swiper() {
-        return this.$refs.mySwiper.swiper
+        return this.$refs.mySwiperCases.swiper
       }
-    }
+    },
   }
 </script>
 
@@ -156,7 +158,9 @@
       .col {
         color: #000;
         &-3 {
+          position: relative;
           width: 35%;
+          z-index: 2;
           .md-block({ width: 50%; });
           .sm-block({ width: 100%; });
         }
@@ -200,6 +204,7 @@
         position: absolute;
         right: -230px;
         top: 70px;
+        z-index: 1;
         .md-block({ right: -300px; });
         .sm-block({ display: none; });
       }

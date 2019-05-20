@@ -9,10 +9,11 @@
         </div>
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
-        <a class="file-link" href="#">
+        <!--<input type="file" id="file">-->
+        <label class="file-link" for="file">
           <span class="file-text--big">Прикрепить файл</span>
           <span class="file-text--small">(до 5 Мб)</span>
-        </a>
+        </label>
       </div>
       <button class="btn-price btn--submit" type="submit">Заказать проект</button>
       <div class="btn-price btn--next-steps" @click="showForm = !showForm">Заказать проект</div>
@@ -39,7 +40,13 @@
           <a class="link-person" href="#">персональных данных</a>
         </label>
       </div>
-      <button class="btn-price btn--mobile" type="submit">Оставить заявку</button>
+      <div class="btn-wrapper">
+        <div class="btn-back" @click="showForm = !showForm">
+          <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
+        </div>
+        <button class="btn-price btn--mobile" type="submit">Отправить</button>
+      </div>
+
     </div>
   </form>
 </template>
@@ -239,7 +246,7 @@
         flex-direction: column;
         transition: 0.3s;
         background: #fff;
-        .sm-block({ position: absolute; top: 100%; bottom: -100%;});
+        .sm-block({ position: absolute; top: 100%; bottom: -100%; z-index:9;});
         &.active {
           top: 0;
           bottom: 0;
@@ -364,9 +371,31 @@
           .xs-block({ justify-content: center; padding-left: 0;});
         }
         &.btn--mobile {
-          display: none;
-          .sm-block({ display: flex;});
-          .xs-block({ justify-content: center; padding-left: 0;});
+          flex-grow: 1;
+          .xs-block({padding-left: 20px;});
+        }
+      }
+      .btn-wrapper {
+        display: none;
+        width: 100%;
+        .sm-block({ display: flex;});
+        .btn-back {
+          height: 70px;
+          width: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transform: scale(-1, 1);
+          border-top: 1px solid @colorBorder;
+          box-sizing: border-box;
+          svg {
+            width: 30px;
+            height: 30px;
+            path {
+              fill: @colorBorder;
+            }
+          }
         }
       }
     }

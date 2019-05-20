@@ -23,7 +23,9 @@ button {
   background: none;
   outline: none;
 }
-
+.wrapper-container {
+  min-height: 500px;
+}
 .container {
   position: relative;
   z-index: 5;
@@ -39,10 +41,12 @@ button {
     .lg-max-height({height: calc(~"100% - 180px");});
     .lg-block({ height: 600px;});
     .sm-block({ height: 500px;});
+    .xs-max-height({ height: 400px;});
     .swiper-container {
       flex-grow: 1;
       width: 100%;
       .xs-block({ height: 440px;});
+      .xs-max-height({ height: 370px;});
     }
   }
 }
@@ -55,6 +59,11 @@ button {
       margin-right: 20px;
       svg {
         transform: rotate(180deg);
+      }
+    }
+    &.swiper-button-disabled {
+      svg {
+        opacity: 0.7;
       }
     }
     svg {
@@ -159,3 +168,8 @@ button {
 /*.fp-section .fp-tableCell {
   height: auto !important;
 }*/
+.s-case {
+  .swiper-container-flip .swiper-slide-shadow-top, .swiper-container-flip .swiper-slide-shadow-bottom, .swiper-container-flip .swiper-slide-shadow-left, .swiper-container-flip .swiper-slide-shadow-right {
+    z-index: 3;
+  }
+}

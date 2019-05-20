@@ -7,10 +7,10 @@
             <h2 class="g-caption">О нас _ </h2>
           </div>
           <div class="nav-slider">
-            <button class="next next-main">
+            <button id="about-next" class="next">
               <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button class="prev prev-main">
+            <button  id="about-prev" class="prev">
               <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
@@ -39,8 +39,8 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="swiper-wrapper">
-              <swiper :options="swiperOption_2" ref="mySwiper_2">
+            <div class="swiper-wrapper-child">
+              <swiper :options="swiperOption_2" ref="mySwiper">
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
                     <p class="skills-desc">Языки с которыми мы работаем каждый день:</p>
@@ -127,12 +127,12 @@
                 </swiper-slide>
               </swiper>
               <div class="num-slides">
-                <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
+                <div id='about-child-pagination' class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
                 <div class="nav-slider item">
-                  <button class="next next-insert">
+                  <button id="about-child-next" class="next next-insert">
                     <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
-                  <button class="prev prev-insert">
+                  <button id="about-child-prev" class="prev prev-insert">
                     <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
                 </div>
@@ -161,8 +161,8 @@
           slidesPerView: 1,
           speed: 300,
           navigation: {
-            nextEl: '.prev-main',
-            prevEl: '.next-main',
+            nextEl: '#about-prev',
+            prevEl: '#about-next',
           },
           breakpoints: {
             // when window width is <= 320px
@@ -172,11 +172,11 @@
           slidesPerView: 1,
           speed: 300,
           navigation: {
-            nextEl: '.prev-insert',
-            prevEl: '.next-insert',
+            nextEl: '#about-child-prev',
+            prevEl: '#about-child-next',
           },
           pagination: {
-            el: '.swiper-pagination',
+            el: '#about-child-pagination',
             clickable: true,
             renderBullet(index, className) {
               return `<div class="${className} swiper-pagination-bullet-custom item">${index + 1}</div>`
@@ -244,6 +244,7 @@
                 height: 30px;
                 transform: rotate(180deg);
                 .xs-block({ margin-bottom: 20px;});
+                .xs-max-height({ margin-bottom: 20px;});
                 > svg {
                   width: 100%;
                   height: 100%;
@@ -308,8 +309,9 @@
           }
         }
       }
-      .swiper-wrapper {
+      .swiper-wrapper-child {
         display: flex;
+        width: 100%;
         flex-direction: column;
         .num-slides {
           display: flex;
@@ -332,9 +334,11 @@
             align-items: center;
             .sm-block({ max-width: 150px });
             .xs-block({ max-width: 120px });
-            svg {
-              path {
-                fill: #000;
+            button {
+              svg {
+                path {
+                  fill: #000;
+                }
               }
             }
           }

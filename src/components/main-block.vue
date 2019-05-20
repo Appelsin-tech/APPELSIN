@@ -52,7 +52,7 @@
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
 
-    .bg-wrapper {
+    .wrapper-container {
       position: relative;
       display: flex;
       width: 100%;
@@ -125,6 +125,7 @@
         .md-width__md-height({ position: relative; transform: translate(0, 0px); top: auto; left: auto; right:auto; flex-shrink: 0; padding-left: 70px; padding-right: 20px;});
         .sm-block({transform: translateY(-80px)});
         .xs-block({transform: translateY(0px); left: 10%;});
+        .xs-max-height({transform: translateY(0px);});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
