@@ -530,7 +530,7 @@
               z-index: 0;
               flex-grow: 1;
               .md-block({ grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr); height: 100%; });
-              .sm-block({ display: flex; flex-direction: column;});
+              .sm-block({ display: flex; flex-direction: column; grid-template-columns: auto;});
               .item {
                 position: relative;
                 display: flex;

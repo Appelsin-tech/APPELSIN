@@ -270,7 +270,7 @@
                 }
                 > span {
                   font-size: 2rem;
-                  color: #3fbc47;
+                  color: #ccc;
                 }
               }
             }
