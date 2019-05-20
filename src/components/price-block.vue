@@ -469,7 +469,6 @@
           display: inline-block;
           transform: rotate(45deg);
           margin-right: 10px;
-          margin-bottom: 1px;
           width: 12px;
           height: 12px;
           border-left: 3px solid #dd4858;

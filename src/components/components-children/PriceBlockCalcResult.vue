@@ -23,7 +23,7 @@
           <input type="text" placeholder="Имя" v-model="form.name">
         </div>
         <div class="item">
-          <input type="tel" placeholder="Телефон" v-model="form.tel">
+          <input type="tel" placeholder="Телефон" v-model="form.phone">
         </div>
         <div class="item">
           <input type="email" placeholder="E-mail" v-model="form.email">
@@ -55,7 +55,7 @@
         showForm: false,
         form: {
           name: '',
-          tel: '',
+          phone: '',
           email: '',
           message: '',
           file: [],
