@@ -152,6 +152,7 @@
       background: #fff;
       .md-block({ padding: 70px 40px; });
       .sm-block({ padding: 40px 30px; });
+      .xs-block({ padding: 40px 25px; });
       .col {
         color: #000;
         &-3 {
@@ -166,6 +167,7 @@
           font-size: 4.5rem;
           letter-spacing: 1.3rem;
           .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 1rem; });
+          .xs-block({font-size: 2.4rem; letter-spacing: 0.7rem; });
         }
         .desc-case {
           margin-bottom: 50px;

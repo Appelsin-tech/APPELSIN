@@ -7,7 +7,7 @@
       </div>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <a class="submit" href="#">Оставить заявку</a>
+      <a class="submit" href="#price">Оставить заявку</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -29,7 +29,7 @@
         <a href="#contacts" class="link" @click="menu">Контакты</a>
       </li>
       <li class="item item--submit">
-        <a href="#contacts" class="link" @click="menu">Оставить заявку</a>
+        <a href="#price" class="link" @click="menu">Оставить заявку</a>
       </li>
     </ul>
   </header>
@@ -82,9 +82,13 @@
           fill: #000;
         }
       }
+      .submit {
+        .bottom-hover(#000);
+      }
       .submit,
       .phone {
         color: #000;
+
       }
       .burger {
         span {
@@ -222,11 +226,9 @@
         color: #000;
         text-transform: uppercase;
         transition: 0.3s;
+        .bottom-hover(#000);
         .sm-block({font-size: 2.4rem;
           letter-spacing: 0.6rem;});
-        &:hover {
-          color: #ffba00;
-        }
       }
     }
   }

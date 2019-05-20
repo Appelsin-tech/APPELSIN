@@ -9,15 +9,15 @@
         </div>
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
-        <!--<div class="ans">{{answers}}</div>-->
         <a class="file-link" href="#">
           <span class="file-text--big">Прикрепить файл</span>
           <span class="file-text--small">(до 5 Мб)</span>
         </a>
       </div>
-      <button class="btn-desktop" type="submit">Заказать проект</button>
+      <button class="btn-price btn--submit" type="submit">Заказать проект</button>
+      <div class="btn-price btn--next-steps" @click="showForm = !showForm">Заказать проект</div>
     </div>
-    <div class="col col--input">
+    <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
         <div class="item">
           <input type="text" placeholder="Имя" v-model="form.name">
@@ -39,6 +39,7 @@
           <a class="link-person" href="#">персональных данных</a>
         </label>
       </div>
+      <button class="btn-price btn--mobile" type="submit">Оставить заявку</button>
     </div>
   </form>
 </template>
@@ -51,6 +52,7 @@
     props: ['answers', 'steps', 'activeSteps'],
     data() {
       return {
+        showForm: false,
         form: {
           name: '',
           tel: '',
@@ -116,16 +118,20 @@
   @import "../../assets/less/_variables";
   .result-form {
     display: flex;
+    position: relative;
     height: 100%;
     background: #fff;
     color: #000;
+    overflow: hidden;
     .col {
       width: 50%;
+      .sm-block({ width: 100%;});
       &--price {
         display: flex;
         flex-direction: column;
         font-family: @fontBebas;
         font-weight: bold;
+        z-index: 5;
         .price-wrapper {
           display: flex;
           flex-grow: 1;
@@ -133,6 +139,7 @@
           flex-direction: column;
           border-right: 1px solid @colorBorder;
           .md-block({padding: 40px;});
+          .sm-block({ border: none; padding: 30px;});
           .steps-num {
             margin-bottom: 20px;
             font-family: @fontBebas;
@@ -163,7 +170,7 @@
             font-size: 3rem;
             line-height: 4rem;
             letter-spacing: 0.7rem;
-
+            .xs-block({font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem;})
           }
           .ans {
             font-size: 1.8rem;
@@ -178,6 +185,7 @@
               letter-spacing: 2rem;
               color: #db4954;
               .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem;});
+              .xs-block({ font-size: 4rem; letter-spacing: 1.1rem;});
             }
             .currency {
               font-size: 3rem;
@@ -191,6 +199,7 @@
             padding-left: 60px;
             color: #000;
             .md-block({ padding-left: 45px;});
+            .xs-block({ padding-left: 0;});
             &::after {
               position: absolute;
               content: '';
@@ -200,6 +209,7 @@
               height: 42px;
               background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
               .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px");});
+              .xs-block({ display: none;});
             }
             .file-text--big {
               position: relative;
@@ -223,26 +233,18 @@
             }
           }
         }
-        .btn-desktop {
-          height: 85px;
-          display: flex;
-          padding-left: 50px;
-          align-items: center;
-          font-family: @fontBebas;
-          font-weight: bold;
-          font-size: 2.4rem;
-          letter-spacing: 0.6rem;
-          color: #fff;
-          background: #000;
-          text-align: left;
-          text-transform: uppercase;
-          cursor: pointer;
-          .md-block({ height: 60px; padding-left: 40px;});
-        }
       }
       &--input {
         display: flex;
         flex-direction: column;
+        transition: 0.3s;
+        background: #fff;
+        .sm-block({ position: absolute; top: 100%; bottom: -100%;});
+        &.active {
+          top: 0;
+          bottom: 0;
+          z-index: 9;
+        }
         .input-wrapper {
           display: flex;
           flex-grow: 1;
@@ -251,6 +253,7 @@
             height: 85px;
             border-bottom: 1px solid @colorBorder;
             box-sizing: border-box;
+            .sm-block({ height: 60px;});
             textarea,
             input {
               padding-left: 25px;
@@ -290,7 +293,7 @@
           padding-left: 25px;
           padding-right: 15px;
           align-items: center;
-          .md-block({ height: 60px; });
+          .md-block({ height: 70px; });
           input {
             display: none;
             &:checked + label::after {
@@ -336,6 +339,34 @@
               }
             }
           }
+        }
+      }
+      .btn-price {
+        height: 85px;
+        display: flex;
+        padding-left: 50px;
+        align-items: center;
+        font-family: @fontBebas;
+        font-weight: bold;
+        font-size: 2.4rem;
+        letter-spacing: 0.6rem;
+        color: #fff;
+        background: #000;
+        text-transform: uppercase;
+        cursor: pointer;
+        .md-block({ height: 70px; padding-left: 40px;});
+        &.btn--submit {
+          .sm-block({ display: none;});
+        }
+        &.btn--next-steps {
+          display: none;
+          .sm-block({ display: flex;});
+          .xs-block({ justify-content: center; padding-left: 0;});
+        }
+        &.btn--mobile {
+          display: none;
+          .sm-block({ display: flex;});
+          .xs-block({ justify-content: center; padding-left: 0;});
         }
       }
     }

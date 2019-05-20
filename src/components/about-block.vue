@@ -216,6 +216,8 @@
         .slide-wrapper {
           padding: 80px 60px;
           .md-block({ padding: 60px 40px; });
+          .sm-block({ padding: 40px 30px; });
+          .xs-block({ padding: 30px 25px; });
           &.main-slide {
             display: flex;
             justify-content: space-between;
@@ -241,6 +243,7 @@
                 width: 30px;
                 height: 30px;
                 transform: rotate(180deg);
+                .xs-block({ margin-bottom: 20px;});
                 > svg {
                   width: 100%;
                   height: 100%;
@@ -248,8 +251,9 @@
               }
               .description {
                 margin-bottom: auto;
-                color: #000;
-                font-size: 1.8rem;
+                font-size: 1.7rem;
+                font-weight: 300;
+                color: #666666;
               }
               .admin {
                 > strong {
@@ -261,6 +265,7 @@
                   font-size: 2.4rem;
                   letter-spacing: 0.7rem;
                   text-transform: uppercase;
+                  .xs-block({ margin-bottom: 7px;});
                 }
                 > span {
                   font-size: 2rem;
@@ -274,6 +279,8 @@
               margin-bottom: 40px;
               font-size: 1.8rem;
               color: @colorSecFonts;
+              .sm-block({ margin-bottom: 30px;});
+              .xs-block({ margin-bottom: 20px;});
             }
             .skills-list {
               display: flex;
@@ -286,12 +293,15 @@
                 letter-spacing: 1.3rem;
                 color: #000;
                 .md-block({ font-size: 3rem; letter-spacing: 1rem; });
+                .sm-block({ margin-right: 10px;});
+                .xs-block({font-size: 2.4rem; letter-spacing: 0.5rem; })
               }
               &.api {
                 .skills {
                   font-size: 3rem;
                   letter-spacing: 0.8rem;
                   .lg-block({ font-size: 2.5rem; letter-spacing: 0.6rem; });
+                  .sm-block({  font-size: 2.2rem; letter-spacing: 0.4rem;});
                 }
               }
             }
