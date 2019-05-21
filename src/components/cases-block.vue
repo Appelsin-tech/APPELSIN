@@ -90,9 +90,6 @@
                     <span>iOS</span>
                   </a>
                 </div>
-                <a class="link-line mobile" href="#">
-                  <span>iOS</span>
-                </a>
               </div>
               <img class="img img--air" src="../assets/img/case/air.png" alt="Самолет">
             </div>
@@ -111,9 +108,6 @@
                     <span>iOS</span>
                   </a>
                 </div>
-                <a class="link-line mobile" href="#">
-                  <span>iOS</span>
-                </a>
               </div>
               <img class="img img--fury-ride" src="../assets/img/case/fury-ride.png" alt="Fury ride">
             </div>
@@ -137,12 +131,6 @@
                     <span>android</span>
                   </a>
                 </div>
-                <a class="link-line mobile" href="#">
-                  <span>iOS</span>
-                </a>
-                <a class="link-line mobile" href="#">
-                  <span>android</span>
-                </a>
               </div>
               <img class="img img--sniper" src="../assets/img/case/sniper-arena.png" alt="Sniper arena">
             </div>
@@ -243,7 +231,7 @@
           align-items: center;
           &.mobile {
             display: none;
-            .xs-block({ display: flex; margin-bottom: 10px;});
+            .xs-block({ display: flex;});
           }
           span {
             font-size: 1.7rem;
@@ -256,11 +244,22 @@
             width: 140px;
             height: 1px;
             background: @colorSecFonts;
+            .xs-block({ width: 100px;});
           }
         }
         .link-wrapper {
           display: flex;
-          .xs-block({ display: none;});
+          .sm-block({ flex-direction: column; align-items: flex-start;});
+          .xs-block({ align-items: center; flex-direction: row;});
+          &::before {
+            display: none;
+            content: '';
+            margin-right: 20px;
+            width: 100px;
+            height: 1px;
+            background: @colorSecFonts;
+            .xs-block({ display: inline-block;});
+          }
           .link {
             height: 70px;
             padding: 0 35px 0 25px;
@@ -270,12 +269,16 @@
             border-radius: 50px;
             transition: 0.3s;
             .sm-block({ height: 55px; padding: 0 27px 0 20px;});
+            .xs-block({border: none; height: auto; border-radius: 0; padding: 0;});
             &:first-child {
               margin-right: 10px;
+              .sm-block({ margin-bottom: 10px;});
+              .xs-block({ margin-bottom: 0; margin-right: 15px;})
             }
             &.ios {
               &:hover {
                 border-color: #000;
+                .xs-block({border: none});
                 svg {
                   path {
                     fill: #000;
@@ -289,6 +292,7 @@
             &.android {
               &:hover {
                 border-color: #a4c639;
+                .xs-block({border: none});
                 svg {
                   path {
                     fill: #a4c639;
@@ -296,6 +300,7 @@
                 }
                 span {
                   color: #a4c639;
+                  .xs-block({color: #000;});
                 }
               }
             }
@@ -305,6 +310,7 @@
               width: 40px;
               transition: 0.3s;
               .sm-block({ margin-right: 12px; height: 32px; width: 32px;});
+              .xs-block({ display: none;});
               path {
                 fill: #bababa;
               }
@@ -314,6 +320,7 @@
               color: #bababa;
               transition: 0.3s;
               .sm-block({ font-size: 16px;});
+              .xs-block({ font-size: 1.7rem; .bottom-hover(#666); color: #666666; font-weight: 300;});
             }
           }
         }
@@ -355,13 +362,13 @@
           .sm-block({ right: -10px;
             top: 220px;
             max-width: 500px;});
-          .xs-block({right: -40px; top: 280px; max-width: 400px;})
+          .xs-block({right: 0; top: 250px; max-width: 400px;})
         }
         &--air {
           top: 110px;
           right: -170px;
           .lg-block({ right: -300px; });
-          .sm-block({ top: 230px; right: -25px; max-width: 470px});
+          .sm-block({ top: 280px; right: -25px; max-width: 470px});
           .xs-block({max-width: 350px; top: 300px;})
         }
         &--fury-ride {
@@ -370,14 +377,14 @@
           .lg-block({ right: -225px; });
           .md-block({ right: -280px; top: 80px;});
           .sm-block({ top: 230px; right: -25px; max-width: 500px});
-          .xs-block({ top: 260px; right: -80px; max-width: 350px});
+          .xs-block({ top: 260px; right: 0; max-width: 350px});
         }
         &--sniper {
           top: 40px;
           right: 0px;
           .lg-block({ right: -140px; });
           .md-block({ right: -220px; });
-          .sm-block({ top: 225px; right: -25px; max-width: 370px});
+          .sm-block({ top: 225px; right: -150px; max-width: 370px});
           .xs-block({ display: none;});
         }
       }
