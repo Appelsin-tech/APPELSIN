@@ -25,11 +25,11 @@
                   Разработана криптовалюта CGEN на базе технологии Quark, листинг монеты на биржах. Проведен SWAP
                   монеты. Разработан сайт, личный кабинет с онлайн кошельком. Полная разработка и ведение платформы
                 </p>
-                <a class="line" href="#">
+                <a class="link-line" href="#">
                   <span>cgen.network</span>
                 </a>
               </div>
-              <img class="cgen-img" src="../assets/img/cgen.png" alt="CGEN">
+              <img class="img img--cgen" src="../assets/img/case/cgen.png" alt="CGEN">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -40,7 +40,11 @@
                   Разработаны API для Федеральной службы судебных приставов, единого федеральный реестра сведений о
                   банкротстве, картотеки арбитражных дел РФ.
                 </p>
+                <a class="link-line" href="#">
+                  <span>fssprus.ru</span>
+                </a>
               </div>
+              <img class="img img--api" src="../assets/img/case/api.png" alt="API Решения для ресурсов">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -52,7 +56,11 @@
                   разработка и ведение платформы. Разработана криптовалюта CSNP на базе технологии ERC20. Листинг монеты
                   на биржах.
                 </p>
+                <a class="link-line" href="#">
+                  <span>crowdsale.network</span>
+                </a>
               </div>
+              <img class="img img--crowdsale" src="../assets/img/case/crowdsale.png" alt="Crowdsale Network">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -62,17 +70,22 @@
                 <p class="desc-case">
                   Фонд поддержки и развития современного искусства на базе блокчейн технологий. Разработка сайта.
                 </p>
+                <a class="link-line" href="#">
+                  <span>whizbiz.io</span>
+                </a>
               </div>
+              <img class="img img--whiz-biz" src="../assets/img/case/whiz-biz.png" alt="WHIZ BIZ">
             </div>
           </swiper-slide>
           <swiper-slide>
             <div class="slide-wrapper">
-              <div class="col col-3">
+              <div class="col col-3 air">
                 <h3 class="caption-slide">Леталки для детей развивающие</h3>
                 <p class="desc-case">
                   Мобильная 2D-игра, разработанная под iOS. Паззл для детей, оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
               </div>
+              <img class="img img--air" src="../assets/img/case/air.png" alt="Самолет">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -84,6 +97,7 @@
                   10км уникальной трассы, умные противники - боты. Оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
               </div>
+              <img class="img img--fury-ride" src="../assets/img/case/fury-ride.png" alt="Fury ride">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -96,6 +110,7 @@
                   Подготовка\сборка\финализация контента.
                 </p>
               </div>
+              <img class="img img--sniper" src="../assets/img/case/sniper-arena.png" alt="Sniper arena">
             </div>
           </swiper-slide>
         </swiper>
@@ -163,6 +178,11 @@
           z-index: 2;
           .md-block({ width: 50%; });
           .sm-block({ width: 100%; });
+          &.air {
+            width: 54%;
+            .md-block({ width: 50%; });
+            .sm-block({ width: 100%; });
+          }
         }
         .caption-slide {
           margin-bottom: 50px;
@@ -181,7 +201,7 @@
           letter-spacing: 0.14rem;
           .sm-block({ margin-bottom: 30px; });
         }
-        .line {
+        .link-line {
           font-weight: 300;
           color: @colorSecFonts;
           display: flex;
@@ -200,13 +220,62 @@
           }
         }
       }
-      .cgen-img {
+      .img {
         position: absolute;
-        right: -230px;
-        top: 70px;
         z-index: 1;
-        .md-block({ right: -300px; });
-        .sm-block({ display: none; });
+        &--cgen {
+          right: -230px;
+          top: 70px;
+          .md-block({ right: -300px; });
+          .sm-block({ right: 0px; top: 280px;});
+          .xs-block({ top: 320px;});
+        }
+        &--api {
+          top: 60px;
+          right: -360px;
+          .md-block({ right: -390px; });
+          .sm-block({ right: -50px;
+            top: 254px;
+            max-width: 500px;});
+          .xs-block({right: -80px; top: 280px; max-width: 400px;})
+        }
+        &--crowdsale {
+          top: 27px;
+          right: -220px;
+          .sm-block({ right: -10px;
+            top: 254px;
+            max-width: 500px;});
+          .xs-block({right: -40px; top: 280px; max-width: 400px;})
+        }
+        &--whiz-biz {
+          top: 37px;
+          right: -130px;
+          .sm-block({ right: -10px;
+            top: 220px;
+            max-width: 500px;});
+          .xs-block({right: -40px; top: 280px; max-width: 400px;})
+        }
+        &--air {
+          top: 110px;
+          right: -170px;
+          .md-block({ right: -300px; });
+          .sm-block({ top: 230px; right: -25px; max-width: 470px});
+          .xs-block({max-width: 350px; top: 280px;})
+        }
+        &--fury-ride {
+          top: 73px;
+          right: -200px;
+          .md-block({ right: -225px; });
+          .sm-block({ top: 230px; right: -25px; max-width: 500px});
+          .xs-block({ top: 230px; right: -55px; max-width: 400px});
+        }
+        &--sniper {
+          top: 40px;
+          right: -105px;
+          .md-block({ right: -225px; });
+          .sm-block({ top: 225px; right: -25px; max-width: 370px});
+          .xs-block({ top: 260px; right: -25px; max-width: 300px});
+        }
       }
     }
   }
