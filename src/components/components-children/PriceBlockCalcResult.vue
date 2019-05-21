@@ -10,7 +10,7 @@
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
         <!--<input type="file" id="file">-->
-        <label class="file-link" for="file">
+        <label class="file-link desktop" for="file">
           <span class="file-text--big">Прикрепить файл</span>
           <span class="file-text--small">(до 5 Мб)</span>
         </label>
@@ -32,6 +32,10 @@
         <div class="item textarea">
           <textarea v-model="form.message" placeholder="Текст сообщения"></textarea>
         </div>
+        <label class="file-link mobile" for="file">
+          <span class="file-text--big">Прикрепить файл</span>
+          <span class="file-text--small">(до 5 Мб)</span>
+        </label>
       </div>
       <div class="checkbox-wrapper">
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
@@ -200,45 +204,6 @@
               .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
             }
           }
-          .file-link {
-            position: relative;
-            margin-top: auto;
-            padding-left: 60px;
-            color: #000;
-            .md-block({ padding-left: 45px;});
-            .xs-block({ padding-left: 0;});
-            &::after {
-              position: absolute;
-              content: '';
-              left: 0;
-              top: calc(~"50% - 21px");
-              width: 42px;
-              height: 42px;
-              background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
-              .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px");});
-              .xs-block({ display: none;});
-            }
-            .file-text--big {
-              position: relative;
-              margin-right: 20px;
-              font-size: 2rem;
-              letter-spacing: 0.5rem;
-              &::after {
-                position: absolute;
-                content: '';
-                bottom: -2px;
-                left: 0;
-                right: 4px;
-                height: 2px;
-                background-image: repeating-linear-gradient(90deg, transparent 2px 6px, #000 2px 10px);
-              }
-            }
-            .file-text--small {
-              font-family: @fontMain;
-              font-weight: 200;
-              font-size: 1.6rem;
-            }
-          }
         }
       }
       &--input {
@@ -301,6 +266,7 @@
           padding-right: 15px;
           align-items: center;
           .md-block({ height: 70px; });
+          .sm-block({ height: 50px; });
           input {
             display: none;
             &:checked + label::after {
@@ -348,6 +314,56 @@
           }
         }
       }
+      .file-link {
+        position: relative;
+        margin-top: auto;
+        padding-left: 60px;
+        font-family: @fontBebas;
+        color: #000;
+        .md-block({ padding-left: 45px;});
+        .xs-block({ padding-left: 0;});
+        &.desktop {
+          .sm-block({ display: none;});
+        }
+        &.mobile {
+          display: none;
+          height: 50px;
+          margin-left: 25px;
+          align-items: center;
+          .sm-block({ display: inline-flex;});
+        }
+        &::after {
+          position: absolute;
+          content: '';
+          left: 0;
+          top: calc(~"50% - 21px");
+          width: 42px;
+          height: 42px;
+          background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
+          .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px");});
+          .xs-block({ display: none;});
+        }
+        .file-text--big {
+          position: relative;
+          margin-right: 20px;
+          font-size: 2rem;
+          letter-spacing: 0.5rem;
+          &::after {
+            position: absolute;
+            content: '';
+            bottom: -2px;
+            left: 0;
+            right: 4px;
+            height: 2px;
+            background-image: repeating-linear-gradient(90deg, transparent 2px 6px, #000 2px 10px);
+          }
+        }
+        .file-text--small {
+          font-family: @fontMain;
+          font-weight: 200;
+          font-size: 1.6rem;
+        }
+      }
       .btn-price {
         height: 85px;
         display: flex;
@@ -372,7 +388,7 @@
         }
         &.btn--mobile {
           flex-grow: 1;
-          .xs-block({padding-left: 20px;});
+          .xs-block({padding-left: 20px; height: 55px;});
         }
       }
       .btn-wrapper {
@@ -389,9 +405,11 @@
           transform: scale(-1, 1);
           border-top: 1px solid @colorBorder;
           box-sizing: border-box;
+          .xs-block({ height: 55px; width: 55px;});
           svg {
             width: 30px;
             height: 30px;
+            .xs-block({ width: 25px; height: 25px;});
             path {
               fill: @colorBorder;
             }

@@ -84,6 +84,15 @@
                 <p class="desc-case">
                   Мобильная 2D-игра, разработанная под iOS. Паззл для детей, оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
+                <div class="link-wrapper">
+                  <a href="#" class="link ios">
+                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <span>iOS</span>
+                  </a>
+                </div>
+                <a class="link-line mobile" href="#">
+                  <span>iOS</span>
+                </a>
               </div>
               <img class="img img--air" src="../assets/img/case/air.png" alt="Самолет">
             </div>
@@ -96,6 +105,15 @@
                   Мобильная 3D-игра, разработанная под iOS. Гонки на мотоциклах, сражения, реалистичная физика, более
                   10км уникальной трассы, умные противники - боты. Оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
+                <div class="link-wrapper">
+                  <a href="#" class="link ios">
+                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <span>iOS</span>
+                  </a>
+                </div>
+                <a class="link-line mobile" href="#">
+                  <span>iOS</span>
+                </a>
               </div>
               <img class="img img--fury-ride" src="../assets/img/case/fury-ride.png" alt="Fury ride">
             </div>
@@ -105,10 +123,26 @@
               <div class="col col-3">
                 <h3 class="caption-slide">SNIPER ARENA</h3>
                 <p class="desc-case">
-                  Мобильная 3D-игра в жанре экнш, разработанная под iOS и Android. Программирование поведения
+                  Мобильная 3D-игра в жанре экшн, разработанная под iOS и Android. Программирование поведения
                   персонажей, классов серверной логики и UI. Проектирование классов игрового контента, анимационной FSM.
                   Подготовка\сборка\финализация контента.
                 </p>
+                <div class="link-wrapper">
+                  <a href="#" class="link ios">
+                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <span>iOS</span>
+                  </a>
+                  <a href="#" class="link android">
+                    <img svg-inline class="svg" src="../assets/img/icon/android.svg">
+                    <span>android</span>
+                  </a>
+                </div>
+                <a class="link-line mobile" href="#">
+                  <span>iOS</span>
+                </a>
+                <a class="link-line mobile" href="#">
+                  <span>android</span>
+                </a>
               </div>
               <img class="img img--sniper" src="../assets/img/case/sniper-arena.png" alt="Sniper arena">
             </div>
@@ -158,6 +192,7 @@
   .s-case {
     background: radial-gradient(circle farthest-corner at top right, rgba(171, 23, 216, 0.7) 0%, rgba(0, 0, 0, 0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171, 23, 216, 0.5) 5%, rgba(0, 0, 0, 0) 30%) #672fda;
+    .xs-block({overflow: hidden});
     .swiper-slide {
       display: flex;
     }
@@ -165,7 +200,7 @@
       display: flex;
       position: relative;
       flex-grow: 2;
-      padding: 88px 50px;
+      padding: 88px 50px 30px;
       background: #fff;
       .md-block({ padding: 70px 40px; });
       .sm-block({ padding: 40px 30px; });
@@ -176,7 +211,7 @@
           position: relative;
           width: 35%;
           z-index: 2;
-          .md-block({ width: 50%; });
+          .lg-block({ width: 50%; });
           .sm-block({ width: 100%; });
           &.air {
             width: 54%;
@@ -206,6 +241,10 @@
           color: @colorSecFonts;
           display: flex;
           align-items: center;
+          &.mobile {
+            display: none;
+            .xs-block({ display: flex; margin-bottom: 10px;});
+          }
           span {
             font-size: 1.7rem;
             .bottom-hover(#666);
@@ -219,6 +258,65 @@
             background: @colorSecFonts;
           }
         }
+        .link-wrapper {
+          display: flex;
+          .xs-block({ display: none;});
+          .link {
+            height: 70px;
+            padding: 0 35px 0 25px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #bababa;
+            border-radius: 50px;
+            transition: 0.3s;
+            .sm-block({ height: 55px; padding: 0 27px 0 20px;});
+            &:first-child {
+              margin-right: 10px;
+            }
+            &.ios {
+              &:hover {
+                border-color: #000;
+                svg {
+                  path {
+                    fill: #000;
+                  }
+                }
+                span {
+                  color: #000;
+                }
+              }
+            }
+            &.android {
+              &:hover {
+                border-color: #a4c639;
+                svg {
+                  path {
+                    fill: #a4c639;
+                  }
+                }
+                span {
+                  color: #a4c639;
+                }
+              }
+            }
+            .svg {
+              margin-right: 17px;
+              height: 40px;
+              width: 40px;
+              transition: 0.3s;
+              .sm-block({ margin-right: 12px; height: 32px; width: 32px;});
+              path {
+                fill: #bababa;
+              }
+            }
+            span {
+              font-size: 18px;
+              color: #bababa;
+              transition: 0.3s;
+              .sm-block({ font-size: 16px;});
+            }
+          }
+        }
       }
       .img {
         position: absolute;
@@ -226,14 +324,14 @@
         &--cgen {
           right: -230px;
           top: 70px;
-          .md-block({ right: -300px; });
+          .lg-block({ right: -300px; });
           .sm-block({ right: 0px; top: 280px;});
           .xs-block({ top: 320px;});
         }
         &--api {
           top: 60px;
-          right: -360px;
-          .md-block({ right: -390px; });
+          right: -300px;
+          .lg-block({ right: -390px; });
           .sm-block({ right: -50px;
             top: 254px;
             max-width: 500px;});
@@ -241,7 +339,9 @@
         }
         &--crowdsale {
           top: 27px;
-          right: -220px;
+          right: -190px;
+          .lg-block({ right: -250px; });
+          .md-block({ right: -280px;  top: 60px;});
           .sm-block({ right: -10px;
             top: 254px;
             max-width: 500px;});
@@ -249,7 +349,9 @@
         }
         &--whiz-biz {
           top: 37px;
-          right: -130px;
+          right: -30px;
+          .lg-block({ right: -90px; });
+          .md-block({ right: -150px; });
           .sm-block({ right: -10px;
             top: 220px;
             max-width: 500px;});
@@ -258,23 +360,25 @@
         &--air {
           top: 110px;
           right: -170px;
-          .md-block({ right: -300px; });
+          .lg-block({ right: -300px; });
           .sm-block({ top: 230px; right: -25px; max-width: 470px});
-          .xs-block({max-width: 350px; top: 280px;})
+          .xs-block({max-width: 350px; top: 300px;})
         }
         &--fury-ride {
-          top: 73px;
-          right: -200px;
-          .md-block({ right: -225px; });
+          top: 40px;
+          right: -160px;
+          .lg-block({ right: -225px; });
+          .md-block({ right: -280px; top: 80px;});
           .sm-block({ top: 230px; right: -25px; max-width: 500px});
-          .xs-block({ top: 230px; right: -55px; max-width: 400px});
+          .xs-block({ top: 260px; right: -80px; max-width: 350px});
         }
         &--sniper {
           top: 40px;
-          right: -105px;
-          .md-block({ right: -225px; });
+          right: 0px;
+          .lg-block({ right: -140px; });
+          .md-block({ right: -220px; });
           .sm-block({ top: 225px; right: -25px; max-width: 370px});
-          .xs-block({ top: 260px; right: -25px; max-width: 300px});
+          .xs-block({ display: none;});
         }
       }
     }

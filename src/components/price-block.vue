@@ -419,7 +419,8 @@
   @import "../assets/less/_variables";
 
   .s-price {
-    background: #d94a50;
+    background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 1) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 1) 5%, rgba(0, 0, 0, 0) 40%) #d94950;
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -504,6 +505,7 @@
           display: flex;
           flex-direction: column;
           flex-grow: 1;
+          .sm-block({ height: 100%;});
           .steps-caption {
             margin-bottom: 40px;
             padding-left: 50px;
