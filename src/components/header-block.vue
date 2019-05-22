@@ -95,7 +95,7 @@
     &.active {
       position: fixed;
       bottom: 0;
-      color: #000;
+
       &::after {
         transform: scale(1);
         opacity: 1;
@@ -114,8 +114,12 @@
           transition-delay: 0.2s;
         }
       }
+      .agency {
+        color: #000;
+        transition: 0.3s ease-out;
+        transition-delay: 0.15s;
+      }
       .submit {
-
         .bottom-hover(#000);
         &.default {
           display: none;

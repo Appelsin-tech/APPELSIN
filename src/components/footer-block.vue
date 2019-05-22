@@ -31,14 +31,15 @@
     .xs-max-height({ display: none;});
     &.active {
       display: block;
-      .sm-block({opacity: 1; transition: opacity 0.3s ease-out;  transition-delay: 0.25s;});
+      opacity: 1;
+      .sm-block({ transition: opacity 0.3s ease-out;  transition-delay: 0.2s;});
       .container {
         .sm-block({flex-direction: column;
           align-items: center;});
         .policy {
           display: block;
           color: #000;
-          transition: color 0.3s ease-out;
+          transition: color, border-bottom-color 0.3s ease-out;
           transition-delay: 0.2s;
           border-bottom: 1px solid #000;
           .sm-block({ order: 3; });
