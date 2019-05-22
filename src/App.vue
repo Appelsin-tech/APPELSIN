@@ -11,14 +11,14 @@
         <li data-menuanchor="services">
           <a  class="link-section" href="#services"></a>
         </li>
-        <li data-menuanchor="skills">
-          <a  class="link-section" href="#about"></a>
+        <li data-menuanchor="case">
+          <a  class="link-section" href="#case"></a>
         </li>
         <li data-menuanchor="price">
           <a  class="link-section" href="#price"></a>
         </li>
-        <li data-menuanchor="case">
-          <a  class="link-section" href="#case"></a>
+        <li data-menuanchor="about">
+          <a  class="link-section" href="#about"></a>
         </li>
         <li data-menuanchor="contacts">
           <a  class="link-section" href="#contacts"></a>
@@ -76,7 +76,7 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'services', 'about', 'price', 'case', 'contacts'],
+          anchors: ['main', 'services', 'case', 'price', 'about', 'contacts'],
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,

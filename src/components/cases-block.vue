@@ -19,7 +19,7 @@
 
           <swiper-slide>
             <div class="slide-wrapper">
-              <div class="col col-3">
+              <div class="col col-3 cgen">
                 <h3 class="caption-slide">Community generation</h3>
                 <p class="desc-case">
                   Разработана криптовалюта CGEN на базе технологии Quark, листинг монеты на биржах. Проведен SWAP
@@ -34,7 +34,7 @@
           </swiper-slide>
           <swiper-slide>
             <div class="slide-wrapper">
-              <div class="col col-3">
+              <div class="col col-3 api">
                 <h3 class="caption-slide">API Решения для ресурсов</h3>
                 <p class="desc-case">
                   Разработаны API для Федеральной службы судебных приставов, единого федеральный реестра сведений о
@@ -180,7 +180,7 @@
   .s-case {
     background: radial-gradient(circle farthest-corner at top right, rgba(171, 23, 216, 0.7) 0%, rgba(0, 0, 0, 0) 70%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(171, 23, 216, 0.5) 5%, rgba(0, 0, 0, 0) 30%) #672fda;
-    .xs-block({overflow: hidden});
+   overflow: hidden;
     .swiper-slide {
       display: flex;
     }
@@ -205,6 +205,17 @@
             width: 54%;
             .md-block({ width: 50%; });
             .sm-block({ width: 100%; });
+          }
+          &.cgen {
+            width: 40%;
+            .md-block({ width: 50%; });
+            .sm-block({ width: 100%; });
+          }
+          &.api {
+            .caption-slide {
+              max-width: 440px;
+              .lg-block({max-width: 380px});
+            }
           }
         }
         .caption-slide {
@@ -249,8 +260,7 @@
         }
         .link-wrapper {
           display: flex;
-          .sm-block({ flex-direction: column; align-items: flex-start;});
-          .xs-block({ align-items: center; flex-direction: row;});
+          .xs-block({align-items: center;});
           &::before {
             display: none;
             content: '';
@@ -329,47 +339,48 @@
         position: absolute;
         z-index: 1;
         &--cgen {
-          right: -230px;
+          right: -280px;
           top: 70px;
           .lg-block({ right: -340px; });
           .md-block({ right: -300px; });
-          .sm-block({ right: 0px; top: 280px;});
+          .sm-block({ right: 2%; top: 280px;});
           .xs-block({ top: 320px;});
         }
         &--api {
           top: 60px;
           right: -360px;
           .lg-block({ right: -350px; });
-          .sm-block({ right: -50px;
+          .sm-block({ right: 50%;
             top: 254px;
-            max-width: 500px;});
-          .xs-block({right: -80px; top: 280px; max-width: 400px;})
+            max-width: 500px;
+            transform: translateX(65%);});
+          .xs-block({ top: 280px; max-width: 400px;})
         }
         &--crowdsale {
           top: 27px;
           right: -220px;
           .lg-block({ right: -250px; });
           .md-block({ right: -280px;  top: 60px;});
-          .sm-block({ right: -10px;
+          .sm-block({ right: 50%;
             top: 254px;
-            max-width: 500px;});
-          .xs-block({right: -40px; top: 300px; max-width: 400px;})
+            max-width: 500px;  transform: translateX(50%);});
+          .xs-block({top: 300px; max-width: 400px;})
         }
         &--whiz-biz {
           top: 37px;
           right: -130px;
           .lg-block({ right: -90px; });
           .md-block({ right: -150px; });
-          .sm-block({ right: -10px;
+          .sm-block({ right: 50%;
             top: 220px;
-            max-width: 500px;});
-          .xs-block({right: 0; top: 250px; max-width: 400px;})
+            max-width: 500px; transform: translateX(44%);});
+          .xs-block({ top: 250px; max-width: 400px;})
         }
         &--air {
           top: 110px;
           right: -170px;
           .lg-block({ right: -300px; });
-          .sm-block({ top: 300px; right: -25px; max-width: 470px});
+          .sm-block({ top: 300px; right: 50%; transform: translateX(50%); max-width: 470px});
           .xs-block({max-width: 350px; top: 300px;})
         }
         &--fury-ride {
@@ -377,16 +388,16 @@
           right: -200px;
           .lg-block({ right: -250px; });
           .md-block({ right: -280px; top: 80px;});
-          .sm-block({ top: 250px; right: -70px; max-width: 500px});
-          .xs-block({ top: 280px; right: -40px; max-width: 350px});
+          .sm-block({ top: 250px; right: 50%; transform: translateX(50%); max-width: 500px});
+          .xs-block({ top: 280px;  max-width: 350px});
         }
         &--sniper {
           top: 40px;
-          right: 0px;
-          .lg-block({ right: -190px; });
+          right: -100px;
+          .lg-block({ right: -230px; });
           .md-block({ right: -220px; });
-          .sm-block({ top: 225px; right: -150px; max-width: 370px});
-          .xs-block({ top: 320px; right: 0px; max-width: 270px});
+          .sm-block({ top: 350px; right: 50%; transform: translateX(44%); max-width: 370px});
+          .xs-block({ top: 320px; max-width: 240px});
         }
       }
     }
