@@ -260,7 +260,7 @@
         }
         .link-wrapper {
           display: flex;
-          .xs-block({align-items: center;});
+          .sm-block({align-items: center;});
           &::before {
             display: none;
             content: '';
@@ -268,7 +268,7 @@
             width: 100px;
             height: 1px;
             background: @colorSecFonts;
-            .xs-block({ display: inline-block;});
+            .sm-block({ display: inline-block;});
           }
           .link {
             height: 70px;
@@ -278,17 +278,15 @@
             border: 1px solid #bababa;
             border-radius: 50px;
             transition: 0.3s;
-            .sm-block({ height: 55px; padding: 0 27px 0 20px;});
-            .xs-block({border: none; height: auto; border-radius: 0; padding: 0;});
+            .sm-block({border: none; height: auto; border-radius: 0; padding: 0;});
             &:first-child {
               margin-right: 10px;
-              .sm-block({ margin-bottom: 10px;});
-              .xs-block({ margin-bottom: 0; margin-right: 15px;})
+              .sm-block({ margin-bottom: 0; margin-right: 15px;})
             }
             &.ios {
               &:hover {
                 border-color: #000;
-                .xs-block({border: none});
+                .sm-block({border: none});
                 svg {
                   path {
                     fill: #000;
@@ -302,7 +300,7 @@
             &.android {
               &:hover {
                 border-color: #a4c639;
-                .xs-block({border: none});
+                .sm-block({border: none});
                 svg {
                   path {
                     fill: #a4c639;
@@ -319,8 +317,7 @@
               height: 40px;
               width: 40px;
               transition: 0.3s;
-              .sm-block({ margin-right: 12px; height: 32px; width: 32px;});
-              .xs-block({ display: none;});
+              .sm-block({ display: none;});
               path {
                 fill: #bababa;
               }
@@ -329,8 +326,7 @@
               font-size: 18px;
               color: #bababa;
               transition: 0.3s;
-              .sm-block({ font-size: 16px;});
-              .xs-block({ font-size: 1.7rem; .bottom-hover(#666); color: #666666; font-weight: 300;});
+              .sm-block({ font-size: 1.7rem; .bottom-hover(#666); color: #666666; font-weight: 300;});
             }
           }
         }
@@ -396,7 +392,7 @@
           right: -100px;
           .lg-block({ right: -230px; });
           .md-block({ right: -220px; });
-          .sm-block({ top: 350px; right: 50%; transform: translateX(44%); max-width: 370px});
+          .sm-block({ top: 300px; right: 50%; transform: translateX(44%); max-width: 370px});
           .xs-block({ top: 320px; max-width: 240px});
         }
       }
