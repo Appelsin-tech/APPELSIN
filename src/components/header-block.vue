@@ -77,37 +77,56 @@
     .xs-max-height({ padding-top: 10px; });
     .md-block({ position: absolute; padding-top: 15px; });
     .sm-block({ padding-top: 10px; });
-   /* &.scroll {
+    &::after {
+      content: '';
+      display: block;
       position: fixed;
-    }*/
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      opacity: 0;
+      transform-origin: right top;
+      transform: scale(0);
+      transition: all 0.3s ease-in-out;
+      z-index: 1;
+    }
     &.active {
       position: fixed;
       bottom: 0;
-      background: #fff;
       color: #000;
+      &::after {
+        transform: scale(1);
+        opacity: 1;
+      }
       .svg-logo {
         path {
           fill: #ffba00;
+          transition: 0.3s ease-out;
+          transition-delay: 0.2s;
         }
       }
       .svg-logo-appelsin {
         path {
           fill: #000;
+          transition: 0.3s ease-out;
+          transition-delay: 0.2s;
         }
       }
       .submit {
+
         .bottom-hover(#000);
         &.default {
           display: none;
         }
         &.menu {
           display: block;
+          color: #000;
+          transition: 0.3s ease-out;
+          transition-delay: 0.1s;
+          .sm-block({ display: none;});
         }
-      }
-      .submit,
-      .phone {
-        color: #000;
-
       }
       .burger {
         span {
@@ -129,6 +148,23 @@
       }
       .menu-list {
         display: flex;
+        z-index: 5;
+        .item {
+          animation: fadeItemMenu 0.2s ease-in-out forwards;
+          animation-delay: 0.2s;
+          &:nth-of-type(2) {
+            animation-delay: 0.3s;
+          }
+          &:nth-of-type(3) {
+            animation-delay: 0.4s;
+          }
+          &:nth-of-type(4) {
+            animation-delay: 0.5s;
+          }
+          &:nth-of-type(5) {
+            animation-delay: 0.6s;
+          }
+        }
       }
     }
   }
@@ -192,6 +228,7 @@
     .sm-block({ display: none;});
     &.menu {
       display: none;
+      color: #fff;
     }
   }
   .burger {
@@ -233,6 +270,8 @@
     .item {
       margin-bottom: 25px;
       text-align: center;
+      opacity: 0;
+      transform: translateX(50px);
       .sm-block({ margin-bottom: 17px;});
       &:last-child {
         margin-bottom: 0;
@@ -253,6 +292,16 @@
         .sm-block({font-size: 2.4rem;
           letter-spacing: 0.6rem;});
       }
+    }
+  }
+  @keyframes fadeItemMenu {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
     }
   }
 </style>

@@ -197,7 +197,7 @@
         color: #000;
         &-3 {
           position: relative;
-          width: 35%;
+          width: 45%;
           z-index: 2;
           .lg-block({ width: 50%; });
           .sm-block({ width: 100%; });
@@ -331,14 +331,15 @@
         &--cgen {
           right: -230px;
           top: 70px;
-          .lg-block({ right: -300px; });
+          .lg-block({ right: -340px; });
+          .md-block({ right: -300px; });
           .sm-block({ right: 0px; top: 280px;});
           .xs-block({ top: 320px;});
         }
         &--api {
           top: 60px;
-          right: -300px;
-          .lg-block({ right: -390px; });
+          right: -360px;
+          .lg-block({ right: -350px; });
           .sm-block({ right: -50px;
             top: 254px;
             max-width: 500px;});
@@ -346,17 +347,17 @@
         }
         &--crowdsale {
           top: 27px;
-          right: -190px;
+          right: -220px;
           .lg-block({ right: -250px; });
           .md-block({ right: -280px;  top: 60px;});
           .sm-block({ right: -10px;
             top: 254px;
             max-width: 500px;});
-          .xs-block({right: -40px; top: 280px; max-width: 400px;})
+          .xs-block({right: -40px; top: 300px; max-width: 400px;})
         }
         &--whiz-biz {
           top: 37px;
-          right: -30px;
+          right: -130px;
           .lg-block({ right: -90px; });
           .md-block({ right: -150px; });
           .sm-block({ right: -10px;
@@ -368,24 +369,24 @@
           top: 110px;
           right: -170px;
           .lg-block({ right: -300px; });
-          .sm-block({ top: 280px; right: -25px; max-width: 470px});
+          .sm-block({ top: 300px; right: -25px; max-width: 470px});
           .xs-block({max-width: 350px; top: 300px;})
         }
         &--fury-ride {
           top: 40px;
-          right: -160px;
-          .lg-block({ right: -225px; });
+          right: -200px;
+          .lg-block({ right: -250px; });
           .md-block({ right: -280px; top: 80px;});
-          .sm-block({ top: 230px; right: -25px; max-width: 500px});
-          .xs-block({ top: 260px; right: 0; max-width: 350px});
+          .sm-block({ top: 250px; right: -70px; max-width: 500px});
+          .xs-block({ top: 280px; right: -40px; max-width: 350px});
         }
         &--sniper {
           top: 40px;
           right: 0px;
-          .lg-block({ right: -140px; });
+          .lg-block({ right: -190px; });
           .md-block({ right: -220px; });
           .sm-block({ top: 225px; right: -150px; max-width: 370px});
-          .xs-block({ display: none;});
+          .xs-block({ top: 320px; right: 0px; max-width: 270px});
         }
       }
     }

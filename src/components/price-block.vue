@@ -466,6 +466,7 @@
         text-transform: uppercase;
         .md-block({ margin-bottom: 15px; padding-left: 40px; padding-right: 20px; });
         .sm-block({ margin-bottom: 10px; padding-left: 30px; });
+        .xs-block({ padding-left: 25px;});
         .arrow {
           display: inline-block;
           transform: rotate(45deg);
@@ -519,6 +520,7 @@
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 30px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
+            .xs-block({ padding-left: 25px; padding-right: 15px;});
           }
           .variant-wrapper {
             display: flex;
@@ -526,6 +528,7 @@
             justify-content: space-between;
             flex-grow: 1;
             max-height: 305px;
+            .sm-block({ height: 100%;});
             .item-wrapper {
               display: grid;
               grid-template-columns: repeat(4, minmax(100px, 1fr));
@@ -539,6 +542,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 min-width: 50px;
+                .sm-block({max-height: 25%});
                 &::after {
                   position: absolute;
                   content: '';
@@ -582,7 +586,8 @@
                     background-repeat: no-repeat;
                     background-size: contain;
                     .md-block({ width: 45px; height: 45px; });
-                    .sm-block({ display: none; });
+                    .sm-block({ width: 35px; height: 35px; margin-bottom: 0; margin-right: 10px; background-position: center;});
+                    .xs-block({ width: 25px; height: 25px;});
                   }
                   .name-project {
                     font-size: 2rem;
@@ -636,6 +641,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
+                  flex-shrink: 0;
                   border: 2px solid @colorBorder;
                   border-radius: 50%;
                   transition: 0.3s;

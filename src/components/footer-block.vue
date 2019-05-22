@@ -2,7 +2,6 @@
   <footer class="b-footer" :class="{active : showMenu}">
     <div class="container">
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <a class="submit" href="#">Оставить заявку</a>
       <a class="policy" href="#">Политика конфиденциальности</a>
 
     </div>
@@ -27,27 +26,29 @@
     right: 0;
     z-index: 999;
 
-    .sm-block({ display: none; padding-bottom: 50px;});
+    .sm-block({ display: none; padding-bottom: 50px; opacity: 0;});
     .xs-block({ display: none;});
     .xs-max-height({ display: none;});
     &.active {
       display: block;
+      .sm-block({opacity: 1; transition: opacity 0.3s ease-out;  transition-delay: 0.25s;});
       .container {
         .sm-block({flex-direction: column;
           align-items: center;});
-        .submit,
-        .policy {
-          color: #000;
-        }
         .policy {
           display: block;
+          color: #000;
+          transition: color 0.3s ease-out;
+          transition-delay: 0.2s;
           border-bottom: 1px solid #000;
-          .sm-block({ order: 3;});
+          .sm-block({ order: 3; });
         }
         .phone {
           color: #000;
+          transition: color 0.3s ease-out;
+          transition-delay: 0.2s;
           .sm-block({ order: 2; display: block;
-            margin-bottom: 20px;});
+            margin-bottom: 20px; color: #000; });
           .xs-max-height({ display: block;});
         }
       }
