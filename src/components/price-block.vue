@@ -38,7 +38,7 @@
 
                   </div>
 
-                  <div class="item-btn" @click="submitButton" :class="answers.length > 0 ? 'active' : 'disabled'">
+                  <div class="item-btn" @click="submitButton" :class="activeNextBtn ? 'active' : 'disabled'">
                     <div class="btn-next">
                       <div class="img">
                         <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
@@ -345,6 +345,17 @@
       showResult() {
         // return true
         return this.activeSteps >= this.steps.length
+      },
+      activeNextBtn () {
+        let res = false;
+        this.answers.forEach((a) => {
+          this.activeQuestion.variant.forEach(v => {
+            if (a.val === v.val) {
+              res = true
+            }
+          })
+        })
+        return res
       }
     },
     methods: {
@@ -528,14 +539,13 @@
             justify-content: space-between;
             flex-grow: 1;
             max-height: 305px;
-            .sm-block({ height: 100%;});
             .item-wrapper {
               display: grid;
               grid-template-columns: repeat(4, minmax(100px, 1fr));
               z-index: 0;
               flex-grow: 1;
               .md-block({ grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr); height: 100%; });
-              .sm-block({ display: flex; flex-direction: column; grid-template-columns: auto;});
+              .sm-block({ display: flex; flex-direction: column; grid-template-columns: auto; height: 100%;});
               .item {
                 position: relative;
                 display: flex;
