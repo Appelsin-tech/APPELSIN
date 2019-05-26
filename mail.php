@@ -21,8 +21,10 @@ try {
     $mail->isHTML(true);
    $mail->Host = 'smtp.yandex.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+//    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
+//    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+    $mail->Username = 'pelkinn@yandex.ru'; // имя пользователя google
+    $mail->Password = 'mirkino#16'; // пароль на google
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -62,7 +64,14 @@ try {
     $user_name = htmlspecialchars($data->name);
     $user_phone = htmlspecialchars($data->phone);
     $user_email = htmlspecialchars($data->email);
-    $questions = htmlspecialchars($data->questions);
+
+    $questions = $data->questions;
+//
+//    $listQuestions = array();
+//
+//    foreach ($questions as $item) {
+//        array_push($listQuestions, '<li> &item->name </li>');
+//    }
 
     $message = "<div style='font-size: 20px'>
                         <b>$theme_message</b>

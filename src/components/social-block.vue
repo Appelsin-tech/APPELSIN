@@ -1,25 +1,25 @@
 <template>
   <ul class="b-social">
     <li class="item">
-      <a class="item-link" href="#">
+      <a class="item-link" href="https://vk.com/appelsin_tech" target="_blank">
         <img svg-inline src="@/assets/img/icon/social/vk.svg" alt="">
         <img svg-inline src="@/assets/img/icon/social/vk-1.svg" alt="">
       </a>
     </li>
     <li class="item">
-      <a class="item-link" href="#">
-        <img svg-inline src="@/assets/img/icon/social/tw.svg" alt="">
-        <img svg-inline src="@/assets/img/icon/social/tw-1.svg" alt="">
+      <a class="item-link" href="https://www.instagram.com/appelsin_tech/" target="_blank">
+        <img svg-inline src="@/assets/img/icon/social/instagram.svg" alt="">
+        <img svg-inline src="@/assets/img/icon/social/instagram-1.svg" alt="">
       </a>
     </li>
     <li class="item">
-      <a class="item-link" href="#">
+      <a class="item-link" href="https://www.facebook.com/groups/appelsin/" target="_blank">
         <img svg-inline src="@/assets/img/icon/social/fb.svg" alt="">
         <img svg-inline src="@/assets/img/icon/social/fb-1.svg" alt="">
       </a>
     </li>
     <li class="item">
-      <a class="item-link" href="#">
+      <a class="item-link" href="https://www.youtube.com/channel/UCt8CyzxKiuecJk_i2f3_rSA" target="_blank">
         <img svg-inline src="@/assets/img/icon/social/you.svg" alt="">
         <img svg-inline src="@/assets/img/icon/social/you-1.svg" alt="">
       </a>
