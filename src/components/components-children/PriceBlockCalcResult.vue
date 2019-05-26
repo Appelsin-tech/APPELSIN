@@ -1,6 +1,6 @@
 <template>
-  <form class="result-form" @submit.prevent="onSubmit">
-    <div class="col col--price">
+  <form class="result-form" @submit.prevent="onSubmit" :class="{success: success}">
+    <div class="col col--price" >
       <div class="price-wrapper">
         <div class="steps-num">
           <span class="arrow" @click="$emit('go-back-step')"></span>
@@ -9,33 +9,50 @@
         </div>
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
-        <!--<input type="file" id="file">-->
-        <label class="file-link desktop" for="file">
-          <span class="file-text--big">Прикрепить файл</span>
-          <span class="file-text--small">(до 5 Мб)</span>
-        </label>
+        <!--<label class="file-link desktop" for="file">-->
+          <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
+          <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
+        <!--</label>-->
+        <div class="success-form price">
+          <span>Спасибо, ваша заявка принята!</span>
+        </div>
       </div>
       <button class="btn-price btn--submit" type="submit">Заказать проект</button>
       <div class="btn-price btn--next-steps" @click="showForm = !showForm">Заказать проект</div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
-        <div class="item">
-          <input type="text" placeholder="Имя" v-model="form.name">
+        <div class="item" :class="{errorItem: error}">
+          <input type="text" placeholder="Имя" v-model="form.name" required>
+          <div class="error">
+            <span>Введите имя</span>
+          </div>
         </div>
         <div class="item">
-          <input type="tel" placeholder="Телефон" v-model="form.phone">
+          <input type="tel" placeholder="Телефон" v-model="form.phone" required>
+          <div class="error">
+            <span>Введите телефон</span>
+          </div>
         </div>
         <div class="item">
-          <input type="email" placeholder="E-mail" v-model="form.email">
+          <input type="email"  placeholder="E-mail" v-model="form.email" required>
+          <div class="error">
+            <span>Введите E-mail</span>
+          </div>
         </div>
         <div class="item textarea">
-          <textarea v-model="form.message" placeholder="Текст сообщения"></textarea>
+          <textarea v-model="form.message" placeholder="Текст сообщения" required></textarea>
+          <div class="error">
+            <span>Введите текст сообщения</span>
+          </div>
+          <div class="success-form input">
+            <span>Спасибо, ваша заявка принята!</span>
+          </div>
         </div>
-        <label class="file-link mobile" for="file">
-          <span class="file-text--big">Прикрепить файл</span>
-          <span class="file-text--small">(до 5 Мб)</span>
-        </label>
+        <!--<label class="file-link mobile" for="file">-->
+          <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
+          <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
+        <!--</label>-->
       </div>
       <div class="checkbox-wrapper">
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
@@ -56,6 +73,7 @@
 </template>
 
 <script>
+
   import axios from 'axios'
 
   export default {
@@ -64,6 +82,8 @@
     data() {
       return {
         showForm: false,
+        error: false,
+        success: false,
         form: {
           name: '',
           phone: '',
@@ -77,17 +97,32 @@
     },
     methods: {
       onSubmit() {
-        axios.post('/mail.php', {
-          name: 'pelkin',
-          phone: '8920000000000',
-          formName: 'GetConsultation',
-        })
-          .then(response => {
-            console.log(response)
-          })
-          .catch(response => {
-            console.log(response)
-          })
+        //validation
+
+         if(this.form.name.length < 3) {
+          this.error = true
+        } else if (this.form.phone.length < 1 || this.form.email.length < 1) {
+           alert('Ведите хотя бы один контакт для связи')
+         } else {
+           axios.post('/mail.php', {
+             name: this.form.name,
+             phone: this.form.phone,
+             email: this.form.email,
+             message: this.form.message,
+             questions: this.form.questions
+           })
+             .then(response => {
+               console.log(response)
+               if(response.data.type === 'error') {
+
+               } else {
+                 this.success = true
+               }
+             })
+             .catch(response => {
+               console.log(response)
+             })
+         }
       }
     },
     computed: {
@@ -134,6 +169,41 @@
     background: #fff;
     color: #000;
     overflow: hidden;
+    &.success {
+      .col {
+        .success-form.price {
+          display: block;
+          .sm-block({ display: none;})
+        }
+        .success-form.input {
+          .sm-block({ display: block;})
+        }
+        .btn--submit,
+        .btn--mobile {
+          pointer-events: none;
+          opacity: 0.7;
+        }
+      }
+    }
+    .success-form {
+      display: none;
+      position: absolute;
+      left: 50px;
+      right: 50px;
+      background: #59c259;
+      bottom: 50px;
+      .md-block({ bottom: 20px; left: 25px; right: 25px;});
+      >span {
+        display: block;
+        font-family: @fontBebas;
+        font-size: 2.4rem;
+        padding: 8px 20px;
+        font-weight: 400;
+        color: #fff;
+        text-transform: lowercase;
+        .xs-block({ font-size: 2rem; padding: 5px 10px;})
+      }
+    }
     .col {
       width: 50%;
       .sm-block({ width: 100%;});
@@ -143,7 +213,9 @@
         font-family: @fontBebas;
         font-weight: bold;
         z-index: 5;
+
         .price-wrapper {
+          position: relative;
           display: flex;
           flex-grow: 1;
           padding: 45px 50px 55px 50px;
@@ -189,6 +261,7 @@
           .price-num {
             display: flex;
             align-items: baseline;
+            margin-bottom: auto;
             .price {
               font-size: 7rem;
               font-weight: bold;
@@ -222,10 +295,50 @@
           flex-grow: 1;
           flex-direction: column;
           .item {
+            position: relative;
             height: 85px;
-            border-bottom: 1px solid @colorBorder;
+            border: 1px solid transparent;
+            border-bottom-color: @colorBorder;
             box-sizing: border-box;
             .sm-block({ height: 60px;});
+            &.errorItem {
+              .error {
+                display: block;
+              }
+            }
+            .error {
+              display: none;
+              position: absolute;
+              bottom: -40px;
+              right: 30px;
+              border: 1px solid #D94950;
+              border-radius: 4px;
+
+              background: #D94950;
+              z-index: 99;
+              >span {
+                position: relative;
+                display: block;
+                padding: 8px 12px;
+                width: 100%;
+                height: 100%;
+                font-size: 2rem;
+                color: #fff;
+                font-weight: 400;
+                box-sizing: border-box;
+                &::after {
+                  content: " ";
+                  position: absolute;
+                  top: -6px;
+                  right: 15px;
+                  width: 11px;
+                  height: 11px;
+                  background: #D94950;
+                  transform: rotate(-45deg);
+                  box-sizing: border-box;
+                }
+              }
+            }
             textarea,
             input {
               padding-left: 25px;

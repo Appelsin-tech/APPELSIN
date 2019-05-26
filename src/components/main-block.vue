@@ -15,22 +15,22 @@
         <strong class="desc-caption">Комплексные <br> IT - решения</strong>
         <ul class="servises-list">
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">Серверные решения</a>
+            <p class="item-link">Серверные решения</p>
           </li>
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">WEB - разработка</a>
+            <p class="item-link">WEB - разработка</p>
           </li>
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">Мобильные игры и приложения</a>
+            <p class="item-link">Мобильные игры и приложения</p>
           </li>
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">Криптовалюты</a>
+            <p class="item-link">Криптовалюты</p>
           </li>
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">Реклама и продвижение</a>
+            <p class="item-link">Реклама и продвижение</p>
           </li>
           <li class="item">
-            <a class="item-link" href="#" @click.prevent="">Дизайн и брендинг</a>
+            <p class="item-link">Дизайн и брендинг</p>
           </li>
         </ul>
       </div>
@@ -150,7 +150,6 @@
               font-weight: 600;
               text-transform: uppercase;
               color: #fff;
-              .bottom-hover();
               .sm-block({ font-size: 1.8rem;})
             }
           }

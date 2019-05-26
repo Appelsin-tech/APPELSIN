@@ -1,14 +1,14 @@
 <template>
-  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]" v-scroll="handleScroll">
+  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]">
     <div class="container">
-      <a class="logo-wrapper" href="#main">
+      <a class="logo-wrapper" href="#main" @click="hideMenu">
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
       <span class="agency">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <a class="submit default" href="#price">Оставить заявку</a>
-      <a class="submit menu" href="#price" @click="menu">Оставить заявку</a>
+      <!--<a class="submit default" href="#price">Оставить заявку</a>-->
+      <a class="submit menu" href="#price" @click="hideMenu">Оставить заявку</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -27,7 +27,7 @@
         <a href="#" class="link">Наши работы</a>
       </li>
       <li class="item">
-        <a href="#contacts" class="link" @click="menu">Контакты</a>
+        <a href="#price" class="link" @click="menu">Расчитать стоимость</a>
       </li>
       <li class="item item--submit">
         <a href="#price" class="link" @click="menu">Оставить заявку</a>
@@ -42,7 +42,7 @@
     props: ['showMenu'],
     data() {
       return {
-        fixedMenu: false
+        fixedMenu: false,
       }
     },
     methods: {
@@ -50,15 +50,20 @@
         this.$emit('menu')
       },
       hideMenu () {
-        if (showMenu) {
+        if (this.openMenu) {
           this.$emit('menu')
         }
       },
-      handleScroll: function (evt, el) {
-        this.fixedMenu = window.pageYOffset > 0
+      menuBurger() {
+        this.openMenu = !this.openMenu
       },
       moveSlide() {
         this.fullpage_api.moveTo('services', 1)
+      }
+    },
+    computed: {
+      openMenu () {
+        return this.showMenu
       }
     }
   }
@@ -95,7 +100,6 @@
     &.active {
       position: fixed;
       bottom: 0;
-
       &::after {
         transform: scale(1);
         opacity: 1;
@@ -121,11 +125,7 @@
       }
       .submit {
         .bottom-hover(#000);
-        &.default {
-          display: none;
-        }
         &.menu {
-          display: block;
           color: #000;
           transition: 0.3s ease-out;
           transition-delay: 0.1s;
@@ -230,10 +230,6 @@
     .bottom-hover();
     .md-block({ margin-right: 40px;});
     .sm-block({ display: none;});
-    &.menu {
-      display: none;
-      color: #fff;
-    }
   }
   .burger {
 
