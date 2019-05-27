@@ -2,7 +2,7 @@
   <footer class="b-footer" :class="{active : showMenu}">
     <div class="container">
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <a class="policy" href="#">Политика конфиденциальности</a>
+      <!--<a class="policy" href="#">Политика конфиденциальности</a>-->
 
     </div>
   </footer>
