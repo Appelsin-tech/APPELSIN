@@ -23,25 +23,25 @@
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
         <div class="item" :class="{errorItem: error.name}">
-          <input type="text" placeholder="Имя" v-model="form.name" required>
+          <input type="text" placeholder="Имя" v-model="form.name">
           <div class="error">
             <span>Введите имя</span>
           </div>
         </div>
         <div class="item" :class="{errorItem: error.phone}">
-          <input type="tel" placeholder="Телефон" v-model="form.phone" required>
+          <input type="tel" placeholder="Телефон" v-model="form.phone">
           <div class="error">
             <span>Введите телефон</span>
           </div>
         </div>
         <div class="item" :class="{errorItem: error.email}">
-          <input type="email" placeholder="E-mail" v-model="form.email" required>
+          <input type="email" placeholder="E-mail" v-model="form.email">
           <div class="error">
             <span>Введите E-mail</span>
           </div>
         </div>
         <div class="item textarea" :class="{errorItem: error.message}">
-          <textarea v-model="form.message" placeholder="Текст сообщения" required></textarea>
+          <textarea v-model="form.message" placeholder="Текст сообщения"></textarea>
           <div class="error">
             <span>Введите текст сообщения</span>
           </div>
@@ -109,11 +109,16 @@
         //validation
 
         if (this.form.name.length < 1) {
-          this.error.name = true
+          this.hideError('name')
+        } else if (this.form.phone.length < 4) {
+          this.hideError('phone')
+        } else if (this.form.email.length < 4) {
+          this.hideError('email')
+        } else if (this.form.message.length < 4) {
+          this.hideError('message')
         } else if (!this.form.checkedPersonalData) {
-          this.error.checked = true
+          this.hideError('checked')
         } else {
-          this.error.checked = false
           axios.post('/mail.php', {
             name: this.form.name,
             phone: this.form.phone,
@@ -137,6 +142,13 @@
               console.log(response)
             })
         }
+      },
+      hideError(name) {
+        console.log(name, this.error[name])
+        this.error[name] = true
+        setTimeout(()=>{
+          this.error[name] = false
+        }, 2000)
       }
     },
     computed: {
