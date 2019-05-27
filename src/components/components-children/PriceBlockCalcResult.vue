@@ -1,5 +1,5 @@
 <template>
-  <form class="result-form" @submit.prevent="onSubmit" :class="[{success: success}, {disabled: !form.checkedPersonalData}]">
+  <form class="result-form" @submit.prevent="onSubmit" :class="{success: success}">
     <div class="col col--price">
       <div class="price-wrapper">
         <div class="steps-num">
@@ -54,11 +54,14 @@
         <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
         <!--</label>-->
       </div>
-      <div class="checkbox-wrapper">
+      <div class="checkbox-wrapper" :class="{errorItem: error.checked}">
+        <div class="error error--top">
+          <span>Подтвердите согласие</span>
+        </div>
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
         <label class="label-person" for="checkPerson">
-          <span>Я согласен на обработку </span>
-          <a class="link-person" href="#">персональных данных</a>
+          <span>Я согласен на обработку персональных данных</span>
+          <!--<a class="link-person" href="#">персональных данных</a>-->
         </label>
       </div>
       <div class="btn-wrapper">
@@ -86,7 +89,8 @@
           name: false,
           phone: false,
           email: false,
-          message: false
+          message: false,
+          checked: false
         },
         errorName: '',
         success: false,
@@ -104,9 +108,12 @@
       onSubmit() {
         //validation
 
-        if (this.form.name.length < 3) {
-          this.error = true
-        }  else {
+        if (this.form.name.length < 1) {
+          this.error.name = true
+        } else if (!this.form.checkedPersonalData) {
+          this.error.checked = true
+        } else {
+          this.error.checked = false
           axios.post('/mail.php', {
             name: this.form.name,
             phone: this.form.phone,
@@ -182,15 +189,6 @@
     background: #fff;
     color: #000;
     overflow: hidden;
-    &.disabled {
-      .col {
-        .btn--submit,
-        .btn--mobile {
-          pointer-events: none;
-          opacity: 0.7;
-        }
-      }
-    }
     &.success {
       .col {
         .success-form.price {
@@ -328,39 +326,6 @@
                 display: block;
               }
             }
-            .error {
-              display: none;
-              position: absolute;
-              bottom: -40px;
-              right: 30px;
-              border: 1px solid #D94950;
-              border-radius: 4px;
-
-              background: #D94950;
-              z-index: 99;
-              > span {
-                position: relative;
-                display: block;
-                padding: 8px 12px;
-                width: 100%;
-                height: 100%;
-                font-size: 2rem;
-                color: #fff;
-                font-weight: 400;
-                box-sizing: border-box;
-                &::after {
-                  content: " ";
-                  position: absolute;
-                  top: -6px;
-                  right: 15px;
-                  width: 11px;
-                  height: 11px;
-                  background: #D94950;
-                  transform: rotate(-45deg);
-                  box-sizing: border-box;
-                }
-              }
-            }
             textarea,
             input {
               padding-left: 25px;
@@ -395,6 +360,7 @@
           }
         }
         .checkbox-wrapper {
+          position: relative;
           display: flex;
           height: 85px;
           padding-left: 25px;
@@ -402,6 +368,11 @@
           align-items: center;
           .md-block({ height: 70px; });
           .sm-block({ height: 50px; });
+          &.errorItem {
+            .error {
+              display: block;
+            }
+          }
           input {
             display: none;
             &:checked + label::after {
@@ -444,6 +415,51 @@
               transition: 0.3s;
               &:hover {
                 border-bottom: 1px solid transparent;
+              }
+            }
+          }
+        }
+        .error {
+          display: none;
+          position: absolute;
+          bottom: -40px;
+          right: 30px;
+          border: 1px solid #D94950;
+          border-radius: 4px;
+          background: #D94950;
+          z-index: 99;
+          .sm-block({ bottom: -34px;});
+          > span {
+            position: relative;
+            display: block;
+            padding: 8px 12px;
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 400;
+            box-sizing: border-box;
+            .sm-block({ font-size: 1.6rem;});
+            &::after {
+              content: " ";
+              position: absolute;
+              top: -6px;
+              right: 15px;
+              width: 11px;
+              height: 11px;
+              background: #D94950;
+              transform: rotate(-45deg);
+              box-sizing: border-box;
+            }
+          }
+          &--top {
+            bottom: auto;
+            top: -40px;
+            .sm-block({ top: -34px;});
+            >span {
+              &::after {
+                top: auto;
+                bottom: -6px;
               }
             }
           }
