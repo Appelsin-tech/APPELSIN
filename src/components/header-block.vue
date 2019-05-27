@@ -24,7 +24,7 @@
         <a href="#services" class="link" @click="menu">Услуги</a>
       </li>
       <li class="item">
-        <a href="#case" class="link" @click="menu">Наши работы</a>
+        <a href="#cases" class="link" @click="menu">Наши работы</a>
       </li>
       <li class="item">
         <a href="#price" class="link" @click="menu">Расчитать стоимость</a>

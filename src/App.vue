@@ -12,7 +12,7 @@
           <a  class="link-section" href="#services"></a>
         </li>
         <li data-menuanchor="case">
-          <a  class="link-section" href="#case"></a>
+          <a  class="link-section" href="#cases"></a>
         </li>
         <li data-menuanchor="about">
           <a  class="link-section" href="#about"></a>
@@ -77,7 +77,7 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'services', 'case', 'about', 'price'],
+          anchors: ['main', 'services', 'cases', 'about', 'price'],
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,

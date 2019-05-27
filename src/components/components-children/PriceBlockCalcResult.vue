@@ -1,5 +1,5 @@
 <template>
-  <form class="result-form" @submit.prevent="onSubmit" :class="{success: success}">
+  <form class="result-form" @submit.prevent="onSubmit" :class="[{success: success}, {disabled: !form.checkedPersonalData}]">
     <div class="col col--price">
       <div class="price-wrapper">
         <div class="steps-num">
@@ -22,25 +22,25 @@
     </div>
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
-        <div class="item" :class="{errorItem: error}">
+        <div class="item" :class="{errorItem: error.name}">
           <input type="text" placeholder="Имя" v-model="form.name" required>
           <div class="error">
             <span>Введите имя</span>
           </div>
         </div>
-        <div class="item">
+        <div class="item" :class="{errorItem: error.phone}">
           <input type="tel" placeholder="Телефон" v-model="form.phone" required>
           <div class="error">
             <span>Введите телефон</span>
           </div>
         </div>
-        <div class="item">
+        <div class="item" :class="{errorItem: error.email}">
           <input type="email" placeholder="E-mail" v-model="form.email" required>
           <div class="error">
             <span>Введите E-mail</span>
           </div>
         </div>
-        <div class="item textarea">
+        <div class="item textarea" :class="{errorItem: error.message}">
           <textarea v-model="form.message" placeholder="Текст сообщения" required></textarea>
           <div class="error">
             <span>Введите текст сообщения</span>
@@ -82,7 +82,13 @@
     data() {
       return {
         showForm: false,
-        error: false,
+        error: {
+          name: false,
+          phone: false,
+          email: false,
+          message: false
+        },
+        errorName: '',
         success: false,
         form: {
           name: '',
@@ -90,7 +96,7 @@
           email: '',
           message: '',
           file: [],
-          checkedPersonalData: true
+          checkedPersonalData: false
         }
       }
     },
@@ -100,9 +106,7 @@
 
         if (this.form.name.length < 3) {
           this.error = true
-        } else if (this.form.phone.length < 1 || this.form.email.length < 1) {
-          alert('Ведите хотя бы один контакт для связи')
-        } else {
+        }  else {
           axios.post('/mail.php', {
             name: this.form.name,
             phone: this.form.phone,
@@ -115,9 +119,11 @@
             .then(response => {
               console.log(response)
               if (response.data.type === 'error') {
-
+                this.errorName = response.data.input_name
+                this.error[this.errorName] = true
               } else {
                 this.success = true
+                this.error[this.errorName] = false
               }
             })
             .catch(response => {
@@ -176,6 +182,15 @@
     background: #fff;
     color: #000;
     overflow: hidden;
+    &.disabled {
+      .col {
+        .btn--submit,
+        .btn--mobile {
+          pointer-events: none;
+          opacity: 0.7;
+        }
+      }
+    }
     &.success {
       .col {
         .success-form.price {
