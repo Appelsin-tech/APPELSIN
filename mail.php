@@ -11,7 +11,6 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 
-
 $data = json_decode(file_get_contents("php://input"));
 $mail = new PHPMailer(true);
 
@@ -19,12 +18,12 @@ try {
 
     $mail->isSMTP();
     $mail->isHTML(true);
-   $mail->Host = 'smtp.yandex.com';
+    $mail->Host = 'smtp.yandex.com';
     $mail->SMTPAuth = true;
-//    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-//    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
-    $mail->Username = 'pelkinn@yandex.ru'; // имя пользователя google
-    $mail->Password = 'mirkino#16'; // пароль на google
+    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
+    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+//    $mail->Username = 'pelkinn@yandex.ru'; // имя пользователя google
+//    $mail->Password = 'mirkino#16'; // пароль на google
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -60,30 +59,32 @@ try {
         echo json_encode($script_result);
         exit;
     }
-    $theme_message = htmlspecialchars($data->questions);
+
     $user_name = htmlspecialchars($data->name);
     $user_phone = htmlspecialchars($data->phone);
     $user_email = htmlspecialchars($data->email);
+    $price = $data->price;
 
     $questions = $data->questions;
-//
-//    $listQuestions = array();
-//
-//    foreach ($questions as $item) {
-//        array_push($listQuestions, '<li> &item->name </li>');
-//    }
+
+    $listQuestions = [];
+
+    foreach ($questions as $item) {
+        $listQuestions[] = "<li> $item </li>";
+    }
+    $questions = implode('', $listQuestions);
 
     $message = "<div style='font-size: 20px'>
-                        <b>$theme_message</b>
+                        <b>Заявка с апельсина</b>
                         <br>
                         <p>Имя: $user_name</p>
                         <p>Телефон: $user_phone</p>
                         <p>Почта: $user_email</p>
                         <p>Выбранные вопросы: 
-                        <ul>
-                        <li>$questions</li>
-                        </ul>
+                        <ul>$questions</ul>
                         </p>
+                        <br>
+                        <p>Примерная стоимость: $price</p>
                     </div>";
 
     $mail->Subject = 'Заявка с Аппельсина';

@@ -25,7 +25,7 @@
                   <p class="desc">Проектирование и реализация проекта, разработка API, работа с БД, автоматизация, боты.
                   </p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
@@ -40,7 +40,7 @@
                   <h3 class="caption-services">WEB - разработка</h3>
                   <p class="desc">От лендинга до высоконагруженного сайта любой сложности</p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
@@ -54,7 +54,7 @@
                   <h3 class="caption-services">Мобильные игры и приложения</h3>
                   <p class="desc">Кросс-платформенные и нативные бизнес решения, 2D и 3D игры, AR/VR</p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
@@ -68,7 +68,7 @@
                   <h3 class="caption-services">Блокчейн и криптовалюты</h3>
                   <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
@@ -83,7 +83,7 @@
                   <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг,
                     аналитика</p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
@@ -97,7 +97,7 @@
                   <h3 class="caption-services">Дизайн и брендинг</h3>
                   <p class="desc">Графический дизайн сайтов, приложений, презентаций, UI дизайн, брендинг</p>
                 </div>
-                <a class="circle-btn" href="#">
+                <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>

@@ -13,7 +13,7 @@
         </div>
         <div class="steps-wrapper">
           <result-form v-if="showResult" :answers="answers" v-on:go-back-step="preventStepsClick" :steps="steps"
-                       :activeSteps="activeSteps"/>
+                       :activeSteps="activeSteps" :questions="questions"/>
           <div class="steps" v-if="!showResult">
             <div class="steps-num">
               <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
@@ -80,25 +80,29 @@
                 name: 'Сайт / Сервер',
                 img: 'item-1-0.png',
                 addQuestion: 3,
-                val: 'site'
+                val: 'site',
+                idQuestions: 1
               },
               {
                 name: 'Мобильная разработка',
                 img: 'item-1-1.png',
                 addQuestion: 4,
                 val: 'mobile',
+                idQuestions: 1
               },
               {
                 name: 'Реклама и продвижение',
                 img: 'item-1-2.png',
                 addQuestion: 7,
                 val: 'advertising',
+                idQuestions: 1
               },
               {
                 name: 'Другое',
                 img: 'item-1-3.png',
                 addQuestion: 2,
                 val: 'other',
+                idQuestions: 1
               }
             ]
           },
@@ -111,24 +115,28 @@
                 name: 'Брендинг',
                 img: 'item-2-0.png',
                 val: 'brand',
-                price: 30000
+                price: 30000,
+                idQuestions: 2
               },
               {
                 name: 'Криптовалюты',
                 img: 'item-2-1.png',
                 addQuestion: 8,
-                val: 'crypto'
+                val: 'crypto',
+                idQuestions: 2
               },
               {
                 name: 'Дизайн без разработки',
                 img: 'item-2-2.png',
                 addQuestion: 9,
-                val: 'design'
+                val: 'design',
+                idQuestions: 2
               },
               {
                 name: 'Ничего из этого',
                 img: 'item-2-3.png',
-                val: 'other-1'
+                val: 'other-1',
+                idQuestions: 2
               }
             ]
           },
@@ -141,25 +149,29 @@
                 name: 'Лэндинг',
                 img: 'item-3-0.png',
                 val: 'landing',
-                price: 40000
+                price: 40000,
+                idQuestions: 3
               },
               {
                 name: 'Интернет магазин',
                 img: 'item-3-1.png',
                 val: 'online-store',
-                price: 300000
+                price: 300000,
+                idQuestions: 3
               },
               {
                 name: 'Сервис с высокой нагрузкой',
                 img: 'item-3-2.png',
                 val: 'high-services',
-                price: 1000000
+                price: 1000000,
+                idQuestions: 3
               },
               {
                 name: 'Автоматизация / Боты / API',
                 img: 'item-3-3.png',
                 val: 'bots-api',
-                price: 200000
+                price: 200000,
+                idQuestions: 3
               }
             ]
           },
@@ -172,28 +184,32 @@
                 name: 'Нативное приложение',
                 img: 'item-4-0.png',
                 addQuestion: 5,
-                val: 'native-app'
+                val: 'native-app',
+                idQuestions: 4
               },
               {
                 name: 'Кросплатформенное приложение',
                 img: 'item-4-1.png',
                 addQuestion: 6,
                 val: 'crossplatform-app',
-                price: 200000
+                price: 200000,
+                idQuestions: 4
               },
               {
                 name: '2D Игра',
                 img: 'item-4-2.png',
                 addQuestion: 6,
                 val: '2d-game',
-                price: 400000
+                price: 400000,
+                idQuestions: 4
               },
               {
                 name: '3D игра',
                 img: 'item-4-3.png',
                 addQuestion: 6,
                 val: '3d-game',
-                price: 1500000
+                price: 1500000,
+                idQuestions: 4
               }
             ]
           },
@@ -206,13 +222,15 @@
                 name: 'iOS',
                 img: 'item-6-0.png',
                 val: 'ios-fix',
-                price: 400000
+                price: 400000,
+                idQuestions: 5
               },
               {
                 name: 'Android',
                 img: 'item-6-1.png',
                 val: 'android-fix',
-                price: 400000
+                price: 400000,
+                idQuestions: 5
               },
             ]
           },
@@ -225,11 +243,13 @@
                 name: 'iOS',
                 img: 'item-6-0.png',
                 val: 'ios',
+                idQuestions: 6
               },
               {
                 name: 'Android',
                 img: 'item-6-1.png',
                 val: 'android',
+                idQuestions: 6
               },
             ]
           },
@@ -242,19 +262,22 @@
                 name: 'Сео и аналитика',
                 img: 'item-5-0.png',
                 val: 'seo-analytics',
-                price: 50000
+                price: 50000,
+                idQuestions: 7
               },
               {
                 name: 'Контекстная реклама и ремаркетинг',
                 img: 'item-5-1.png',
                 val: 'context-advertising',
-                price: 25000
+                price: 25000,
+                idQuestions: 7
               },
               {
                 name: 'Реклама в соцсетях / продвижение',
                 img: 'item-5-2.png',
                 val: 'social-advertising',
-                price: 15000
+                price: 15000,
+                idQuestions: 7
               },
             ]
           },
@@ -267,19 +290,22 @@
                 name: 'Криптовалюта на базе сторонней разработки / форк',
                 img: 'item-7-0.png',
                 val: 'crypto-fork',
-                price: 400000
+                price: 400000,
+                idQuestions: 8
               },
               {
                 name: 'Свой блокчейн',
                 img: 'item-7-1.png',
                 val: 'blockchain',
-                price: 3000000
+                price: 3000000,
+                idQuestions: 8
               },
               {
                 name: 'ICO',
                 img: 'item-7-2.png',
                 val: 'ico',
-                price: 500000
+                price: 500000,
+                idQuestions: 8
               },
             ]
           },
@@ -292,25 +318,29 @@
                 name: 'Дизайн сайта',
                 img: 'item-8-0.png',
                 val: 'design-site',
-                price: 15000
+                price: 15000,
+                idQuestions: 9
               },
               {
                 name: 'Дизайн презентации / документа',
                 img: 'item-8-1.png',
                 val: 'design-presentation',
-                price: 10000
+                price: 10000,
+                idQuestions: 9
               },
               {
                 name: 'Дизайн приложения',
                 img: 'item-8-2.png',
                 val: 'design-app',
-                price: 20000
+                price: 20000,
+                idQuestions: 9
               },
               {
                 name: 'Другое',
                 img: 'item-8-3.png',
                 val: 'other-2',
-                price: 10000
+                price: 10000,
+                idQuestions: 9
               },
             ]
           },

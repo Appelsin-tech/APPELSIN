@@ -25,7 +25,7 @@
                   Разработана криптовалюта CGEN на базе технологии Quark, листинг монеты на биржах. Проведен SWAP
                   монеты. Разработан сайт, личный кабинет с онлайн кошельком. Полная разработка и ведение платформы
                 </p>
-                <a class="link-line" href="#">
+                <a class="link-line" href="https://cgen.network/" target="_blank">
                   <span>cgen.network</span>
                 </a>
               </div>
@@ -40,7 +40,7 @@
                   Разработаны API для Федеральной службы судебных приставов, единого федеральный реестра сведений о
                   банкротстве, картотеки арбитражных дел РФ.
                 </p>
-                <a class="link-line" href="#">
+                <a class="link-line" href="https://fssprus.ru/" target="_blank">
                   <span>fssprus.ru</span>
                 </a>
               </div>
@@ -56,7 +56,7 @@
                   разработка и ведение платформы. Разработана криптовалюта CSNP на базе технологии ERC20. Листинг монеты
                   на биржах.
                 </p>
-                <a class="link-line" href="#">
+                <a class="link-line" href="https://crowdsale.network/" target="_blank">
                   <span>crowdsale.network</span>
                 </a>
               </div>
@@ -70,7 +70,7 @@
                 <p class="desc-case">
                   Фонд поддержки и развития современного искусства на базе блокчейн технологий. Разработка сайта.
                 </p>
-                <a class="link-line" href="#">
+                <a class="link-line" href="http://ghost_town.mrpelktn.beget.tech/" target="_blank">
                   <span>whizbiz.io</span>
                 </a>
               </div>
@@ -85,7 +85,7 @@
                   Мобильная 2D-игра, разработанная под iOS. Паззл для детей, оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
                 <div class="link-wrapper">
-                  <a href="#" class="link ios">
+                  <a href="https://itunes.apple.com/ru/app/id1183881507" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
@@ -103,7 +103,7 @@
                   10км уникальной трассы, умные противники - боты. Оффлайн. Опубликовано в AppStore. Полная
                   разработка. </p>
                 <div class="link-wrapper">
-                  <a href="#" class="link ios">
+                  <a href="https://itunes.apple.com/ru/app/fury-ride/id1281992116" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
@@ -122,11 +122,11 @@
                   Подготовка\сборка\финализация контента.
                 </p>
                 <div class="link-wrapper">
-                  <a href="#" class="link ios">
+                  <a href="https://itunes.apple.com/us/app/id1029110855" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
-                  <a href="#" class="link android">
+                  <a href="https://play.google.com/store/apps/details?id=team.gordeyev.sniperarena" class="link android" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/android.svg">
                     <span>android</span>
                   </a>

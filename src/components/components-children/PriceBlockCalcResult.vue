@@ -1,6 +1,6 @@
 <template>
   <form class="result-form" @submit.prevent="onSubmit" :class="{success: success}">
-    <div class="col col--price" >
+    <div class="col col--price">
       <div class="price-wrapper">
         <div class="steps-num">
           <span class="arrow" @click="$emit('go-back-step')"></span>
@@ -10,8 +10,8 @@
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
         <!--<label class="file-link desktop" for="file">-->
-          <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
-          <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
+        <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
+        <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
         <!--</label>-->
         <div class="success-form price">
           <span>Спасибо, ваша заявка принята!</span>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="item">
-          <input type="email"  placeholder="E-mail" v-model="form.email" required>
+          <input type="email" placeholder="E-mail" v-model="form.email" required>
           <div class="error">
             <span>Введите E-mail</span>
           </div>
@@ -50,8 +50,8 @@
           </div>
         </div>
         <!--<label class="file-link mobile" for="file">-->
-          <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
-          <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
+        <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
+        <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
         <!--</label>-->
       </div>
       <div class="checkbox-wrapper">
@@ -78,7 +78,7 @@
 
   export default {
     name: "PriceBlockCalcResult",
-    props: ['answers', 'steps', 'activeSteps'],
+    props: ['answers', 'steps', 'activeSteps', 'questions'],
     data() {
       return {
         showForm: false,
@@ -90,8 +90,7 @@
           email: '',
           message: '',
           file: [],
-          questions: '',
-          checkedPersonalData: ''
+          checkedPersonalData: true
         }
       }
     },
@@ -99,30 +98,32 @@
       onSubmit() {
         //validation
 
-         if(this.form.name.length < 3) {
+        if (this.form.name.length < 3) {
           this.error = true
         } else if (this.form.phone.length < 1 || this.form.email.length < 1) {
-           alert('Ведите хотя бы один контакт для связи')
-         } else {
-           axios.post('/mail.php', {
-             name: this.form.name,
-             phone: this.form.phone,
-             email: this.form.email,
-             message: this.form.message,
-             questions: this.form.questions
-           })
-             .then(response => {
-               console.log(response)
-               if(response.data.type === 'error') {
+          alert('Ведите хотя бы один контакт для связи')
+        } else {
+          axios.post('/mail.php', {
+            name: this.form.name,
+            phone: this.form.phone,
+            email: this.form.email,
+            message: this.form.message,
+            questions: this.questionsName,
+            price: this.price,
+            checked: this.form.checkedPersonalData
+          })
+            .then(response => {
+              console.log(response)
+              if (response.data.type === 'error') {
 
-               } else {
-                 this.success = true
-               }
-             })
-             .catch(response => {
-               console.log(response)
-             })
-         }
+              } else {
+                this.success = true
+              }
+            })
+            .catch(response => {
+              console.log(response)
+            })
+        }
       }
     },
     computed: {
@@ -146,8 +147,14 @@
       },
       questionsName() {
         let nameQuestions = [];
-        this.answers.forEach((item) => {
-          nameQuestions.push(item.name)
+        let itemArr = '';
+        this.answers.forEach((variant) => {
+          this.questions.forEach(step => {
+            if (variant.idQuestions === step.id) {
+              itemArr = 'Вопрос: ' + step.stepCaption + ';  ' + 'Ответ: ' + variant.name + ';'
+              nameQuestions.push(itemArr)
+            }
+          })
         })
         return nameQuestions
       },
@@ -155,7 +162,7 @@
         this.answers.forEach((item) => {
           nameQuestions.push(item.name)
         })
-      }
+      },
     }
   }
 </script>
@@ -173,10 +180,10 @@
       .col {
         .success-form.price {
           display: block;
-          .sm-block({ display: none;})
+          .sm-block({ display: none; })
         }
         .success-form.input {
-          .sm-block({ display: block;})
+          .sm-block({ display: block; })
         }
         .btn--submit,
         .btn--mobile {
@@ -192,8 +199,8 @@
       right: 50px;
       background: #59c259;
       bottom: 50px;
-      .md-block({ bottom: 20px; left: 25px; right: 25px;});
-      >span {
+      .md-block({ bottom: 20px; left: 25px; right: 25px; });
+      > span {
         display: block;
         font-family: @fontBebas;
         font-size: 2.4rem;
@@ -201,12 +208,12 @@
         font-weight: 400;
         color: #fff;
         text-transform: lowercase;
-        .xs-block({ font-size: 2rem; padding: 5px 10px;})
+        .xs-block({ font-size: 2rem; padding: 5px 10px; })
       }
     }
     .col {
       width: 50%;
-      .sm-block({ width: 100%;});
+      .sm-block({ width: 100%; });
       &--price {
         display: flex;
         flex-direction: column;
@@ -221,8 +228,8 @@
           padding: 45px 50px 55px 50px;
           flex-direction: column;
           border-right: 1px solid @colorBorder;
-          .md-block({padding: 40px;});
-          .sm-block({ border: none; padding: 30px;});
+          .md-block({ padding: 40px; });
+          .sm-block({ border: none; padding: 30px; });
           .steps-num {
             margin-bottom: 20px;
             font-family: @fontBebas;
@@ -232,7 +239,7 @@
             color: #000;
             text-transform: uppercase;
             .md-block({ margin-bottom: 15px; });
-            .xs-block({ margin-bottom: 10px;});
+            .xs-block({ margin-bottom: 10px; });
             .arrow {
               display: inline-block;
               transform: rotate(45deg);
@@ -253,7 +260,7 @@
             font-size: 3rem;
             line-height: 4rem;
             letter-spacing: 0.7rem;
-            .xs-block({font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem;})
+            .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; })
           }
           .ans {
             font-size: 1.8rem;
@@ -268,13 +275,13 @@
               line-height: 1;
               letter-spacing: 2rem;
               color: #db4954;
-              .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem;});
-              .xs-block({ font-size: 4rem; letter-spacing: 1.1rem;});
+              .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem; });
+              .xs-block({ font-size: 4rem; letter-spacing: 1.1rem; });
             }
             .currency {
               font-size: 3rem;
               letter-spacing: 0.7rem;
-              .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
+              .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem; });
             }
           }
         }
@@ -284,7 +291,7 @@
         flex-direction: column;
         transition: 0.3s;
         background: #fff;
-        .sm-block({ position: absolute; top: 100%; bottom: -100%; z-index:9;});
+        .sm-block({ position: absolute; top: 100%; bottom: -100%; z-index: 9; });
         &.active {
           top: 0;
           bottom: 0;
@@ -300,7 +307,7 @@
             border: 1px solid transparent;
             border-bottom-color: @colorBorder;
             box-sizing: border-box;
-            .sm-block({ height: 60px;});
+            .sm-block({ height: 60px; });
             &.errorItem {
               .error {
                 display: block;
@@ -316,7 +323,7 @@
 
               background: #D94950;
               z-index: 99;
-              >span {
+              > span {
                 position: relative;
                 display: block;
                 padding: 8px 12px;
@@ -390,7 +397,7 @@
             position: relative;
             padding-left: 55px;
             font-size: 1.6rem;
-            .md-block({padding-left: 40px;});
+            .md-block({ padding-left: 40px; });
             &::before,
             &::after {
               position: absolute;
@@ -433,17 +440,17 @@
         padding-left: 60px;
         font-family: @fontBebas;
         color: #000;
-        .md-block({ padding-left: 45px;});
-        .xs-block({ padding-left: 0;});
+        .md-block({ padding-left: 45px; });
+        .xs-block({ padding-left: 0; });
         &.desktop {
-          .sm-block({ display: none;});
+          .sm-block({ display: none; });
         }
         &.mobile {
           display: none;
           height: 50px;
           margin-left: 25px;
           align-items: center;
-          .sm-block({ display: inline-flex;});
+          .sm-block({ display: inline-flex; });
         }
         &::after {
           position: absolute;
@@ -453,8 +460,8 @@
           width: 42px;
           height: 42px;
           background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
-          .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px");});
-          .xs-block({ display: none;});
+          .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
+          .xs-block({ display: none; });
         }
         .file-text--big {
           position: relative;
@@ -490,24 +497,24 @@
         background: #000;
         text-transform: uppercase;
         cursor: pointer;
-        .md-block({ height: 70px; padding-left: 40px;});
+        .md-block({ height: 70px; padding-left: 40px; });
         &.btn--submit {
-          .sm-block({ display: none;});
+          .sm-block({ display: none; });
         }
         &.btn--next-steps {
           display: none;
-          .sm-block({ display: flex;});
-          .xs-block({ justify-content: center; padding-left: 0;});
+          .sm-block({ display: flex; });
+          .xs-block({ justify-content: center; padding-left: 0; });
         }
         &.btn--mobile {
           flex-grow: 1;
-          .xs-block({padding-left: 20px; height: 55px;});
+          .xs-block({ padding-left: 20px; height: 55px; });
         }
       }
       .btn-wrapper {
         display: none;
         width: 100%;
-        .sm-block({ display: flex;});
+        .sm-block({ display: flex; });
         .btn-back {
           height: 70px;
           width: 70px;
@@ -518,11 +525,11 @@
           transform: scale(-1, 1);
           border-top: 1px solid @colorBorder;
           box-sizing: border-box;
-          .xs-block({ height: 55px; width: 55px;});
+          .xs-block({ height: 55px; width: 55px; });
           svg {
             width: 30px;
             height: 30px;
-            .xs-block({ width: 25px; height: 25px;});
+            .xs-block({ width: 25px; height: 25px; });
             path {
               fill: @colorBorder;
             }
