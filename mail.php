@@ -63,6 +63,7 @@ try {
     $user_name = htmlspecialchars($data->name);
     $user_phone = htmlspecialchars($data->phone);
     $user_email = htmlspecialchars($data->email);
+    $user_message = htmlspecialchars($data->message);
     $price = $data->price;
 
     $questions = $data->questions;
@@ -83,6 +84,7 @@ try {
                         <p>Выбранные вопросы: 
                         <ul>$questions</ul>
                         </p>
+                        <p>Текст сообщения: $user_message</p>
                         <br>
                         <p>Примерная стоимость: $price</p>
                     </div>";
