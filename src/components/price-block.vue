@@ -582,7 +582,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 min-width: 50px;
-                .sm-block({max-height: 25%; height: 100%;});
+                .sm-block({max-height: 25%; height: 76px;});
                 &::after {
                   position: absolute;
                   content: '';
