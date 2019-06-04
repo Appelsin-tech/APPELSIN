@@ -582,7 +582,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 min-width: 50px;
-                .sm-block({max-height: 25%});
+                .sm-block({max-height: 25%; height: 100%;});
                 &::after {
                   position: absolute;
                   content: '';
@@ -626,7 +626,7 @@
                     background-repeat: no-repeat;
                     background-size: contain;
                     .md-block({ width: 45px; height: 45px; });
-                    .sm-block({ width: 35px; height: 35px; margin-bottom: 0; margin-right: 10px; background-position: center;});
+                    .sm-block({ width: 35px; height: 35px; margin-bottom: 0; margin-right: 10px; });
                     .xs-block({ width: 25px; height: 25px;});
                   }
                   .name-project {
