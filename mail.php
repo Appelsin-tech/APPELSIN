@@ -22,8 +22,6 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = 'info@appelsin.tech'; // имя пользователя google
     $mail->Password = 'e4BnwBVybY9b'; // пароль на google
-//    $mail->Username = 'pelkinn@yandex.ru'; // имя пользователя google
-//    $mail->Password = 'mirkino#16'; // пароль на google
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
