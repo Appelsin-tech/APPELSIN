@@ -29,6 +29,9 @@
       <li class="item">
         <a href="#price" class="link" @click="menu">Расчитать стоимость</a>
       </li>
+      <li class="item">
+        <a href="#contacts" class="link" @click="menu">Контакты</a>
+      </li>
       <li class="item item--submit">
         <a href="#price" class="link" @click="menu">Оставить заявку</a>
       </li>
