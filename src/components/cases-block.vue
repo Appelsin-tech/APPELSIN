@@ -316,10 +316,10 @@
               margin-right: 17px;
               height: 40px;
               width: 40px;
-              transition: 0.3s;
               .sm-block({ display: none;});
               path {
                 fill: #bababa;
+                transition: 0.3s;
               }
             }
             span {

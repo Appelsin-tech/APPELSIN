@@ -232,7 +232,6 @@
     .sm-block({ display: none;});
   }
   .burger {
-
     display: flex;
     flex-direction: column;
     align-items: flex-end;

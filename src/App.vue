@@ -20,9 +20,9 @@
         <li data-menuanchor="price">
           <a  class="link-section" href="#price"></a>
         </li>
-        <!--<li data-menuanchor="contacts">-->
-          <!--<a  class="link-section" href="#contacts"></a>-->
-        <!--</li>-->
+        <li data-menuanchor="contacts">
+          <a  class="link-section" href="#contacts"></a>
+        </li>
       </ul>
       <button class="arrow prev-slide" @click="nextSlide"></button>
     </div>
@@ -34,7 +34,7 @@
         <about-block/>
         <price-block/>
 
-        <!--<contacts-block/>-->
+        <contacts-block/>
       </full-page>
     </main>
     <footer-block :showMenu="showMenu"/>
@@ -77,7 +77,7 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'services', 'cases', 'about', 'price'],
+          anchors: ['main', 'services', 'cases', 'about', 'price', 'contacts'],
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,
@@ -182,11 +182,5 @@
       }
     }
   }
-  .wrapper-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
+
 </style>
