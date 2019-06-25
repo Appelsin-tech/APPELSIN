@@ -2,7 +2,7 @@
   <footer class="b-footer" :class="{active : showMenu}">
     <div class="container">
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <!--<a class="policy" href="#">Политика конфиденциальности</a>-->
+      <a class="policy" href="#" @click.prevent="$modal.show('modal-policy')">Политика конфиденциальности</a>
 
     </div>
   </footer>
@@ -25,14 +25,16 @@
     left: 0;
     right: 0;
     z-index: 999;
-
-    .sm-block({ display: none; padding-bottom: 50px; opacity: 0;});
-    .xs-block({ display: none;});
-    .xs-max-height({ display: none;});
+    transition: all 0.3s ease-out;
+    transition-delay: 0.7s;
+    .sm-block({ display: none; padding-bottom: 50px; opacity: 0; transform: translateX(50px);});
+    .xs-block({ display: none;  opacity: 0; transform: translateX(50px);});
+    .xs-max-height({ display: none;  opacity: 0; transform: translateX(50px);});
     &.active {
       display: block;
       opacity: 1;
-      .sm-block({ transition: opacity 0.3s ease-out;  transition-delay: 0.2s;});
+      .xs-max-height({ transform: translateX(0);});
+      .sm-block({    transform: translateX(0);});
       .container {
         .sm-block({flex-direction: column;
           align-items: center;});

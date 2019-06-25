@@ -38,6 +38,7 @@
       </full-page>
     </main>
     <footer-block :showMenu="showMenu"/>
+    <modal-policy/>
   </div>
 </template>
 
@@ -52,7 +53,7 @@
   import CaseBlock from './components/cases-block'
   import ContactsBlock from './components/contacts-block'
   import FooterBlock from './components/footer-block'
-
+  import ModalPolicy from './components/modal/ModalPolicy'
 
 
   export default {
@@ -66,7 +67,8 @@
       PriceBlock,
       CaseBlock,
       ContactsBlock,
-      FooterBlock
+      FooterBlock,
+      ModalPolicy
     },
     data() {
       return {
@@ -81,8 +83,10 @@
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,
+          // autoScrolling:false,
           // scrollOverflow:true,
-          sectionSelector: '.fullpage-section'
+          sectionSelector: '.fullpage-section',
+          normalScrollElements: '.fancybox-container, #textPolicy',
         }
       }
     },
@@ -94,18 +98,18 @@
         fullpage_api.moveSectionDown();
       },
       activeMenu() {
+
         this.showMenu = !this.showMenu
       }
     },
     watch: {
       showMenu (newVal, oldVal) {
         if(newVal === true) {
-
+          window.document.body.style.overflow = 'hidden'
           fullpage_api.setAllowScrolling(false);
-          fullpage_api.setKeyboardScrolling(false)
         } else {
+          window.document.body.style.overflow = 'visible'
           fullpage_api.setAllowScrolling(true);
-          fullpage_api.setKeyboardScrolling(true)
         }
       },
     }

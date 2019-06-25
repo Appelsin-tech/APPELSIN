@@ -4,7 +4,10 @@
       <div class="container section">
         <div class="caption-wrapper">
           <div class="g-caption-block">
-            <h2 class="g-caption">Услуги</h2>
+            <div class="wrapper-baseline">
+              <h2 class="g-caption">Услуги</h2>
+              <span class="underscore"></span>
+            </div>
           </div>
           <div class="nav-slider">
             <button class="next">

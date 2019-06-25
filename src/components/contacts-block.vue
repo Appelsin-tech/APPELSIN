@@ -4,7 +4,10 @@
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
           <div class="g-caption-block">
-            <h2 class="g-caption">Контакты _</h2>
+            <div class="wrapper-baseline">
+              <h2 class="g-caption">Контакты</h2>
+              <span class="underscore"></span>
+            </div>
           </div>
         </div>
         <div class="content-wrapper">
@@ -14,15 +17,15 @@
                 <p class="description">Расскажите о вашем проекте</p>
                 <ul class="list-contacts">
                   <li>
-                    <a class="link-contacts" href="tel:+74953215297">
+                    <a class="link-contacts" href="tel:+79644952929">
                       <img svg-inline class="phone" src="../assets/img/icon/phone.svg" alt="">
-                      <span>+7 (495) 32-15-297</span>
+                      <span>+7 (964) 495-29-29</span>
                     </a>
                   </li>
                   <li>
-                    <a class="link-contacts" href="mailto:info@appelsin.ru">
+                    <a class="link-contacts" href="mailto:info@appelsin.tech">
                       <img svg-inline class="mail" src="../assets/img/icon/email.svg" alt="">
-                      <span>info@appelsin.ru</span>
+                      <span>info@appelsin.tech</span>
                     </a>
                   </li>
                 </ul>

@@ -5,8 +5,11 @@
         <div class="caption-wrapper">
           <div class="g-caption-block">
             <h2 class="visually-hidden">Расчет стоимости проекта</h2>
+            <div class="wrapper-baseline">
+              <h2 class="g-caption">Рассчитайте</h2>
+              <span class="underscore"></span>
+            </div>
             <p class="text-wrapper">
-              <span class="g-caption">Рассчитайте</span>
               <span class="small">стоимость вашего проекта</span>
             </p>
           </div>

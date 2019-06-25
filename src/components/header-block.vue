@@ -171,6 +171,9 @@
           &:nth-of-type(5) {
             animation-delay: 0.6s;
           }
+          &:nth-of-type(6) {
+            animation-delay: 0.7s;
+          }
         }
       }
     }

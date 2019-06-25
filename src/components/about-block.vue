@@ -4,7 +4,10 @@
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
           <div class="g-caption-block">
-            <h2 class="g-caption">О нас _ </h2>
+            <div class="wrapper-baseline">
+              <h2 class="g-caption">О нас</h2>
+              <span class="underscore"></span>
+            </div>
           </div>
           <div class="nav-slider">
             <button id="about-next" class="next">
