@@ -11,7 +11,7 @@
         <li data-menuanchor="services">
           <a  class="link-section" href="#services"></a>
         </li>
-        <li data-menuanchor="case">
+        <li data-menuanchor="cases">
           <a  class="link-section" href="#cases"></a>
         </li>
         <li data-menuanchor="about">
@@ -112,6 +112,14 @@
           fullpage_api.setAllowScrolling(true);
         }
       },
+    },
+    mounted() {
+      this.$nextTick(()=> {
+        if (window.location.href === 'https://appelsin.tech/#policy') {
+          this.$modal.show('modal-policy')
+        }
+      })
+
     }
   }
 </script>
