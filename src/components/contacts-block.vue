@@ -71,8 +71,8 @@
                 <div class="error error--top">
                   <span>Подтвердите согласие</span>
                 </div>
-                <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
-                <label class="label-person" for="checkPerson">
+                <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
+                <label class="label-person" for="checkPersonContacts">
                   <span>Я согласен на обработку </span>
                   <a class="link-person" href="#">персональных данных</a>
                 </label>

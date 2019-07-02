@@ -58,12 +58,11 @@ try {
         exit;
     }
 
-    $user_name = htmlspecialchars($data->name);
-    $user_phone = htmlspecialchars($data->phone);
-    $user_email = htmlspecialchars($data->email);
-    $user_message = htmlspecialchars($data->message);
-
     if ($data->nameForm == "calculate") {
+        $user_name = htmlspecialchars($data->name);
+        $user_phone = htmlspecialchars($data->phone);
+        $user_email = htmlspecialchars($data->email);
+        $user_message = htmlspecialchars($data->message);
         $price = $data->price;
 
         $questions = $data->questions;
@@ -105,6 +104,10 @@ try {
         }
         echo json_encode($script_result);
     } else if ($data->formName == "contacts") {
+        $user_name = htmlspecialchars($data->name);
+        $user_phone = htmlspecialchars($data->phone);
+        $user_email = htmlspecialchars($data->email);
+        $user_message = htmlspecialchars($data->message);
         $message = "<div style='font-size: 20px'>
                         <b>Заявка с апельсина</b>
                         <br>
