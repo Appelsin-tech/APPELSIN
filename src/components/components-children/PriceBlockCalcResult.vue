@@ -95,6 +95,7 @@
         errorName: '',
         success: false,
         form: {
+          nameForm: 'calculate',
           name: '',
           phone: '',
           email: '',

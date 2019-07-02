@@ -62,20 +62,23 @@ try {
     $user_phone = htmlspecialchars($data->phone);
     $user_email = htmlspecialchars($data->email);
     $user_message = htmlspecialchars($data->message);
-    $price = $data->price;
 
-    $questions = $data->questions;
+    if ($data->nameForm == "calculate") {
+        $price = $data->price;
 
-    $listQuestions = [];
+        $questions = $data->questions;
 
-    foreach ($questions as $item) {
-        $listQuestions[] = "<li> $item </li>";
-    }
-    $questions = implode('', $listQuestions);
+        $listQuestions = [];
 
-    $message = "<div style='font-size: 20px'>
+        foreach ($questions as $item) {
+            $listQuestions[] = "<li> $item </li>";
+        }
+        $questions = implode('', $listQuestions);
+
+        $message = "<div style='font-size: 20px'>
                         <b>Заявка с апельсина</b>
                         <br>
+                        <p>Форма калькулятора</p>
                         <p>Имя: $user_name</p>
                         <p>Телефон: $user_phone</p>
                         <p>Почта: $user_email</p>
@@ -87,20 +90,47 @@ try {
                         <p>Примерная стоимость: $price</p>
                     </div>";
 
-    $mail->Subject = 'Заявка с Аппельсина';
-    $mail->Body = $message;
-    $mail->send();
+        $mail->Subject = 'Заявка с Аппельсина';
+        $mail->Body = $message;
+        $mail->send();
 
-    if ($mail) {
-        $script_result['title'] = 'Успешно';
-        $script_result['message'] = 'Ваша заявка принята!';
-        $script_result['type'] = 'success';
-    } else {
-        $script_result['title'] = 'Ошибка';
-        $script_result['message'] = 'Письмо не отправлено!';
-        $script_result['type'] = 'error';
+        if ($mail) {
+            $script_result['title'] = 'Успешно';
+            $script_result['message'] = 'Ваша заявка принята!';
+            $script_result['type'] = 'success';
+        } else {
+            $script_result['title'] = 'Ошибка';
+            $script_result['message'] = 'Письмо не отправлено!';
+            $script_result['type'] = 'error';
+        }
+        echo json_encode($script_result);
+    } else if ($data->formName == "contacts") {
+        $message = "<div style='font-size: 20px'>
+                        <b>Заявка с апельсина</b>
+                        <br>
+                        <p>Форма контактов</p>
+                        <p>Имя: $user_name</p>
+                        <p>Телефон: $user_phone</p>
+                        <p>Почта: $user_email</p>
+                        <p>Текст сообщения: $user_message</p>
+                        <br>
+                    </div>";
+
+        $mail->Subject = 'Заявка с Аппельсина';
+        $mail->Body = $message;
+        $mail->send();
+
+        if ($mail) {
+            $script_result['title'] = 'Успешно';
+            $script_result['message'] = 'Ваша заявка принята!';
+            $script_result['type'] = 'success';
+        } else {
+            $script_result['title'] = 'Ошибка';
+            $script_result['message'] = 'Письмо не отправлено!';
+            $script_result['type'] = 'error';
+        }
+        echo json_encode($script_result);
     }
-    echo json_encode($script_result);
 
 } catch (Exception $e) {
     echo json_encode([

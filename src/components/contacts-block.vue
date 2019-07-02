@@ -111,6 +111,7 @@
         errorName: '',
         success: false,
         form: {
+          nameForm: 'contacts',
           name: '',
           phone: '',
           email: '',
