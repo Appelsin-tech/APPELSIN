@@ -29,6 +29,9 @@
                     </a>
                   </li>
                 </ul>
+                <div class="success-form price">
+                  <span>Спасибо, ваша заявка принята!</span>
+                </div>
               </div>
               <button class="btn-price btn--submit" type="submit">Заказать проект</button>
               <div class="btn-price btn--next-steps"  @click="showForm = !showForm">Заказать проект</div>
@@ -141,12 +144,9 @@
             phone: this.form.phone,
             email: this.form.email,
             message: this.form.message,
-            questions: this.questionsName,
-            price: this.price,
             checked: this.form.checkedPersonalData
           })
             .then(response => {
-              console.log(response)
               if (response.data.type === 'error') {
                 this.errorName = response.data.input_name
                 this.error[this.errorName] = true
@@ -245,6 +245,7 @@
           font-weight: bold;
           z-index: 5;
           .wrapper-secondary {
+            position: relative;
             display: flex;
             flex-grow: 1;
             padding: 45px 50px 55px 50px;
