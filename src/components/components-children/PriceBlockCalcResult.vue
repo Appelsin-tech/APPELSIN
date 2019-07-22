@@ -130,6 +130,7 @@
             checked: this.form.checkedPersonalData
           })
             .then(response => {
+              console.log(response)
               if (response.data.type === 'error') {
                 this.errorName = response.data.input_name
                 this.error[this.errorName] = true
