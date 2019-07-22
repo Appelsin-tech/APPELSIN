@@ -18,15 +18,21 @@ try {
 
     $mail->isSMTP();
     $mail->isHTML(true);
-    $mail->Host = 'smtp.yandex.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Username = 'mrpelkin@gmail.com'; // имя пользователя google
+    $mail->Password = 'MIRKINO16'; // пароль на google
+//    $mail->Host = 'smtp.yandex.com';
+
+//    $mail->Username = 'info@appelsin.tech'; // имя пользователя google
+//    $mail->Password = 'e4BnwBVybY9b'; // пароль на google
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
-    $mail->setFrom('info@appelsin.tech', 'Отправитель');
-    $mail->addAddress('info@appelsin.tech', 'Получатель');
+    $mail->setFrom('mrpelkin@gmail.com', 'Отправитель');
+    $mail->addAddress('mrpelkin@gmail.com', 'Получатель');
+//    $mail->setFrom('info@appelsin.tech', 'Отправитель');
+//    $mail->addAddress('info@appelsin.tech', 'Получатель');
 
     if (empty(trim($data->name))) {
         $script_result['title'] = 'Ошибка';
