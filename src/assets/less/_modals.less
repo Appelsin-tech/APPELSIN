@@ -7,6 +7,7 @@
   padding: 50px 50px;
   flex-direction: column;
   align-items: center;
+  color: #000;
   .xs-block({ padding: 35px 20px; });
   .close-modal {
     display: flex;
@@ -18,6 +19,8 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 300;
     color: #dadada;
     cursor: pointer;
     user-select: none;
@@ -35,14 +38,9 @@
   }
   &.b-modal-policy {
     padding: 50px 33px;
-    color: #000;
     .xs-block({ padding: 35px 20px; });
-    .close-modal {
-      font-family: 'Arial', sans-serif;
-      font-weight: 300;
-    }
     .title {
-      margin-bottom: 50px;
+      padding-bottom: 50px;
       font-family: @fontBebas;
       font-weight: bold;
       font-size: 4.5rem;
@@ -51,7 +49,7 @@
       .md-block({ font-size: 3rem; letter-spacing: 1rem; margin-bottom: 35px; });
       .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; margin-bottom: 20px; });
     }
-    .wrapper-text {
+    .wrapper-overflow {
       height: calc(~"100vh - 320px");
       padding-right: 25px;
       overflow: auto;
@@ -64,34 +62,34 @@
         width: 6px;
         background-color: #dfdfdf;
         border-radius: 4px;
-        .xs-block({ width: 4px;});
+        .xs-block({ width: 4px; });
       }
       &::-webkit-scrollbar-thumb {
         background-color: #ffba00;
         border-radius: 4px;
       }
       .title-section {
-        margin-top: 50px;
-        margin-bottom: 20px;
+        padding-top: 50px;
+        padding-bottom: 20px;
         font-family: @fontBebas;
         font-weight: bold;
         font-size: 2.8rem;
         letter-spacing: 0.7rem;
-        .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; margin-bottom: 12px; margin-top: 30px;});
-        .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; margin-top: 15px;});
+        .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
+        .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
         &:first-of-type {
-          margin-top: 0;
+          padding-top: 0;
         }
       }
       .list li,
       .paragraph {
-        margin-bottom: 2rem;
+        padding-bottom: 2rem;
         font-size: 1.8rem;
         color: #000;
         font-weight: 400;
         text-indent: 15px;
-        .md-block({ font-size: 1.6rem; margin-bottom: 1.6rem; });
-        .xs-block({ font-size: 1.4rem; margin-bottom: 1.4rem; text-indent: 8px;});
+        .md-block({ font-size: 1.6rem; padding-bottom: 1.6rem; });
+        .xs-block({ font-size: 1.4rem; padding-bottom: 1.4rem; text-indent: 8px; });
       }
       .link {
         border-bottom: 1px solid #000;
@@ -99,6 +97,112 @@
         color: #000;
         &:hover {
           border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+  &.b-modal-response {
+    .wrapper-overflow {
+      height: calc(~"100vh - 215px");
+      overflow: auto;
+      min-height: 320px;
+      &::-webkit-scrollbar-track {
+        height: 80%;
+        border-radius: 4px;
+        background-color: #dfdfdf;
+      }
+      &::-webkit-scrollbar {
+        width: 6px;
+        background-color: #dfdfdf;
+        border-radius: 4px;
+        .xs-block({ width: 4px; });
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #ffba00;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-track-piece {
+        height: 100px;
+      }
+    }
+    .status {
+      width: 80%;
+      margin: 0 auto;
+      padding-bottom: 40px;
+      .sm-block({ width: 100%; });
+      &__success {
+        background: #59c259;
+        bottom: 50px;
+        .md-block({ bottom: 20px; left: 25px; right: 25px; });
+        > span {
+          display: block;
+          font-family: @fontBebas;
+          font-size: 2.4rem;
+          padding: 8px 20px;
+          font-weight: 400;
+          color: #fff;
+          text-transform: lowercase;
+          .xs-block({ font-size: 2rem; padding: 5px 10px; })
+        }
+      }
+      &__error {
+        background: #db4954;
+        bottom: 50px;
+        .md-block({ bottom: 20px; left: 25px; right: 25px; });
+        > span {
+          display: block;
+          font-family: @fontBebas;
+          font-size: 2.4rem;
+          padding: 8px 20px;
+          font-weight: 400;
+          color: #fff;
+          text-transform: lowercase;
+          .xs-block({ font-size: 2rem; padding: 5px 10px; })
+        }
+      }
+    }
+    .title-wrapper {
+      padding-bottom: 30px;
+      text-align: center;
+      .title {
+        padding-bottom: 30px;
+        font-family: @fontBebas;
+        font-weight: bold;
+        font-size: 4.5rem;
+        letter-spacing: 1.3rem;
+        text-transform: uppercase;
+        .md-block({ font-size: 3rem; letter-spacing: 1rem; });
+        .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 20px; });
+        &-description {
+          padding-bottom: 20px;
+          font-family: @fontBebas;
+          font-weight: bold;
+          font-size: 2.4rem;
+          letter-spacing: 0.5rem;
+          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
+          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
+        }
+      }
+    }
+    .form-response {
+      align-self: stretch;
+      padding-right: 25px;
+      .group-item {
+        &:first-of-type {
+          &__title {
+            padding-top: 0;
+          }
+        }
+        &__title {
+          padding-top: 50px;
+          padding-bottom: 20px;
+          font-family: @fontBebas;
+          font-weight: bold;
+          font-size: 2.8rem;
+          letter-spacing: 0.7rem;
+          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
+          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
+
         }
       }
     }

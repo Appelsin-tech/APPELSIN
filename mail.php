@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: application/json; charset=UTF-8");
+header("Content-Type: text / plain; application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
@@ -8,14 +8,13 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require './vendor/autoload.php';
 
 
-$data = json_decode(file_get_contents("php://input"));
 $mail = new PHPMailer(true);
 
 try {
-
+    $mail->CharSet = 'UTF-8';
     $mail->isSMTP();
     $mail->isHTML(true);
     $mail->SMTPAuth = true;
@@ -34,28 +33,28 @@ try {
 //    $mail->setFrom('info@appelsin.tech', 'Отправитель');
 //    $mail->addAddress('info@appelsin.tech', 'Получатель');
 
-    if (empty(trim($data->name))) {
+    if (empty(trim($_POST['name']))) {
         $script_result['title'] = 'Ошибка';
         $script_result['input_name'] = 'name';
         $script_result['message'] = 'Поле name не может быть пустым!';
         $script_result['type'] = 'error';
         echo json_encode($script_result);
         exit;
-    } else if (empty(trim($data->phone))) {
+    } else if (empty(trim($_POST['phone']))) {
         $script_result['title'] = 'Ошибка';
         $script_result['input_name'] = 'phone';
         $script_result['message'] = 'Поле phone не может быть пустым!';
         $script_result['type'] = 'error';
         echo json_encode($script_result);
         exit;
-    } else if (empty(trim($data->email))) {
+    } else if (empty(trim($_POST['email']))) {
         $script_result['title'] = 'Ошибка';
         $script_result['input_name'] = 'email';
         $script_result['message'] = 'Поле email не может быть пустым!';
         $script_result['type'] = 'error';
         echo json_encode($script_result);
         exit;
-    } else if (empty(trim($data->message))) {
+    } else if (empty(trim($_POST['message']))) {
         $script_result['title'] = 'Ошибка';
         $script_result['input_name'] = 'message';
         $script_result['message'] = 'Поле message не может быть пустым!';
@@ -64,14 +63,21 @@ try {
         exit;
     }
 
-    if ($data->nameForm == "calculate") {
-        $user_name = htmlspecialchars($data->name);
-        $user_phone = htmlspecialchars($data->phone);
-        $user_email = htmlspecialchars($data->email);
-        $user_message = htmlspecialchars($data->message);
-        $price = $data->price;
+    if ($_FILES['file']) {
+        $file = $_FILES['file'];
+        $uploadfile = $file['tmp_name'];
+        $mail->addAttachment($uploadfile, $file['name']);
+    }
 
-        $questions = $data->questions;
+
+    if ($_POST['nameForm'] == "calculate") {
+        $user_name = htmlspecialchars($_POST['name']);
+        $user_phone = htmlspecialchars($_POST['phone']);
+        $user_email = htmlspecialchars($_POST['email']);
+        $user_message = htmlspecialchars($_POST['message']);
+        $price = $_POST['price'];
+
+        $questions = json_decode($_POST['questions']);
 
         $listQuestions = [];
 
@@ -109,11 +115,11 @@ try {
             $script_result['type'] = 'error';
         }
         echo json_encode($script_result);
-    } else if ($data->formName == "contacts") {
-        $user_name = htmlspecialchars($data->name);
-        $user_phone = htmlspecialchars($data->phone);
-        $user_email = htmlspecialchars($data->email);
-        $user_message = htmlspecialchars($data->message);
+    } else if ($_POST['nameForm'] == "contacts") {
+        $user_name = htmlspecialchars($_POST['name']);
+        $user_phone = htmlspecialchars($_POST['phone']);
+        $user_email = htmlspecialchars($_POST['email']);
+        $user_message = htmlspecialchars($_POST['message']);
         $message = "<div style='font-size: 20px'>
                         <b>Заявка с апельсина</b>
                         <br>
@@ -124,6 +130,9 @@ try {
                         <p>Текст сообщения: $user_message</p>
                         <br>
                     </div>";
+
+
+
 
         $mail->Subject = 'Заявка с Аппельсина';
         $mail->Body = $message;
@@ -143,6 +152,7 @@ try {
 
 } catch (Exception $e) {
     echo json_encode([
+        'server' => 'server',
         'title' => 'Ошибка',
         'message' => $mail->ErrorInfo,
         'type' => 'error'

@@ -39,6 +39,7 @@
     </main>
     <footer-block :showMenu="showMenu"/>
     <modal-policy/>
+    <modal-response/>
   </div>
 </template>
 
@@ -54,6 +55,7 @@
   import ContactsBlock from './components/contacts-block'
   import FooterBlock from './components/footer-block'
   import ModalPolicy from './components/modal/ModalPolicy'
+  import ModalResponse from './components/modal/ModalResponse'
 
 
   export default {
@@ -68,7 +70,8 @@
       CaseBlock,
       ContactsBlock,
       FooterBlock,
-      ModalPolicy
+      ModalPolicy,
+      ModalResponse
     },
     data() {
       return {
@@ -86,7 +89,7 @@
           // autoScrolling:false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section',
-          normalScrollElements: '.fancybox-container, #textPolicy',
+          normalScrollElements: '.fancybox-container, .wrapper-overflow, .paragraph',
         }
       }
     },

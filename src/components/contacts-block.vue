@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="content-wrapper">
-          <form class="main-form" @submit.prevent="onSubmit" :class="{success: success}">
+          <form class="main-form" @submit.prevent="onSubmit" :class="{waiting: waiting}">
             <div class="col col--link-contacts">
               <div class="wrapper-secondary">
                 <p class="description">Расскажите о вашем проекте</p>
@@ -29,49 +29,48 @@
                     </a>
                   </li>
                 </ul>
-                <div class="success-form price">
-                  <span>Спасибо, ваша заявка принята!</span>
-                </div>
+                <input type="file" name="file" id="file_contacts" v-on:change="handleFile" class="visually-hidden"/>
+                <label class="file-link desktop" for="file_contacts" >
+                  <span class="file-text--big">Прикрепить файл</span>
+                  <span class="file-text--small">(до 5 Мб)</span>
+                </label>
               </div>
               <button class="btn-price btn--submit" type="submit">Заказать проект</button>
               <div class="btn-price btn--next-steps"  @click="showForm = !showForm">Заказать проект</div>
             </div>
             <div class="col col--input" :class="{active : showForm}">
               <div class="input-wrapper">
-                <div class="item" :class="{errorItem: error.name}">
-                  <input type="text" placeholder="Имя" v-model="form.name">
-                  <div class="error">
+                <div class="g-item-form" :class="{errorTooltip: error.name}">
+                  <input class="g-item-form__field" type="text" placeholder="Имя" v-model="form.name">
+                  <div class="error-tooltip">
                     <span>Введите имя</span>
                   </div>
                 </div>
-                <div class="item" :class="{errorItem: error.phone}">
-                  <input type="tel" placeholder="Телефон" v-model="form.phone">
-                  <div class="error">
+                <div class="g-item-form" :class="{errorTooltip: error.phone}">
+                  <input class="g-item-form__field" type="tel" placeholder="Телефон" v-model="form.phone">
+                  <div class="error-tooltip">
                     <span>Введите телефон</span>
                   </div>
                 </div>
-                <div class="item" :class="{errorItem: error.email}">
-                  <input type="email" placeholder="E-mail" v-model="form.email">
-                  <div class="error">
+                <div class="g-item-form" :class="{errorTooltip: error.email}">
+                  <input class="g-item-form__field" type="email" placeholder="E-mail" v-model="form.email">
+                  <div class="error-tooltip">
                     <span>Введите E-mail</span>
                   </div>
                 </div>
-                <div class="item textarea" :class="{errorItem: error.message}">
-                  <textarea placeholder="Текст сообщения" v-model="form.message"></textarea>
-                  <div class="error">
+                <div class="g-item-form textarea" :class="{errorTooltip: error.message}">
+                  <textarea class="g-item-form__field" placeholder="Текст сообщения" v-model="form.message"></textarea>
+                  <div class="error-tooltip">
                     <span>Введите текст сообщения</span>
                   </div>
-                  <div class="success-form input">
-                    <span>Спасибо, ваша заявка принята!</span>
-                  </div>
                 </div>
-                <!--<label class="file-link mobile" for="file">-->
-                <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
-                <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
-                <!--</label>-->
+                <label class="file-link mobile" for="file_contacts" >
+                  <span class="file-text--big">Прикрепить файл</span>
+                  <span class="file-text--small">(до 5 Мб)</span>
+                </label>
               </div>
-              <div class="checkbox-wrapper" :class="{errorItem: error.checked}">
-                <div class="error error--top">
+              <div class="checkbox-wrapper" :class="{errorTooltip: error.checked}">
+                <div class="error-tooltip error-tooltip--top">
                   <span>Подтвердите согласие</span>
                 </div>
                 <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
@@ -104,12 +103,14 @@
     data () {
       return {
         showForm: false,
+        waiting: false,
         error: {
           name: false,
           phone: false,
           email: false,
           message: false,
-          checked: false
+          checked: false,
+          server: false
         },
         errorName: '',
         success: false,
@@ -119,7 +120,7 @@
           phone: '',
           email: '',
           message: '',
-          file: [],
+          file: '',
           checkedPersonalData: false
         }
       }
@@ -139,21 +140,39 @@
         } else if (!this.form.checkedPersonalData) {
           this.hideError('checked')
         } else {
-          axios.post('/mail.php', {
-            name: this.form.name,
-            phone: this.form.phone,
-            email: this.form.email,
-            message: this.form.message,
-            checked: this.form.checkedPersonalData
+          this.waiting = true;
+          let formData = new FormData();
+          formData.append('nameForm', this.form.nameForm);
+          formData.append('name', this.form.name);
+          formData.append('phone', this.form.phone);
+          formData.append('email', this.form.email);
+          formData.append('message', this.form.message);
+          formData.append('file', this.form.file);
+          formData.append('checked', this.form.checkedPersonalData);
+          axios.post('/mail.php', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
           })
             .then(response => {
-              console.log(response)
+              this.waiting = false;
               if (response.data.type === 'error') {
+                if (response.data.server === 'server') {
+                  this.$modal.show('modal-response', {
+                    response: 'error'
+                  })
+                  this.errorName = response.data.server
+                  this.hideError(this.errorName)
+                }
+                this.$modal.show('modal-response', {
+                  response: 'error'
+                })
                 this.errorName = response.data.input_name
-                this.error[this.errorName] = true
+                this.hideError(this.errorName)
               } else {
-                this.success = true
-                this.error[this.errorName] = false
+                this.$modal.show('modal-response', {
+                  response: 'success'
+                })
               }
             })
             .catch(response => {
@@ -166,6 +185,10 @@
         setTimeout(()=>{
           this.error[name] = false
         }, 2000)
+      },
+      handleFile (e) {
+        this.form.file = e.target.files[0];
+        console.dir(this.form.file)
       }
     },
   }
@@ -201,39 +224,13 @@
       background: #fff;
       color: #000;
       overflow: hidden;
-      &.success {
+      &.waiting {
         .col {
-          .success-form.price {
-            display: block;
-            .sm-block({ display: none; })
-          }
-          .success-form.input {
-            .sm-block({ display: block; })
-          }
           .btn--submit,
           .btn--mobile {
             pointer-events: none;
             opacity: 0.7;
           }
-        }
-      }
-      .success-form {
-        display: none;
-        position: absolute;
-        left: 50px;
-        right: 50px;
-        background: #59c259;
-        bottom: 50px;
-        .md-block({ bottom: 20px; left: 25px; right: 25px; });
-        > span {
-          display: block;
-          font-family: @fontBebas;
-          font-size: 2.4rem;
-          padding: 8px 20px;
-          font-weight: 400;
-          color: #fff;
-          text-transform: lowercase;
-          .xs-block({ font-size: 2rem; padding: 5px 10px; })
         }
       }
       .col {
@@ -303,7 +300,6 @@
               }
             }
           }
-
         }
         &--input {
           display: flex;
@@ -320,50 +316,6 @@
             display: flex;
             flex-grow: 1;
             flex-direction: column;
-            .item {
-              position: relative;
-              height: 85px;
-              border: 1px solid transparent;
-              border-bottom-color: @colorBorder;
-              box-sizing: border-box;
-              .sm-block({ height: 60px; });
-              &.errorItem {
-                .error {
-                  display: block;
-                }
-              }
-              textarea,
-              input {
-                padding-left: 25px;
-                padding-right: 15px;
-                height: 100%;
-                width: 100%;
-                font-size: 2rem;
-                box-sizing: border-box;
-                border: none;
-                &:focus,
-                &:active {
-                  outline: none;
-                  background: #f8f5f5;
-                }
-                &::placeholder {
-                  font-family: @fontBebas;
-                  font-weight: bold;
-                  font-size: 2rem;
-                  letter-spacing: 0.5rem;
-                  color: #000;
-                  text-transform: uppercase;
-                }
-              }
-              &.textarea {
-                height: auto;
-                flex-grow: 1;
-                textarea {
-                  padding-top: 25px;
-                  resize: none;
-                }
-              }
-            }
           }
           .checkbox-wrapper {
             position: relative;
@@ -374,6 +326,11 @@
             align-items: center;
             .md-block({ height: 70px; });
             .sm-block({ height: 50px; });
+            &.errorTooltip {
+              .error-tooltip {
+                display: block;
+              }
+            }
             input {
               display: none;
               &:checked + label::after {
@@ -404,72 +361,25 @@
                 transform: rotate(40deg);
                 width: 6px;
                 height: 12px;
-                border-bottom: 2px solid #db4954;
-                border-right: 2px solid #db4954;
+                border-bottom: 2px solid #f69b0e;
+                border-right: 2px solid #f69b0e;
               }
               span {
                 color: @colorSecFonts;
               }
               .link-person {
-                color: #db4954;
-                border-bottom: 1px solid #db4954;
+                color: #f69b0e;
+                border-bottom: 1px solid #f69b0e;
                 transition: 0.3s;
                 &:hover {
                   border-bottom: 1px solid transparent;
                 }
               }
             }
-            &.errorItem {
-              .error {
-                display: block;
-              }
-            }
           }
-          .error {
-            display: none;
-            position: absolute;
-            bottom: -40px;
-            right: 30px;
-            border: 1px solid #D94950;
-            border-radius: 4px;
-            background: #D94950;
-            z-index: 99;
-            .sm-block({ bottom: -34px;});
-            > span {
-              position: relative;
-              display: block;
-              padding: 8px 12px;
-              width: 100%;
-              height: 100%;
-              font-size: 2rem;
-              color: #fff;
-              font-weight: 400;
-              box-sizing: border-box;
-              .sm-block({ font-size: 1.6rem;});
-              &::after {
-                content: " ";
-                position: absolute;
-                top: -6px;
-                right: 15px;
-                width: 11px;
-                height: 11px;
-                background: #D94950;
-                transform: rotate(-45deg);
-                box-sizing: border-box;
-              }
-            }
-            &--top {
-              bottom: auto;
-              top: -40px;
-              .sm-block({ top: -34px;});
-              >span {
-                &::after {
-                  top: auto;
-                  bottom: -6px;
-                }
-              }
-            }
-          }
+        }
+        .file {
+
         }
         .file-link {
           position: relative;
@@ -496,7 +406,7 @@
             top: calc(~"50% - 21px");
             width: 42px;
             height: 42px;
-            background: url("../assets/img/icon/clip.png") no-repeat center / contain;
+            background: url("../assets/img/icon/clip-orange.png") no-repeat center / contain;
             .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
             .xs-block({ display: none; });
           }

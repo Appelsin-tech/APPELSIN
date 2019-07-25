@@ -1,5 +1,5 @@
 <template>
-  <form class="result-form" @submit.prevent="onSubmit" :class="{success: success}">
+  <form class="result-form" @submit.prevent="onSubmit" :class="[{success: success}, {error: error.server}, {waiting: waiting}]">
     <div class="col col--price">
       <div class="price-wrapper">
         <div class="steps-num">
@@ -9,59 +9,54 @@
         </div>
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
-        <!--<label class="file-link desktop" for="file">-->
-        <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
-        <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
-        <!--</label>-->
-        <div class="success-form price">
-          <span>Спасибо, ваша заявка принята!</span>
-        </div>
+        <!--<input type="file" name="file" id="file_price" v-on:change="handleFile" class="visually-hidden"/>-->
+        <label class="file-link desktop" for="file_price">
+          <span class="file-text--big">Прикрепить файл</span>
+          <span class="file-text--small">(до 5 Мб)</span>
+        </label>
       </div>
       <button class="btn-price btn--submit" type="submit">Заказать проект</button>
       <div class="btn-price btn--next-steps" @click="showForm = !showForm">Заказать проект</div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
-        <div class="item" :class="{errorItem: error.name}">
-          <input type="text" placeholder="Имя" v-model="form.name">
-          <div class="error">
+        <div class="g-item-form" :class="{errorTooltip: error.name}">
+          <input class="g-item-form__field" type="text" placeholder="Имя" v-model="form.name">
+          <div class="error-tooltip">
             <span>Введите имя</span>
           </div>
         </div>
-        <div class="item" :class="{errorItem: error.phone}">
-          <input type="tel" placeholder="Телефон" v-model="form.phone">
-          <div class="error">
+        <div class="g-item-form" :class="{errorTooltip: error.phone}">
+          <input class="g-item-form__field" type="tel" placeholder="Телефон" v-model="form.phone">
+          <div class="error-tooltip">
             <span>Введите телефон</span>
           </div>
         </div>
-        <div class="item" :class="{errorItem: error.email}">
-          <input type="email" placeholder="E-mail" v-model="form.email">
-          <div class="error">
+        <div class="g-item-form" :class="{errorTooltip: error.email}">
+          <input class="g-item-form__field" type="email" placeholder="E-mail" v-model="form.email">
+          <div class="error-tooltip">
             <span>Введите E-mail</span>
           </div>
         </div>
-        <div class="item textarea" :class="{errorItem: error.message}">
-          <textarea v-model="form.message" placeholder="Текст сообщения"></textarea>
-          <div class="error">
+        <div class="g-item-form textarea" :class="{errorTooltip: error.message}">
+          <textarea class="g-item-form__field" v-model="form.message" placeholder="Текст сообщения"></textarea>
+          <div class="error-tooltip">
             <span>Введите текст сообщения</span>
           </div>
-          <div class="success-form input">
-            <span>Спасибо, ваша заявка принята!</span>
-          </div>
         </div>
-        <!--<label class="file-link mobile" for="file">-->
-        <!--<span class="file-text&#45;&#45;big">Прикрепить файл</span>-->
-        <!--<span class="file-text&#45;&#45;small">(до 5 Мб)</span>-->
-        <!--</label>-->
+        <label class="file-link mobile" for="file_price">
+          <span class="file-text--big">Прикрепить файл</span>
+          <span class="file-text--small">(до 5 Мб)</span>
+        </label>
       </div>
-      <div class="checkbox-wrapper" :class="{errorItem: error.checked}">
-        <div class="error error--top">
+      <div class="checkbox-wrapper" :class="{errorTooltip: error.checked}">
+        <div class="error-tooltip error-tooltip--top">
           <span>Подтвердите согласие</span>
         </div>
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
         <label class="label-person" for="checkPerson">
-          <span>Я согласен на обработку персональных данных</span>
-          <!--<a class="link-person" href="#">персональных данных</a>-->
+          <span>Я согласен на обработку </span>
+          <a class="link-person" href="#">персональных данных</a>
         </label>
       </div>
       <div class="btn-wrapper">
@@ -85,12 +80,14 @@
     data() {
       return {
         showForm: false,
+        waiting: false,
         error: {
           name: false,
           phone: false,
           email: false,
           message: false,
-          checked: false
+          checked: false,
+          server: false
         },
         errorName: '',
         success: false,
@@ -120,18 +117,29 @@
         } else if (!this.form.checkedPersonalData) {
           this.hideError('checked')
         } else {
-          axios.post('/mail.php', {
-            name: this.form.name,
-            phone: this.form.phone,
-            email: this.form.email,
-            message: this.form.message,
-            questions: this.questionsName,
-            price: this.price,
-            checked: this.form.checkedPersonalData
+          this.waiting = true;
+          let formData = new FormData();
+          formData.append('nameForm', this.form.nameForm);
+          formData.append('name', this.form.name);
+          formData.append('phone', this.form.phone);
+          formData.append('email', this.form.email);
+          formData.append('message', this.form.message);
+          formData.append('questions', JSON.stringify(this.questionsName));
+          formData.append('price', this.price);
+          formData.append('file', this.form.file);
+          formData.append('checked', this.form.checkedPersonalData);
+          axios.post('/mail.php', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
           })
             .then(response => {
-              console.log(response)
+              this.waiting = false;
               if (response.data.type === 'error') {
+                if (response.data.server === 'server') {
+                  this.errorName = response.data.server
+                  this.error[this.errorName] = true
+                }
                 this.errorName = response.data.input_name
                 this.error[this.errorName] = true
               } else {
@@ -202,39 +210,13 @@
     background: #fff;
     color: #000;
     overflow: hidden;
-    &.success {
+    &.waiting {
       .col {
-        .success-form.price {
-          display: block;
-          .sm-block({ display: none; })
-        }
-        .success-form.input {
-          .sm-block({ display: block; })
-        }
         .btn--submit,
         .btn--mobile {
           pointer-events: none;
           opacity: 0.7;
         }
-      }
-    }
-    .success-form {
-      display: none;
-      position: absolute;
-      left: 50px;
-      right: 50px;
-      background: #59c259;
-      bottom: 50px;
-      .md-block({ bottom: 20px; left: 25px; right: 25px; });
-      > span {
-        display: block;
-        font-family: @fontBebas;
-        font-size: 2.4rem;
-        padding: 8px 20px;
-        font-weight: 400;
-        color: #fff;
-        text-transform: lowercase;
-        .xs-block({ font-size: 2rem; padding: 5px 10px; })
       }
     }
     .col {
@@ -246,7 +228,6 @@
         font-family: @fontBebas;
         font-weight: bold;
         z-index: 5;
-
         .price-wrapper {
           position: relative;
           display: flex;
@@ -327,50 +308,6 @@
           display: flex;
           flex-grow: 1;
           flex-direction: column;
-          .item {
-            position: relative;
-            height: 85px;
-            border: 1px solid transparent;
-            border-bottom-color: @colorBorder;
-            box-sizing: border-box;
-            .sm-block({ height: 60px; });
-            &.errorItem {
-              .error {
-                display: block;
-              }
-            }
-            textarea,
-            input {
-              padding-left: 25px;
-              padding-right: 15px;
-              height: 100%;
-              width: 100%;
-              font-size: 2rem;
-              box-sizing: border-box;
-              border: none;
-              &:focus,
-              &:active {
-                outline: none;
-                background: #f8f5f5;
-              }
-              &::placeholder {
-                font-family: @fontBebas;
-                font-weight: bold;
-                font-size: 2rem;
-                letter-spacing: 0.5rem;
-                color: #000;
-                text-transform: uppercase;
-              }
-            }
-            &.textarea {
-              height: auto;
-              flex-grow: 1;
-              textarea {
-                padding-top: 25px;
-                resize: none;
-              }
-            }
-          }
         }
         .checkbox-wrapper {
           position: relative;
@@ -381,8 +318,8 @@
           align-items: center;
           .md-block({ height: 70px; });
           .sm-block({ height: 50px; });
-          &.errorItem {
-            .error {
+          &.errorTooltip {
+            .error-tooltip {
               display: block;
             }
           }
