@@ -202,21 +202,18 @@ button {
   .sm-block({ height: 60px; });
   .xs-orientation({ height: 40px;});
   &--modals {
-    .xs-block({ height: 40px;});
+    height: auto;
+    padding-left: 20px;
+    .xs-block({ padding-left: 8px;});
   }
   &.errorTooltip {
     .error-tooltip {
       display: block;
     }
   }
-  &.textarea {
+  &--textarea {
     height: auto;
     flex-grow: 1;
-    textarea {
-      padding-top: 25px;
-      resize: none;
-      .xs-orientation({ padding-top: 10px;});
-    }
   }
   &__field {
     padding-left: 25px;
@@ -239,8 +236,14 @@ button {
       color: #999999;
       text-transform: uppercase;
     }
+    &--textarea {
+      padding-top: 25px;
+      resize: none;
+      .xs-orientation({ padding-top: 10px;});
+    }
     &--modals {
-      .xs-block({font-size: 1.6rem; padding-left: 15px;});
+      padding: 20px 0;
+      .xs-block({font-size: 1.6rem; padding: 10px 0;});
     }
   }
 }

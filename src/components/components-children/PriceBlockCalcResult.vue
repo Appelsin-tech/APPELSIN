@@ -38,8 +38,8 @@
             <span>Введите E-mail</span>
           </div>
         </div>
-        <div class="g-item-form textarea" :class="{errorTooltip: error.message}">
-          <textarea class="g-item-form__field" v-model="form.message" placeholder="Текст сообщения"></textarea>
+        <div class="g-item-form g-item-form--textarea" :class="{errorTooltip: error.message}">
+          <textarea class="g-item-form__field g-item-form__field--textarea" v-model="form.message" placeholder="Текст сообщения"></textarea>
           <div class="error-tooltip">
             <span>Введите текст сообщения</span>
           </div>
@@ -220,8 +220,8 @@
     &.success,
     &.waiting {
       .col {
-        .btn--submit,
-        .btn--mobile {
+        .btn-wrapper__btn--default,
+        .btn-wrapper__btn--mobile {
           pointer-events: none;
           opacity: 0.7;
         }

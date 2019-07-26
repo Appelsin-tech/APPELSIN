@@ -2,7 +2,9 @@
   <modal name='modal-policy' transition="pop-out" :height="'auto'" width="100%" :maxWidth="1170" :maxHeight="680"  :adaptive="true"
          :scrollable="true" @before-open="disableSrollFp" @before-close="activeSrollFp" :pivotY="0.8">
     <div class="modal b-modal-policy">
-      <div class="close-modal" @click="$modal.hide('modal-policy')" title="Закрыть">×</div>
+      <div class="close-modal" @click="$modal.hide('modal-policy')" title="Закрыть">
+        <img src="../../assets/img/icon/delete.svg" svg-inline alt="">
+      </div>
       <h2 class="title">Политика конфиденциальности</h2>
       <div class="wrapper-overflow" id="textPolicy">
         <h3 class="title-section">1. Общие положения</h3>

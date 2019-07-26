@@ -101,7 +101,6 @@
         fullpage_api.moveSectionDown();
       },
       activeMenu() {
-
         this.showMenu = !this.showMenu
       }
     },
