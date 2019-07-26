@@ -9,11 +9,6 @@
         </div>
         <p class="description">Средняя стоимость такого заказа у нас</p>
         <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
-        <!--<input type="file" name="file" id="file_price" v-on:change="handleFile" class="visually-hidden"/>-->
-        <label class="file-link desktop" for="file_price">
-          <span class="file-text--big">Прикрепить файл</span>
-          <span class="file-text--small">(до 5 Мб)</span>
-        </label>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
         <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
@@ -49,6 +44,7 @@
             <span>Введите текст сообщения</span>
           </div>
         </div>
+        <input type="file" name="file" id="file_price" v-on:change="handleFile" class="visually-hidden"/>
         <label class="file-link mobile" for="file_price">
           <span class="file-text--big">Прикрепить файл</span>
           <span class="file-text--small">(до 5 Мб)</span>
@@ -160,8 +156,11 @@
             })
         }
       },
+      handleFile (e) {
+        this.form.file = e.target.files[0];
+        console.dir(this.form.file)
+      },
       hideError(name) {
-        console.log(name, this.error[name])
         this.error[name] = true
         setTimeout(()=>{
           this.error[name] = false
@@ -425,27 +424,22 @@
         }
       }
       .file-link {
+        display: inline-flex;
         position: relative;
         margin-top: auto;
-        padding-left: 60px;
+        padding-left: 80px;
+        align-items: center;
+        height: 60px;
         font-family: @fontBebas;
         color: #000;
-        .md-block({ padding-left: 45px; });
-        .xs-block({ padding-left: 0; });
-        &.desktop {
-          .sm-block({ display: none; });
-        }
-        &.mobile {
-          display: none;
-          height: 50px;
-          margin-left: 25px;
-          align-items: center;
-          .sm-block({ display: inline-flex; });
-        }
+        border-bottom: 1px solid #dadada;
+        cursor: pointer;
+        .sm-block({ height: 50px; });
+        .xs-block({ padding-left: 25px; });
         &::after {
           position: absolute;
           content: '';
-          left: 0;
+          left: 25px;
           top: calc(~"50% - 21px");
           width: 42px;
           height: 42px;
