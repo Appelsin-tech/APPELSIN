@@ -210,6 +210,7 @@
     background: #fff;
     color: #000;
     overflow: hidden;
+    &.success,
     &.waiting {
       .col {
         .btn--submit,

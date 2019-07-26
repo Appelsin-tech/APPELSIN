@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="content-wrapper">
-          <form class="main-form" @submit.prevent="onSubmit" :class="{waiting: waiting}">
+          <form class="main-form" @submit.prevent="onSubmit" :class="[{waiting: waiting}, {success: success}]">
             <div class="col col--link-contacts">
               <div class="wrapper-secondary">
                 <p class="description">Расскажите о вашем проекте</p>
@@ -32,7 +32,7 @@
                 <input type="file" name="file" id="file_contacts" v-on:change="handleFile" class="visually-hidden"/>
                 <label class="file-link desktop" for="file_contacts" >
                   <span class="file-text--big">Прикрепить файл</span>
-                  <span class="file-text--small">(до 5 Мб)</span>
+                  <span class="file-text--small">(до 5 Мб) {{percent}}</span>
                 </label>
               </div>
               <button class="btn-price btn--submit" type="submit">Заказать проект</button>
@@ -122,7 +122,8 @@
           message: '',
           file: '',
           checkedPersonalData: false
-        }
+        },
+        percentCompleted: 0
       }
     },
     methods: {
@@ -152,6 +153,10 @@
           axios.post('/mail.php', formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress: function(progressEvent) {
+              this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+              console.log(this.percentCompleted)
             }
           })
             .then(response => {
@@ -170,6 +175,7 @@
                 this.errorName = response.data.input_name
                 this.hideError(this.errorName)
               } else {
+                this.success = true;
                 this.$modal.show('modal-response', {
                   response: 'success'
                 })
@@ -191,6 +197,11 @@
         console.dir(this.form.file)
       }
     },
+    computed: {
+      percent () {
+        return this.percentCompleted
+      }
+    }
   }
 </script>
 
@@ -224,6 +235,7 @@
       background: #fff;
       color: #000;
       overflow: hidden;
+      &.success,
       &.waiting {
         .col {
           .btn--submit,
