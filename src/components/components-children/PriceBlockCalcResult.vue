@@ -15,8 +15,13 @@
           <span class="file-text--small">(до 5 Мб)</span>
         </label>
       </div>
-      <button class="btn-price btn--submit" type="submit">Заказать проект</button>
-      <div class="btn-price btn--next-steps" @click="showForm = !showForm">Заказать проект</div>
+      <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
+        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
+        <div class="error-tooltip error-tooltip--submit">
+          <span>Ошибка</span>
+        </div>
+        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">Заказать проект</button>
+      </div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
@@ -59,11 +64,14 @@
           <a class="link-person" href="#">персональных данных</a>
         </label>
       </div>
-      <div class="btn-wrapper">
-        <div class="btn-back" @click="showForm = !showForm">
+      <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
+        <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
           <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
+        </button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">Отправить</button>
+        <div class="error-tooltip error-tooltip--submit">
+          <span>Ошибка</span>
         </div>
-        <button class="btn-price btn--mobile" type="submit">Отправить</button>
       </div>
 
     </div>
@@ -466,54 +474,75 @@
           font-size: 1.6rem;
         }
       }
-      .btn-price {
+      .btn-wrapper {
+        position: relative;
+        width: 100%;
         height: 85px;
-        display: flex;
-        padding-left: 50px;
-        align-items: center;
-        font-family: @fontBebas;
-        font-weight: bold;
-        font-size: 2.4rem;
-        letter-spacing: 0.6rem;
-        color: #fff;
-        background: #000;
-        text-transform: uppercase;
-        cursor: pointer;
-        .md-block({ height: 70px; padding-left: 40px; });
-        &.btn--submit {
-          .sm-block({ display: none; });
+        .md-block({ height: 70px;});
+        .xs-block({ height: 55px; });
+        &--desktop {
+          &.errorTooltip {
+            .btn-wrapper__btn--default + .error-tooltip {
+              .from(@break_sm; {display: block});
+            }
+          }
         }
-        &.btn--next-steps {
+        &--mobile {
           display: none;
           .sm-block({ display: flex; });
-          .xs-block({ justify-content: center; padding-left: 0; });
+          &.errorTooltip {
+            .btn-wrapper__btn--mobile + .error-tooltip {
+              .sm-block({ display: block;});
+            }
+          }
         }
-        &.btn--mobile {
-          flex-grow: 1;
-          .xs-block({ padding-left: 20px; height: 55px; });
-        }
-      }
-      .btn-wrapper {
-        display: none;
-        width: 100%;
-        .sm-block({ display: flex; });
-        .btn-back {
-          height: 70px;
-          width: 70px;
+        &__btn {
           display: flex;
+          width: 100%;
+          height: 100%;
           align-items: center;
-          justify-content: center;
+          font-family: @fontBebas;
+          font-weight: bold;
+          font-size: 2.4rem;
+          letter-spacing: 0.6rem;
+          color: #fff;
+          background: #000;
+          text-transform: uppercase;
           cursor: pointer;
-          transform: scale(-1, 1);
-          border-top: 1px solid @colorBorder;
-          box-sizing: border-box;
-          .xs-block({ height: 55px; width: 55px; });
-          svg {
-            width: 30px;
-            height: 30px;
-            .xs-block({ width: 25px; height: 25px; });
-            path {
-              fill: @colorBorder;
+          &--default {
+            padding-left: 50px;
+            .sm-block({ display: none;});
+          }
+          &--next {
+            display: none;
+            padding-left: 40px;
+            .sm-block({ display: flex;});
+            .xs-block({ padding: 0; text-align: center; justify-content: center;});
+          }
+          &--mobile {
+            padding-left: 20px;
+            flex-grow: 1;
+            .sm-block({ display: flex; });
+          }
+          &--back {
+            display: none;
+            width: 70px;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            transform: scale(-1, 1);
+            border-top: 1px solid @colorBorder;
+            box-sizing: border-box;
+            background: #fff;
+            .sm-block({ display: flex; });
+            .xs-block({ width: 55px;});
+            svg {
+              width: 30px;
+              height: 30px;
+              .xs-block({ width: 25px; height: 25px; });
+              path {
+                fill: @colorBorder;
+              }
             }
           }
         }

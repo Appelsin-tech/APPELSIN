@@ -61,6 +61,13 @@ try {
         $script_result['type'] = 'error';
         echo json_encode($script_result);
         exit;
+    } else if (!boolval($_POST['checked'])) {
+        $script_result['title'] = 'Ошибка';
+        $script_result['input_name'] = 'checked';
+        $script_result['message'] = 'Подтвердите согласие';
+        $script_result['type'] = 'error';
+        echo json_encode($script_result);
+        exit;
     }
 
     if ($_FILES['file']) {
