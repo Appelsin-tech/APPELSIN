@@ -44,11 +44,22 @@
             <span>Введите текст сообщения</span>
           </div>
         </div>
-        <input type="file" name="file" id="file_price" v-on:change="handleFile" class="visually-hidden"/>
-        <label class="file-link mobile" for="file_price">
-          <span class="file-text--big">Прикрепить файл</span>
-          <span class="file-text--small">(до 5 Мб)</span>
-        </label>
+        <div class="file-wrapper" :class="{errorTooltip: error.file}">
+          <input type="file" name="file" id="file_calc" v-on:change="handleFile" class="visually-hidden"/>
+          <label class="file-link" v-if="!showFileName" for="file_calc" >
+            <span class="file-text--big">Прикрепить файл</span>
+            <span class="file-text--small">(до 5 Мб)</span>
+          </label>
+          <div class="error-tooltip error-tooltip--submit">
+            <span>Файл слишком большой</span>
+          </div>
+          <div class="file-progress " v-if="showFileName">
+            <span class="file-name">ЗАГРУЗКА ({{percentCompleted}}%)</span>
+            <button class="file-delete" type="button" @click="deleteFile">
+              <img svg-inline src="../../assets/img/icon/delete.svg" alt="">
+            </button>
+          </div>
+        </div>
       </div>
       <div class="checkbox-wrapper" :class="{errorTooltip: error.checked}">
         <div class="error-tooltip error-tooltip--top">
@@ -91,7 +102,8 @@
           email: false,
           message: false,
           checked: false,
-          server: false
+          server: false,
+          file: false
         },
         errorName: '',
         success: false,
@@ -101,9 +113,10 @@
           phone: '',
           email: '',
           message: '',
-          file: [],
+          file: '',
           checkedPersonalData: false
-        }
+        },
+        percentCompleted: 0
       }
     },
     methods: {
@@ -135,6 +148,10 @@
           axios.post('/mail.php', formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress: (progressEvent) => {
+              this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+              console.log(this.percentCompleted)
             }
           })
             .then(response => {
@@ -142,13 +159,16 @@
               if (response.data.type === 'error') {
                 if (response.data.server === 'server') {
                   this.errorName = response.data.server
-                  this.error[this.errorName] = true
+                  this.hideError(this.errorName)
                 }
+                console.log(response)
                 this.errorName = response.data.input_name
-                this.error[this.errorName] = true
+                this.hideError(this.errorName)
               } else {
                 this.success = true
-                this.error[this.errorName] = false
+                this.$modal.show('modal-response', {
+                  response: 'success'
+                })
               }
             })
             .catch(response => {
@@ -157,14 +177,23 @@
         }
       },
       handleFile (e) {
-        this.form.file = e.target.files[0];
-        console.dir(this.form.file)
+        if(e.target.files[0].size > 5000000) {
+          this.errorName = 'file'
+          this.hideError(this.errorName)
+        } else {
+          this.form.file = e.target.files[0];
+          console.log(e.target.files)
+        }
       },
       hideError(name) {
         this.error[name] = true
         setTimeout(()=>{
           this.error[name] = false
         }, 2000)
+      },
+      deleteFile () {
+        this.form.file = '';
+        document.getElementById('file_calc').value = ''
       }
     },
     computed: {
@@ -204,6 +233,12 @@
           nameQuestions.push(item.name)
         })
       },
+      showFileName () {
+        let res;
+        this.form.file !== '' ? res = true : res = false
+        console.log(this.form.file)
+        return res
+      }
     }
   }
 </script>
@@ -423,49 +458,103 @@
           }
         }
       }
-      .file-link {
-        display: inline-flex;
+      .file-wrapper {
+        display: flex;
         position: relative;
-        margin-top: auto;
-        padding-left: 80px;
         align-items: center;
         height: 60px;
-        font-family: @fontBebas;
-        color: #000;
+        padding-left: 25px;
+        padding-right: 25px;
         border-bottom: 1px solid #dadada;
-        cursor: pointer;
         .sm-block({ height: 50px; });
-        .xs-block({ padding-left: 25px; });
-        &::after {
-          position: absolute;
-          content: '';
-          left: 25px;
-          top: calc(~"50% - 21px");
-          width: 42px;
-          height: 42px;
-          background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
-          .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
-          .xs-block({ display: none; });
+        &.errorTooltip {
+          .error-tooltip {
+            display: block;
+          }
         }
-        .file-text--big {
+        .file-link {
+          display: inline-flex;
           position: relative;
-          margin-right: 20px;
-          font-size: 2rem;
-          letter-spacing: 0.5rem;
+          align-items: center;
+          padding-left: 55px;
+          font-family: @fontBebas;
+          color: #000;
+          cursor: pointer;
+          .xs-block({ padding-left: 0;});
           &::after {
             position: absolute;
             content: '';
-            bottom: -2px;
             left: 0;
-            right: 4px;
-            height: 2px;
-            background-image: repeating-linear-gradient(90deg, transparent 2px 6px, #000 2px 10px);
+            top: calc(~"50% - 21px");
+            width: 42px;
+            height: 42px;
+            background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
+            .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
+            .xs-block({ display: none; });
+          }
+          .file-text--big {
+            position: relative;
+            margin-right: 20px;
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            &::after {
+              position: absolute;
+              content: '';
+              bottom: -2px;
+              left: 0;
+              right: 4px;
+              height: 2px;
+              background-image: repeating-linear-gradient(90deg, transparent 2px 6px, #000 2px 10px);
+            }
+          }
+          .file-text--small {
+            font-family: @fontMain;
+            font-weight: 200;
+            font-size: 1.6rem;
           }
         }
-        .file-text--small {
-          font-family: @fontMain;
-          font-weight: 200;
-          font-size: 1.6rem;
+        .file-progress {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-grow: 1;
+          min-width: 0;
+          .file-name {
+            font-size: 1.8rem;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 60%;
+          }
+          .file-delete {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+              background: #D94950;
+              border-color: #fff;
+              svg {
+                path {
+                  fill: #fff;
+                }
+              }
+            }
+            svg {
+              width: 14px;
+              height: 14px;
+              path {
+                fill: #ccc;
+                transition: 0.3s;
+              }
+            }
+          }
         }
       }
       .btn-wrapper {
