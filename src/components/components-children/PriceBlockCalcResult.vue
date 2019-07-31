@@ -55,6 +55,7 @@
           </div>
           <div class="file-progress " v-if="showFileName">
             <span class="file-name">{{form.file.name}}</span>
+            <img svg-inline class="svg-file" src="../../assets/img/icon/file.svg" alt="">
             <button class="file-delete" type="button" @click="deleteFile">
               <img svg-inline src="../../assets/img/icon/delete.svg" alt="">
             </button>
@@ -526,6 +527,10 @@
             white-space: nowrap;
             overflow: hidden;
             max-width: 60%;
+          }
+          .svg-file {
+            width: 25px;
+            margin-right: auto;
           }
           .file-delete {
             width: 30px;
