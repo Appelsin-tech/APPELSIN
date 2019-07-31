@@ -74,7 +74,7 @@
                     <span>Файл слишком большой</span>
                   </div>
                   <div class="file-progress " v-if="showFileName">
-                    <span class="file-name">ЗАГРУЗКА ({{percentCompleted}}%)</span>
+                    <span class="file-name">{{form.file.name}}</span>
                     <button class="file-delete" type="button" @click="deleteFile">
                       <img svg-inline src="../assets/img/icon/delete.svg" alt="">
                     </button>
