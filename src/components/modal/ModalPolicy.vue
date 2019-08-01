@@ -54,6 +54,11 @@
         </p>
         <p class="paragraph">Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу <a class="link"
             href="https://appelsin.tech/#policy" target="_blank">https://appelsin.tech/#policy</a></p>
+        <p class="paragraph">
+          This site is protected by reCAPTCHA and the Google
+          <a class="link" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
+          <a class="link" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+        </p>
       </div>
     </div>
   </modal>

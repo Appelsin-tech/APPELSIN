@@ -138,7 +138,7 @@
         } else {
           this.waiting = true;
           this.$recaptcha('login').then((token) => {
-            this.token = token + 'asca'
+            this.token = token
             console.log(token) // Will print the token
             let formData = new FormData();
             formData.append('token', this.token);
