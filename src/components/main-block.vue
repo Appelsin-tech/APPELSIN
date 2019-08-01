@@ -77,7 +77,7 @@
         bottom: 0;
         right: 0;
         left: 0;
-        background-image: url("../assets/img/appelsin-1.png");
+        background-image: url("../assets/img/appelsin.png");
         background-repeat: no-repeat;
         background-position: 45% 100%;
         z-index: 9;

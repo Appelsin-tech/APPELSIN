@@ -232,7 +232,15 @@
 <style scoped lang="less">
   @import "../assets/less/_variables";
   .s-contacts {
-    background: #f69b0e;
+    box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
+    background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-1.png"), url("../assets/img/appelsin-contacts-small-2.png");
+    background-color: #ffba00;
+    background-repeat: no-repeat;
+    background-position: left bottom, right top, 10% 5%;
+    .sm-block({
+      background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-2.png");
+      background-position: left bottom, 80% 10%;
+    });
     .caption-wrapper {
       .text-wrapper {
         display: flex;
