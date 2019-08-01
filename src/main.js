@@ -3,6 +3,15 @@ import App from './App.vue'
 import VueModal from 'vue-js-modal'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueFullPage from 'vue-fullpage.js'
+import { VueReCaptcha } from 'vue-recaptcha-v3'
+
+// For more options see below
+Vue.use(VueReCaptcha, {
+  siteKey: '6LeNvrAUAAAAAAqBxJnWqsd2DdvNeKgZLIQ9tUwa',
+  loaderOptions: {
+    useRecaptchaNet: true
+  }
+})
 Vue.use(VueFullPage);
 
 

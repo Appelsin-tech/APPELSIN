@@ -31,11 +31,13 @@
                 </ul>
               </div>
               <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-                <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
+                <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit">Заказать проект</button>
                 <div class="error-tooltip error-tooltip--submit">
                   <span>Ошибка</span>
                 </div>
-                <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">Заказать проект</button>
+                <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">
+                  Заказать проект
+                </button>
               </div>
             </div>
             <div class="col col--input" :class="{active : showForm}">
@@ -59,14 +61,15 @@
                   </div>
                 </div>
                 <div class="g-item-form g-item-form--textarea" :class="{errorTooltip: error.message}">
-                  <textarea class="g-item-form__field g-item-form__field--textarea" placeholder="Текст сообщения" v-model="form.message"></textarea>
+                  <textarea class="g-item-form__field g-item-form__field--textarea" placeholder="Текст сообщения"
+                            v-model="form.message"></textarea>
                   <div class="error-tooltip">
                     <span>Введите текст сообщения</span>
                   </div>
                 </div>
                 <div class="file-wrapper" :class="{errorTooltip: error.file}">
                   <input type="file" name="file" id="file_contacts" v-on:change="handleFile" class="visually-hidden"/>
-                  <label class="file-link" v-if="!showFileName" for="file_contacts" >
+                  <label class="file-link" v-if="!showFileName" for="file_contacts">
                     <span class="file-text--big">Прикрепить файл</span>
                     <span class="file-text--small">(до 5 Мб)</span>
                   </label>
@@ -116,10 +119,11 @@
 
   export default {
     name: 'contacts-block',
-    data () {
+    data() {
       return {
         showForm: false,
         waiting: false,
+        disabled: false,
         error: {
           name: false,
           phone: false,
@@ -140,10 +144,12 @@
           file: '',
           checkedPersonalData: false
         },
+        token: '',
         percentCompleted: 0
       }
     },
     methods: {
+
       onSubmit() {
         //validation
 
@@ -159,53 +165,58 @@
           this.hideError('checked')
         } else {
           this.waiting = true;
-          let formData = new FormData();
-          formData.append('nameForm', this.form.nameForm);
-          formData.append('name', this.form.name);
-          formData.append('phone', this.form.phone);
-          formData.append('email', this.form.email);
-          formData.append('message', this.form.message);
-          formData.append('file', this.form.file);
-          formData.append('checked', this.form.checkedPersonalData);
-          axios.post('/mail.php', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            },
-            onUploadProgress: (progressEvent) => {
-              this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-              console.log(this.percentCompleted)
-            }
-          })
-            .then(response => {
-              this.waiting = false;
-              if (response.data.type === 'error') {
-                if (response.data.server === 'server') {
-                  this.errorName = response.data.server
-                  this.hideError(this.errorName)
-                }
-                console.log(response)
-                this.errorName = response.data.input_name
-                this.hideError(this.errorName)
-              } else {
-                this.success = true;
-                this.$modal.show('modal-response', {
-                  response: 'success'
-                })
+          this.$recaptcha('login').then((token) => {
+            this.token = token
+            console.log(token) // Will print the token
+            let formData = new FormData();
+            formData.append('token', this.token);
+            formData.append('nameForm', this.form.nameForm);
+            formData.append('name', this.form.name);
+            formData.append('phone', this.form.phone);
+            formData.append('email', this.form.email);
+            formData.append('message', this.form.message);
+            formData.append('file', this.form.file);
+            formData.append('checked', this.form.checkedPersonalData)
+            axios.post('/mail.php', formData, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              },
+              onUploadProgress: (progressEvent) => {
+                this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+
               }
             })
-            .catch(response => {
-              console.log(response)
-            })
+              .then(response => {
+                this.waiting = false;
+                console.log(response)
+                if (response.data.type === 'error' || response.data.type === 'server') {
+                  console.log(response)
+                  if(response.data.input_name) {
+                    this.errorName = response.data.input_name
+                  }
+                  this.errorName = 'server'
+                  this.hideError(this.errorName)
+                } else {
+                  this.success = true;
+                  this.$modal.show('modal-response', {
+                    response: 'success'
+                  })
+                }
+              })
+              .catch(response => {
+                console.log(response)
+              })
+          })
         }
       },
       hideError(name) {
         this.error[name] = true
-        setTimeout(()=>{
+        setTimeout(() => {
           this.error[name] = false
         }, 2000)
       },
-      handleFile (e) {
-        if(e.target.files[0].size > 5000000) {
+      handleFile(e) {
+        if (e.target.files[0].size > 5000000) {
           this.errorName = 'file'
           this.hideError(this.errorName)
         } else {
@@ -213,13 +224,13 @@
           console.log(e.target.files)
         }
       },
-      deleteFile () {
+      deleteFile() {
         this.form.file = '';
         document.getElementById('file_contacts').value = ''
       }
     },
     computed: {
-      showFileName () {
+      showFileName() {
         let res;
         this.form.file !== '' ? res = true : res = false
         console.log(this.form.file)
@@ -237,10 +248,7 @@
     background-color: #ffba00;
     background-repeat: no-repeat;
     background-position: left bottom, right top, 10% 5%;
-    .sm-block({
-      background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-2.png");
-      background-position: left bottom, 80% 10%;
-    });
+    .sm-block({ background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-2.png"); background-position: left bottom, 80% 10%; });
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -301,7 +309,7 @@
               font-size: 4.2rem;
               letter-spacing: 1.3rem;
               line-height: 4.5rem;
-              .md-block({ font-size: 3.5rem; letter-spacing: 1rem; line-height: 4rem;});
+              .md-block({ font-size: 3.5rem; letter-spacing: 1rem; line-height: 4rem; });
               .sm-block({ font-size: 3rem; letter-spacing: 0.8rem; });
               .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; });
             }
@@ -320,8 +328,8 @@
                   height: 47px;
                   flex-shrink: 0;
                   box-sizing: border-box;
-                  .md-block({ width: 38px; height: 38px; margin-right: 20px;});
-                  .xs-block({ width: 30px; height: 30px; margin-right: 15px;});
+                  .md-block({ width: 38px; height: 38px; margin-right: 20px; });
+                  .xs-block({ width: 30px; height: 30px; margin-right: 15px; });
                   path {
                     fill: #ffba00;
                   }
@@ -329,17 +337,17 @@
                     padding: 8px;
                     border: 1px solid #ffba00;
                     border-radius: 50%;
-                    .xs-block({ padding: 6px;});
+                    .xs-block({ padding: 6px; });
                   }
                 }
-                >span {
+                > span {
                   font-family: @fontBebas;
                   font-weight: bold;
                   font-size: 3rem;
                   letter-spacing: 0.5rem;
                   color: #000;
-                  .md-block({ font-size: 2.8rem;});
-                  .xs-block({ font-size: 2.2rem; letter-spacing: 0.4rem;});
+                  .md-block({ font-size: 2.8rem; });
+                  .xs-block({ font-size: 2.2rem; letter-spacing: 0.4rem; });
                 }
               }
             }
@@ -444,7 +452,7 @@
             font-family: @fontBebas;
             color: #000;
             cursor: pointer;
-            .xs-block({ padding-left: 0;});
+            .xs-block({ padding-left: 0; });
             &::after {
               position: absolute;
               content: '';
@@ -530,12 +538,12 @@
           position: relative;
           width: 100%;
           height: 85px;
-          .md-block({ height: 70px;});
+          .md-block({ height: 70px; });
           .xs-block({ height: 55px; });
           &--desktop {
             &.errorTooltip {
               .btn-wrapper__btn--default + .error-tooltip {
-                .from(@break_sm; {display: block});
+                .from(@break_sm; { display: block });
               }
             }
           }
@@ -544,7 +552,7 @@
             .sm-block({ display: flex; });
             &.errorTooltip {
               .btn-wrapper__btn--mobile + .error-tooltip {
-                .sm-block({ display: block;});
+                .sm-block({ display: block; });
               }
             }
           }
@@ -563,13 +571,13 @@
             cursor: pointer;
             &--default {
               padding-left: 50px;
-              .sm-block({ display: none;});
+              .sm-block({ display: none; });
             }
             &--next {
               display: none;
               padding-left: 40px;
-              .sm-block({ display: flex;});
-              .xs-block({ padding: 0; text-align: center; justify-content: center;});
+              .sm-block({ display: flex; });
+              .xs-block({ padding: 0; text-align: center; justify-content: center; });
             }
             &--mobile {
               padding-left: 20px;
@@ -587,7 +595,7 @@
               box-sizing: border-box;
               background: #fff;
               .sm-block({ display: flex; });
-              .xs-block({ width: 55px;});
+              .xs-block({ width: 55px; });
               svg {
                 width: 30px;
                 height: 30px;

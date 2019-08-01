@@ -117,6 +117,7 @@
           file: '',
           checkedPersonalData: false
         },
+        token: '',
         percentCompleted: 0
       }
     },
@@ -136,45 +137,48 @@
           this.hideError('checked')
         } else {
           this.waiting = true;
-          let formData = new FormData();
-          formData.append('nameForm', this.form.nameForm);
-          formData.append('name', this.form.name);
-          formData.append('phone', this.form.phone);
-          formData.append('email', this.form.email);
-          formData.append('message', this.form.message);
-          formData.append('questions', JSON.stringify(this.questionsName));
-          formData.append('price', this.price);
-          formData.append('file', this.form.file);
-          formData.append('checked', this.form.checkedPersonalData);
-          axios.post('/mail.php', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            },
-            onUploadProgress: (progressEvent) => {
-              this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-              console.log(this.percentCompleted)
-            }
-          })
-            .then(response => {
-              this.waiting = false;
-              if (response.data.type === 'error') {
-                if (response.data.server === 'server') {
-                  this.errorName = response.data.server
-                  this.hideError(this.errorName)
-                }
-                console.log(response)
-                this.errorName = response.data.input_name
-                this.hideError(this.errorName)
-              } else {
-                this.success = true
-                this.$modal.show('modal-response', {
-                  response: 'success'
-                })
+          this.$recaptcha('login').then((token) => {
+            this.token = token + 'asca'
+            console.log(token) // Will print the token
+            let formData = new FormData();
+            formData.append('token', this.token);
+            formData.append('nameForm', this.form.nameForm);
+            formData.append('name', this.form.name);
+            formData.append('phone', this.form.phone);
+            formData.append('email', this.form.email);
+            formData.append('message', this.form.message);
+            formData.append('file', this.form.file);
+            formData.append('checked', this.form.checkedPersonalData)
+            axios.post('/mail.php', formData, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              },
+              onUploadProgress: (progressEvent) => {
+                this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+
               }
             })
-            .catch(response => {
-              console.log(response)
-            })
+              .then(response => {
+                this.waiting = false;
+                console.log(response)
+                if (response.data.type === 'error' || response.data.type === 'server') {
+                  console.log(response)
+                  if(response.data.input_name) {
+                    this.errorName = response.data.input_name
+                  }
+                  this.errorName = 'server'
+                  this.hideError(this.errorName)
+                } else {
+                  this.success = true;
+                  this.$modal.show('modal-response', {
+                    response: 'success'
+                  })
+                }
+              })
+              .catch(response => {
+                console.log(response)
+              })
+          })
         }
       },
       handleFile (e) {
