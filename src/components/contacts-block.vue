@@ -77,8 +77,8 @@
                     <span>Файл слишком большой</span>
                   </div>
                   <div class="file-progress " v-if="showFileName">
-                    <span class="file-name">{{form.file.name}}</span>
                     <img svg-inline class="svg-file" src="../assets/img/icon/file.svg" alt="">
+                    <span class="file-name">{{form.file.name}}</span>
                     <button class="file-delete" type="button" @click="deleteFile">
                       <img svg-inline src="../assets/img/icon/delete.svg" alt="">
                     </button>
@@ -93,7 +93,7 @@
                 <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
                 <label class="label-person" for="checkPersonContacts">
                   <span>Я согласен на обработку </span>
-                  <a class="link-person" href="#">персональных данных</a>
+                  <a class="link-person" href="#">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
                 </label>
               </div>
               <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
@@ -376,8 +376,8 @@
             padding-left: 25px;
             padding-right: 15px;
             align-items: center;
-            .md-block({ height: 70px; });
-            .sm-block({ height: 50px; });
+            .md-block({ height: 70px; padding-left: 10px; padding-right: 5px;});
+            .sm-block({ min-height: 50px; height: auto; padding-top: 8px; padding-bottom: 8px;});
             &.errorTooltip {
               .error-tooltip {
                 display: block;
@@ -392,8 +392,9 @@
             .label-person {
               position: relative;
               padding-left: 55px;
-              font-size: 1.6rem;
-              .md-block({ padding-left: 40px; });
+              font-size: 1.4rem;
+              color: @colorSecFonts;
+              .md-block({ padding-left: 40px; font-size: 1.2rem;});
               &::before,
               &::after {
                 position: absolute;
@@ -415,9 +416,6 @@
                 height: 12px;
                 border-bottom: 2px solid #f69b0e;
                 border-right: 2px solid #f69b0e;
-              }
-              span {
-                color: @colorSecFonts;
               }
               .link-person {
                 color: #f69b0e;
@@ -493,7 +491,7 @@
             min-width: 0;
             .file-name {
               font-size: 1.8rem;
-              margin-right: 15px;
+              margin-right: auto;
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
@@ -501,7 +499,11 @@
             }
             .svg-file {
               width: 25px;
-              margin-right: auto;
+              margin-right: 20px;
+              .sm-block({ width: 20px;});
+              path {
+                fill: #f69b0e;
+              }
             }
             .file-delete {
               width: 30px;
