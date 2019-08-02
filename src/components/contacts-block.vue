@@ -266,7 +266,7 @@
       }
     }
     .content-wrapper {
-      flex-grow: 1;
+      flex-basis: 100%;
     }
     .main-form {
       display: flex;
@@ -455,9 +455,9 @@
               position: absolute;
               content: '';
               left: 0;
-              top: calc(~"50% - 21px");
-              width: 42px;
-              height: 42px;
+              top: calc(~"50% - 14px");
+              width: 28px;
+              height: 28px;
               background: url("../assets/img/icon/clip-orange.png") no-repeat center / contain;
               .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
               .xs-block({ display: none; });

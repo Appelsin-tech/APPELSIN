@@ -486,16 +486,17 @@
           font-family: @fontBebas;
           color: #000;
           cursor: pointer;
+          .md-block({ padding-left: 40px;});
           .xs-block({ padding-left: 0;});
           &::after {
             position: absolute;
             content: '';
             left: 0;
-            top: calc(~"50% - 21px");
-            width: 42px;
-            height: 42px;
+            top: calc(~"50% - 14px");
+            width: 28px;
+            height: 28px;
             background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
-            .md-block({ width: 30px; height: 30px; top: calc(~"50% - 15px"); });
+            .md-block({ width: 22px; height: 22px; top: calc(~"50% - 11px"); });
             .xs-block({ display: none; });
           }
           .file-text--big {

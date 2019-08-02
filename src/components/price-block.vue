@@ -482,11 +482,8 @@
       }
     }
     .steps-wrapper {
-      flex-grow: 1;
+      flex-basis: 100%;
       max-height: 560px;
-      .lg-block({ max-height: 500px;; });
-      .sm-block({ height: 330px; });
-      .xs-block({ height: 300px; });
       .steps {
         display: flex;
         padding-top: 45px;

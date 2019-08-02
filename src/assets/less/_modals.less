@@ -113,46 +113,12 @@
   &.b-modal-response {
     padding: 50px 33px;
     .xs-block({ padding: 35px 20px; });
-    .status {
-      width: 80%;
-      margin: 0 auto;
-      .sm-block({ width: 100%; });
-      &__success {
-        background: #59c259;
-        bottom: 50px;
-        .md-block({ bottom: 20px; left: 25px; right: 25px; });
-        > span {
-          display: block;
-          font-family: @fontBebas;
-          font-size: 2.4rem;
-          padding: 8px 20px;
-          font-weight: 400;
-          color: #fff;
-          text-transform: lowercase;
-          .xs-block({ font-size: 2rem; padding: 5px 10px; })
-        }
-      }
-      &__error {
-        background: #db4954;
-        bottom: 50px;
-        .md-block({ bottom: 20px; left: 25px; right: 25px; });
-        > span {
-          display: block;
-          font-family: @fontBebas;
-          font-size: 2.4rem;
-          padding: 8px 20px;
-          font-weight: 400;
-          color: #fff;
-          text-transform: lowercase;
-          .xs-block({ font-size: 2rem; padding: 5px 10px; })
-        }
-      }
-    }
+
     .title-wrapper {
       padding-bottom: 30px;
       text-align: center;
+      .xs-block({ padding-bottom: 15px;});
       .title {
-        padding-bottom: 30px;
         font-family: @fontBebas;
         font-weight: bold;
         font-size: 4.5rem;
@@ -160,15 +126,6 @@
         text-transform: uppercase;
         .md-block({ font-size: 3rem; letter-spacing: 1rem; });
         .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 20px; });
-        &-description {
-          padding-bottom: 20px;
-          font-family: @fontBebas;
-          font-weight: bold;
-          font-size: 2.4rem;
-          letter-spacing: 0.5rem;
-          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
-          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
-        }
       }
     }
     .form-response {
@@ -177,7 +134,6 @@
       height: calc(~"100vh - 388px");
       overflow: auto;
       min-height: 320px;
-
       &::-webkit-scrollbar-track {
         height: 80%;
         border-radius: 4px;
@@ -196,6 +152,54 @@
       &::-webkit-scrollbar-track-piece {
         height: 100px;
       }
+      .status {
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 30px;
+        .sm-block({ width: 100%; });
+        &__success {
+          background: #59c259;
+          .md-block({ bottom: 20px; left: 25px; right: 25px; });
+          > span {
+            display: block;
+            font-family: @fontBebas;
+            font-size: 2.4rem;
+            padding: 8px 20px;
+            font-weight: 400;
+            color: #fff;
+            text-transform: lowercase;
+            .xs-block({ font-size: 2rem; padding: 5px 10px; })
+          }
+        }
+        &__error {
+          background: #db4954;
+          bottom: 50px;
+          .md-block({ bottom: 20px; left: 25px; right: 25px; });
+          > span {
+            display: block;
+            font-family: @fontBebas;
+            font-size: 2.4rem;
+            padding: 8px 20px;
+            font-weight: 400;
+            color: #fff;
+            text-transform: lowercase;
+            .xs-block({ font-size: 2rem; padding: 5px 10px; })
+          }
+        }
+      }
+      .wrapper-description {
+        text-align: center;
+        padding-bottom: 20px;
+        &__description {
+          font-family: @fontBebas;
+          font-weight: bold;
+          font-size: 2.4rem;
+          letter-spacing: 0.5rem;
+          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
+          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
+        }
+      }
+
       .group-item {
         &:first-of-type {
           &__title {

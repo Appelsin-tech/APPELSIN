@@ -190,9 +190,6 @@
       swiper() {
         return this.$refs.mySwiper.swiper
       }
-    },
-    mounted() {
-      console.log(this.swiper)
     }
   }
 </script>
