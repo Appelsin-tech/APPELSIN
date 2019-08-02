@@ -499,8 +499,8 @@
             }
             .svg-file {
               width: 25px;
-              margin-right: 20px;
-              .sm-block({ width: 20px;});
+              margin-right: 30px;
+              .sm-block({ width: 20px; margin-right: 20px;});
               path {
                 fill: #f69b0e;
               }
