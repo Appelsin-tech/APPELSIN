@@ -472,6 +472,7 @@
         padding-left: 25px;
         padding-right: 25px;
         border-bottom: 1px solid #dadada;
+        .md-block({ padding-left: 10px;});
         .sm-block({ height: 50px; });
         &.errorTooltip {
           .error-tooltip {
@@ -487,7 +488,6 @@
           color: #000;
           cursor: pointer;
           .md-block({ padding-left: 40px;});
-          .xs-block({ padding-left: 0;});
           &::after {
             position: absolute;
             content: '';
@@ -496,8 +496,7 @@
             width: 28px;
             height: 28px;
             background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
-            .md-block({ width: 22px; height: 22px; top: calc(~"50% - 11px"); });
-            .xs-block({ display: none; });
+            .md-block({ width: 24px; height: 24px; top: calc(~"50% - 12px"); });
           }
           .file-text--big {
             position: relative;
@@ -536,8 +535,9 @@
           }
           .svg-file {
             width: 25px;
-            margin-right: 20px;
-            .sm-block({ width: 20px;});
+            margin-right: 30px;
+            .md-block({ margin-right: 15px;});
+            .sm-block({ width: 20px; margin-right: 20px;});
             path {
               fill: #D94950;
             }
