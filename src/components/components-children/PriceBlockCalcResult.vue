@@ -7,8 +7,24 @@
           <span>Шаг </span>
           <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
         </div>
-        <p class="description">Средняя стоимость такого заказа у нас</p>
-        <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
+        <div class="sum-wrapper" v-if="price !== 0">
+          <p class="description">Средняя стоимость такого заказа у нас</p>
+          <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
+        </div>
+        <ul class="list-contacts" v-if="price === 0">
+          <li>
+            <a class="link-contacts" href="tel:+79644952929">
+              <img svg-inline class="phone" src="../../assets/img/icon/phone.svg" alt="">
+              <span>+7 (964) 495-29-29</span>
+            </a>
+          </li>
+          <li>
+            <a class="link-contacts" href="mailto:info@appelsin.tech">
+              <img svg-inline class="mail" src="../../assets/img/icon/email.svg" alt="">
+              <span>info@appelsin.tech</span>
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
         <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
@@ -69,7 +85,7 @@
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
         <label class="label-person" for="checkPerson">
           <span>Я согласен на обработку </span>
-          <a class="link-person" href="#">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
+          <a class="link-person" href="#" @click.prevent="$modal.show('modal-policy')">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
         </label>
       </div>
       <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
@@ -139,7 +155,6 @@
           this.waiting = true;
           this.$recaptcha('login').then((token) => {
             this.token = token
-            console.log(token) // Will print the token
             let formData = new FormData();
             formData.append('token', this.token);
             formData.append('nameForm', this.form.nameForm);
@@ -148,7 +163,9 @@
             formData.append('email', this.form.email);
             formData.append('message', this.form.message);
             formData.append('file', this.form.file);
-            formData.append('checked', this.form.checkedPersonalData)
+            formData.append('checked', this.form.checkedPersonalData);
+            formData.append('questions', JSON.stringify(this.questionsName));
+            formData.append('price', this.price);
             axios.post('/mail.php', formData, {
               headers: {
                 'Content-Type': 'multipart/form-data'
@@ -160,9 +177,7 @@
             })
               .then(response => {
                 this.waiting = false;
-                console.log(response)
                 if (response.data.type === 'error' || response.data.type === 'server') {
-                  console.log(response)
                   if(response.data.input_name) {
                     this.errorName = response.data.input_name
                   }
@@ -171,7 +186,8 @@
                 } else {
                   this.success = true;
                   this.$modal.show('modal-response', {
-                    response: 'success'
+                    response: response.data,
+                    status: 'success'
                   })
                 }
               })
@@ -294,7 +310,6 @@
             color: #000;
             text-transform: uppercase;
             .md-block({ margin-bottom: 15px; });
-            .xs-block({ margin-bottom: 10px; });
             .arrow {
               display: inline-block;
               transform: rotate(45deg);
@@ -309,36 +324,79 @@
               color: #dd4858;
             }
           }
-          .description {
-            margin-bottom: 40px;
-            max-width: 400px;
-            font-size: 3rem;
-            line-height: 4rem;
-            letter-spacing: 0.7rem;
-            .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; })
-          }
-          .ans {
-            font-size: 1.8rem;
-          }
-          .price-num {
+          .list-contacts {
             display: flex;
-            align-items: baseline;
-            margin-bottom: auto;
-            .price {
-              font-size: 7rem;
-              font-weight: bold;
-              line-height: 1;
-              letter-spacing: 2rem;
-              color: #db4954;
-              .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem; });
-              .xs-block({ font-size: 4rem; letter-spacing: 1.1rem; });
+            flex-direction: column;
+            margin-top: 20px;
+            .md-block({ margin-top: 25px;});
+            li:first-child {
+              margin-bottom: 40px;
             }
-            .currency {
-              font-size: 3rem;
-              letter-spacing: 0.7rem;
-              .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem; });
+            .link-contacts {
+              display: flex;
+              align-items: center;
+              svg {
+                margin-right: 25px;
+                width: 47px;
+                height: 47px;
+                flex-shrink: 0;
+                box-sizing: border-box;
+                .md-block({ width: 38px; height: 38px; margin-right: 20px; });
+                .xs-block({ width: 30px; height: 30px; margin-right: 15px; });
+                path {
+                  fill: #db4954;
+                }
+                &.phone {
+                  padding: 8px;
+                  border: 1px solid #db4954;
+                  border-radius: 50%;
+                  .xs-block({ padding: 6px; });
+                }
+              }
+              > span {
+                font-family: @fontBebas;
+                font-weight: bold;
+                font-size: 3rem;
+                letter-spacing: 0.5rem;
+                color: #000;
+                .md-block({ font-size: 2.8rem; });
+                .xs-block({ font-size: 2.2rem; letter-spacing: 0.4rem; });
+              }
             }
           }
+          .sum-wrapper {
+            .description {
+              margin-bottom: 40px;
+              max-width: 400px;
+              font-size: 3rem;
+              line-height: 4rem;
+              letter-spacing: 0.7rem;
+              .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; })
+            }
+            .ans {
+              font-size: 1.8rem;
+            }
+            .price-num {
+              display: flex;
+              align-items: baseline;
+              margin-bottom: auto;
+              .price {
+                font-size: 7rem;
+                font-weight: bold;
+                line-height: 1;
+                letter-spacing: 2rem;
+                color: #db4954;
+                .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem; });
+                .xs-block({ font-size: 4rem; letter-spacing: 1.1rem; });
+              }
+              .currency {
+                font-size: 3rem;
+                letter-spacing: 0.7rem;
+                .md-block({ font-size: 2.5rem; letter-spacing: 0.6rem; });
+              }
+            }
+          }
+
         }
       }
       &--input {
@@ -497,12 +555,14 @@
             height: 28px;
             background: url("../../assets/img/icon/clip.png") no-repeat center / contain;
             .md-block({ width: 24px; height: 24px; top: calc(~"50% - 12px"); });
+            .xs-block({ width: 20px; height: 20px; top: calc(~"50% - 10px"); });
           }
           .file-text--big {
             position: relative;
             margin-right: 20px;
             font-size: 2rem;
             letter-spacing: 0.5rem;
+            .xs-block({ font-size: 1.8rem; letter-spacing: 0.4rem;});
             &::after {
               position: absolute;
               content: '';

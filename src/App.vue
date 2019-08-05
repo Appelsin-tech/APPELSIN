@@ -89,7 +89,7 @@
           // autoScrolling:false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section',
-          normalScrollElements: '.fancybox-container, .wrapper-overflow, .paragraph',
+          normalScrollElements: '.fancybox-container, .wrapper-overflow, .paragraph, .form-response, .form-response *',
         }
       }
     },

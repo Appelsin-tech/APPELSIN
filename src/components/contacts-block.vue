@@ -93,7 +93,7 @@
                 <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
                 <label class="label-person" for="checkPersonContacts">
                   <span>Я согласен на обработку </span>
-                  <a class="link-person" href="#">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
+                  <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
                 </label>
               </div>
               <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
@@ -167,7 +167,6 @@
           this.waiting = true;
           this.$recaptcha('login').then((token) => {
             this.token = token
-            console.log(token) // Will print the token
             let formData = new FormData();
             formData.append('token', this.token);
             formData.append('nameForm', this.form.nameForm);
@@ -188,9 +187,7 @@
             })
               .then(response => {
                 this.waiting = false;
-                console.log(response)
                 if (response.data.type === 'error' || response.data.type === 'server') {
-                  console.log(response)
                   if(response.data.input_name) {
                     this.errorName = response.data.input_name
                   }
@@ -199,7 +196,8 @@
                 } else {
                   this.success = true;
                   this.$modal.show('modal-response', {
-                    response: 'success'
+                    response: response.data,
+                    status: 'success'
                   })
                 }
               })
@@ -221,7 +219,6 @@
           this.hideError(this.errorName)
         } else {
           this.form.file = e.target.files[0];
-          console.log(e.target.files)
         }
       },
       deleteFile() {
@@ -233,7 +230,6 @@
       showFileName() {
         let res;
         this.form.file !== '' ? res = true : res = false
-        console.log(this.form.file)
         return res
       }
     }
@@ -461,12 +457,14 @@
               height: 28px;
               background: url("../assets/img/icon/clip-orange.png") no-repeat center / contain;
               .md-block({ width: 24px; height: 24px; top: calc(~"50% - 12px"); });
+              .xs-block({ width: 20px; height: 20px; top: calc(~"50% - 10px"); });
             }
             .file-text--big {
               position: relative;
               margin-right: 20px;
               font-size: 2rem;
               letter-spacing: 0.5rem;
+              .xs-block({ font-size: 1.8rem; letter-spacing: 0.4rem;});
               &::after {
                 position: absolute;
                 content: '';

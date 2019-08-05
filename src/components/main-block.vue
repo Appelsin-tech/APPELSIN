@@ -41,7 +41,7 @@
 
 <script>
   export default {
-    name: 'main-block',
+    name: 'main-block'
   }
 </script>
 

@@ -5,19 +5,22 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 define('SECRET_KEY', '6LeNvrAUAAAAAJ31VONtW31ekIll0IUXGbR70vyR');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
 
-function getCaptcha($SecretKey) {
-    $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_KEY."&response={$SecretKey}");
+function getCaptcha($SecretKey)
+{
+    $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . SECRET_KEY . "&response={$SecretKey}");
     $return = json_decode($Response);
     return $return;
 }
+
 $return = getCaptcha($_POST['token']);
 
-if($return -> success == true && $return -> score > 0.2) {
+if ($return->success == true && $return->score > 0.2) {
     $mail = new PHPMailer(true);
 
     try {
@@ -26,81 +29,127 @@ if($return -> success == true && $return -> score > 0.2) {
         $mail->isHTML(true);
         $mail->SMTPAuth = true;
 
-//        $mail->Host = 'smtp.gmail.com';
-//        $mail->Username = 'mrpelkin@gmail.com'; // имя пользователя google
-//        $mail->Password = 'MIRKINO16'; // пароль на google
-        $mail->Host = 'smtp.yandex.com';
-        $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-        $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Username = 'mrpelkin@gmail.com'; // имя пользователя google
+        $mail->Password = 'MIRKINO16'; // пароль на google
+//        $mail->Host = 'smtp.yandex.com';
+//        $mail->Username = 'info@appelsin.tech'; // имя пользователя google
+//        $mail->Password = 'e4BnwBVybY9b'; // пароль на google
 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-//        $mail->setFrom('mrpelkin@gmail.com', 'Отправитель');
-//        $mail->addAddress('mrpelkin@gmail.com', 'Получатель');
-        $mail->setFrom('info@appelsin.tech', 'Отправитель');
-        $mail->addAddress('info@appelsin.tech', 'Получатель');
+        $mail->setFrom('mrpelkin@gmail.com', 'Отправитель');
+        $mail->addAddress('mrpelkin@gmail.com', 'Получатель');
+//        $mail->setFrom('info@appelsin.tech', 'Отправитель');
+//        $mail->addAddress('info@appelsin.tech', 'Получатель');
 
-        if (empty(trim($_POST['name']))) {
-            $script_result['title'] = 'Ошибка';
-            $script_result['input_name'] = 'name';
-            $script_result['message'] = 'Поле name не может быть пустым!';
-            $script_result['type'] = 'error';
-            echo json_encode($script_result);
-            exit;
-        } else if (empty(trim($_POST['phone']))) {
-            $script_result['title'] = 'Ошибка';
-            $script_result['input_name'] = 'phone';
-            $script_result['message'] = 'Поле phone не может быть пустым!';
-            $script_result['type'] = 'error';
-            echo json_encode($script_result);
-            exit;
-        } else if (empty(trim($_POST['email']))) {
-            $script_result['title'] = 'Ошибка';
-            $script_result['input_name'] = 'email';
-            $script_result['message'] = 'Поле email не может быть пустым!';
-            $script_result['type'] = 'error';
-            echo json_encode($script_result);
-            exit;
-        } else if (empty(trim($_POST['message']))) {
-            $script_result['title'] = 'Ошибка';
-            $script_result['input_name'] = 'message';
-            $script_result['message'] = 'Поле message не может быть пустым!';
-            $script_result['type'] = 'error';
-            echo json_encode($script_result);
-            exit;
-        } else if (!boolval($_POST['checked'])) {
-            $script_result['title'] = 'Ошибка';
-            $script_result['input_name'] = 'checked';
-            $script_result['message'] = 'Подтвердите согласие';
-            $script_result['type'] = 'error';
-            echo json_encode($script_result);
-            exit;
-        }
-
-        if ($_FILES['file']) {
-            $file = $_FILES['file'];
-            $uploadfile = $file['tmp_name'];
-            $mail->addAttachment($uploadfile, $file['name']);
-        }
-
-        if ($_POST['nameForm'] == "calculate") {
-            $user_name = htmlspecialchars($_POST['name']);
-            $user_phone = htmlspecialchars($_POST['phone']);
-            $user_email = htmlspecialchars($_POST['email']);
-            $user_message = htmlspecialchars($_POST['message']);
-            $price = $_POST['price'];
-
-            $questions = json_decode($_POST['questions']);
+        if ($_POST['nameForm'] == "briefing") {
+            $questionsBrief = json_decode($_POST['questions']);
 
             $listQuestions = [];
 
-            foreach ($questions as $item) {
-                $listQuestions[] = "<li> $item </li>";
+            foreach ($questionsBrief as $item) {
+                $listQuestions[] = "<li> $item->label <br> $item->answers </li>";
             }
-            $questions = implode('', $listQuestions);
+            $questionsBrief = implode('', $listQuestions);
+
+            $company_name = htmlspecialchars($_POST['company']);
+            $function_person = htmlspecialchars($_POST['function_person']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $site = htmlspecialchars($_POST['site']);
+            $email = htmlspecialchars($_POST['email']);
+            $other_contacts = htmlspecialchars($_POST['other_contacts']);
 
             $message = "<div style='font-size: 20px'>
+                        <b>Заявка с апельсина</b>
+                        <br>
+                        <p>Брифинг проекта</p>
+                        <p>Компания: $company_name</p>
+                        <p>Контактное лицо, должность: $function_person</p>
+                        <p>Телефон: $phone</p>
+                        <p>Сайт: $site</p>
+                        <p>E-mail: $email</p>
+                        <p>Другое (например Skype): $other_contacts</p>
+                        <ul>$questionsBrief</ul>
+                        </p>
+                        <br>
+                    </div>";
+
+            $mail->Subject = 'Заявка с Аппельсина';
+            $mail->Body = $message;
+            $mail->send();
+
+            if ($mail) {
+                $script_result['title'] = 'Успешно';
+                $script_result['message'] = 'Ваша заявка принята!';
+                $script_result['type'] = 'success';
+            } else {
+                $script_result['title'] = 'Ошибка';
+                $script_result['message'] = 'Письмо не отправлено!';
+                $script_result['type'] = 'error';
+            }
+            echo json_encode($script_result);
+        } else {
+            if (empty(trim($_POST['name']))) {
+                $script_result['title'] = 'Ошибка';
+                $script_result['input_name'] = 'name';
+                $script_result['message'] = 'Поле name не может быть пустым!';
+                $script_result['type'] = 'error';
+                echo json_encode($script_result);
+                exit;
+            } else if (empty(trim($_POST['phone']))) {
+                $script_result['title'] = 'Ошибка';
+                $script_result['input_name'] = 'phone';
+                $script_result['message'] = 'Поле phone не может быть пустым!';
+                $script_result['type'] = 'error';
+                echo json_encode($script_result);
+                exit;
+            } else if (empty(trim($_POST['email']))) {
+                $script_result['title'] = 'Ошибка';
+                $script_result['input_name'] = 'email';
+                $script_result['message'] = 'Поле email не может быть пустым!';
+                $script_result['type'] = 'error';
+                echo json_encode($script_result);
+                exit;
+            } else if (empty(trim($_POST['message']))) {
+                $script_result['title'] = 'Ошибка';
+                $script_result['input_name'] = 'message';
+                $script_result['message'] = 'Поле message не может быть пустым!';
+                $script_result['type'] = 'error';
+                echo json_encode($script_result);
+                exit;
+            } else if (!boolval($_POST['checked'])) {
+                $script_result['title'] = 'Ошибка';
+                $script_result['input_name'] = 'checked';
+                $script_result['message'] = 'Подтвердите согласие';
+                $script_result['type'] = 'error';
+                echo json_encode($script_result);
+                exit;
+            }
+            if ($_FILES['file']) {
+                $file = $_FILES['file'];
+                $uploadfile = $file['tmp_name'];
+                $mail->addAttachment($uploadfile, $file['name']);
+            }
+
+            if ($_POST['nameForm'] == "calculate") {
+                $user_name = htmlspecialchars($_POST['name']);
+                $user_phone = htmlspecialchars($_POST['phone']);
+                $user_email = htmlspecialchars($_POST['email']);
+                $user_message = htmlspecialchars($_POST['message']);
+                $price = $_POST['price'];
+
+                $questions = json_decode($_POST['questions']);
+
+                $listQuestions = [];
+
+                foreach ($questions as $item) {
+                    $listQuestions[] = "<li> $item </li>";
+                }
+                $questions = implode('', $listQuestions);
+
+                $message = "<div style='font-size: 20px'>
                         <b>Заявка с апельсина</b>
                         <br>
                         <p>Форма калькулятора</p>
@@ -115,26 +164,26 @@ if($return -> success == true && $return -> score > 0.2) {
                         <p>Примерная стоимость: $price</p>
                     </div>";
 
-            $mail->Subject = 'Заявка с Аппельсина';
-            $mail->Body = $message;
-            $mail->send();
+                $mail->Subject = 'Заявка с Аппельсина';
+                $mail->Body = $message;
+                $mail->send();
 
-            if ($mail) {
-                $script_result['title'] = 'Успешно';
-                $script_result['message'] = 'Ваша заявка принята!';
-                $script_result['type'] = 'success';
-            } else {
-                $script_result['title'] = 'Ошибка';
-                $script_result['message'] = 'Письмо не отправлено!';
-                $script_result['type'] = 'error';
-            }
-            echo json_encode($script_result);
-        } else if ($_POST['nameForm'] == "contacts") {
-            $user_name = htmlspecialchars($_POST['name']);
-            $user_phone = htmlspecialchars($_POST['phone']);
-            $user_email = htmlspecialchars($_POST['email']);
-            $user_message = htmlspecialchars($_POST['message']);
-            $message = "<div style='font-size: 20px'>
+                if ($mail) {
+                    $script_result['title'] = 'Успешно';
+                    $script_result['message'] = 'Ваша заявка принята!';
+                    $script_result['type'] = 'success';
+                } else {
+                    $script_result['title'] = 'Ошибка';
+                    $script_result['message'] = 'Письмо не отправлено!';
+                    $script_result['type'] = 'error';
+                }
+                echo json_encode($script_result);
+            } else if ($_POST['nameForm'] == "contacts") {
+                $user_name = htmlspecialchars($_POST['name']);
+                $user_phone = htmlspecialchars($_POST['phone']);
+                $user_email = htmlspecialchars($_POST['email']);
+                $user_message = htmlspecialchars($_POST['message']);
+                $message = "<div style='font-size: 20px'>
                         <b>Заявка с апельсина</b>
                         <br>
                         <p>Форма контактов</p>
@@ -146,24 +195,22 @@ if($return -> success == true && $return -> score > 0.2) {
                     </div>";
 
 
+                $mail->Subject = 'Заявка с Аппельсина';
+                $mail->Body = $message;
+                $mail->send();
 
-
-            $mail->Subject = 'Заявка с Аппельсина';
-            $mail->Body = $message;
-            $mail->send();
-
-            if ($mail) {
-                $script_result['title'] = 'Успешно';
-                $script_result['message'] = 'Ваша заявка принята!';
-                $script_result['type'] = 'success';
-            } else {
-                $script_result['title'] = 'Ошибка';
-                $script_result['message'] = 'Письмо не отправлено!';
-                $script_result['type'] = 'error';
+                if ($mail) {
+                    $script_result['title'] = 'Успешно';
+                    $script_result['message'] = 'Ваша заявка принята!';
+                    $script_result['type'] = 'success';
+                } else {
+                    $script_result['title'] = 'Ошибка';
+                    $script_result['message'] = 'Письмо не отправлено!';
+                    $script_result['type'] = 'error';
+                }
+                echo json_encode($script_result);
             }
-            echo json_encode($script_result);
         }
-
     } catch (Exception $e) {
         echo json_encode([
 

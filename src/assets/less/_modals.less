@@ -55,8 +55,7 @@
       letter-spacing: 1.3rem;
       text-transform: uppercase;
       .md-block({ font-size: 3rem; letter-spacing: 1rem; margin-bottom: 35px; });
-      .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; margin-bottom: 20px; });
-
+      .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; margin-bottom: 0px; padding-bottom: 30px;});
     }
     .wrapper-overflow {
       height: calc(~"100vh - 320px");
@@ -113,7 +112,6 @@
   &.b-modal-response {
     padding: 50px 33px;
     .xs-block({ padding: 35px 20px; });
-
     .title-wrapper {
       padding-bottom: 30px;
       text-align: center;
@@ -124,37 +122,12 @@
         font-size: 4.5rem;
         letter-spacing: 1.3rem;
         text-transform: uppercase;
-        .md-block({ font-size: 3rem; letter-spacing: 1rem; });
-        .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 20px; });
+        .md-block({ font-size: 3rem; letter-spacing: 0.7rem; });
+        .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; });
       }
     }
 
     .wrapper-overflow {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      align-self: stretch;
-      padding-right: 25px;
-      overflow: auto;
-      min-height: 320px;
-      &::-webkit-scrollbar-track {
-        height: 80%;
-        border-radius: 4px;
-        background-color: #dfdfdf;
-      }
-      &::-webkit-scrollbar {
-        width: 6px;
-        background-color: #dfdfdf;
-        border-radius: 4px;
-        .xs-block({ width: 4px; });
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: #ffba00;
-        border-radius: 4px;
-      }
-      &::-webkit-scrollbar-track-piece {
-        height: 100px;
-      }
       .status {
         width: 80%;
         margin: 0 auto;
@@ -198,11 +171,43 @@
           font-weight: bold;
           font-size: 2.4rem;
           letter-spacing: 0.5rem;
-          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
-          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
+          .md-block({ font-size: 2.2rem; letter-spacing: 0.4rem; padding-bottom: 12px; padding-top: 30px; });
+          .xs-block({ font-size: 1.8rem; letter-spacing: 0.3rem; padding-top: 15px; });
         }
       }
-
+      .form-response {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        padding-right: 25px;
+        overflow: auto;
+        min-height: 320px;
+        height: calc(100vh - 320px);
+        &.disabled {
+          .btn-wrapper__btn {
+            pointer-events: none;
+            opacity: 0.7;
+          }
+        }
+        &::-webkit-scrollbar-track {
+          height: 80%;
+          border-radius: 4px;
+          background-color: #dfdfdf;
+        }
+        &::-webkit-scrollbar {
+          width: 6px;
+          background-color: #dfdfdf;
+          border-radius: 4px;
+          .xs-block({ width: 4px; });
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ffba00;
+          border-radius: 4px;
+        }
+        &::-webkit-scrollbar-track-piece {
+          height: 100px;
+        }
+      }
       .group-item {
         &:first-of-type {
           &__title {
@@ -210,7 +215,8 @@
           }
         }
         &:last-of-type {
-          margin-bottom: 50px;
+          padding-bottom: 50px;
+          .xs-block({ padding-bottom: 20px;});
         }
         &__title {
           padding-top: 50px;
@@ -219,8 +225,8 @@
           font-weight: bold;
           font-size: 2.8rem;
           letter-spacing: 0.7rem;
-          .md-block({ font-size: 2.4rem; letter-spacing: 0.75rem; padding-bottom: 12px; padding-top: 30px; });
-          .xs-block({ font-size: 2rem; letter-spacing: 0.5rem; padding-top: 15px; });
+          .md-block({ font-size: 2.2rem; letter-spacing: 0.4rem; padding-bottom: 12px; padding-top: 30px; });
+          .xs-block({ font-size: 1.8rem; letter-spacing: 0.3rem; padding-top: 15px; });
         }
       }
       .btn-wrapper {
@@ -241,8 +247,12 @@
           font-size: 2.4rem;
           letter-spacing: 0.6rem;
           cursor: pointer;
+          transition: 0.3s;
           .md-block({ height: 70px;});
           .xs-block({ height: 55px; max-width: 250px;});
+          &:hover {
+            background: #262626;
+          }
         }
       }
     }

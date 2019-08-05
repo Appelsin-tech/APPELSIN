@@ -204,7 +204,8 @@ button {
   &--modals {
     height: auto;
     padding-left: 20px;
-    .xs-block({ padding-left: 8px;});
+    padding-top: 10px;
+    .xs-block({ padding-left: 8px; padding-top: 5px;});
   }
   &.errorTooltip {
     .error-tooltip {
@@ -214,6 +215,16 @@ button {
   &--textarea {
     height: auto;
     flex-grow: 1;
+  }
+  &__label {
+    display: block;
+    font-family: @fontBebas;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    color: #777777;
+    .md-block({ font-size: 1.6rem; letter-spacing: 0.3rem;})
   }
   &__field {
     padding-left: 25px;
@@ -242,8 +253,8 @@ button {
       .xs-orientation({ padding-top: 10px;});
     }
     &--modals {
-      padding: 20px 0;
-      .xs-block({font-size: 1.6rem; padding: 10px 0;});
+      padding: 5px 0;
+      .xs-block({font-size: 1.6rem;});
     }
   }
 }
