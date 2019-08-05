@@ -27,13 +27,18 @@
             <h3 class="group-item__title">1. Контактная информация</h3>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-1">Компания</label>
-              <input class="g-item-form__field g-item-form__field--modals"
-                     v-model="form.company" id="contactsInfo-1">
+              <textarea-resize>
+                <textarea class="g-item-form__field g-item-form__field--modals"
+                          v-model="form.company" id="contactsInfo-1" rows="1"></textarea>
+              </textarea-resize>
+
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-2">Контактное лицо, должность</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.function_person" id="contactsInfo-2">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        v-model="form.function_person" id="contactsInfo-2" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-3">Телефон</label>
@@ -42,8 +47,10 @@
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-4">Сайт</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.site" id="contactsInfo-4">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        v-model="form.site" id="contactsInfo-4" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-5">E-mail</label>
@@ -52,8 +59,10 @@
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-6">Другое (например Skype)</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.other_contacts" id="contactsInfo-6">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        v-model="form.other_contacts" id="contactsInfo-6" rows="1"></textarea>
+              </textarea-resize>
             </div>
           </fieldset>
           <fieldset class="form-response__group group-item">
@@ -61,93 +70,118 @@
             <div class="g-item-form g-item-form--modals g-item-form--textarea">
               <label class="g-item-form__label" for="project-1">Сфера деятельности компании (например,
                 недвижимость)</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-1" v-model="form.questions[0].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals "
+                        id="project-1" v-model="form.questions[0].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-2">Целевая аудитория (возраст, пол, доход, интересы и
                 тд)</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-2" v-model="form.questions[1].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals "
+                        id="project-2" v-model="form.questions[1].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-3">Какие регионы интересуют (Москва/Казахстан/Весь
                 Мир)</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     id="project-3" v-model="form.questions[2].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-3" v-model="form.questions[2].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-4">Основная информация - что представляет компания, что
                 делает и что предлагает - услуги, товары</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-4" v-model="form.questions[3].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals "
+                        id="project-4" v-model="form.questions[3].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-5">Цель сайта - что должен донести/продать/показать</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     id="project-5" v-model="form.questions[4].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-5" v-model="form.questions[4].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-6">Уникальное торговое предложение</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.questions[5].special_offer" id="project-6">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        v-model="form.questions[5].special_offer" id="project-6" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-7">Проблема, которую решает продукт/услуга компании, и как
                 компания решает эту проблему</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-7" v-model="form.questions[6].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-7" v-model="form.questions[6].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-8">Какие преимущества у вашего проекта? (Например, ниже
                 стоимость, наличие доставки, тех поддержки)</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-8" v-model="form.questions[7].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-8" v-model="form.questions[7].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-9">Список конкурентов (Список сайтов)</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.questions[8].answers" id="project-9">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        v-model="form.questions[8].answers" id="project-9" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-10">Список функций/задач, которые выполняет сайт (например,
                 размещение вакансий, поиск вакансий, отображение новостей, регистрация пользователей, покупки товаров,,
                 вход через )</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-10" v-model="form.questions[9].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-10" v-model="form.questions[9].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-11">Разделы, которые хотелось бы видеть, (например,
                 корзина)</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-11" v-model="form.questions[10].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-11" v-model="form.questions[10].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-12">Дополнительные услуги (например, дизайн, SEO
                 продвижение, контекстная реклама)</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-12" v-model="form.questions[11].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-12" v-model="form.questions[11].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-13">Потребуется ли функционал администратора для
                 редактирования контента, управления пользователями и тд. Если да, то для чего именно</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-13" v-model="form.questions[12].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-13" v-model="form.questions[12].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-14">Ожидаемый бюджет на разработку</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-14" v-model="form.questions[13].answers">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-14" v-model="form.questions[13].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-15">Ожидаемые сроки разработки проекта</label>
-              <input class="g-item-form__field g-item-form__field--modals " type="text"
-                     id="project-15" v-model="form.questions[14].answers">
-            </div>
-            <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-16">Другое (например Skype)</label>
-              <input class="g-item-form__field g-item-form__field--modals" type="text"
-                     v-model="form.questions[15].answers" id="project-16">
+              <textarea-resize>
+              <textarea class="g-item-form__field g-item-form__field--modals"
+                        id="project-15" v-model="form.questions[14].answers" rows="1"></textarea>
+              </textarea-resize>
             </div>
           </fieldset>
           <div class="btn-wrapper">
@@ -162,9 +196,13 @@
 
 <script>
   import axios from 'axios'
+  import textareaResize from '../components-helpers/textareaResize.js'
 
   export default {
     name: "ModalResponse",
+    components: {
+      textareaResize
+    },
     data() {
       return {
         disabled: false,
@@ -239,10 +277,6 @@
             {
               label: 'Ожидаемые сроки разработки проекта',
               answers: ''
-            },
-            {
-              label: 'Другое (например Skype)',
-              answers: ''
             }
           ],
         }
@@ -282,7 +316,7 @@
           this.disabled = false
         })
       }
-    }
+    },
   }
 </script>
 

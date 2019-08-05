@@ -11,20 +11,23 @@
           <p class="description">Средняя стоимость такого заказа у нас</p>
           <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
         </div>
-        <ul class="list-contacts" v-if="price === 0">
-          <li>
-            <a class="link-contacts" href="tel:+79644952929">
-              <img svg-inline class="phone" src="../../assets/img/icon/phone.svg" alt="">
-              <span>+7 (964) 495-29-29</span>
-            </a>
-          </li>
-          <li>
-            <a class="link-contacts" href="mailto:info@appelsin.tech">
-              <img svg-inline class="mail" src="../../assets/img/icon/email.svg" alt="">
-              <span>info@appelsin.tech</span>
-            </a>
-          </li>
-        </ul>
+        <div class="wrapper-secondary" v-if="price === 0">
+          <p class="description">Расскажите о вашем проекте</p>
+          <ul class="list-contacts">
+            <li>
+              <a class="link-contacts" href="tel:+79644952929">
+                <img svg-inline class="phone" src="../../assets/img/icon/phone.svg" alt="">
+                <span>+7 (964) 495-29-29</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-contacts" href="mailto:info@appelsin.tech">
+                <img svg-inline class="mail" src="../../assets/img/icon/email.svg" alt="">
+                <span>info@appelsin.tech</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
         <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
@@ -324,46 +327,57 @@
               color: #dd4858;
             }
           }
-          .list-contacts {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            .md-block({ margin-top: 25px;});
-            li:first-child {
+          .wrapper-secondary {
+            .description {
               margin-bottom: 40px;
+              max-width: 400px;
+              font-size: 4.2rem;
+              letter-spacing: 1.3rem;
+              line-height: 4.5rem;
+              .md-block({ font-size: 3.5rem; letter-spacing: 1rem; line-height: 4rem; });
+              .sm-block({ font-size: 3rem; letter-spacing: 0.8rem; });
+              .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; });
             }
-            .link-contacts {
+            .list-contacts {
               display: flex;
-              align-items: center;
-              svg {
-                margin-right: 25px;
-                width: 47px;
-                height: 47px;
-                flex-shrink: 0;
-                box-sizing: border-box;
-                .md-block({ width: 38px; height: 38px; margin-right: 20px; });
-                .xs-block({ width: 30px; height: 30px; margin-right: 15px; });
-                path {
-                  fill: #db4954;
-                }
-                &.phone {
-                  padding: 8px;
-                  border: 1px solid #db4954;
-                  border-radius: 50%;
-                  .xs-block({ padding: 6px; });
-                }
+              flex-direction: column;
+              li:first-child {
+                margin-bottom: 40px;
               }
-              > span {
-                font-family: @fontBebas;
-                font-weight: bold;
-                font-size: 3rem;
-                letter-spacing: 0.5rem;
-                color: #000;
-                .md-block({ font-size: 2.8rem; });
-                .xs-block({ font-size: 2.2rem; letter-spacing: 0.4rem; });
+              .link-contacts {
+                display: flex;
+                align-items: center;
+                svg {
+                  margin-right: 25px;
+                  width: 47px;
+                  height: 47px;
+                  flex-shrink: 0;
+                  box-sizing: border-box;
+                  .md-block({ width: 38px; height: 38px; margin-right: 20px; });
+                  .xs-block({ width: 30px; height: 30px; margin-right: 15px; });
+                  path {
+                    fill: #db4954;
+                  }
+                  &.phone {
+                    padding: 8px;
+                    border: 1px solid #db4954;
+                    border-radius: 50%;
+                    .xs-block({ padding: 6px; });
+                  }
+                }
+                > span {
+                  font-family: @fontBebas;
+                  font-weight: bold;
+                  font-size: 3rem;
+                  letter-spacing: 0.5rem;
+                  color: #000;
+                  .md-block({ font-size: 2.8rem; });
+                  .xs-block({ font-size: 2.2rem; letter-spacing: 0.4rem; });
+                }
               }
             }
           }
+
           .sum-wrapper {
             .description {
               margin-bottom: 40px;
