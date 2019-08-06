@@ -21,7 +21,7 @@
             <div class="steps-num">
               <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
               <span>Шаг </span>
-              <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
+              <span class="red">{{activeSteps + 1}} из <span v-if="steps.length !== 1">{{steps.length + 1}}</span><span v-if="steps.length === 1">3</span></span>
             </div>
             <div class="steps-content">
               <div class="step">
@@ -363,17 +363,13 @@
         })[0]
       },
       steps() {
-        let res = [1, 2]
+        let res = [1]
         this.answers.forEach(item => {
           if (item.addQuestion !== undefined) {
             if (item.val === 'other') {
-              res.splice(1, 1, item.addQuestion)
+              res.splice(1, 0, item.addQuestion)
             } else {
-              if (res.length === 2) {
-                res.splice(1, 1, item.addQuestion)
-              } else {
-                res.push(item.addQuestion)
-              }
+              res.push(item.addQuestion)
             }
           }
         })
