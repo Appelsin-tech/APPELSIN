@@ -364,10 +364,17 @@
       },
       steps() {
         let res = [1]
-        this.answers.forEach(item => {
+        this.answers.forEach((item, i) => {
+
           if (item.addQuestion !== undefined) {
+            let mobileindex;
+            if (item.addQuestion === 6) {
+              mobileindex = i;
+            }
             if (item.val === 'other') {
               res.splice(1, 0, item.addQuestion)
+            } else if (item.val === 'crossplatform-app' || item.val === '2d-game' || item.val === '3d-game') {
+              res.splice(mobileindex, 0, item.addQuestion);
             } else {
               res.push(item.addQuestion)
             }
