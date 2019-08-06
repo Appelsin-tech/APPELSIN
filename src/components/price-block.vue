@@ -101,7 +101,7 @@
                 idQuestions: 1
               },
               {
-                name: 'Другое',
+                name: 'Ничего из этого',
                 img: 'item-1-3.png',
                 addQuestion: 2,
                 val: 'other',
@@ -363,13 +363,17 @@
         })[0]
       },
       steps() {
-        let res = [1]
+        let res = [1, 2]
         this.answers.forEach(item => {
           if (item.addQuestion !== undefined) {
             if (item.val === 'other') {
-              res.splice(1, 0, item.addQuestion)
+              res.splice(1, 1, item.addQuestion)
             } else {
-              res.push(item.addQuestion)
+              if (res.length === 2) {
+                res.splice(1, 1, item.addQuestion)
+              } else {
+                res.push(item.addQuestion)
+              }
             }
           }
         })
@@ -438,7 +442,18 @@
               })
             })
           } else {
-            if (this.activeQuestion.id === 2) {
+            if (this.activeQuestion.id === 1) {
+              let delVariant = ['site', 'mobile', 'advertising']
+              if (variant.val === 'other') {
+                this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
+              } else {
+                let oi = this.answers.findIndex(i => i.val === 'other')
+                if (oi !== -1) {
+                  this.removeAnswer(oi)
+                }
+              }
+            }
+            else if(this.activeQuestion.id === 2) {
               let delVariant = ['brand', 'crypto', 'design']
               if (variant.val === 'other-1') {
                 this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)

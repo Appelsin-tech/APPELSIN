@@ -153,7 +153,7 @@
             margin-left: 15px;
             margin-right: 25px;
             letter-spacing: 0;
-            .md-max-height({});
+            .md-max-height({margin-left: 8px; margin-right: 19px;});
             .lg-block({ margin-left: 8px; margin-right: 19px;});
             .sm-block({ margin-left: 5px; margin-right: 9px;});
           }
@@ -164,7 +164,7 @@
             height: 6px;
             background: #fff;
             letter-spacing: 0;
-            .md-max-height({ width: 4px; height: 16px; });
+            .md-max-height({ width: 16px; height: 4px; margin-left: 6px;});
             .lg-block({width: 16px; height: 4px; margin-left: 6px;});
             .sm-block({ width: 11px; height: 3px; });
           }
