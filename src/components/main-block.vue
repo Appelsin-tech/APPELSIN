@@ -12,7 +12,14 @@
 
       </div>
       <div class="desc-wrapper">
-        <strong class="desc-caption">Комплексные <br> IT - решения</strong>
+        <strong class="desc-caption">
+          <span class="symbol">Комплексные</span>
+          <br>
+          <span class="symbol">IT</span>
+          <span class="dash">-</span>
+          <span class="symbol">решения</span>
+          <span class="underscore"></span>
+        </strong>
         <ul class="servises-list">
           <li class="item">
             <p class="item-link">Серверные решения</p>
@@ -132,11 +139,35 @@
           font-family: @fontBebas;
           font-weight: bold;
           font-size: 5.7rem;
-          letter-spacing: 1.6rem;
           text-transform: uppercase;
           .md-max-height({ font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
           .lg-block({font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
           .sm-block({ font-size: 3rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
+          .symbol {
+            letter-spacing: 1.6rem;
+            .md-max-height({letter-spacing: 1.3rem; });
+            .lg-block({letter-spacing: 1.3rem;});
+            .sm-block({letter-spacing: 0.8rem;});
+          }
+          .dash {
+            margin-left: 15px;
+            margin-right: 25px;
+            letter-spacing: 0;
+            .md-max-height({});
+            .lg-block({ margin-left: 8px; margin-right: 19px;});
+            .sm-block({ margin-left: 5px; margin-right: 9px;});
+          }
+          .underscore {
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 6px;
+            background: #fff;
+            letter-spacing: 0;
+            .md-max-height({ width: 4px; height: 16px; });
+            .lg-block({width: 16px; height: 4px; margin-left: 6px;});
+            .sm-block({ width: 11px; height: 3px; });
+          }
         }
         .servises-list {
           .item {

@@ -43,7 +43,7 @@
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-3">Телефон</label>
               <input class="g-item-form__field g-item-form__field--modals" type="tel"
-                     v-model="form.phone" id="contactsInfo-3">
+                     v-model="form.phone" id="contactsInfo-3" @keypress.enter.prevent>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-4">Сайт</label>
@@ -55,7 +55,7 @@
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-5">E-mail</label>
               <input class="g-item-form__field g-item-form__field--modals" type="email"
-                     v-model="form.email" id="contactsInfo-5">
+                     v-model="form.email" id="contactsInfo-5" @keypress.enter.prevent>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="contactsInfo-6">Другое (например Skype)</label>
@@ -207,7 +207,7 @@
       return {
         disabled: false,
         token: '',
-        response: '',
+        data: '',
         status: '',
         form: {
           nameForm: 'briefing',
@@ -289,6 +289,10 @@
       beforeOpen(event) {
         fullpage_api.setAllowScrolling(false);
         this.status = event.params.status
+        this.response = event.params.response
+        this.form.function_person = event.params.data.name
+        this.form.phone = event.params.data.phone
+        this.form.email = event.params.data.email
       },
       onSubmit() {
         this.disabled = true

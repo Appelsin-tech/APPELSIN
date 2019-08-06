@@ -189,7 +189,7 @@
                 } else {
                   this.success = true;
                   this.$modal.show('modal-response', {
-                    response: response.data,
+                    data: this.form,
                     status: 'success'
                   })
                 }

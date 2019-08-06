@@ -182,7 +182,6 @@
               },
               onUploadProgress: (progressEvent) => {
                 this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-
               }
             })
               .then(response => {
@@ -196,7 +195,7 @@
                 } else {
                   this.success = true;
                   this.$modal.show('modal-response', {
-                    response: response.data,
+                    data: this.form,
                     status: 'success'
                   })
                 }
