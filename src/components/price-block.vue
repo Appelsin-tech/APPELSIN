@@ -370,7 +370,6 @@
             switch (item.addQuestion) {
               case 4:
                 res.push(item.addQuestion);
-                res.push(null);
                 break;
               case 6:
               case 5:
@@ -431,13 +430,16 @@
         return image
       },
       removeAnswer (index) {
+
         let removeAnswer = this.answers[index]
-        if (removeAnswer.addQuestion !== undefined) {
-          let findIndexQuestion = this.questions.findIndex((q) => q.id === removeAnswer.addQuestion)
+        if (this.answers[index].addQuestion !== undefined) {
+          let findIndexQuestion = this.questions.findIndex((q) => q.id === this.answers[index].addQuestion)
+
           if (findIndexQuestion !== -1) {
+
             this.questions[findIndexQuestion].variant.forEach(v => {
               this.answers.forEach((a, ia) => {
-                if (a.val === v.val) {
+                if (a.val === v.val && a.val !== 'other') {
                   this.removeAnswer(ia)
                 }
               })
@@ -447,6 +449,7 @@
         this.answers.splice(index, 1)
       },
       clickVariant (variant, type) {
+
         let index = this.answers.findIndex(item => {
           if (item.val === variant.val) {
             return true
@@ -461,7 +464,11 @@
                 }
               })
             })
-          } else {
+            this.answers.push(variant)
+          }
+          else if(this.activeQuestion.id !== 1) {
+            this.answers.push(variant)
+          }	else {
             if (this.activeQuestion.id === 2) {
               let delVariant = ['brand', 'crypto', 'design']
               if (variant.val === 'other-1') {
@@ -473,18 +480,25 @@
                 }
               }
             } else if (this.activeQuestion.id === 1) {
-              let delVariant = ['site', 'mobile', 'advertising']
-              if (variant.val === 'other') {
-                this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
+              if (variant.val === 'site' || variant.val === 'mobile' || variant.val === 'advertising') {
+                this.answers.push(variant)
+                this.answers[0].activeClass = false
+              } else {
+                let oi = this.answers.findIndex(i => i.val === 'other')
+                if (oi !== -1) {
+                  this.answers[oi].activeClass = false
+                }
               }
             }
           }
-          this.answers.push(variant)
+
         } else if (variant.val === 'other') {
           this.answers[index] = variant
           if (this.answers[index].activeClass) {
             this.answers[index].activeClass = false
           } else {
+            let delVariant = ['site', 'mobile', 'advertising']
+            this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
             this.answers[index].activeClass = true
           }
         } else {
