@@ -76,7 +76,7 @@ if ($return->success == true && $return->score > 0.2) {
                         <br>
                     </div>";
 
-            $mail->Subject = $email;
+            $mail->Subject = 'Брифинг '.$email.'';
             $mail->Body = $message;
             $mail->send();
 
@@ -164,7 +164,7 @@ if ($return->success == true && $return->score > 0.2) {
                         <p>Примерная стоимость: $price</p>
                     </div>";
 
-                $mail->Subject = $email;
+                $mail->Subject = 'Заявка '.$user_email.'';
                 $mail->Body = $message;
                 $mail->send();
 
@@ -195,7 +195,7 @@ if ($return->success == true && $return->score > 0.2) {
                     </div>";
 
 
-                $mail->Subject = $email;
+                $mail->Subject = 'Заявка '.$user_email.'';
                 $mail->Body = $message;
                 $mail->send();
 
