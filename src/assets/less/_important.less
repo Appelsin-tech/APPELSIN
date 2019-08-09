@@ -204,8 +204,13 @@ button {
   &--modals {
     height: auto;
     padding-left: 20px;
-    padding-top: 10px;
+    padding-top: 25px;
+    .md-block({ padding-top: 15px;});
     .xs-block({ padding-left: 8px; padding-top: 5px;});
+    &:first-of-type {
+      padding-top: 15px;
+      .md-block({ padding-top: 8px;});
+    }
   }
   &.errorTooltip {
     .error-tooltip {
