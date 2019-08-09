@@ -369,7 +369,8 @@
           if (item.addQuestion !== undefined) {
             switch (item.addQuestion) {
               case 4:
-                res.splice(-1, 0, item.addQuestion, null)
+                res.push(item.addQuestion);
+                res.push(null);
                 break;
               case 6:
               case 5:
@@ -388,7 +389,7 @@
                 res.push(item.addQuestion);
                 break;
               default:
-                res.splice(-1, 0, item.addQuestion)
+                res.push(item.addQuestion);
             }
           }
         })
@@ -475,11 +476,6 @@
               let delVariant = ['site', 'mobile', 'advertising']
               if (variant.val === 'other') {
                 this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
-              } else {
-                let oi = this.answers.findIndex(i => i.val === 'other')
-                if (oi !== -1) {
-                  this.removeAnswer(oi)
-                }
               }
             }
           }
