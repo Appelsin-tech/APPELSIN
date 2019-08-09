@@ -364,17 +364,10 @@
       },
       steps() {
         let res = [1]
-        this.answers.forEach((item, i) => {
-
+        this.answers.forEach(item => {
           if (item.addQuestion !== undefined) {
-            let mobileindex;
-            if (item.addQuestion === 6) {
-              mobileindex = i;
-            }
             if (item.val === 'other') {
               res.splice(1, 0, item.addQuestion)
-            } else if (item.val === 'crossplatform-app' || item.val === '2d-game' || item.val === '3d-game') {
-              res.splice(mobileindex, 0, item.addQuestion);
             } else {
               res.push(item.addQuestion)
             }
@@ -445,18 +438,7 @@
               })
             })
           } else {
-            if (this.activeQuestion.id === 1) {
-              let delVariant = ['site', 'mobile', 'advertising']
-              if (variant.val === 'other') {
-                this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
-              } else {
-                let oi = this.answers.findIndex(i => i.val === 'other')
-                if (oi !== -1) {
-                  this.removeAnswer(oi)
-                }
-              }
-            }
-            else if(this.activeQuestion.id === 2) {
+            if (this.activeQuestion.id === 2) {
               let delVariant = ['brand', 'crypto', 'design']
               if (variant.val === 'other-1') {
                 this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
