@@ -104,6 +104,7 @@
                 name: 'Ничего из этого',
                 img: 'item-1-3.png',
                 addQuestion: 2,
+                activeClass: false,
                 val: 'other',
                 idQuestions: 1
               }
@@ -354,7 +355,7 @@
       ResultForm
     },
     computed: {
-      activeQuestion() {
+      activeQuestion () {
         let id = this.steps[this.activeSteps]
         return this.questions.filter((i) => {
           if (i.id === id) {
@@ -362,20 +363,38 @@
           }
         })[0]
       },
-      steps() {
-        let res = [1]
-        this.answers.forEach(item => {
+      steps () {
+        let res = [1, 2]
+        this.answers.forEach((item, i) => {
           if (item.addQuestion !== undefined) {
-            if (item.val === 'other') {
-              res.splice(1, 0, item.addQuestion)
-            } else {
-              res.push(item.addQuestion)
+            switch (item.addQuestion) {
+              case 4:
+                res.splice(-1, 0, item.addQuestion, null)
+                break;
+              case 6:
+              case 5:
+                let indexMobile = res.findIndex(item => {
+                  if (item === 4) {
+                    return true
+                  }
+                })
+                res.splice(indexMobile + 1, 1, item.addQuestion)
+                break;
+              case 2:
+                res.splice(-1, 1, item.addQuestion);
+                break;
+              case 9:
+              case 8:
+                res.push(item.addQuestion);
+                break;
+              default:
+                res.splice(-1, 0, item.addQuestion)
             }
           }
         })
         return res
       },
-      showResult() {
+      showResult () {
         // return true
         return this.activeSteps >= this.steps.length
       },
@@ -384,7 +403,11 @@
         this.answers.forEach((a) => {
           this.activeQuestion.variant.forEach(v => {
             if (a.val === v.val) {
-              res = true
+              if (a.activeClass === false) {
+                res = false
+              } else {
+                res = true
+              }
             }
           })
         })
@@ -392,21 +415,21 @@
       }
     },
     methods: {
-      submitButton() {
+      submitButton () {
         if (this.answers.length > 0) {
           this.activeSteps++
         }
       },
-      preventStepsClick() {
+      preventStepsClick () {
         if (this.activeSteps > 0) {
           this.activeSteps--
         }
       },
-      getImgUrl(src) {
+      getImgUrl (src) {
         const image = require(`../../src/assets/img/icon/steps/${src}`)
-        return image;
+        return image
       },
-      removeAnswer(index) {
+      removeAnswer (index) {
         let removeAnswer = this.answers[index]
         if (removeAnswer.addQuestion !== undefined) {
           let findIndexQuestion = this.questions.findIndex((q) => q.id === removeAnswer.addQuestion)
@@ -422,9 +445,9 @@
         }
         this.answers.splice(index, 1)
       },
-      clickVariant(variant, type) {
-        let index = this.answers.findIndex((i) => {
-          if (i.val === variant.val) {
+      clickVariant (variant, type) {
+        let index = this.answers.findIndex(item => {
+          if (item.val === variant.val) {
             return true
           }
         })
@@ -448,14 +471,56 @@
                   this.removeAnswer(oi)
                 }
               }
+            } else if (this.activeQuestion.id === 1) {
+              let delVariant = ['site', 'mobile', 'advertising']
+              if (variant.val === 'other') {
+                this.answers = this.answers.filter(e => delVariant.indexOf(e.val) === -1)
+              } else {
+                let oi = this.answers.findIndex(i => i.val === 'other')
+                if (oi !== -1) {
+                  this.removeAnswer(oi)
+                }
+              }
             }
           }
           this.answers.push(variant)
+        } else if (variant.val === 'other') {
+          this.answers[index] = variant
+          if (this.answers[index].activeClass) {
+            this.answers[index].activeClass = false
+          } else {
+            this.answers[index].activeClass = true
+          }
         } else {
           this.removeAnswer(index)
         }
       },
+      checkClass(item) {
+        let active = this.answers.findIndex(i => {
+          if (i.val === item.val) {
+            if(i.activeClass !== undefined && i.activeClass === false) {
+              return false
+            } else  {
+              return i
+            }
+          } else {
+            return false
+          }
+        })
+        if (active === -1) {
+          return false
+        } else  {
+          return true
+        }
+      }
     },
+    created() {
+      this.questions.forEach(item => {
+        if(item.id === 1) {
+          this.answers.push(item.variant[3])
+        }
+      })
+    }
   }
 </script>
 

@@ -5,8 +5,9 @@
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
-      <span class="agency">Digital agency</span>
+      <span class="agency"  @click.prevent="$modal.show('modal-response', {status: 'success'})">Digital agency</span>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
+      <!--<a class="submit default" href="#price">Оставить заявку</a>-->
       <a class="submit menu" href="#price" @click="hideMenu">Оставить заявку</a>
       <button class="burger" @click="menu">
         <span></span>
