@@ -193,7 +193,7 @@
               <label class="g-item-form__label" for="project-17">Ожидаемые сроки разработки проекта</label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-17" v-model="form.questions[15].answers" rows="1"></textarea>
+                        id="project-17" v-model="form.questions[16].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
           </fieldset>

@@ -34,7 +34,7 @@ if ($return->success == true && $return->score > 0.2) {
 //        $mail->Password = 'MIRKINO16'; // пароль на google
         $mail->Host = 'smtp.yandex.com';
         $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-        $mail->Password = 'e4BnwBVybY9b'; // пароль на google
+        $mail->Password = 'HJd2S54Aks3dfd'; // пароль на google
 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
