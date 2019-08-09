@@ -21,7 +21,7 @@
             <div class="steps-num">
               <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
               <span>Шаг </span>
-              <span class="red">{{activeSteps + 1}} из <span v-if="steps.length !== 1">{{steps.length + 1}}</span><span v-if="steps.length === 1">3</span></span>
+              <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
             </div>
             <div class="steps-content">
               <div class="step">
@@ -31,7 +31,7 @@
 
                     <div class="item" v-for="(item, index) in activeQuestion.variant"
                          :key="index"
-                         :class="answers.findIndex(i=>i.val === item.val) === -1 ? '' : 'check'"
+                         :class="{check: checkClass(item)}"
                          @click="clickVariant(item, activeQuestion.type)">
                       <div class="content">
                         <div class="img" :style="{backgroundImage: `url(${getImgUrl(item.img)})`}"></div>
