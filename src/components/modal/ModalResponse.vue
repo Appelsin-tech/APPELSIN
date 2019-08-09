@@ -58,7 +58,7 @@
                      v-model="form.email" id="contactsInfo-5" @keypress.enter.prevent>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="contactsInfo-6">Другое (например Skype)</label>
+              <label class="g-item-form__label" for="contactsInfo-6">Другое <span class="g-item-form__label--gray">(например Skype)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         v-model="form.other_contacts" id="contactsInfo-6" rows="1"></textarea>
@@ -68,35 +68,35 @@
           <fieldset class="form-response__group group-item">
             <h3 class="group-item__title">2. Ваша компания</h3>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-1">Основная информация - что представляет компания, что делает и что предлагает - услуги, товары (например: привозим товары из Китая и продаем в России)</label>
+              <label class="g-item-form__label" for="project-1">Основная информация - что представляет компания, что делает и что предлагает - услуги, товары <span class="g-item-form__label--gray">(например: привозим товары из Китая и продаем в России)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals "
                         id="project-1" v-model="form.questions[0].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-2">Проблема, которую решает продукт/услуга компании, и как компания решает эту проблему (например: сложно найти квартиру, сервис - для поиска квартир)</label>
+              <label class="g-item-form__label" for="project-2">Проблема, которую решает продукт/услуга компании, и как компания решает эту проблему <span class="g-item-form__label--gray">(например: сложно найти квартиру, сервис - для поиска квартир)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-2" v-model="form.questions[1].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-3">Уникальное торговое предложение (например: самые теплые и технологичные куртки)</label>
+              <label class="g-item-form__label" for="project-3">Уникальное торговое предложение <span class="g-item-form__label--gray">(например: самые теплые и технологичные куртки)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals "
                         id="project-3" v-model="form.questions[2].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-4">Какие преимущества у вашего проекта? (например: ниже стоимость, наличие доставки, тех поддержки)</label>
+              <label class="g-item-form__label" for="project-4">Какие преимущества у вашего проекта? <span class="g-item-form__label--gray">(например: ниже стоимость, наличие доставки, тех поддержки)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-4" v-model="form.questions[3].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-5">Список конкурентов (Список сайтов)</label>
+              <label class="g-item-form__label" for="project-5">Список конкурентов <span class="g-item-form__label--gray">(Список сайтов)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         v-model="form.questions[4].answers" id="project-5" rows="1"></textarea>
@@ -106,29 +106,28 @@
           <fieldset class="form-response__group group-item">
             <h3 class="group-item__title">3. Целевая аудитория</h3>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-6">Какие регионы интересуют  (например: Москва; Казахстан; Весь Мир)</label>
+              <label class="g-item-form__label" for="project-6">Какие регионы интересуют<span class="g-item-form__label--gray">(например: Москва; Казахстан; Весь Мир)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         v-model="form.questions[5].answers" id="project-6" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-7">Сфера деятельности компании (например: недвижимость)</label>
+              <label class="g-item-form__label" for="project-7">Сфера деятельности компании <span class="g-item-form__label--gray">(например: недвижимость)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-7" v-model="form.questions[6].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-8">Какие преимущества у вашего проекта? (Например, ниже
-                стоимость, наличие доставки, тех поддержки)</label>
+              <label class="g-item-form__label" for="project-8">Какие преимущества у вашего проекта? <span class="g-item-form__label--gray">(Например, ниже стоимость, наличие доставки, тех поддержки)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-8" v-model="form.questions[7].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-9">Аватар клиентов (возраст, пол, доход, интересы и тд)</label>
+              <label class="g-item-form__label" for="project-9">Аватар клиентов <span class="g-item-form__label--gray">(возраст, пол, доход, интересы и тд)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         v-model="form.questions[8].answers" id="project-9" rows="1"></textarea>
@@ -138,28 +137,28 @@
           <fieldset class="form-response__group group-item">
             <h3 class="group-item__title">4. Реализуемый проект</h3>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-10">Опишите ваше видение проетка (например: это должен быть внешне простой, но стильный и очень функциональный сервис поиска квартир, с умными рекомендациями, возможностью посмотреть квартиру в 3д, выбрать период аренды, посмотреть или оставить отзыв о арендаторе и арендодателе и тд)</label>
+              <label class="g-item-form__label" for="project-10">Опишите ваше видение проекта <span class="g-item-form__label--gray">(например: это должен быть внешне простой, но стильный и очень функциональный сервис поиска квартир, с умными рекомендациями, возможностью посмотреть квартиру в 3д, выбрать период аренды, посмотреть или оставить отзыв о арендаторе и арендодателе и тд)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-10" v-model="form.questions[9].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-11">Цель - что должен донести/продать/показать разрабатавыемый продукт (например: продать товар; собрать средства; помомочь найти квартиру)</label>
+              <label class="g-item-form__label" for="project-11">Цель - что должен донести/продать/показать разрабатавыемый продукт <span class="g-item-form__label--gray">(например: продать товар; собрать средства; помомочь найти квартиру)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-11" v-model="form.questions[10].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-12">Список функций/задач, которые выполняет (например: размещение вакансий, поиск вакансий, отображение новостей, регистрация пользователей, покупки товаров, вход через соцсети, )</label>
+              <label class="g-item-form__label" for="project-12">Список функций/задач, которые выполняет <span class="g-item-form__label--gray">(например: размещение вакансий, поиск вакансий, отображение новостей, регистрация пользователей, покупки товаров, вход через соцсети)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-12" v-model="form.questions[11].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-13">Разделы, которые хотелось бы видеть (например: блок приемущества, корзина)</label>
+              <label class="g-item-form__label" for="project-13">Разделы, которые хотелось бы видеть <span class="g-item-form__label--gray">(например: блок приемущества, корзина)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-13" v-model="form.questions[12].answers" rows="1"></textarea>
@@ -173,7 +172,7 @@
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-15">Дополнительные услуги (например: дизайн, SEO продвижение, контекстная реклама)</label>
+              <label class="g-item-form__label" for="project-15">Дополнительные услуги <span class="g-item-form__label--gray">(например: дизайн, SEO продвижение, контекстная реклама)</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
                         id="project-15" v-model="form.questions[14].answers" rows="1"></textarea>
@@ -232,55 +231,55 @@
           other_contacts: '',
           questions: [
             {
-              label: 'Основная информация - что представляет компания, что делает и что предлагает - услуги, товары (например: привозим товары из Китая и продаем в России)',
+              label: 'Основная информация - что представляет компания, что делает и что предлагает - услуги, товары',
               answers: ''
             },
             {
-              label: 'Проблема, которую решает продукт/услуга компании, и как компания решает эту проблему (например: сложно найти квартиру, сервис - для поиска квартир)',
+              label: 'Проблема, которую решает продукт/услуга компании, и как компания решает эту проблему',
               answers: ''
             },
             {
-              label: 'Уникальное торговое предложение (например: самые теплые и технологичные куртки)',
+              label: 'Уникальное торговое предложение',
               answers: ''
             },
             {
-              label: 'Какие преимущества у вашего проекта? (например: ниже стоимость, наличие доставки, тех поддержки)',
+              label: 'Какие преимущества у вашего проекта?',
               answers: ''
             },
             {
-              label: 'Список конкурентов (Список сайтов)',
+              label: 'Список конкурентов',
               answers: ''
             },
             {
-              label: 'Какие регионы интересуют  (например: Москва; Казахстан; Весь Мир)',
+              label: 'Какие регионы интересуют',
               answers: ''
             },
             {
-              label: 'Сфера деятельности компании (например: недвижимость)',
+              label: 'Сфера деятельности компании',
               answers: ''
             },
             {
-              label: 'Какие преимущества у вашего проекта? (Например, ниже стоимость, наличие доставки, тех поддержки)',
+              label: 'Какие преимущества у вашего проекта?',
               answers: ''
             },
             {
-              label: 'Аватар клиентов (возраст, пол, доход, интересы и тд)',
+              label: 'Аватар клиентов',
               answers: ''
             },
             {
-              label: 'Опишите ваше видение проетка (например: это должен быть внешне простой, но стильный и очень функциональный сервис поиска квартир, с умными рекомендациями, возможностью посмотреть квартиру в 3д, выбрать период аренды, посмотреть или оставить отзыв о арендаторе и арендодателе и тд)',
+              label: 'Опишите ваше видение проекта',
               answers: ''
             },
             {
-              label: 'Цель - что должен донести/продать/показать разрабатавыемый продукт (например: продать товар; собрать средства; помомочь найти квартиру)',
+              label: 'Цель - что должен донести/продать/показать разрабатавыемый продукт',
               answers: ''
             },
             {
-              label: 'Список функций/задач, которые выполняет (например: размещение вакансий, поиск вакансий, отображение новостей, регистрация пользователей, покупки товаров, вход через соцсети, )',
+              label: 'Список функций/задач, которые выполняет',
               answers: ''
             },
             {
-              label: 'Разделы, которые хотелось бы видеть (например: блок приемущества, корзина)',
+              label: 'Разделы, которые хотелось бы видеть',
               answers: ''
             },
             {
@@ -288,7 +287,7 @@
               answers: ''
             },
             {
-              label: 'Дополнительные услуги (например: дизайн, SEO продвижение, контекстная реклама)',
+              label: 'Дополнительные услуги',
               answers: ''
             },
             {
