@@ -67,6 +67,11 @@
 <script>
   export default {
     name: "ModalPolicy",
+    data() {
+      return {
+        page: 'home'
+      }
+    },
     methods:{
       disableSrollFp() {
         fullpage_api.setAllowScrolling(false);
@@ -74,7 +79,12 @@
       activeSrollFp () {
         fullpage_api.setAllowScrolling(true);
       }
-    }
+    },
+    computed: {
+      hashClass () {
+        return window.location.hash
+      }
+    },
   }
 </script>
 

@@ -10,7 +10,7 @@
         <div class="title-wrapper">
           <h2 class="title">Бриф на разработку</h2>
         </div>
-        <form class="form-response" @submit.prevent="onSubmit" :class="{disabled: disabled}">
+        <form class="form-response" @submit.prevent="onSubmit" :class="[{disabled: disabled}, hashClass]">
           <div class="status">
             <div class="status__success" v-if="status === 'success'">
               <span>Спасибо, ваша заявка принята!</span>
@@ -221,6 +221,7 @@
         token: '',
         data: '',
         status: '',
+        hashClass: '',
         form: {
           nameForm: 'briefing',
           company: '',
@@ -313,6 +314,7 @@
         this.form.function_person = event.params.data.name
         this.form.phone = event.params.data.phone
         this.form.email = event.params.data.email
+        this.hashClass = event.params.hashClass
       },
       onSubmit() {
         this.disabled = true

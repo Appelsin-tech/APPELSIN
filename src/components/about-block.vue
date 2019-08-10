@@ -28,7 +28,8 @@
                 <span class="symbol">
                   <img svg-inline src="../assets/img/icon/double-quote.svg" alt="">
                 </span>
-                <em class="description">Наш главный приоритет - помочь вашему бизнесу. Мы поддержим на каждом этапе и предложим лучшие решения, чтобы повысить его эффективность в минимальные сроки и с минимальными ресурсами. Высококвалифицированные специалисты, индивидуальный подход и понимание ваших целей в результате гарантируют действительно качественный продукт. К каждому проекту мы относимся как к своему, взамен клиенты продолжают работать только с нами, а зачастую и становятся нашими бизнес-партнерами</em>
+                <strong class="description-strong">Наш главный приоритет - помочь вашему бизнесу</strong>
+                <em class="description">Мы поддержим на каждом этапе и предложим лучшие решения, чтобы повысить его эффективность в минимальные сроки и с минимальными ресурсами. Высококвалифицированные специалисты, индивидуальный подход и понимание ваших целей в результате гарантируют действительно качественный продукт. К каждому проекту мы относимся как к своему, взамен клиенты продолжают работать только с нами, а зачастую и становятся нашими бизнес-партнерами</em>
                 <p class="admin">
                   <strong>Михаил Алиакберов</strong>
                   <span>CEO & Founder</span>
@@ -190,7 +191,7 @@
       swiper() {
         return this.$refs.mySwiper.swiper
       }
-    }
+    },
   }
 </script>
 
@@ -234,10 +235,12 @@
               .md-block({ max-width: 70%; });
               .sm-block({ max-width: 100%; });
               .symbol {
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 width: 30px;
                 height: 30px;
+                flex-shrink: 0;
                 transform: rotate(180deg);
+                .sm-block({ width: 24px; height: 24px;});
                 .xs-block({ margin-bottom: 20px;});
                 .xs-max-height({ margin-bottom: 20px;});
                 > svg {
@@ -247,9 +250,20 @@
               }
               .description {
                 margin-bottom: auto;
+                padding-bottom: 10px;
                 font-size: 1.7rem;
                 font-weight: 300;
                 color: #666666;
+                &-strong {
+                  margin-bottom: 15px;
+                  font-family: @fontBebas;
+                  font-weight: bold;
+                  font-size: 3.5rem;
+                  letter-spacing: 1rem;
+                  color: #000;
+                  .lg-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
+                  .xs-block({ font-size: 2rem; letter-spacing: 0.3rem;})
+                }
               }
               .admin {
                 > strong {
@@ -261,12 +275,14 @@
                   font-size: 2.4rem;
                   letter-spacing: 0.7rem;
                   text-transform: uppercase;
-                  .xs-block({ margin-bottom: 7px;});
+                  .sm-block({ margin-bottom: 7px;});
+                  .xs-block({ font-size: 2.2rem; letter-spacing: 0.6rem;})
                 }
                 > span {
                   font-size: 2rem;
                   font-weight: 300;
                   color: #666666;
+                  .xs-block({ font-size: 1.8rem;})
                 }
               }
             }

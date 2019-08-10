@@ -196,7 +196,8 @@
                   this.success = true;
                   this.$modal.show('modal-response', {
                     data: this.form,
-                    status: 'success'
+                    status: 'success',
+                    hashClass: 'orange'
                   })
                 }
               })

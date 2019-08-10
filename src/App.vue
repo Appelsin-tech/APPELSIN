@@ -102,7 +102,7 @@
       },
       activeMenu() {
         this.showMenu = !this.showMenu
-      }
+      },
     },
     watch: {
       showMenu (newVal, oldVal) {
