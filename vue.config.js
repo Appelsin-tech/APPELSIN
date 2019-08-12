@@ -21,6 +21,14 @@ module.exports = {
           from: './mail.php',
           to: '[name].[ext]'
         },
+        {
+          from: './robots.txt',
+          to: '[name].[ext]'
+        },
+        {
+          from: './sitemap.xml',
+          to: '[name].[ext]'
+        },
       ]]
     })
   },
