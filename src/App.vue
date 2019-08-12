@@ -38,7 +38,7 @@
       </full-page>
     </main>
     <footer-block :showMenu="showMenu"/>
-    <modal-policy/>
+    <modal-policy :classSection="classSection"/>
     <modal-response/>
   </div>
 </template>
@@ -77,6 +77,7 @@
       return {
         showMenu: false,
         windowHeight: 0,
+        classSection: 'main',
         options: {
           licenseKey: '',
           verticalCentered: true,
@@ -86,6 +87,7 @@
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,
+          onLeave: this.getActiveSlideCustom,
           // autoScrolling:false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section',
@@ -96,6 +98,11 @@
     methods: {
       prevSlide() {
         fullpage_api.moveSectionUp();
+      },
+      getActiveSlideCustom(origin, destination) {
+        this.classSection = destination.anchor
+        console.log(destination.anchor)
+        // console.log(window.location.hash)
       },
       nextSlide() {
         fullpage_api.moveSectionDown();

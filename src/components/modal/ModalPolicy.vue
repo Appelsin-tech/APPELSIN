@@ -6,7 +6,7 @@
         <img src="../../assets/img/icon/delete.svg" svg-inline alt="">
       </div>
       <h2 class="title">Политика конфиденциальности</h2>
-      <div class="wrapper-overflow" id="textPolicy">
+      <div class="wrapper-overflow" id="textPolicy" :class="classSection">
         <h3 class="title-section">1. Общие положения</h3>
         <p class="paragraph">Настоящая Политика конфиденциальности действует в отношении всей персональной информации, которую Компания Аппельсин может получить, собирает о Пользователе во время использования сайта, программ и других продуктов, принадлежащих компании. Их использование означает полное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональной информации.</p>
         <p class="paragraph">Настоящая политика конфиденциальности в отношении обработки персональных данных применяется ко всей информации, которую получает о пользователях своих продуктов Аппельсин.</p>
@@ -67,6 +67,7 @@
 <script>
   export default {
     name: "ModalPolicy",
+    props: ['classSection'],
     data() {
       return {
         page: 'home'
@@ -83,7 +84,7 @@
     computed: {
       hashClass () {
         return window.location.hash
-      }
+      },
     },
   }
 </script>
