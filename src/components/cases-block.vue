@@ -19,7 +19,20 @@
           </div>
         </div>
         <swiper :options="swiperOption" ref="mySwiperCases">
-
+          <swiper-slide>
+            <div class="slide-wrapper">
+              <div class="col col-3">
+                <h3 class="caption-slide">DAZZLING</h3>
+                <p class="desc-case">
+                  Создан сайт с личным кабинетом, онлайн кошелек, разработана партнерская программа, криптовалюта DAZZ на базе технологии Quark с мастернодами. Полная разработка и ведение платформы
+                </p>
+                <a class="link-line" href="https://dazzling.life/" target="_blank">
+                  <span>dazzling.life</span>
+                </a>
+              </div>
+              <img class="img img--dazz swiper-lazy" :data-src="getImgUrl('dazz.png')" alt="WHIZ BIZ">
+            </div>
+          </swiper-slide>
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3 cgen">
@@ -32,7 +45,7 @@
                   <span>cgen.network</span>
                 </a>
               </div>
-              <img class="img img--cgen" src="../assets/img/case/cgen.png" alt="CGEN">
+              <img class="img img--cgen swiper-lazy" :data-src="getImgUrl('cgen.png')" alt="CGEN">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -47,7 +60,7 @@
                   <span>fssprus.ru</span>
                 </a>
               </div>
-              <img class="img img--api" src="../assets/img/case/api.png" alt="API Решения для ресурсов">
+              <img class="img img--api swiper-lazy" :data-src="getImgUrl('api.png')" alt="API Решения для ресурсов">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -63,7 +76,7 @@
                   <span>crowdsale.network</span>
                 </a>
               </div>
-              <img class="img img--crowdsale" src="../assets/img/case/crowdsale.png" alt="Crowdsale Network">
+              <img class="img img--crowdsale swiper-lazy" :data-src="getImgUrl('crowdsale.png')" alt="Crowdsale Network">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -77,7 +90,7 @@
                   <span>whizbiz.io</span>
                 </a>
               </div>
-              <img class="img img--whiz-biz" src="../assets/img/case/whiz-biz.png" alt="WHIZ BIZ">
+              <img class="img img--whiz-biz swiper-lazy" :data-src="getImgUrl('whiz-biz.png')" alt="WHIZ BIZ">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -94,7 +107,7 @@
                   </a>
                 </div>
               </div>
-              <img class="img img--air" src="../assets/img/case/air.png" alt="Самолет">
+              <img class="img img--air swiper-lazy" :data-src="getImgUrl('air.png')" alt="Самолет">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -112,7 +125,7 @@
                   </a>
                 </div>
               </div>
-              <img class="img img--fury-ride" src="../assets/img/case/fury-ride.png" alt="Fury ride">
+              <img class="img img--fury-ride swiper-lazy" :data-src="getImgUrl('fury-ride.png')" alt="Fury ride">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -135,21 +148,7 @@
                   </a>
                 </div>
               </div>
-              <img class="img img--sniper" src="../assets/img/case/sniper-arena.png" alt="Sniper arena">
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="slide-wrapper">
-              <div class="col col-3">
-                <h3 class="caption-slide">DAZZLING</h3>
-                <p class="desc-case">
-                  Создан сайт с личным кабинетом, онлайн кошелек, разработана партнерская программа, криптовалюта DAZZ на базе технологии Quark с мастернодами. Полная разработка и ведение платформы
-                </p>
-                <a class="link-line" href="https://dazzling.life/" target="_blank">
-                  <span>dazzling.life</span>
-                </a>
-              </div>
-              <img class="img img--dazz" src="../assets/img/case/dazz.png" alt="WHIZ BIZ">
+              <img class="img img--sniper swiper-lazy" :data-src="getImgUrl('sniper-arena.png')" alt="Sniper arena">
             </div>
           </swiper-slide>
           <swiper-slide>
@@ -160,12 +159,12 @@
                   <p class="description--small">За 4 года существования компании сделано огромное количество работ. По запросу мы можем выслать весь список кейсов, которые мы имеем право демонстрировать в рамках договора о конфиденциальности</p>
                 </div>
                 <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-                  <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit">Заказать проект</button>
+                  <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit">Отправить запрос</button>
                   <div class="error-tooltip error-tooltip--submit">
                     <span>Ошибка</span>
                   </div>
                   <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">
-                    Заказать проект
+                    Отправить запрос
                   </button>
                 </div>
               </div>
@@ -261,6 +260,7 @@
           effect: 'flip',
           preloadImages: false,
           loadPrevNext: true,
+          watchSlidesVisibility: true,
           navigation: {
             nextEl: '.s-case .prev',
             prevEl: '.s-case .next',
@@ -294,6 +294,10 @@
       }
     },
     methods: {
+      getImgUrl (src) {
+        const image = require(`../../src/assets/img/case/${src}`)
+        return image
+      },
       onSubmit() {
         //validation
 

@@ -11,14 +11,15 @@
 
       </div>
       <div class="desc-wrapper">
-        <h1 class="desc-caption">
+        <h1 class="visually-hidden">Комплексные IT-решения</h1>
+        <p class="desc-caption">
           <span class="symbol">Комплексные</span>
           <br>
           <span class="symbol">IT</span>
           <span class="dash">-</span>
           <span class="symbol">решения</span>
           <span class="underscore"></span>
-        </h1>
+        </p>
         <ul class="servises-list">
           <li class="item">
             <p class="item-link">Серверные решения</p>
