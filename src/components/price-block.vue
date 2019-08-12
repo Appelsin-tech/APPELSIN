@@ -6,7 +6,7 @@
           <div class="g-caption-block">
             <h2 class="visually-hidden">Расчет стоимости проекта</h2>
             <div class="wrapper-baseline">
-              <h2 class="g-caption">Рассчитайте</h2>
+              <p class="g-caption">Рассчитайте</p>
               <span class="underscore"></span>
             </div>
             <p class="text-wrapper">

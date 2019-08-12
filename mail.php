@@ -209,6 +209,37 @@ if ($return->success == true && $return->score > 0.2) {
                     $script_result['type'] = 'error';
                 }
                 echo json_encode($script_result);
+            } else if ($_POST['nameForm'] == "cases") {
+                $user_name = htmlspecialchars($_POST['name']);
+                $user_phone = htmlspecialchars($_POST['phone']);
+                $user_email = htmlspecialchars($_POST['email']);
+                $user_message = htmlspecialchars($_POST['message']);
+                $message = "<div style='font-size: 20px'>
+                        <b>Заявка с апельсина</b>
+                        <br>
+                        <p>Форма кейсов</p>
+                        <p>Имя: $user_name</p>
+                        <p>Телефон: $user_phone</p>
+                        <p>Почта: $user_email</p>
+                        <p>Текст сообщения: $user_message</p>
+                        <br>
+                    </div>";
+
+
+                $mail->Subject = 'Заявка '.$user_email.'';
+                $mail->Body = $message;
+                $mail->send();
+
+                if ($mail) {
+                    $script_result['title'] = 'Успешно';
+                    $script_result['message'] = 'Ваша заявка принята!';
+                    $script_result['type'] = 'success';
+                } else {
+                    $script_result['title'] = 'Ошибка';
+                    $script_result['message'] = 'Письмо не отправлено!';
+                    $script_result['type'] = 'error';
+                }
+                echo json_encode($script_result);
             }
         }
     } catch (Exception $e) {

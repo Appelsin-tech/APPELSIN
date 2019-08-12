@@ -13,7 +13,7 @@
       </a>
     </li>
     <li class="item">
-      <a class="item-link" href="https://www.facebook.com/groups/appelsin/" target="_blank">
+      <a class="item-link" href="https://www.facebook.com/Appelsintech/" target="_blank">
         <img svg-inline src="@/assets/img/icon/social/fb.svg" alt="">
         <img svg-inline src="@/assets/img/icon/social/fb-1.svg" alt="">
       </a>

@@ -29,6 +29,14 @@ module.exports = {
           from: './sitemap.xml',
           to: '[name].[ext]'
         },
+        {
+          from: './pageimage.jpg',
+          to: '[name].[ext]'
+        },
+        {
+          from: './logo.png',
+          to: '[name].[ext]'
+        },
       ]]
     })
   },

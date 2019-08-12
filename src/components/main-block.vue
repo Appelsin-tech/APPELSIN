@@ -6,20 +6,19 @@
 
       <div class="container container-app section">
         <div class="app-wrapper">
-          <h1 class="visually-hidden">Appelsin</h1>
           <img svg-inline src="../assets/img/appelsin/app.svg" alt="">
         </div>
 
       </div>
       <div class="desc-wrapper">
-        <strong class="desc-caption">
+        <h1 class="desc-caption">
           <span class="symbol">Комплексные</span>
           <br>
           <span class="symbol">IT</span>
           <span class="dash">-</span>
           <span class="symbol">решения</span>
           <span class="underscore"></span>
-        </strong>
+        </h1>
         <ul class="servises-list">
           <li class="item">
             <p class="item-link">Серверные решения</p>

@@ -28,7 +28,7 @@
                 <span class="symbol">
                   <img svg-inline src="../assets/img/icon/double-quote.svg" alt="">
                 </span>
-                <strong class="description-strong">Наш главный приоритет - помочь вашему бизнесу</strong>
+                <h3 class="description-strong">Наш главный приоритет - помочь вашему бизнесу</h3>
                 <em class="description">Мы поддержим на каждом этапе и предложим лучшие решения, чтобы повысить его эффективность в минимальные сроки и с минимальными ресурсами. Высококвалифицированные специалисты, индивидуальный подход и понимание ваших целей в результате гарантируют действительно качественный продукт. К каждому проекту мы относимся как к своему, взамен клиенты продолжают работать только с нами, а зачастую и становятся нашими бизнес-партнерами</em>
                 <p class="admin">
                   <strong>Михаил Алиакберов</strong>
@@ -42,7 +42,7 @@
               <swiper :options="swiperOption_2" ref="mySwiper">
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
-                    <p class="skills-desc">Языки с которыми мы работаем каждый день:</p>
+                    <h3 class="skills-desc">Языки с которыми мы работаем каждый день:</h3>
                     <ul class="skills-list">
                       <li class="skills">С#,</li>
                       <li class="skills">Java,</li>
@@ -55,7 +55,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
-                    <p class="skills-desc">Софт, которым мы пользуемся:</p>
+                    <h3 class="skills-desc">Софт, которым мы пользуемся:</h3>
                     <ul class="skills-list">
                       <li class="skills">Visual Studio,</li>
                       <li class="skills">Eclipse,</li>
@@ -73,7 +73,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
-                    <p class="skills-desc">Контроль версий:</p>
+                    <h3 class="skills-desc">Контроль версий:</h3>
                     <ul class="skills-list">
                       <li class="skills">SVN,</li>
                       <li class="skills">Git</li>
@@ -82,7 +82,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
-                    <p class="skills-desc">Сервисы командного взаимодействия, которые мы используем:</p>
+                    <h3 class="skills-desc">Сервисы командного взаимодействия, которые мы используем:</h3>
                     <ul class="skills-list">
                       <li class="skills">Assembla,</li>
                       <li class="skills">Trello,</li>
@@ -95,7 +95,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
-                    <p class="skills-desc">Опыт работы с сервисами и API:</p>
+                    <h3 class="skills-desc">Опыт работы с сервисами и API:</h3>
                     <ul class="skills-list api">
                       <li class="skills">Cloudflare,</li>
                       <li class="skills">GoogleMaps,</li>
