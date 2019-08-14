@@ -101,8 +101,6 @@
       },
       getActiveSlideCustom(origin, destination) {
         this.classSection = destination.anchor
-        console.log(destination.anchor)
-        // console.log(window.location.hash)
       },
       nextSlide() {
         fullpage_api.moveSectionDown();
@@ -128,7 +126,6 @@
           this.$modal.show('modal-policy')
         }
       })
-
     }
   }
 </script>

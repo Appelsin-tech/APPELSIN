@@ -51,7 +51,16 @@ module.exports = {
   assetsDir: undefined,
   runtimeCompiler: undefined,
   productionSourceMap: false,
-  parallel: undefined
+  parallel: undefined,
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'ru',
+      localeDir: 'locales',
+      enableInSFC: false
+    }
+  }
 }
 
 var smartgrid = require('smart-grid');

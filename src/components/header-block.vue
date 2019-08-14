@@ -5,10 +5,13 @@
         <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
-      <span class="agency">Digital agency</span>
+      <span class="agency" @click="$modal.show('modal-response')">Digital agency</span>
+      <div class="lang-wrapper">
+        <lang-select :options="languageSelect" :selected="selected" v-on:updateOption="newLocale"></lang-select>
+      </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <!--<a class="submit default" href="#price">Оставить заявку</a>-->
-      <a class="submit menu" href="#price" @click="hideMenu">Оставить заявку</a>
+      <a class="submit menu" href="#price" @click="hideMenu">{{$t('submit-application')}}</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -18,37 +21,48 @@
     </div>
     <ul class="menu-list">
       <li class="item">
-        <a href="#about" class="link" @click="menu">О нас</a>
+        <a href="#about" class="link" @click="menu">{{$t('about')}}</a>
       </li>
       <li class="item">
-        <a href="#services" class="link" @click="menu">Услуги</a>
+        <a href="#services" class="link" @click="menu">{{$t('services')}}</a>
       </li>
       <li class="item">
-        <a href="#cases" class="link" @click="menu">Наши работы</a>
+        <a href="#cases" class="link" @click="menu">{{$t('our-work')}}</a>
       </li>
       <li class="item">
-        <a href="#price" class="link" @click="menu">Расчитать стоимость</a>
+        <a href="#price" class="link" @click="menu">{{$t('cost-calculation')}}</a>
       </li>
       <li class="item">
-        <a href="#contacts" class="link" @click="menu">Контакты</a>
+        <a href="#contacts" class="link" @click="menu">{{$t('contacts')}}</a>
       </li>
       <li class="item item--submit">
-        <a href="#price" class="link" @click="menu">Оставить заявку</a>
+        <a href="#price" class="link" @click="menu">{{$t('submit-application')}}</a>
       </li>
     </ul>
   </header>
 </template>
 
 <script>
+  import LangSelect from './components-helpers/LangSelect'
   export default {
     name: 'header-block',
     props: ['showMenu'],
+    components: {LangSelect},
     data() {
       return {
         fixedMenu: false,
+        languageSelect: [
+          {label: 'Ru', value: 'ru-RU'},
+          {label: 'En', value: 'en'},
+        ],
+        search: false,
+        selected: '',
       }
     },
     methods: {
+      newLocale(val) {
+        this.selected = val
+      },
       menu() {
         this.$emit('menu')
       },
@@ -67,6 +81,26 @@
     computed: {
       openMenu () {
         return this.showMenu
+      }
+    },
+    watch: {
+      selected: function (newSelected, oldSelected) {
+        console.log(newSelected)
+        if (newSelected.value === 'ru-RU') {
+          this.$i18n.locale = 'ru-RU'
+          localStorage.setItem('lang', 'ru-RU')
+        } else if (newSelected.value === 'en') {
+          this.$i18n.locale = 'en'
+          localStorage.setItem('lang', 'en')
+        }
+      }
+    },
+    created() {
+      let langLocal = localStorage.getItem('lang')
+      if (langLocal === 'ru-RU') {
+        this.selected = {label: 'Ru', value: 'ru-RU'}
+      } else if (langLocal === 'en') {
+        this.selected = {label: 'En', value: 'en'}
       }
     }
   }
@@ -206,8 +240,11 @@
       }
     }
   }
-  .agency {
+  .lang-wrapper {
     margin-right: auto;
+  }
+  .agency {
+    margin-right: 40px;
     font-size: 1.7rem;
     font-weight: 300;
     .md-block({ display: none; });

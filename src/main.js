@@ -3,8 +3,10 @@ import App from './App.vue'
 import VueModal from 'vue-js-modal'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueFullPage from 'vue-fullpage.js'
+import vSelect from 'vue-select'
 import { VueReCaptcha } from 'vue-recaptcha-v3'
-
+import i18n from './i18n'
+Vue.component('v-select', vSelect)
 // For more options see below
 Vue.use(VueReCaptcha, {
   siteKey: '6LeNvrAUAAAAAAqBxJnWqsd2DdvNeKgZLIQ9tUwa',
@@ -33,5 +35,6 @@ Vue.use(VueModal, {dialog: true, dynamic: true, injectModalsContainer: true})
 // })
 
 new Vue({
-  render: h => h(App),
+  i18n,
+  render: h => h(App)
 }).$mount('#app')

@@ -11,33 +11,33 @@
 
       </div>
       <div class="desc-wrapper">
-        <h1 class="visually-hidden">Комплексные IT-решения</h1>
+        <h1 class="visually-hidden">{{$t('title-main')}}</h1>
         <p class="desc-caption">
-          <span class="symbol">Комплексные</span>
+          <span class="symbol">{{$t('title-main--1')}}</span>
           <br>
           <span class="symbol">IT</span>
           <span class="dash">-</span>
-          <span class="symbol">решения</span>
+          <span class="symbol">{{$t('title-main--2')}}</span>
           <span class="underscore"></span>
         </p>
         <ul class="servises-list">
           <li class="item">
-            <p class="item-link">Серверные решения</p>
+            <p class="item-link">{{$t('server-solutions')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">WEB - разработка</p>
+            <p class="item-link">{{$t('web-dev')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">Мобильные игры и приложения</p>
+            <p class="item-link">{{$t('mobile-game-and-app')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">Криптовалюты</p>
+            <p class="item-link">{{$t('cryptocurrencies')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">Реклама и продвижение</p>
+            <p class="item-link">{{$t('advertising-and-promotion')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">Дизайн и брендинг</p>
+            <p class="item-link">{{$t('design-and-branding')}}</p>
           </li>
         </ul>
       </div>

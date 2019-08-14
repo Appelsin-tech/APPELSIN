@@ -5,7 +5,7 @@
         <div class="caption-wrapper">
           <div class="g-caption-block">
             <div class="wrapper-baseline">
-              <h2 class="g-caption">Услуги</h2>
+              <h2 class="g-caption">{{$t('services')}}</h2>
               <span class="underscore"></span>
             </div>
           </div>
@@ -24,9 +24,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">Серверные решения</h3>
-                  <p class="desc">Проектирование и реализация проекта, разработка API, работа с БД, автоматизация, боты.
-                  </p>
+                  <h3 class="caption-services">{{$t('server-solutions')}}</h3>
+                  <p class="desc">{{$t('server-solutions-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -40,8 +39,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">WEB - разработка</h3>
-                  <p class="desc">От лендинга до высоконагруженного сайта любой сложности</p>
+                  <h3 class="caption-services">{{$t('web-dev')}}WEB - разработка</h3>
+                  <p class="desc">{{$t('web-dev-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -54,8 +53,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">Мобильные игры и приложения</h3>
-                  <p class="desc">Кросс-платформенные и нативные бизнес решения, 2D и 3D игры, AR/VR</p>
+                  <h3 class="caption-services">{{$t('mobile-game-and-app')}}</h3>
+                  <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -68,8 +67,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">Блокчейн и криптовалюты</h3>
-                  <p class="desc">Работа с блокчейном, криптовалютами и кошельками, юридическое сопровождение</p>
+                  <h3 class="caption-services">{{$t('cryptocurrencies-and-blockchain')}}</h3>
+                  <p class="desc">{{$t('cryptocurrencies-and-blockchain-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -82,9 +81,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">Реклама и продвижение</h3>
-                  <p class="desc">SEO и контекстная реклама, ведение и аудит, реклама в соцсетях, ремаркетинг,
-                    аналитика</p>
+                  <h3 class="caption-services">{{$t('advertising-and-promotion')}}</h3>
+                  <p class="desc">{{$t('advertising-and-promotion-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -97,8 +95,8 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">Дизайн и брендинг</h3>
-                  <p class="desc">Графический дизайн сайтов, приложений, презентаций, UI дизайн, брендинг</p>
+                  <h3 class="caption-services">{{$t('design-and-branding')}}</h3>
+                  <p class="desc">{{$t('design-and-branding-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
                   <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">

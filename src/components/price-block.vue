@@ -4,13 +4,13 @@
       <div class="container section">
         <div class="caption-wrapper">
           <div class="g-caption-block">
-            <h2 class="visually-hidden">Расчет стоимости проекта</h2>
+            <h2 class="visually-hidden">{{$t('title-price')}}</h2>
             <div class="wrapper-baseline">
-              <p class="g-caption">Рассчитайте</p>
+              <p class="g-caption">{{$t('title-price--1')}}</p>
               <span class="underscore"></span>
             </div>
             <p class="text-wrapper">
-              <span class="small">стоимость вашего проекта</span>
+              <span class="small">{{$t('title-price--2')}}</span>
             </p>
           </div>
         </div>
@@ -29,7 +29,7 @@
                 <div class="variant-wrapper">
                   <div class="item-wrapper">
 
-                    <div class="item" v-for="(item, index) in activeQuestion.variant"
+                    <div class="item" v-for="(item, index) in variantsNew"
                          :key="index"
                          :class="{check: checkClass(item)}"
                          @click="clickVariant(item, activeQuestion.type)">
@@ -47,7 +47,7 @@
                         <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
                       </div>
 
-                      <span>Далее</span>
+                      <span>{{$t('next')}}</span>
                     </div>
 
                   </div>
@@ -112,7 +112,7 @@
           },
           {
             id: 2,
-            stepCaption: 'Какие еще продукты вас интересуют',
+            stepCaption: this.$t('questions-2.title'),
             type: 'checkbox',
             variant: [
               {
@@ -146,7 +146,7 @@
           },
           {
             id: 3,
-            stepCaption: 'Уточните продукт категории Сайт / Сервер',
+            stepCaption: this.$t('questions-3.title'),
             type: 'radio',
             variant: [
               {
@@ -219,7 +219,7 @@
           },
           {
             id: 5,
-            stepCaption: 'На какой платформе нужно приложение / Игра',
+            stepCaption: this.$t('questions-5.title'),
             type: 'checkbox',
             variant: [
               {
@@ -240,7 +240,7 @@
           },
           {
             id: 6,
-            stepCaption: 'На какой платформе нужно приложение / Игра',
+            stepCaption: this.$t('questions-6.title'),
             type: 'checkbox',
             variant: [
               {
@@ -259,7 +259,7 @@
           },
           {
             id: 7,
-            stepCaption: 'Что из рекламы вам потребуется',
+            stepCaption: this.$t('questions-7.title'),
             type: 'checkbox',
             variant: [
               {
@@ -287,7 +287,7 @@
           },
           {
             id: 8,
-            stepCaption: 'Какие услуги в криптосфере вас интересуют',
+            stepCaption: this.$t('questions-8.title'),
             type: 'checkbox',
             variant: [
               {
@@ -315,7 +315,7 @@
           },
           {
             id: 9,
-            stepCaption: 'Выберите продукт для дизайна',
+            stepCaption: this.$t('questions-9.title'),
             type: 'checkbox',
             variant: [
               {
@@ -355,6 +355,14 @@
       ResultForm
     },
     computed: {
+      variantsNew () {
+        let id = this.activeQuestion.id
+        let arr = this.activeQuestion.variant
+         arr.forEach(item => {
+          item.name = this.$t(`questions-${id}.variant.${item.val}`)
+        })
+        return arr
+      },
       activeQuestion () {
         let id = this.steps[this.activeSteps]
         return this.questions.filter((i) => {
@@ -430,8 +438,6 @@
         return image
       },
       removeAnswer (index) {
-
-        let removeAnswer = this.answers[index]
         if (this.answers[index].addQuestion !== undefined) {
           let findIndexQuestion = this.questions.findIndex((q) => q.id === this.answers[index].addQuestion)
 

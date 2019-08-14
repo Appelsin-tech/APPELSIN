@@ -5,7 +5,7 @@
         <div class="caption-wrapper default-margin-bottom">
           <div class="g-caption-block">
             <div class="wrapper-baseline">
-              <h2 class="g-caption">Кейсы</h2>
+              <h2 class="g-caption">{{$t('cases')}}</h2>
               <span class="underscore"></span>
             </div>
           </div>
@@ -23,9 +23,7 @@
             <div class="slide-wrapper">
               <div class="col col-3">
                 <h3 class="caption-slide">DAZZLING</h3>
-                <p class="desc-case">
-                  Создан сайт с личным кабинетом, онлайн кошелек, разработана партнерская программа, криптовалюта DAZZ на базе технологии Quark с мастернодами. Полная разработка и ведение платформы
-                </p>
+                <p class="desc-case">{{$t('dazz-desc')}}</p>
                 <a class="link-line" href="https://dazzling.life/" target="_blank">
                   <span>dazzling.life</span>
                 </a>
@@ -37,10 +35,7 @@
             <div class="slide-wrapper">
               <div class="col col-3 cgen">
                 <h3 class="caption-slide">Community generation</h3>
-                <p class="desc-case">
-                  Разработана криптовалюта CGEN на базе технологии Quark, листинг монеты на биржах. Проведен SWAP
-                  монеты. Разработан сайт, личный кабинет с онлайн кошельком. Полная разработка и ведение платформы
-                </p>
+                <p class="desc-case">{{$t('cgen-desc')}}</p>
                 <a class="link-line" href="https://cgen.network/" target="_blank">
                   <span>cgen.network</span>
                 </a>
@@ -51,27 +46,20 @@
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3 api">
-                <h3 class="caption-slide">API Решения для ресурсов</h3>
-                <p class="desc-case">
-                  Разработаны API для Федеральной службы судебных приставов, единого федеральный реестра сведений о
-                  банкротстве, картотеки арбитражных дел РФ.
-                </p>
+                <h3 class="caption-slide">{{$t('api-solutions')}}</h3>
+                <p class="desc-case">{{$t('api-solutions-desc')}}</p>
                 <a class="link-line" href="https://fssprus.ru/" target="_blank">
                   <span>fssprus.ru</span>
                 </a>
               </div>
-              <img class="img img--api swiper-lazy" :data-src="getImgUrl('api.png')" alt="API Решения для ресурсов">
+              <img class="img img--api swiper-lazy" :data-src="getImgUrl('api.png')" :alt="$t('api-solutions')">
             </div>
           </swiper-slide>
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3">
                 <h3 class="caption-slide">Crowdsale Network</h3>
-                <p class="desc-case">
-                  Краудфандинг платформа для сбора средств и подбора специалистов на базе блокчейн технологий. Полная
-                  разработка и ведение платформы. Разработана криптовалюта CSNP на базе технологии ERC20. Листинг монеты
-                  на биржах.
-                </p>
+                <p class="desc-case">{{$t('crowdsale-desc')}}</p>
                 <a class="link-line" href="https://crowdsale.network/" target="_blank">
                   <span>crowdsale.network</span>
                 </a>
@@ -83,9 +71,7 @@
             <div class="slide-wrapper">
               <div class="col col-3">
                 <h3 class="caption-slide">WHIZ BIZ</h3>
-                <p class="desc-case">
-                  Фонд поддержки и развития современного искусства на базе блокчейн технологий. Разработка сайта.
-                </p>
+                <p class="desc-case">{{$t('whiz-biz-desc')}}</p>
                 <a class="link-line" href="http://ghost_town.mrpelktn.beget.tech/" target="_blank">
                   <span>whizbiz.io</span>
                 </a>
@@ -96,10 +82,8 @@
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3 air">
-                <h3 class="caption-slide">Леталки для детей развивающие</h3>
-                <p class="desc-case">
-                  Мобильная 2D-игра, разработанная под iOS. Паззл для детей, оффлайн. Опубликовано в AppStore. Полная
-                  разработка. </p>
+                <h3 class="caption-slide">{{$t('fly-game')}}</h3>
+                <p class="desc-case">{{$t('fly-game-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/ru/app/id1183881507" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
@@ -114,10 +98,7 @@
             <div class="slide-wrapper">
               <div class="col col-3">
                 <h3 class="caption-slide">FURY RIDE</h3>
-                <p class="desc-case">
-                  Мобильная 3D-игра, разработанная под iOS. Гонки на мотоциклах, сражения, реалистичная физика, более
-                  10км уникальной трассы, умные противники - боты. Оффлайн. Опубликовано в AppStore. Полная
-                  разработка. </p>
+                <p class="desc-case">{{$t('fury-ride-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/ru/app/fury-ride/id1281992116" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
@@ -132,11 +113,7 @@
             <div class="slide-wrapper">
               <div class="col col-3">
                 <h3 class="caption-slide">SNIPER ARENA</h3>
-                <p class="desc-case">
-                  Мобильная 3D-игра в жанре экшн, разработанная под iOS и Android. Программирование поведения
-                  персонажей, классов серверной логики и UI. Проектирование классов игрового контента, анимационной FSM.
-                  Подготовка\сборка\финализация контента.
-                </p>
+                <p class="desc-case">{{$t('sniper-arena-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/us/app/id1029110855" class="link ios" target="_blank">
                     <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
@@ -155,54 +132,54 @@
             <form class="main-form" @submit.prevent="onSubmit" :class="[{waiting: waiting}, {success: success}]">
               <div class="col col--desc">
                 <div class="wrapper-secondary">
-                  <p class="description">Больше кейсов</p>
-                  <p class="description--small">За 4 года существования компании сделано огромное количество работ. По запросу мы можем выслать весь список кейсов, которые мы имеем право демонстрировать в рамках договора о конфиденциальности</p>
+                  <p class="description">{{$t('cases-form')}}</p>
+                  <p class="description--small">{{$t('cases-form-desc')}}</p>
                 </div>
                 <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-                  <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit">Отправить запрос</button>
+                  <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit">{{$t('mail-form.send-request')}}</button>
                   <div class="error-tooltip error-tooltip--submit">
-                    <span>Ошибка</span>
+                    <span>{{$t('mail-form.error.default')}}</span>
                   </div>
                   <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">
-                    Отправить запрос
+                    {{$t('mail-form.send-request')}}
                   </button>
                 </div>
               </div>
               <div class="col col--input" :class="{active : showForm}">
                 <div class="input-wrapper">
                   <div class="g-item-form" :class="{errorTooltip: error.name}">
-                    <input class="g-item-form__field" type="text" placeholder="Имя" v-model="form.name">
+                    <input class="g-item-form__field" type="text" :placeholder="$t('mail-form.name')" v-model="form.name">
                     <div class="error-tooltip">
-                      <span>Введите имя</span>
+                      <span>{{$t('mail-form.error.name')}}</span>
                     </div>
                   </div>
                   <div class="g-item-form" :class="{errorTooltip: error.phone}">
-                    <input class="g-item-form__field" type="tel" placeholder="Телефон" v-model="form.phone">
+                    <input class="g-item-form__field" type="tel" :placeholder="$t('mail-form.phone')" v-model="form.phone">
                     <div class="error-tooltip">
-                      <span>Введите телефон</span>
+                      <span>{{$t('mail-form.error.phone')}}</span>
                     </div>
                   </div>
                   <div class="g-item-form" :class="{errorTooltip: error.email}">
                     <input class="g-item-form__field" type="email" placeholder="E-mail" v-model="form.email">
                     <div class="error-tooltip">
-                      <span>Введите E-mail</span>
+                      <span>{{$t('mail-form.error.email')}}</span>
                     </div>
                   </div>
                   <div class="g-item-form g-item-form--textarea" :class="{errorTooltip: error.message}">
-                  <textarea class="g-item-form__field g-item-form__field--textarea" placeholder="Текст сообщения"
+                  <textarea class="g-item-form__field g-item-form__field--textarea" :placeholder="$t('mail-form.message')"
                             v-model="form.message"></textarea>
                     <div class="error-tooltip">
-                      <span>Введите текст сообщения</span>
+                      <span>{{$t('mail-form.error.message')}}</span>
                     </div>
                   </div>
                   <div class="file-wrapper" :class="{errorTooltip: error.file}">
                     <input type="file" name="file" id="file_contacts" v-on:change="handleFile" class="visually-hidden"/>
                     <label class="file-link" v-if="!showFileName" for="file_contacts">
-                      <span class="file-text--big">Прикрепить файл</span>
-                      <span class="file-text--small">(до 5 Мб)</span>
+                      <span class="file-text--big">{{$t('mail-form.file')}}</span>
+                      <span class="file-text--small">({{$t('mail-form.file-size')}})</span>
                     </label>
                     <div class="error-tooltip error-tooltip--submit">
-                      <span>Файл слишком большой</span>
+                      <span>{{$t('mail-form.error.file')}}</span>
                     </div>
                     <div class="file-progress " v-if="showFileName">
                       <img svg-inline class="svg-file" src="../assets/img/icon/file.svg" alt="">
@@ -216,21 +193,21 @@
                 </div>
                 <div class="checkbox-wrapper" :class="{errorTooltip: error.checked}">
                   <div class="error-tooltip error-tooltip--top">
-                    <span>Подтвердите согласие</span>
+                    <span>{{$t('mail-form.error.checkbox')}}</span>
                   </div>
                   <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
                   <label class="label-person" for="checkPersonContacts">
                     <span>Я согласен на обработку </span>
-                    <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
+                    <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">{{$t('cases')}}персональных данных</a>. {{$t('cases')}}Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">{{$t('cases')}}политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">{{$t('cases')}}пользовательского соглашения</a>.
                   </label>
                 </div>
                 <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
                   <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
                     <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
-                  <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">Отправить</button>
+                  <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">{{$t('mail-form.send')}}</button>
                   <div class="error-tooltip error-tooltip--submit">
-                    <span>Ошибка</span>
+                    <span>{{$t('mail-form.error.default')}}</span>
                   </div>
                 </div>
               </div>

@@ -4,15 +4,15 @@
       <div class="price-wrapper">
         <div class="steps-num">
           <span class="arrow" @click="$emit('go-back-step')"></span>
-          <span>Шаг </span>
-          <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
+          <span>{{$t('step')}} </span>
+          <span class="red">{{activeSteps + 1}} {{$t('step-from')}} {{steps.length + 1}}</span>
         </div>
         <div class="sum-wrapper" v-if="price !== 0">
-          <p class="description">Средняя стоимость такого заказа у нас</p>
-          <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">руб.</span></p>
+          <p class="description">{{$t('price-desc')}}</p>
+          <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">{{$t('currency')}}</span></p>
         </div>
         <div class="wrapper-secondary" v-if="price === 0">
-          <p class="description">Расскажите о вашем проекте</p>
+          <p class="description">{{$t('contacts-desc')}}</p>
           <ul class="list-contacts">
             <li>
               <a class="link-contacts" href="tel:+79644952929">
@@ -30,47 +30,47 @@
         </div>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >Заказать проект</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >{{$t('order-project')}}</button>
         <div class="error-tooltip error-tooltip--submit">
-          <span>Ошибка</span>
+          <span>{{$t('mail-form.error.default')}}</span>
         </div>
-        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">Заказать проект</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">{{$t('order-project')}}</button>
       </div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
       <div class="input-wrapper">
         <div class="g-item-form" :class="{errorTooltip: error.name}">
-          <input class="g-item-form__field" type="text" placeholder="Имя" v-model="form.name">
+          <input class="g-item-form__field" type="text" :placeholder="$t('mail-form.name')" v-model="form.name">
           <div class="error-tooltip">
-            <span>Введите имя</span>
+            <span>{{$t('mail-form.error.name')}}</span>
           </div>
         </div>
         <div class="g-item-form" :class="{errorTooltip: error.phone}">
-          <input class="g-item-form__field" type="tel" placeholder="Телефон" v-model="form.phone">
+          <input class="g-item-form__field" type="tel" :placeholder="$t('mail-form.phone')" v-model="form.phone">
           <div class="error-tooltip">
-            <span>Введите телефон</span>
+            <span>{{$t('mail-form.error.phone')}}</span>
           </div>
         </div>
         <div class="g-item-form" :class="{errorTooltip: error.email}">
           <input class="g-item-form__field" type="email" placeholder="E-mail" v-model="form.email">
           <div class="error-tooltip">
-            <span>Введите E-mail</span>
+            <span>{{$t('mail-form.error.email')}}</span>
           </div>
         </div>
         <div class="g-item-form g-item-form--textarea" :class="{errorTooltip: error.message}">
-          <textarea class="g-item-form__field g-item-form__field--textarea" v-model="form.message" placeholder="Текст сообщения"></textarea>
+          <textarea class="g-item-form__field g-item-form__field--textarea" v-model="form.message" :placeholder="$t('mail-form.message')"></textarea>
           <div class="error-tooltip">
-            <span>Введите текст сообщения</span>
+            <span>{{$t('mail-form.error.message')}}</span>
           </div>
         </div>
         <div class="file-wrapper" :class="{errorTooltip: error.file}">
           <input type="file" name="file" id="file_calc" v-on:change="handleFile" class="visually-hidden"/>
           <label class="file-link" v-if="!showFileName" for="file_calc" >
-            <span class="file-text--big">Прикрепить файл</span>
-            <span class="file-text--small">(до 5 Мб)</span>
+            <span class="file-text--big">{{$t('mail-form.file')}}</span>
+            <span class="file-text--small">({{$t('mail-form.file-size')}})</span>
           </label>
           <div class="error-tooltip error-tooltip--submit">
-            <span>Файл слишком большой</span>
+            <span>{{$t('mail-form.error.file')}}</span>
           </div>
           <div class="file-progress " v-if="showFileName">
             <img svg-inline class="svg-file" src="../../assets/img/icon/file.svg" alt="">
@@ -83,7 +83,7 @@
       </div>
       <div class="checkbox-wrapper" :class="{errorTooltip: error.checked}">
         <div class="error-tooltip error-tooltip--top">
-          <span>Подтвердите согласие</span>
+          <span>{{$t('mail-form.error.checkbox')}}</span>
         </div>
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
         <label class="label-person" for="checkPerson">
@@ -95,9 +95,9 @@
         <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
           <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
         </button>
-        <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">Отправить</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">{{$t('mail-form.send')}}</button>
         <div class="error-tooltip error-tooltip--submit">
-          <span>Ошибка</span>
+          <span>{{$t('mail-form.error.default')}}</span>
         </div>
       </div>
 
