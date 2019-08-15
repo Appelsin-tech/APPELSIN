@@ -34,7 +34,7 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
+  @import "../../assets/less/_variables";
   .b-social {
     position: fixed;
     display: flex;

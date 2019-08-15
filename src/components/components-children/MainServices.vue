@@ -11,10 +11,10 @@
           </div>
           <div class="nav-slider">
             <button class="next">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
             <button class="prev">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
         </div>
@@ -28,7 +28,7 @@
                   <p class="desc">{{$t('server-solutions-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -43,7 +43,7 @@
                   <p class="desc">{{$t('web-dev-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -57,7 +57,7 @@
                   <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -71,7 +71,7 @@
                   <p class="desc">{{$t('cryptocurrencies-and-blockchain-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -85,7 +85,7 @@
                   <p class="desc">{{$t('advertising-and-promotion-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -99,7 +99,7 @@
                   <p class="desc">{{$t('design-and-branding-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
-                  <img svg-inline src="../assets/img/icon/arrow-slider-items.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
                 </a>
               </div>
             </div>
@@ -153,8 +153,8 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
-  @import '~swiper/dist/css/swiper.css';
+  @import "../../assets/less/_variables";
+  @import '../../../node_modules/swiper/dist/css/swiper.css';
 
   .s-services {
     background: radial-gradient(circle farthest-corner at top right, #23ade0 -20%, rgba(0, 0, 0, 0) 25%),
@@ -242,32 +242,32 @@
       }
       &-1 {
         &::after {
-          background-image: url("../assets/img/services/item_1.png");
+          background-image: url("../../assets/img/services/item_1.png");
         }
       }
       &-2 {
         &::after {
-          background-image: url("../assets/img/services/item_2.png");
+          background-image: url("../../assets/img/services/item_2.png");
         }
       }
       &-3 {
         &::after {
-          background-image: url("../assets/img/services/item_3.png");
+          background-image: url("../../assets/img/services/item_3.png");
         }
       }
       &-4 {
         &::after {
-          background-image: url("../assets/img/services/item_4.png");
+          background-image: url("../../assets/img/services/item_4.png");
         }
       }
       &-5 {
         &::after {
-          background-image: url("../assets/img/services/item_5.png");
+          background-image: url("../../assets/img/services/item_5.png");
         }
       }
       &-6 {
         &::after {
-          background-image: url("../assets/img/services/item_6.png");
+          background-image: url("../../assets/img/services/item_66.jpg");
         }
       }
       .grow {

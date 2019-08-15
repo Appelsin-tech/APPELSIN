@@ -11,10 +11,10 @@
           </div>
           <div class="nav-slider">
             <button id="about-next" class="next">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
             <button  id="about-prev" class="prev">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
         </div>
@@ -22,11 +22,11 @@
           <swiper-slide>
             <div class="slide-wrapper main-slide">
               <div class="svg-wrapper">
-                <img svg-inline src="../assets/img/appelsin/app-about.svg" alt="">
+                <img svg-inline src="../../assets/img/appelsin/app-about.svg" alt="">
               </div>
               <div class="text-wrapper">
                 <span class="symbol">
-                  <img svg-inline src="../assets/img/icon/double-quote.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/double-quote.svg" alt="">
                 </span>
                 <h3 class="description-strong">{{$t('title-about-second')}}</h3>
                 <em class="description">{{$t('about-desc')}}</em>
@@ -129,10 +129,10 @@
                 <div id='about-child-pagination' class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
                 <div class="nav-slider item">
                   <button id="about-child-next" class="next next-insert">
-                    <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
                   <button id="about-child-prev" class="prev prev-insert">
-                    <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
                 </div>
               </div>
@@ -196,8 +196,8 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
-  @import '~swiper/dist/css/swiper.css';
+  @import "../../assets/less/_variables";
+  @import '../../../node_modules/swiper/dist/css/swiper.css';
 
   .s-about {
     background: linear-gradient(to top right, #3fbc47, #59c259) no-repeat;

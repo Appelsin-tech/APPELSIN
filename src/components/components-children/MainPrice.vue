@@ -44,7 +44,7 @@
                   <div class="item-btn" @click="submitButton" :class="activeNextBtn ? 'active' : 'disabled'">
                     <div class="btn-next">
                       <div class="img">
-                        <img svg-inline src="../assets/img/icon/arrow-right-calc.svg" alt="">
+                        <img svg-inline src="../../assets/img/icon/arrow-right-calc.svg" alt="">
                       </div>
 
                       <span>{{$t('next')}}</span>
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-  import ResultForm from './components-children/PriceBlockCalcResult'
+  import ResultForm from './PriceBlockCalcResult'
 
   export default {
     name: 'price-block',
@@ -434,7 +434,7 @@
         }
       },
       getImgUrl (src) {
-        const image = require(`../../src/assets/img/icon/steps/${src}`)
+        const image = require(`../../../src/assets/img/icon/steps/${src}`)
         return image
       },
       removeAnswer (index) {
@@ -541,7 +541,7 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
+  @import "../../assets/less/_variables";
 
   .s-price {
     background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 1) 0%, rgba(0, 0, 0, 0) 60%),

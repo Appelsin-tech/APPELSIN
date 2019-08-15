@@ -1,6 +1,6 @@
 <template>
-  <div class="lang" ref="dropdownMenu">
-    <p @click="toggleMenu()" class="lang__selected label">
+  <div class="lang" ref="dropdownMenu" >
+    <p @click="toggleMenu()" class="lang__selected label" :class="{open: showMenu}">
       <span class="label__text">{{ selectedOption.label }}</span>
       <span class="label__icon"></span>
     </p>
@@ -81,6 +81,15 @@
         border-top: 8px solid #fff;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
+        transition: 0.2s;
+      }
+      &.open {
+        .label__text {
+          opacity: 0.8;
+        }
+        .label__icon {
+          transform: rotate(180deg);
+        }
       }
     }
     &__dropdown-menu {
@@ -90,10 +99,6 @@
       .lg-block({ bottom: -20px;});
     }
     .dropdown {
-      &__item {
-
-
-      }
       &__label {
         padding: 2px 0;
         cursor: pointer;

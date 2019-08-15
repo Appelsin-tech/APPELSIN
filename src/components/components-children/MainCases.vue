@@ -11,10 +11,10 @@
           </div>
           <div class="nav-slider">
             <button class="next">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
             <button class="prev">
-              <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+              <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
         </div>
@@ -86,7 +86,7 @@
                 <p class="desc-case">{{$t('fly-game-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/ru/app/id1183881507" class="link ios" target="_blank">
-                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <img svg-inline class="svg" src="../../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
                 </div>
@@ -101,7 +101,7 @@
                 <p class="desc-case">{{$t('fury-ride-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/ru/app/fury-ride/id1281992116" class="link ios" target="_blank">
-                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <img svg-inline class="svg" src="../../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
                 </div>
@@ -116,11 +116,11 @@
                 <p class="desc-case">{{$t('sniper-arena-desc')}}</p>
                 <div class="link-wrapper">
                   <a href="https://itunes.apple.com/us/app/id1029110855" class="link ios" target="_blank">
-                    <img svg-inline class="svg" src="../assets/img/icon/apple.svg">
+                    <img svg-inline class="svg" src="../../assets/img/icon/apple.svg">
                     <span>iOS</span>
                   </a>
                   <a href="https://play.google.com/store/apps/details?id=team.gordeyev.sniperarena" class="link android" target="_blank">
-                    <img svg-inline class="svg" src="../assets/img/icon/android.svg">
+                    <img svg-inline class="svg" src="../../assets/img/icon/android.svg">
                     <span>android</span>
                   </a>
                 </div>
@@ -182,10 +182,10 @@
                       <span>{{$t('mail-form.error.file')}}</span>
                     </div>
                     <div class="file-progress " v-if="showFileName">
-                      <img svg-inline class="svg-file" src="../assets/img/icon/file.svg" alt="">
+                      <img svg-inline class="svg-file" src="../../assets/img/icon/file.svg" alt="">
                       <span class="file-name">{{form.file.name}}</span>
                       <button class="file-delete" type="button" @click="deleteFile">
-                        <img svg-inline src="../assets/img/icon/delete.svg" alt="">
+                        <img svg-inline src="../../assets/img/icon/delete.svg" alt="">
                       </button>
                     </div>
                   </div>
@@ -203,7 +203,7 @@
                 </div>
                 <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
                   <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
-                    <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
                   <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">{{$t('mail-form.send')}}</button>
                   <div class="error-tooltip error-tooltip--submit">
@@ -272,7 +272,7 @@
     },
     methods: {
       getImgUrl (src) {
-        const image = require(`../../src/assets/img/case/${src}`)
+        const image = require(`../../../src/assets/img/case/${src}`)
         return image
       },
       onSubmit() {
@@ -365,8 +365,8 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
-  @import '~swiper/dist/css/swiper.css';
+  @import "../../assets/less/_variables";
+  @import '../../../node_modules/swiper/dist/css/swiper.css';
 
   .s-case {
     background: radial-gradient(circle farthest-corner at top right, rgba(171, 23, 216, 0.7) 0%, rgba(0, 0, 0, 0) 70%),
@@ -759,7 +759,7 @@
               top: calc(~"50% - 14px");
               width: 28px;
               height: 28px;
-              background: url("../assets/img/icon/clip-violet.png") no-repeat center / contain;
+              background: url("../../assets/img/icon/clip-violet.png") no-repeat center / contain;
               .md-block({ width: 24px; height: 24px; top: calc(~"50% - 12px"); });
               .xs-block({ width: 20px; height: 20px; top: calc(~"50% - 10px"); });
             }

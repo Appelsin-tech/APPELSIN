@@ -18,13 +18,13 @@
                 <ul class="list-contacts">
                   <li>
                     <a class="link-contacts" href="tel:+79644952929">
-                      <img svg-inline class="phone" src="../assets/img/icon/phone.svg" alt="">
+                      <img svg-inline class="phone" src="../../assets/img/icon/phone.svg" alt="">
                       <span>+7 (964) 495-29-29</span>
                     </a>
                   </li>
                   <li>
                     <a class="link-contacts" href="mailto:info@appelsin.tech">
-                      <img svg-inline class="mail" src="../assets/img/icon/email.svg" alt="">
+                      <img svg-inline class="mail" src="../../assets/img/icon/email.svg" alt="">
                       <span>info@appelsin.tech</span>
                     </a>
                   </li>
@@ -77,10 +77,10 @@
                     <span>{{$t('mail-form.error.file')}}</span>
                   </div>
                   <div class="file-progress " v-if="showFileName">
-                    <img svg-inline class="svg-file" src="../assets/img/icon/file.svg" alt="">
+                    <img svg-inline class="svg-file" src="../../assets/img/icon/file.svg" alt="">
                     <span class="file-name">{{form.file.name}}</span>
                     <button class="file-delete" type="button" @click="deleteFile">
-                      <img svg-inline src="../assets/img/icon/delete.svg" alt="">
+                      <img svg-inline src="../../assets/img/icon/delete.svg" alt="">
                     </button>
                   </div>
                 </div>
@@ -98,7 +98,7 @@
               </div>
               <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
                 <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
-                  <img svg-inline src="../assets/img/icon/arrow-slider.svg" alt="">
+                  <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                 </button>
                 <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">{{$t('mail-form.send')}}</button>
                 <div class="error-tooltip error-tooltip--submit">
@@ -110,7 +110,6 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -236,14 +235,14 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
+  @import "../../assets/less/_variables";
   .s-contacts {
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
-    background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-1.png"), url("../assets/img/appelsin-contacts-small-2.png");
+    background-image: url("../../assets/img/appelsin-contacts.png"), url("../../assets/img/appelsin-contacts-small-1.png"), url("../../assets/img/appelsin-contacts-small-2.png");
     background-color: #ffba00;
     background-repeat: no-repeat;
     background-position: left bottom, right top, 10% 5%;
-    .sm-block({ background-image: url("../assets/img/appelsin-contacts.png"), url("../assets/img/appelsin-contacts-small-2.png"); background-position: left bottom, 80% 10%; });
+    .sm-block({ background-image: url("../../assets/img/appelsin-contacts.png"), url("../../assets/img/appelsin-contacts-small-2.png"); background-position: left bottom, 80% 10%; });
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -454,7 +453,7 @@
               top: calc(~"50% - 14px");
               width: 28px;
               height: 28px;
-              background: url("../assets/img/icon/clip-orange.png") no-repeat center / contain;
+              background: url("../../assets/img/icon/clip-orange.png") no-repeat center / contain;
               .md-block({ width: 24px; height: 24px; top: calc(~"50% - 12px"); });
               .xs-block({ width: 20px; height: 20px; top: calc(~"50% - 10px"); });
             }

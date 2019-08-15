@@ -7,7 +7,7 @@
       </div>
       <h2 class="title">{{$t('privacy-policy.title')}}</h2>
       <div class="wrapper-overflow" id="textPolicy" :class="classSection">
-        <h3 class="title-section">1. {{$t('privacy-policy.general-provisions')}}</h3>
+        <h3 class="title-section">1. {{$t('privacy-policy.general-provisions.title')}}</h3>
         <p class="paragraph">{{$t('privacy-policy.general-provisions.p-1')}}.</p>
         <p class="paragraph">{{$t('privacy-policy.general-provisions.p-2')}}.</p>
         <h3 class="title-section">2. {{$t('privacy-policy.general-concepts.title')}}</h3>
@@ -70,10 +70,14 @@
     },
     methods:{
       disableSrollFp() {
-        fullpage_api.setAllowScrolling(false);
+        if(this.$route.path === '/') {
+          fullpage_api.setAllowScrolling(false);
+        }
       },
       activeSrollFp () {
-        fullpage_api.setAllowScrolling(true);
+        if(this.$route.path === '/') {
+          fullpage_api.setAllowScrolling(true);
+        }
       }
     },
     computed: {

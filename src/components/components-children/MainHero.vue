@@ -6,7 +6,7 @@
 
       <div class="container container-app section">
         <div class="app-wrapper">
-          <img svg-inline src="../assets/img/appelsin/app.svg" alt="">
+          <img svg-inline src="../../assets/img/appelsin/app.svg" alt="">
         </div>
 
       </div>
@@ -53,7 +53,7 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
+  @import "../../assets/less/_variables";
 
   .s-main {
     background: #ffba00;
@@ -66,8 +66,8 @@
       height: 100vh;
       align-items: center;
       justify-content: flex-start;
-      background-image: url("../assets/img/appelsin-small-11.png"),
-      url("../assets/img/appelsin-small-2.png") ;
+      background-image: url("../../assets/img/appelsin-small-11.png"),
+      url("../../assets/img/appelsin-small-2.png") ;
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
@@ -84,7 +84,7 @@
         bottom: 0;
         right: 0;
         left: 0;
-        background-image: url("../assets/img/appelsin.png");
+        background-image: url("../../assets/img/appelsin.png");
         background-repeat: no-repeat;
         background-position: 45% 100%;
         z-index: 9;

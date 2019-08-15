@@ -2,8 +2,8 @@
   <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]">
     <div class="container">
       <a class="logo-wrapper" href="#main" @click="hideMenu">
-        <img svg-inline src="../assets/img/icon/logoApp.svg" alt="">
-        <img svg-inline src="../assets/img/appelsin/appelsin-logo.svg" alt="">
+        <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
+        <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
       <span class="agency" @click="$modal.show('modal-response')">Digital agency</span>
       <div class="lang-wrapper">
@@ -16,7 +16,6 @@
         <span></span>
         <span></span>
         <span></span>
-        <!--<img svg-inline src="../assets/img/icon/menu.svg" alt="">-->
       </button>
     </div>
     <ul class="menu-list">
@@ -43,7 +42,7 @@
 </template>
 
 <script>
-  import LangSelect from './components-helpers/LangSelect'
+  import LangSelect from '../components-helpers/LangSelect'
   export default {
     name: 'header-block',
     props: ['showMenu'],
@@ -85,7 +84,6 @@
     },
     watch: {
       selected: function (newSelected, oldSelected) {
-        console.log(newSelected)
         if (newSelected.value === 'ru-RU') {
           this.$i18n.locale = 'ru-RU'
           localStorage.setItem('lang', 'ru-RU')
@@ -107,7 +105,7 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/less/_variables";
+  @import "../../assets/less/_variables";
   .b-header {
     position: fixed;
     padding-top: 30px;
