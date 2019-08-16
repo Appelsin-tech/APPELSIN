@@ -67,12 +67,12 @@
   @import "../../assets/less/_variables";
   .lang {
     position: relative;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     font-weight: 300;
     .label {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       cursor: pointer;
       &__text {
         margin-right: 8px;

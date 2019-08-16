@@ -31,6 +31,7 @@
         showMenu: false,
         windowHeight: 0,
         classSection: 'main',
+        fromRoute: ''
       }
     },
     methods: {
@@ -42,15 +43,18 @@
       },
     },
     watch: {
+      '$route' (to, from) {
+        this.fromRoute = from.path
+      },
       showMenu (newVal, oldVal) {
         if(newVal === true) {
-          window.document.body.style.overflow = 'hidden'
           if(this.$route.path === '/') {
+            window.document.body.style.overflow = 'hidden'
             fullpage_api.setAllowScrolling(false);
           }
         } else {
-          window.document.body.style.overflow = 'visible'
-          if(this.$route.path === '/') {
+          if(this.$route.path === '/' && this.fromRoute !== '/404') {
+            window.document.body.style.overflow = 'visible'
             fullpage_api.setAllowScrolling(true);
           }
         }

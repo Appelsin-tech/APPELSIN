@@ -5,7 +5,7 @@
         <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
-      <span class="agency" @click="$modal.show('modal-response')">Digital agency</span>
+      <span class="agency">Digital agency</span>
       <div class="lang-wrapper">
         <lang-select :options="languageSelect" :selected="selected" v-on:updateOption="newLocale"></lang-select>
       </div>
@@ -20,22 +20,22 @@
     </div>
     <ul class="menu-list">
       <li class="item">
-        <a href="#about" class="link" @click="menu">{{$t('about')}}</a>
+        <a href="#about" class="link" @click="menuLink('#about')">{{$t('about')}}</a>
       </li>
       <li class="item">
-        <a href="#services" class="link" @click="menu">{{$t('services')}}</a>
+        <a href="#services" class="link" @click="menuLink('#services')">{{$t('services')}}</a>
       </li>
       <li class="item">
-        <a href="#cases" class="link" @click="menu">{{$t('our-work')}}</a>
+        <a href="#cases" class="link" @click="menuLink('#cases')">{{$t('our-work')}}</a>
       </li>
       <li class="item">
-        <a href="#price" class="link" @click="menu">{{$t('cost-calculation')}}</a>
+        <a href="#price" class="link" @click="menuLink('#price')">{{$t('cost-calculation')}}</a>
       </li>
       <li class="item">
-        <a href="#contacts" class="link" @click="menu">{{$t('contacts')}}</a>
+        <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('contacts')}}</a>
       </li>
       <li class="item item--submit">
-        <a href="#price" class="link" @click="menu">{{$t('submit-application')}}</a>
+        <a href="#price" class="link" @click="menuLink('#price')">{{$t('submit-application')}}</a>
       </li>
     </ul>
   </header>
@@ -62,6 +62,12 @@
       newLocale(val) {
         this.selected = val
       },
+      menuLink(anchor) {
+        this.$emit('menu')
+        if(this.$route.path === '/404') {
+          this.$router.push({path: '/' + anchor})
+        }
+      },
       menu() {
         this.$emit('menu')
       },
@@ -70,12 +76,6 @@
           this.$emit('menu')
         }
       },
-      menuBurger() {
-        this.openMenu = !this.openMenu
-      },
-      moveSlide() {
-        this.fullpage_api.moveTo('services', 1)
-      }
     },
     computed: {
       openMenu () {
@@ -242,7 +242,7 @@
     margin-right: auto;
   }
   .agency {
-    margin-right: 40px;
+    margin-right: 60px;
     font-size: 1.7rem;
     font-weight: 300;
     .md-block({ display: none; });
