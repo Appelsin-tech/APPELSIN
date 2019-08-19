@@ -1,6 +1,9 @@
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.html
+RewriteCond %{HTTP_HOST} ^/$
+RewriteRule ^(.*)$ index.html
+
+ErrorDocument 404 /index.html
 
 <FilesMatch ".(gif|jpg|jpeg|png|pdf)$">
   Header set Cache-Control "max-age=604800"
