@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper :options="swiperOption" ref="mySwiperCases">
+        <swiper v-if="fullPageReady" :options="swiperOption" ref="mySwiperCases">
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3">
@@ -225,6 +225,11 @@
 
   export default {
     name: 'cases-block',
+    props: {
+      fullPageReady: {
+        type: Boolean
+      }
+    },
     components: {
       swiper,
       swiperSlide,
@@ -593,8 +598,8 @@
           .lg-block({ right: -100px;
             max-height: 335px;; });
           .md-block({ right: auto; left: 35vw; });
-          .sm-block({ top: 300px;  left: 50%; transform: translateX(-50%); max-height: 250px;});
-          .xs-block({ top: 310px; max-height: 200px;});
+          .sm-block({ top: 280px;  left: 50%; transform: translateX(-50%); max-height: 250px;});
+          .xs-block({ top: 280px; max-height: 150px;});
         }
       }
     }
@@ -616,7 +621,9 @@
         }
       }
       .col {
+        position: relative;
         width: 50%;
+        z-index: 2;
         .sm-block({ width: 100%; });
         &--desc {
           display: flex;

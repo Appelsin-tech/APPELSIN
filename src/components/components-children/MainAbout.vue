@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper :options="swiperOption" ref="mySwiper">
+        <swiper v-if="fullPageReady" :options="swiperOption" ref="mySwiperTo">
           <swiper-slide>
             <div class="slide-wrapper main-slide">
               <div class="svg-wrapper">
@@ -150,6 +150,11 @@
 
   export default {
     name: 'about-block',
+    props: {
+      fullPageReady: {
+        type: Boolean
+      }
+    },
     components: {
       swiper,
       swiperSlide,
@@ -190,6 +195,9 @@
     computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
+      },
+      swipe() {
+        return this.$refs.mySwiperTo.swiper
       }
     },
   }

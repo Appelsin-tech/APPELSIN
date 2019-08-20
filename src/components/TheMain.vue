@@ -28,9 +28,9 @@
     <main>
       <full-page ref="fullpage" :options="options" id="fullpage">
         <main-hero/>
-        <main-cases/>
-        <main-services/>
-        <main-about/>
+        <main-cases :fullPageReady="fullPageReady"/>
+        <main-services :fullPageReady="fullPageReady"/>
+        <main-about :fullPageReady="fullPageReady"/>
         <main-price/>
         <main-contacts/>
       </full-page>
@@ -60,7 +60,7 @@
     },
     data() {
       return {
-
+        fullPageReady: false,
         options: {
           licenseKey: '',
           verticalCentered: true,
@@ -71,6 +71,9 @@
           responsiveHeight: 750,
           responsiveWidth: 750,
           onLeave: this.getActiveSlideCustom,
+          afterRender: ()=> {
+            this.fullPageReady = true
+          },
           // autoScrolling:false,
           // scrollOverflow:true,
           sectionSelector: '.fullpage-section',

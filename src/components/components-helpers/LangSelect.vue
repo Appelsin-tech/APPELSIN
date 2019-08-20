@@ -58,7 +58,10 @@
       }
     },
     created () {
-      document.addEventListener('click', this.documentClick)
+      window.addEventListener('click', this.documentClick)
+    },
+    destroyed() {
+      window.removeEventListener("click", this.documentClick);
     },
   }
 </script>

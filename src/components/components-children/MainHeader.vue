@@ -1,7 +1,7 @@
 <template>
   <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]">
     <div class="container">
-      <a class="logo-wrapper" href="#main" @click="hideMenu">
+      <a class="logo-wrapper" href="#main" @click.prevent="hideMenu('#main')">
         <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>
@@ -11,7 +11,7 @@
       </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <!--<a class="submit default" href="#price">Оставить заявку</a>-->
-      <a class="submit menu" href="#price" @click="hideMenu">{{$t('submit-application')}}</a>
+      <a class="submit menu" href="#price" @click="hideMenu('#price')">{{$t('submit-application')}}</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -71,9 +71,12 @@
       menu() {
         this.$emit('menu')
       },
-      hideMenu () {
+      hideMenu (anchor) {
         if (this.openMenu) {
           this.$emit('menu')
+        }
+        if(this.$route.path === '/404') {
+          this.$router.push({path: '/' + anchor})
         }
       },
     },

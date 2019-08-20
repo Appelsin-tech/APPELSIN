@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper :options="swiperOptions" ref="mySwiperServices">
+        <swiper v-if="fullPageReady" :options="swiperOptions" ref="mySwiperServices">
           <swiper-slide>
             <div class="wrapper wrapper-1">
               <div class="grow"></div>
@@ -39,7 +39,7 @@
               <div class="grow"></div>
               <div class="services-item">
                 <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('web-dev')}}WEB - разработка</h3>
+                  <h3 class="caption-services">{{$t('web-dev')}}</h3>
                   <p class="desc">{{$t('web-dev-desc')}}</p>
                 </div>
                 <a class="circle-btn" href="#price">
@@ -116,6 +116,11 @@
 
   export default {
     name: 'services-block',
+    props: {
+      fullPageReady: {
+        type: Boolean
+      }
+    },
     components: {
       swiper,
       swiperSlide,
@@ -146,7 +151,7 @@
     },
     computed: {
       swiper() {
-        return this.$refs.mySwiperServices.swiper
+          return this.$refs.mySwiperServices.swiper
       }
     }
   }

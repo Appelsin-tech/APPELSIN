@@ -36,7 +36,12 @@
     },
     methods: {
       classAnchor (e) {
-        this.classSection = e
+        if(this.$route.path === '/404') {
+          this.classSection = '#main'
+        } else {
+          this.classSection = e
+        }
+
       },
       activeMenu() {
         this.showMenu = !this.showMenu
