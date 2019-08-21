@@ -260,7 +260,7 @@
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease-in-out;
-    .sm-block({ background: #000; height: 50px;})
+    .sm-block({ background: rgba(0,0,0,0.8); height: 50px;})
   }
   .logo-wrapper {
     display: flex;
