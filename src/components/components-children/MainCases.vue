@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-if="fullPageReady" :options="swiperOption" ref="mySwiperCases">
+        <swiper v-if="fullPageReady || resize" :options="swiperOption" ref="mySwiperCases" v-on:resize="resizeSwiper">
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3">
@@ -236,6 +236,7 @@
     },
     data() {
       return {
+        resize: true,
         swiperOption: {
           slidesPerView: 1,
           lazy: true,
@@ -354,6 +355,12 @@
       deleteFile() {
         this.form.file = '';
         document.getElementById('file_contacts').value = ''
+      },
+      resizeSwiper() {
+        this.resize = false
+        setTimeout(()=>{
+          this.resize = true
+        },100)
       }
     },
     computed: {

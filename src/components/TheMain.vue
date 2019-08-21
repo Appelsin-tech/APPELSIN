@@ -73,6 +73,9 @@
           onLeave: this.getActiveSlideCustom,
           afterRender: ()=> {
             this.fullPageReady = true
+            setTimeout(()=>{
+              this.fullPageReady = false
+            }, 100)
           },
           // autoScrolling:false,
           // scrollOverflow:true,

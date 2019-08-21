@@ -18,7 +18,8 @@
             </button>
           </div>
         </div>
-        <swiper v-if="fullPageReady" :options="swiperOptions" ref="mySwiperServices">
+        <swiper v-if="fullPageReady || resize" :options="swiperOptions" ref="mySwiperServices"
+                v-on:resize="resizeSwiper">
           <swiper-slide>
             <div class="wrapper wrapper-1">
               <div class="grow"></div>
@@ -127,6 +128,7 @@
     },
     data() {
       return {
+        resize: true,
         swiperOptions: {
           slidesPerView: 3,
           speed: 300,
@@ -149,9 +151,17 @@
         }
       }
     },
+    methods: {
+      resizeSwiper() {
+        this.resize = false
+        setTimeout(() => {
+          this.resize = true
+        }, 100)
+      }
+    },
     computed: {
       swiper() {
-          return this.$refs.mySwiperServices.swiper
+        return this.$refs.mySwiperServices.swiper
       }
     }
   }
@@ -170,18 +180,18 @@
 
       box-sizing: border-box;
       .caption-wrapper {
-        .md-max-height({ margin-bottom: 30px;});
-        .md-block({ margin-bottom: 30px;});
+        .md-max-height({ margin-bottom: 30px; });
+        .md-block({ margin-bottom: 30px; });
       }
     }
   }
   .swiper-container {
     padding: 30px 0;
     margin-bottom: -30px;
-    .md-max-height({height: auto;});
-    .md-max-height({padding: 0; margin-bottom: 0;});
-    .sm-max-height({padding: 0;});
-    .md-block({ padding: 0; margin-bottom: 0;});
+    .md-max-height({ height: auto; });
+    .md-max-height({ padding: 0; margin-bottom: 0; });
+    .sm-max-height({ padding: 0; });
+    .md-block({ padding: 0; margin-bottom: 0; });
   }
   .swiper-slide {
     display: flex;
@@ -198,7 +208,7 @@
       flex-grow: 1;
       flex-direction: column;
       align-items: flex-start;
-      .s-max-height({ padding: 25px 50px;});
+      .s-max-height({ padding: 25px 50px; });
       .sm-block({ padding: 30px; });
       .xs-block({ padding: 25px; });
       &:hover {
@@ -207,14 +217,8 @@
           bottom: -30px;
           left: -30px;
           right: -30px;
-          .lg-block({top: -20px;
-            bottom: -20px;
-            left: -20px;
-            right: -20px;});
-          .sm-block({top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;});
+          .lg-block({ top: -20px; bottom: -20px; left: -20px; right: -20px; });
+          .sm-block({ top: 0; bottom: 0; left: 0; right: 0; });
         }
         .circle-btn {
           svg {
@@ -239,11 +243,11 @@
         left: 0;
         right: 0;
         transition: 0.3s;
-        background-position:  center;
+        background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         z-index: 1;
-        .md-block({ background-position: top center;})
+        .md-block({ background-position: top center; })
       }
       &-1 {
         &::after {
@@ -290,7 +294,7 @@
             font-size: 3rem;
             letter-spacing: 0.8rem;
             text-transform: uppercase;
-            .sm-max-height({font-size: 2.4rem; letter-spacing: 0.6rem;});
+            .sm-max-height({ font-size: 2.4rem; letter-spacing: 0.6rem; });
           }
           .desc {
             margin-top: 20px;
@@ -300,8 +304,8 @@
             opacity: 0;
             height: 0px;
             transition: 0.3s;
-            .sm-max-height({font-size: 1.4rem; letter-spacing: 0.1rem; margin-top: 15px;});
-            .sm-block({margin-top: 15px; opacity: 1; height: 50px; });
+            .sm-max-height({ font-size: 1.4rem; letter-spacing: 0.1rem; margin-top: 15px; });
+            .sm-block({ margin-top: 15px; opacity: 1; height: 50px; });
           }
         }
         .circle-btn {
@@ -312,8 +316,8 @@
           align-items: center;
           border: 1px solid #fff;
           border-radius: 50%;
-          .md-max-height({ display: none;});
-          .sm-block({display: none; });
+          .md-max-height({ display: none; });
+          .sm-block({ display: none; });
           svg {
             width: 25px;
             height: 20px;
@@ -324,7 +328,6 @@
       }
     }
   }
-
 
 
 </style>

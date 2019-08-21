@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-if="fullPageReady" :options="swiperOption" ref="mySwiperTo">
+        <swiper v-if="fullPageReady || resize" :options="swiperOption" ref="mySwiperMain" v-on:resize="resizeSwiper">
           <swiper-slide>
             <div class="slide-wrapper main-slide">
               <div class="svg-wrapper">
@@ -161,6 +161,7 @@
     },
     data() {
       return {
+        resize: true,
         swiperOption: {
           slidesPerView: 1,
           speed: 300,
@@ -169,7 +170,6 @@
             prevEl: '#about-next',
           },
           breakpoints: {
-            // when window width is <= 320px
           }
         },
         swiperOption_2: {
@@ -193,13 +193,21 @@
       }
     },
     computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      },
       swipe() {
-        return this.$refs.mySwiperTo.swiper
+        return this.$refs.mySwiperMain.swiper
+      },
+      swipeR() {
+        return this.$refs.mySwiper.swiper
       }
     },
+    methods:{
+      resizeSwiper() {
+        this.resize = false
+        setTimeout(()=>{
+          this.resize = true
+        },100)
+      }
+    }
   }
 </script>
 
