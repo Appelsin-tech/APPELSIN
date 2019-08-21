@@ -1,5 +1,5 @@
 <template>
-  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}]">
+  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}, { 'hidden-scroll': !showNavbar }, { 'no-scroll': noScroll }]">
     <div class="container">
       <a class="logo-wrapper" href="#main" @click.prevent="hideMenu('#main')">
         <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
@@ -7,7 +7,7 @@
       </a>
       <span class="agency">Digital agency</span>
       <div class="lang-wrapper">
-        <lang-select :options="languageSelect" :selected="selected" v-on:updateOption="newLocale"></lang-select>
+        <lang-select :options="languageSelect" :activeMenu="showMenu" :selected="selected" v-on:updateOption="newLocale"></lang-select>
       </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <!--<a class="submit default" href="#price">Оставить заявку</a>-->
@@ -49,6 +49,11 @@
     components: {LangSelect},
     data() {
       return {
+        offset: 50,
+        showNavbar: true,
+        noScroll: true,
+        lastScrollPosition: 0,
+        scrollValue: 0,
         fixedMenu: false,
         languageSelect: [
           {label: 'Ru', value: 'ru-RU'},
@@ -79,6 +84,19 @@
           this.$router.push({path: '/' + anchor})
         }
       },
+      onScroll () {
+        let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+        if (currentScrollPosition <= 0) {
+          this.noScroll = true
+          return
+        }
+        if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+          return
+        }
+        this.noScroll = false
+        this.showNavbar = currentScrollPosition < this.lastScrollPosition
+        this.lastScrollPosition = currentScrollPosition
+      }
     },
     computed: {
       openMenu () {
@@ -103,7 +121,15 @@
       } else if (langLocal === 'en') {
         this.selected = {label: 'En', value: 'en'}
       }
-    }
+    },
+    mounted () {
+      this.lastScrollPosition = window.pageYOffset
+      window.addEventListener('scroll', this.onScroll)
+    },
+
+    beforeDestroy () {
+      window.removeEventListener('scroll', this.onScroll)
+    },
   }
 </script>
 
@@ -115,17 +141,22 @@
     top: 0;
     left: 0;
     right: 0;
+    height: 70px;
+    bottom: auto;
     z-index: 999;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
     .md-max-height({ padding-top: 15px; });
     .xs-max-height({ padding-top: 10px; });
-    .md-block({ position: absolute; padding-top: 15px; });
-    .sm-block({ padding-top: 10px; });
+    .md-block({ position: absolute; padding-top: 15px; height: 50px;});
+    .sm-block({ padding-top: 0; position: fixed;  height: 50px;});
     &::after {
       content: '';
       display: block;
       position: fixed;
       left: 0;
       top: 0;
+      bottom: 0;
       width: 100%;
       height: 100%;
       background: #fff;
@@ -135,12 +166,23 @@
       transition: all 0.3s ease-in-out;
       z-index: 1;
     }
+    &.no-scroll {
+      .container {
+        background: transparent;
+      }
+    }
+    &.hidden-scroll {
+      .sm-block({transform: translateY(-100%);});
+    }
     &.active {
       position: fixed;
-      bottom: 0;
+      height: 100%;
       &::after {
         transform: scale(1);
         opacity: 1;
+      }
+      .container {
+        background: transparent;
       }
       .svg-logo {
         path {
@@ -217,6 +259,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+    .sm-block({ background: #000; height: 50px;})
   }
   .logo-wrapper {
     display: flex;

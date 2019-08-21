@@ -1,5 +1,5 @@
 <template>
-  <div class="lang" ref="dropdownMenu" >
+  <div class="lang" ref="dropdownMenu" :class="{'lang--active-main-menu': activeMenu}">
     <p @click="toggleMenu()" class="lang__selected label" :class="{open: showMenu}">
       <span class="label__text">{{ selectedOption.label }}</span>
       <span class="label__icon"></span>
@@ -32,6 +32,7 @@
       }
     },
     props: {
+      activeMenu: {},
       options: {
         type: [Array, Object]
       },
@@ -73,6 +74,17 @@
     font-size: 1.7rem;
     text-transform: uppercase;
     font-weight: 300;
+    &.lang--active-main-menu {
+      color: #000;
+      .label__icon {
+        border-top-color: #000;
+      }
+      .dropdown {
+        &__label:hover {
+          border-bottom-color: #000;
+        }
+      }
+    }
     .label {
       display: flex;
       align-items: center;
