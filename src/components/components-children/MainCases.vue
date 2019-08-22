@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-if="fullPageReady || resize" :options="swiperOption" ref="mySwiperCases" v-on:resize="resizeSwiper">
+        <swiper v-show="fullPageReady || resize" :options="swiperOption" ref="mySwiperCases">
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3">
@@ -228,7 +228,10 @@
     props: {
       fullPageReady: {
         type: Boolean
-      }
+      },
+      resize: {
+        type: Boolean
+      },
     },
     components: {
       swiper,
@@ -236,7 +239,7 @@
     },
     data() {
       return {
-        resize: true,
+        windowWidth: window.innerWidth,
         swiperOption: {
           slidesPerView: 1,
           lazy: true,
@@ -357,10 +360,7 @@
         document.getElementById('file_contacts').value = ''
       },
       resizeSwiper() {
-        this.resize = false
-        setTimeout(()=>{
-          this.resize = true
-        },100)
+        this.windowWidth = window.innerWidth
       }
     },
     computed: {

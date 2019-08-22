@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-if="fullPageReady || resize" :options="swiperOption" ref="mySwiperMain" v-on:resize="resizeSwiper">
+        <swiper v-show="fullPageReady || resize" :options="swiperOption" ref="mySwiperMain">
           <swiper-slide>
             <div class="slide-wrapper main-slide">
               <div class="svg-wrapper">
@@ -153,7 +153,10 @@
     props: {
       fullPageReady: {
         type: Boolean
-      }
+      },
+      resize: {
+        type: Boolean
+      },
     },
     components: {
       swiper,
@@ -161,7 +164,6 @@
     },
     data() {
       return {
-        resize: true,
         swiperOption: {
           slidesPerView: 1,
           speed: 300,
@@ -200,14 +202,6 @@
         return this.$refs.mySwiper.swiper
       }
     },
-    methods:{
-      resizeSwiper() {
-        this.resize = false
-        setTimeout(()=>{
-          this.resize = true
-        },100)
-      }
-    }
   }
 </script>
 

@@ -28,9 +28,9 @@
     <main>
       <full-page ref="fullpage" :options="options" id="fullpage">
         <main-hero/>
-        <main-cases :fullPageReady="fullPageReady"/>
-        <main-services :fullPageReady="fullPageReady"/>
-        <main-about :fullPageReady="fullPageReady"/>
+        <main-cases :fullPageReady="fullPageReady" :resize="resize"/>
+        <main-services :fullPageReady="fullPageReady" :resize="resize"/>
+        <main-about :fullPageReady="fullPageReady" :resize="resize"/>
         <main-price/>
         <main-contacts/>
       </full-page>
@@ -60,6 +60,8 @@
     },
     data() {
       return {
+        resize: true,
+        windowWidth: window.innerWidth,
         fullPageReady: false,
         options: {
           licenseKey: '',
@@ -94,7 +96,26 @@
       getActiveSlideCustom(origin, destination) {
         this.$emit('updateOption', destination.anchor);
       },
-    }
+      resizeSwiper() {
+        this.windowWidth = window.innerWidth
+      }
+    },
+    created() {
+      window.addEventListener('resize', this.resizeSwiper)
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.resizeSwiper)
+    },
+    watch: {
+      windowWidth(newVal, oldVal) {
+        if (newVal !== oldVal) {
+          this.resize = false
+          setTimeout(()=>{
+            this.resize = true
+          },200)
+        }
+      }
+    },
   }
 </script>
 
