@@ -76,7 +76,7 @@
         questions: [
           {
             id: 1,
-            stepCaption: 'Выберите необходимые вам продукты',
+            stepCaption: this.$t('questions-1.title'),
             type: 'checkbox',
             variant: [
               {
@@ -367,6 +367,7 @@
         let id = this.steps[this.activeSteps]
         return this.questions.filter((i) => {
           if (i.id === id) {
+            i.stepCaption = this.$t(`questions-${id}.title`)
             return true
           }
         })[0]

@@ -30,11 +30,11 @@
         </div>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >{{$t('order-project')}}</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >{{$t('mail-form.order-project')}}</button>
         <div class="error-tooltip error-tooltip--submit">
           <span>{{$t('mail-form.error.default')}}</span>
         </div>
-        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">{{$t('order-project')}}</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">{{$t('mail-form.order-project')}}</button>
       </div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
@@ -87,8 +87,8 @@
         </div>
         <input type="checkbox" id="checkPerson" v-model="form.checkedPersonalData">
         <label class="label-person" for="checkPerson">
-          <span>Я согласен на обработку </span>
-          <a class="link-person" href="#" @click.prevent="$modal.show('modal-policy')">персональных данных</a>. Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">пользовательского соглашения</a>.
+          <span>{{$t('mail-form.check-personal')}} </span>
+          <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">{{$t('mail-form.check-personal-link')}}</a>. {{$t('mail-form.captcha')}} <a class="link-person" href="https://policies.google.com/privacy" target="_blank">{{$t('mail-form.captcha-policy')}}</a> {{$t('mail-form.captcha-and')}} <a class="link-person" href="https://policies.google.com/terms" target="_blank">{{$t('mail-form.captcha-agreement')}}</a>.
         </label>
       </div>
       <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">

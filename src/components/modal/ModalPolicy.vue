@@ -50,9 +50,9 @@
           <a class="link" href="https://appelsin.tech/#policy" target="_blank">https://appelsin.tech/#policy</a>
         </p>
         <p class="paragraph">
-          This site is protected by reCAPTCHA and the Google
-          <a class="link" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
-          <a class="link" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+          {{$t('mail-form.captcha')}}
+          <a class="link" href="https://policies.google.com/privacy" target="_blank">{{$t('mail-form.captcha-policy')}}</a> {{$t('mail-form.captcha-and')}}
+          <a class="link" href="https://policies.google.com/terms" target="_blank">{{$t('mail-form.captcha-agreement')}}</a> {{$t('mail-form.captcha-apply-eng')}}.
         </p>
       </div>
     </div>

@@ -11,9 +11,9 @@
           </div>
         </div>
         <div class="content-wrapper">
-          <strong class="text text--strong">Страница не найдена</strong>
-          <p class="text text--small">Похоже, нужная Вам страница была удалена/перенесена или никогда не существовала. Попробуйте найти ее в меню или вернитесь на главную страницу</p>
-          <router-link  class="btn" to="/#main"><span>Вернуться на главную</span></router-link>
+          <strong class="text text--strong">{{$t('404.page')}}</strong>
+          <p class="text text--small">{{$t('404.desc')}}</p>
+          <router-link  class="btn" to="/#main"><span>{{$t('404.back')}}</span></router-link>
         </div>
       </div>
     </div>

@@ -195,10 +195,10 @@
                   <div class="error-tooltip error-tooltip--top">
                     <span>{{$t('mail-form.error.checkbox')}}</span>
                   </div>
-                  <input type="checkbox" id="checkPersonContacts" v-model="form.checkedPersonalData">
-                  <label class="label-person" for="checkPersonContacts">
-                    <span>Я согласен на обработку </span>
-                    <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">{{$t('cases')}}персональных данных</a>. {{$t('cases')}}Этот сайт защищен reCAPCHA при соблюдении  <a class="link-person" href="https://policies.google.com/privacy" target="_blank">{{$t('cases')}}политики конфиденциальности</a> Google и <a class="link-person" href="https://policies.google.com/terms" target="_blank">{{$t('cases')}}пользовательского соглашения</a>.
+                  <input type="checkbox" id="checkPersonCases" v-model="form.checkedPersonalData">
+                  <label class="label-person" for="checkPersonCases">
+                    <span>{{$t('mail-form.check-personal')}} </span>
+                    <a class="link-person" href="#"  @click.prevent="$modal.show('modal-policy')">{{$t('mail-form.check-personal-link')}}</a>. {{$t('mail-form.captcha')}} <a class="link-person" href="https://policies.google.com/privacy" target="_blank">{{$t('mail-form.captcha-policy')}}</a> {{$t('mail-form.captcha-and')}} <a class="link-person" href="https://policies.google.com/terms" target="_blank">{{$t('mail-form.captcha-agreement')}}</a>.
                   </label>
                 </div>
                 <div class="btn-wrapper btn-wrapper--mobile" :class="{errorTooltip: error.server}">
