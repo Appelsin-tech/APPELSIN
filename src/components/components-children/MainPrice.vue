@@ -20,8 +20,8 @@
           <div class="steps" v-if="!showResult">
             <div class="steps-num">
               <span class="arrow" @click="preventStepsClick" v-if="this.activeSteps > 0"></span>
-              <span>Шаг </span>
-              <span class="red">{{activeSteps + 1}} из {{steps.length + 1}}</span>
+              <span>{{$t('step')}} </span>
+              <span class="red">{{activeSteps + 1}} {{$t('step-from')}} {{steps.length + 1}}</span>
             </div>
             <div class="steps-content">
               <div class="step">
