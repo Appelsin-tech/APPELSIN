@@ -678,8 +678,10 @@
                 &:hover {
                   background: #fff;
                   cursor: pointer;
+                  .xs-block({ background: transparent;});
                   &::after {
                     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+                    .xs-block({ box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);});
                   }
                 }
                 &.check {
