@@ -24,7 +24,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 998;
     transition: all 0.3s ease-out;
     transition-delay: 0.7s;
     .sm-block({ display: none; padding-bottom: 50px; opacity: 0; transform: translateX(50px);});

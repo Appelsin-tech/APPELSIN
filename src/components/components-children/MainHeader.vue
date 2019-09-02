@@ -143,7 +143,7 @@
     right: 0;
     height: 70px;
     bottom: auto;
-    z-index: 999;
+    z-index: 997;
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
     .md-max-height({ padding-top: 15px; });
