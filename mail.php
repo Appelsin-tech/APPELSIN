@@ -9,7 +9,7 @@ define('SECRET_KEY', '6LeNvrAUAAAAAJ31VONtW31ekIll0IUXGbR70vyR');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__.'../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 function getCaptcha($SecretKey)
 {
