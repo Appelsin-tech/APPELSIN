@@ -1,12 +1,12 @@
 <template>
-  <div class="lang" ref="dropdownMenu" :class="{'lang--active-main-menu': activeMenu}">
-    <p @click="toggleMenu()" class="lang__selected label" :class="{open: showMenu}">
+  <div class="lang" ref="dropdownMenu" :class="[{'lang--active-main-menu': activeMenu}, {open: showMenu}]">
+    <p @click="toggleMenu()" class="lang__selected label">
       <span class="label__text">{{ selectedOption.label }}</span>
       <span class="label__icon"></span>
     </p>
 
     <div>
-      <transition name="fade">
+
         <ul class="lang__dropdown-menu dropdown" v-if="showMenu">
           <li class="dropdown__item" v-for="option in options">
             <span class="dropdown__label" v-if="option.label !== selectedOption.label" @click.prevent="updateOption(option)">
@@ -14,7 +14,7 @@
             </span>
           </li>
         </ul>
-      </transition>
+
     </div>
 
   </div>
@@ -74,12 +74,21 @@
     font-size: 1.7rem;
     text-transform: uppercase;
     font-weight: 300;
+    .xs-block({ padding: 5px 5px;});
+    &.open {
+      .xs-block({background: rgba(0,0,0,0.7);});
+      .dropdown {
+        .xs-block({background: rgba(0,0,0,0.7);});
+      }
+    }
     &.lang--active-main-menu {
       color: #000;
+      .xs-block({background: rgba(0,0,0,0);});
       .label__icon {
         border-top-color: #000;
       }
       .dropdown {
+        .xs-block({background: rgba(0,0,0,0);});
         &__label:hover {
           border-bottom-color: #000;
         }
@@ -111,7 +120,8 @@
       position: absolute;
       left: 0;
       bottom: -25px;
-      .lg-block({ bottom: -20px;});
+      .lg-block({ bottom: -22px;});
+      .xs-block({ padding-top: 5px; padding-left: 5px; padding-bottom: 5px; right: 0; bottom: -27px;})
     }
     .dropdown {
       &__label {

@@ -1,7 +1,7 @@
 <template>
   <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}, { 'hidden-scroll': !showNavbar }, { 'no-scroll': noScroll }]">
     <div class="container">
-      <a class="logo-wrapper" href="#main" @click.prevent="hideMenu('#main')">
+      <a class="logo-wrapper" href="#main" @click="hideMenu('#main')">
         <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
         <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
       </a>

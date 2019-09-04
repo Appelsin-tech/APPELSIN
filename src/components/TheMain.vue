@@ -7,11 +7,11 @@
         <li data-menuanchor="main" class="active">
           <a  class="link-section" href="#main"></a>
         </li>
-        <li data-menuanchor="cases">
-          <a  class="link-section" href="#cases"></a>
-        </li>
         <li data-menuanchor="services">
           <a  class="link-section" href="#services"></a>
+        </li>
+        <li data-menuanchor="cases">
+          <a  class="link-section" href="#cases"></a>
         </li>
         <li data-menuanchor="about">
           <a  class="link-section" href="#about"></a>
@@ -28,8 +28,8 @@
     <main>
       <full-page ref="fullpage" :options="options" id="fullpage">
         <main-hero/>
-        <main-cases :fullPageReady="fullPageReady" :resize="resize"/>
         <main-services :fullPageReady="fullPageReady" :resize="resize"/>
+        <main-cases :fullPageReady="fullPageReady" :resize="resize"/>
         <main-about :fullPageReady="fullPageReady" :resize="resize"/>
         <main-price/>
         <main-contacts/>
@@ -68,7 +68,7 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'cases', 'services', 'about', 'price', 'contacts'],
+          anchors: ['main', 'services', 'cases', 'about', 'price', 'contacts'],
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,

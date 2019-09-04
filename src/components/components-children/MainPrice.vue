@@ -560,6 +560,7 @@
           .md-block({ font-size: 3rem; letter-spacing: 1rem; });
           .sm-block({ font-size: 3rem; letter-spacing: 1rem; });
           .xs-block({ font-size: 2.4rem; letter-spacing: 0.75rem; });
+          .to(360px, { letter-spacing: 0.5rem;});
         }
       }
     }
@@ -642,8 +643,8 @@
             text-transform: uppercase;
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 30px; padding-right: 20px; });
-            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 30px; padding-right: 30px; });
-            .xs-block({ padding-left: 25px; padding-right: 15px;});
+            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 25px; padding-right: 15px; });
+            .to(360px, { font-size: 2rem; letter-spacing: 0.4rem;});
           }
           .variant-wrapper {
             display: flex;
@@ -651,6 +652,7 @@
             justify-content: space-between;
             flex-grow: 1;
             max-height: 305px;
+            .xs-block({ flex-direction: column;});
             .item-wrapper {
               display: grid;
               grid-template-columns: repeat(4, minmax(100px, 1fr));
@@ -733,6 +735,7 @@
               transition: 0.3s;
               box-sizing: border-box;
               .sm-block({ width: 30%;});
+              .xs-block({ width: 100%; align-items: center;});
               &.active {
                 &:active,
                 &:focus,
@@ -740,6 +743,7 @@
                   .btn-next {
                     .img {
                       border: 2px solid #dd4858;
+                      .xs-block({border-width: 1px;});
                       svg {
                         path {
                           fill: #dd4858;
@@ -758,6 +762,7 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
+                .xs-block({ flex-direction: row-reverse; align-items: center; justify-content: center; padding: 15px 0;});
                 .img {
                   margin-bottom: 50px;
                   width: 60px;
@@ -770,9 +775,11 @@
                   border-radius: 50%;
                   transition: 0.3s;
                   .md-block({ width: 45px; height: 45px; });
+                  .xs-block({ margin-bottom: 0; margin-left: 20px; width: 30px; height: 30px; border-width: 1px;});
                   svg {
                     width: 25px;
                     height: 25px;
+                    .xs-block({ width: 18px; height: 18px;});
                     path {
                       fill: @colorBorder;
                       transition: 0.3s;

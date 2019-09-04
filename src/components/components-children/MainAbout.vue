@@ -272,7 +272,7 @@
                   letter-spacing: 1rem;
                   color: #000;
                   .lg-block({ font-size: 2.5rem; letter-spacing: 0.6rem;});
-                  .xs-block({ font-size: 2rem; letter-spacing: 0.3rem;})
+                  .to(360px, { letter-spacing: 0.3rem;});
                 }
               }
               .admin {
