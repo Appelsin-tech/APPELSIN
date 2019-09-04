@@ -41,7 +41,6 @@
         } else {
           this.classSection = e
         }
-
       },
       activeMenu() {
         this.showMenu = !this.showMenu

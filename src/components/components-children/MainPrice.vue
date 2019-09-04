@@ -666,7 +666,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 min-width: 50px;
-                .sm-block({max-height: 25%; height: 76px;});
+                .sm-block({max-height: 25%; flex-basis: 25%;});
                 &::after {
                   position: absolute;
                   content: '';

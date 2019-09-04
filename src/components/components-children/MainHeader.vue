@@ -7,7 +7,7 @@
       </a>
       <span class="agency">Digital agency</span>
       <div class="lang-wrapper">
-        <lang-select :options="languageSelect" :activeMenu="showMenu" :selected="selected" v-on:updateOption="newLocale"></lang-select>
+        <lang-select :options="languageSelect" :classOnScroll="noScroll" :activeMenu="showMenu" :selected="selected" v-on:updateOption="newLocale"></lang-select>
       </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <!--<a class="submit default" href="#price">Оставить заявку</a>-->

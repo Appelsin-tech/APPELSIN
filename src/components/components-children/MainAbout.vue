@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-show="fullPageReady || resize" :options="swiperOption" ref="mySwiperMain">
+        <swiper  :options="swiperOption" ref="mySwiperAbout">
           <swiper-slide>
             <div class="slide-wrapper main-slide">
               <div class="svg-wrapper">
@@ -39,7 +39,7 @@
           </swiper-slide>
           <swiper-slide>
             <div class="swiper-wrapper-child">
-              <swiper :options="swiperOption_2" ref="mySwiper">
+              <swiper :options="swiperOption_2" ref="mySwiperAboutInner" >
                 <swiper-slide>
                   <div class="slide-wrapper skills-slide">
                     <h3 class="skills-desc">{{$t('skills-lang')}}:</h3>
@@ -167,6 +167,7 @@
         swiperOption: {
           slidesPerView: 1,
           speed: 300,
+          threshold: 8,
           navigation: {
             nextEl: '#about-prev',
             prevEl: '#about-next',
@@ -194,12 +195,26 @@
         }
       }
     },
-    computed: {
-      swipe() {
-        return this.$refs.mySwiperMain.swiper
+    watch: {
+      fullPageReady(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperAbout.update()
+          this.mySwiperAboutInner.update()
+        }
       },
-      swipeR() {
-        return this.$refs.mySwiper.swiper
+      resize(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperAbout.update()
+          this.mySwiperAboutInner.update()
+        }
+      }
+    },
+    computed: {
+      mySwiperAbout() {
+        return this.$refs.mySwiperAbout.swiper
+      },
+      mySwiperAboutInner() {
+        return this.$refs.mySwiperAboutInner.swiper
       }
     },
   }
@@ -231,6 +246,7 @@
               margin-right: 30px;
               flex-shrink: 0;
               height: 100%;
+              flex-basis: 350px;
               .md-block({ max-width: 32% });
               .sm-block({ display: none; });
               > svg {

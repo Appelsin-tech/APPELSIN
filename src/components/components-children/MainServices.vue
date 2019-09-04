@@ -18,8 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-show="fullPageReady || resize" :options="swiperOptions" ref="mySwiperServices"
-                >
+        <swiper :options="swiperOptions" ref="mySwiperServices">
           <swiper-slide>
             <div class="wrapper wrapper-1">
               <div class="grow"></div>
@@ -131,7 +130,6 @@
     },
     data() {
       return {
-        windowWidth: window.innerWidth,
         swiperOptions: {
           slidesPerView: 3,
           speed: 300,
@@ -154,13 +152,20 @@
         }
       }
     },
-    methods: {
-      resizeSwiper() {
-        this.windowWidth = window.innerWidth
+    watch: {
+      fullPageReady(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperServices.update()
+        }
+      },
+      resize(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperServices.update()
+        }
       }
     },
     computed: {
-      swiper() {
+      mySwiperServices() {
         return this.$refs.mySwiperServices.swiper
       }
     }

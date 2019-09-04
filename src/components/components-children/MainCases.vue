@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <swiper v-show="fullPageReady || resize" :options="swiperOption" ref="mySwiperCases">
+        <swiper :options="swiperOption" ref="mySwiperCases">
           <swiper-slide>
             <div class="slide-wrapper">
               <div class="col col-3">
@@ -239,7 +239,6 @@
     },
     data() {
       return {
-        windowWidth: window.innerWidth,
         swiperOption: {
           slidesPerView: 1,
           lazy: true,
@@ -359,12 +358,21 @@
         this.form.file = '';
         document.getElementById('file_contacts').value = ''
       },
-      resizeSwiper() {
-        this.windowWidth = window.innerWidth
+    },
+    watch: {
+      fullPageReady(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperCases.update()
+        }
+      },
+      resize(newVal, oldVal) {
+        if(newVal) {
+          this.mySwiperCases.update()
+        }
       }
     },
     computed: {
-      swiper() {
+      mySwiperCases() {
         return this.$refs.mySwiperCases.swiper
       },
       showFileName() {

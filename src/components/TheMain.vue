@@ -112,7 +112,7 @@
           this.resize = false
           setTimeout(()=>{
             this.resize = true
-          },200)
+          },100)
         }
       }
     },
