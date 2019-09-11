@@ -91,8 +91,8 @@
   "questions-5": {
     "title": "What platform do you need the app / game on?",
     "variant": {
-      "ios": "ios",
-      "android": "android"
+      "ios-fix": "ios",
+      "android-fix": "android"
     }
   },
   "questions-6": {

@@ -547,6 +547,8 @@
   .s-price {
     background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 1) 0%, rgba(0, 0, 0, 0) 60%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 1) 5%, rgba(0, 0, 0, 0) 40%) #d94950;
+    .xs-block({background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 0.8) 0%, rgba(0, 0, 0, 0) 80%),
+    radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 0.8) 5%, rgba(0, 0, 0, 0) 40%) #d94950;});
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -567,6 +569,7 @@
     .steps-wrapper {
       flex-basis: 100%;
       max-height: 560px;
+      .xs-block({max-height: 445px;});
       .steps {
         display: flex;
         padding-top: 45px;
@@ -643,7 +646,7 @@
             text-transform: uppercase;
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 30px; padding-right: 20px; });
-            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 15px; padding-left: 25px; padding-right: 15px; });
+            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 0; padding-left: 25px; padding-right: 15px; height: 65px;});
             .to(360px, { font-size: 2rem; letter-spacing: 0.4rem;});
           }
           .variant-wrapper {
@@ -652,7 +655,7 @@
             justify-content: space-between;
             flex-grow: 1;
             max-height: 305px;
-            .xs-block({ flex-direction: column;});
+            .xs-block({ flex-direction: column; margin-top: 0; max-height: 325px;});
             .item-wrapper {
               display: grid;
               grid-template-columns: repeat(4, minmax(100px, 1fr));
@@ -660,6 +663,7 @@
               flex-grow: 1;
               .md-block({ grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr); height: 100%; });
               .sm-block({ display: flex; flex-direction: column; grid-template-columns: auto; height: 100%;});
+              .xs-block({ margin-top: 8px; margin-bottom: 10px;});
               .item {
                 position: relative;
                 display: flex;
@@ -704,7 +708,7 @@
                   align-items: flex-start;
                   .md-block({ padding-top: 25px; padding-left: 40px; padding-right: 25px;});
                   .sm-block({ padding-left: 20px; padding-top: 0; flex-direction: row; align-items: center; });
-                  .xs-block({ padding: 0 15px;});
+                  .xs-block({ padding: 0 15px 0 25px;});
                   .img {
                     margin-bottom: 25px;
                     width: 85px;
