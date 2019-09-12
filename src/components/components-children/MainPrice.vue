@@ -670,7 +670,7 @@
                 flex-direction: column;
                 flex-grow: 1;
                 min-width: 50px;
-                .sm-block({max-height: 25%; flex-basis: 25%;});
+                .sm-block({max-height: 25%; min-height: 1px});
                 &::after {
                   position: absolute;
                   content: '';
@@ -707,7 +707,7 @@
                   flex-direction: column;
                   align-items: flex-start;
                   .md-block({ padding-top: 25px; padding-left: 40px; padding-right: 25px;});
-                  .sm-block({ padding-left: 20px; padding-top: 0; flex-direction: row; align-items: center; });
+                  .sm-block({ padding-left: 30px; padding-top: 0; flex-direction: row; align-items: center; });
                   .xs-block({ padding: 0 15px 0 25px;});
                   .img {
                     margin-bottom: 25px;
