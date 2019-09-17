@@ -125,14 +125,14 @@
               {
                 name: 'Криптовалюты',
                 img: 'item-2-1.png',
-                addQuestion: 8,
                 val: 'crypto',
+                price: 500000,
                 idQuestions: 2
               },
               {
                 name: 'Дизайн без разработки',
                 img: 'item-2-2.png',
-                addQuestion: 9,
+                addQuestion: 8,
                 val: 'design',
                 idQuestions: 2
               },
@@ -291,60 +291,32 @@
             type: 'checkbox',
             variant: [
               {
-                name: 'Криптовалюта на базе сторонней разработки / форк',
-                img: 'item-7-0.png',
-                val: 'crypto-fork',
-                price: 400000,
-                idQuestions: 8
-              },
-              {
-                name: 'Свой блокчейн',
-                img: 'item-7-1.png',
-                val: 'blockchain',
-                price: 3000000,
-                idQuestions: 8
-              },
-              {
-                name: 'ICO',
-                img: 'item-7-2.png',
-                val: 'ico',
-                price: 500000,
-                idQuestions: 8
-              },
-            ]
-          },
-          {
-            id: 9,
-            stepCaption: this.$t('questions-9.title'),
-            type: 'checkbox',
-            variant: [
-              {
                 name: 'Дизайн сайта',
                 img: 'item-8-0.png',
                 val: 'design-site',
                 price: 15000,
-                idQuestions: 9
+                idQuestions: 8
               },
               {
                 name: 'Дизайн презентации / документа',
                 img: 'item-8-1.png',
                 val: 'design-presentation',
                 price: 10000,
-                idQuestions: 9
+                idQuestions: 8
               },
               {
                 name: 'Дизайн приложения',
                 img: 'item-8-2.png',
                 val: 'design-app',
                 price: 20000,
-                idQuestions: 9
+                idQuestions: 8
               },
               {
                 name: 'Другое',
                 img: 'item-8-3.png',
                 val: 'other-2',
                 price: 10000,
-                idQuestions: 9
+                idQuestions: 8
               },
             ]
           },

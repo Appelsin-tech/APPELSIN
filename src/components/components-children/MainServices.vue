@@ -63,20 +63,6 @@
             </div>
           </swiper-slide>
           <swiper-slide>
-            <div class="wrapper wrapper-4">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('cryptocurrencies-and-blockchain')}}</h3>
-                  <p class="desc">{{$t('cryptocurrencies-and-blockchain-desc')}}</p>
-                </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
             <div class="wrapper wrapper-5">
               <div class="grow"></div>
               <div class="services-item">

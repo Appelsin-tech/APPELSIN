@@ -31,9 +31,6 @@
             <p class="item-link">{{$t('mobile-game-and-app')}}</p>
           </li>
           <li class="item">
-            <p class="item-link">{{$t('cryptocurrencies')}}</p>
-          </li>
-          <li class="item">
             <p class="item-link">{{$t('advertising-and-promotion')}}</p>
           </li>
           <li class="item">

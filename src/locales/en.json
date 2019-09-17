@@ -14,20 +14,17 @@
   "web-dev-desc": "From landing to a highly loaded site of any complexity",
   "mobile-game-and-app": "Mobile games and applications",
   "mobile-game-and-app-desc": "Cross-platform and native business solutions, 2D and 3D games, AR / VR",
-  "cryptocurrencies": "Cryptocurrencies",
-  "cryptocurrencies-and-blockchain": "Blockchain and cryptocurrencies",
-  "cryptocurrencies-and-blockchain-desc": "Work with blockchain, cryptocurrencies and wallets, legal support",
   "advertising-and-promotion": "Advertising and promotion",
   "advertising-and-promotion-desc": "SEO and contextual and social networks advertising, conducting and auditing, remarketing, analytics",
   "design-and-branding": "Design and branding",
   "design-and-branding-desc": "Graphic design for sites, applications, presentations. UI design. Branding",
   "cases": "Cases",
-  "dazz-desc": "A website with a personal account and online wallet, an affiliate program was developed. The DAZZ cryptocurrency based on Quark technology with masternodes was developed. Full platform development and maintenance",
-  "cgen-desc": "The CGEN cryptocurrency was developed based on Quark technology, the coin was listed on exchanges. SWAP coins were held. A website was developed with a personal account and online wallet. Full platform development and maintenance",
+  "dazz-desc": "A website with a personal account and online wallet, an affiliate program was developed. The DAZZ coin based on Quark technology with masternodes was developed. Full platform development and maintenance",
+  "cgen-desc": "The CGEN coin was developed based on Quark technology, the coin was listed on exchanges. SWAP coins were held. A website was developed with a personal account and online wallet. Full platform development and maintenance",
   "api-solutions": "API solutions for projects",
   "api-solutions-desc": "APIs were developed for the Federal Service of Bailiffs, the unified federal registry of bankruptcy information, file cabinets of arbitration cases of the Russian Federation",
-  "crowdsale-desc": "This is a crowdfunding platform for raising funds and searching for specialists based on blockchain technologies. The cryptocurrency CSNP based on the ERC20 technology was developed. Listing coins on exchanges. Full development and maintenance of the platform",
-  "whiz-biz-desc": "This is a foundation for the support and development of contemporary art based on blockchain technologies. Website development",
+  "crowdsale-desc": "This is a crowdfunding platform for raising funds and searching for specialists. The own coin CSNP was developed. Listing coins on exchanges. Full development and maintenance of the platform",
+  "whiz-biz-desc": "This is a foundation for the support and development of contemporary art. Website development",
   "fly-game": "Flying games for children",
   "fly-game-desc": "Mobile 2D game developed for iOS. Puzzle for children, offline. Published in the AppStore. Full development",
   "fury-ride-desc": "Mobile 3D game developed for iOS. Motorcycle races, battles, realistic physics, more than 10km of unique tracks, smart opponents - bots. Offline Published in the AppStore. Full development",
@@ -65,7 +62,7 @@
     "title": "Choose the products you need",
     "variant": {
       "brand": "Branding",
-      "crypto": "Cryptocurrencies",
+      "crypto": "Banking",
       "design": "Design without development",
       "other-1": "Nothing out of this"
     }
@@ -111,14 +108,6 @@
     }
   },
   "questions-8": {
-    "title": "What services in the cryptosphere are you interested in?",
-    "variant": {
-      "crypto-fork": "Third-party cryptocurrency / fork",
-      "blockchain": "Own blockchain",
-      "ico": "ico"
-    }
-  },
-  "questions-9": {
     "title": "Choose a product to design",
     "variant": {
       "design-site": "Website design",
