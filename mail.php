@@ -4,7 +4,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-define('SECRET_KEY', '6Let_LkUAAAAAOlo0jT2SYD7BheoEGfW-hyhyBRI');
+define('SECRET_KEY', '6LeNvrAUAAAAAJ31VONtW31ekIll0IUXGbR70vyR');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

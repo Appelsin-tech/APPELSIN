@@ -10,7 +10,7 @@ import i18n from './i18n'
 
 // For more options see below
 Vue.use(VueReCaptcha, {
-  siteKey: '6Let_LkUAAAAAKLC9bqNGPiUs_ZQxhklNW_Hxlvm',
+  siteKey: '6LeNvrAUAAAAAAqBxJnWqsd2DdvNeKgZLIQ9tUwa',
   loaderOptions: {
     useRecaptchaNet: true
   }
