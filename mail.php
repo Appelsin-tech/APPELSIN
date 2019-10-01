@@ -4,7 +4,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-define('SECRET_KEY', '6LeNvrAUAAAAAJ31VONtW31ekIll0IUXGbR70vyR');
+define('SECRET_KEY', '6Let_LkUAAAAAOlo0jT2SYD7BheoEGfW-hyhyBRI');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -29,20 +29,20 @@ if ($return->success == true && $return->score > 0.2) {
         $mail->isHTML(true);
         $mail->SMTPAuth = true;
 
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Username = 'mrpelkin@gmail.com'; // имя пользователя google
-        $mail->Password = 'MIRKINO16'; // пароль на google
-//        $mail->Host = 'smtp.yandex.com';
-//        $mail->Username = 'info@appelsin.tech'; // имя пользователя google
-//        $mail->Password = 'HJd2S54Aks3dfd'; // пароль на google
+//        $mail->Host = 'smtp.gmail.com';
+//        $mail->Username = 'mrpelkin@gmail.com'; // имя пользователя google
+//        $mail->Password = 'MIRKINO16'; // пароль на google
+        $mail->Host = 'smtp.yandex.com';
+        $mail->Username = 'info@appelsin.tech'; // имя пользователя google
+        $mail->Password = 'HJd2S54Aks3dfd'; // пароль на google
 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('mrpelkin@gmail.com', 'Отправитель');
-        $mail->addAddress('mrpelkin@gmail.com', 'Получатель');
-//        $mail->setFrom('info@appelsin.tech', 'Отправитель');
-//        $mail->addAddress('info@appelsin.tech', 'Получатель');
+//        $mail->setFrom('mrpelkin@gmail.com', 'Отправитель');
+//        $mail->addAddress('mrpelkin@gmail.com', 'Получатель');
+        $mail->setFrom('info@appelsin.tech', 'Отправитель');
+        $mail->addAddress('info@appelsin.tech', 'Получатель');
 
         if ($_POST['nameForm'] == "briefing") {
             $questionsBrief = json_decode($_POST['questions']);
