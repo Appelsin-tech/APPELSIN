@@ -57,7 +57,7 @@
         fixedMenu: false,
         languageSelect: [
           {label: 'Ru', value: 'ru-RU'},
-          {label: 'En', value: 'en'},
+          {label: 'En', value: 'en-US'},
         ],
         search: false,
         selected: '',
@@ -108,9 +108,9 @@
         if (newSelected.value === 'ru-RU') {
           this.$i18n.locale = 'ru-RU'
           localStorage.setItem('lang', 'ru-RU')
-        } else if (newSelected.value === 'en') {
-          this.$i18n.locale = 'en'
-          localStorage.setItem('lang', 'en')
+        } else if (newSelected.value === 'en-US') {
+          this.$i18n.locale = 'en-US'
+          localStorage.setItem('lang', 'en-US')
         }
       }
     },
@@ -118,8 +118,8 @@
       let langLocal = localStorage.getItem('lang')
       if (langLocal === 'ru-RU') {
         this.selected = {label: 'Ru', value: 'ru-RU'}
-      } else if (langLocal === 'en') {
-        this.selected = {label: 'En', value: 'en'}
+      } else if (langLocal === 'en-US') {
+        this.selected = {label: 'En', value: 'en-US'}
       }
     },
     mounted () {

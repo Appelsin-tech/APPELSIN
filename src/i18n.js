@@ -17,7 +17,7 @@ function loadLocaleMessages () {
 }
 
 function userLang() {
-  let lang = 'en'
+  let lang = 'en-US'
   let browserLang = ''
   if (localStorage.lang) {
     lang = localStorage.lang;
@@ -31,6 +31,6 @@ function userLang() {
 
 export default new VueI18n({
   locale: userLang(),
-  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en-US',
   messages: loadLocaleMessages()
 })

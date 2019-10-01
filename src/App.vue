@@ -66,7 +66,6 @@
     },
     mounted() {
       this.$nextTick(()=> {
-        alert(this.$i18n.locale)
         if (window.location.href === 'https://appelsin.tech/#policy') {
           this.$modal.show('modal-policy')
         }
