@@ -1,5 +1,6 @@
 {
   "submit-application": "Оставить заявку",
+  "submit-success": "Заявка отправлена",
   "about": "О нас",
   "services": "Услуги",
   "our-work": "Наши работы",
@@ -170,8 +171,6 @@
     "target-audience-questions-1-example": "Москва; Казахстан; Весь Мир",
     "target-audience-questions-2": "Сфера деятельности компании",
     "target-audience-questions-2-example": "недвижимость",
-    "target-audience-questions-3": "Какие преимущества у вашего проекта",
-    "target-audience-questions-3-example": "ниже стоимость, наличие доставки, тех поддержки",
     "target-audience-questions-4": "Аватар клиентов",
     "target-audience-questions-4-example": "возраст, пол, доход, интересы и тд",
     "project": "Реализуемый проект",

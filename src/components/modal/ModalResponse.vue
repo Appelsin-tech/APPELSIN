@@ -119,17 +119,10 @@
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
-              <label class="g-item-form__label" for="project-8">{{$t('brief.target-audience-questions-3')}}? <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.target-audience-questions-3-example')}})</span></label>
-              <textarea-resize>
-              <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-8" v-model="form.questions[7].answers" rows="1"></textarea>
-              </textarea-resize>
-            </div>
-            <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-9">{{$t('brief.target-audience-questions-4')}} <span class="g-item-form__label--gray">({{$t('brief.target-audience-questions-4-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        v-model="form.questions[8].answers" id="project-9" rows="1"></textarea>
+                        v-model="form.questions[7].answers" id="project-9" rows="1"></textarea>
               </textarea-resize>
             </div>
           </fieldset>
@@ -139,42 +132,42 @@
               <label class="g-item-form__label" for="project-10">{{$t('brief.project-questions-1')}} <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.project-questions-1-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-10" v-model="form.questions[9].answers" rows="1"></textarea>
+                        id="project-10" v-model="form.questions[8].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-11">{{$t('brief.project-questions-2')}} <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.project-questions-2-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-11" v-model="form.questions[10].answers" rows="1"></textarea>
+                        id="project-11" v-model="form.questions[9].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-12">{{$t('brief.project-questions-3')}} <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.project-questions-3-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-12" v-model="form.questions[11].answers" rows="1"></textarea>
+                        id="project-12" v-model="form.questions[10].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-13">{{$t('brief.project-questions-4')}} <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.project-questions-4-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-13" v-model="form.questions[12].answers" rows="1"></textarea>
+                        id="project-13" v-model="form.questions[11].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-14">{{$t('brief.project-questions-5')}}</label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-14" v-model="form.questions[13].answers" rows="1"></textarea>
+                        id="project-14" v-model="form.questions[12].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-15">{{$t('brief.project-questions-6')}} <span class="g-item-form__label--gray">({{$t('brief.example')}}: {{$t('brief.project-questions-6-example')}})</span></label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-15" v-model="form.questions[14].answers" rows="1"></textarea>
+                        id="project-15" v-model="form.questions[13].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
           </fieldset>
@@ -184,14 +177,14 @@
               <label class="g-item-form__label" for="project-16">{{$t('brief.expectations-questions-1')}}</label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-16" v-model="form.questions[15].answers" rows="1"></textarea>
+                        id="project-16" v-model="form.questions[14].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
             <div class="g-item-form g-item-form--modals">
               <label class="g-item-form__label" for="project-17">{{$t('brief.expectations-questions-2')}}</label>
               <textarea-resize>
               <textarea class="g-item-form__field g-item-form__field--modals"
-                        id="project-17" v-model="form.questions[16].answers" rows="1"></textarea>
+                        id="project-17" v-model="form.questions[15].answers" rows="1"></textarea>
               </textarea-resize>
             </div>
           </fieldset>
@@ -256,10 +249,6 @@
             },
             {
               label: 'Сфера деятельности компании',
-              answers: ''
-            },
-            {
-              label: 'Какие преимущества у вашего проекта?',
               answers: ''
             },
             {

@@ -1,5 +1,5 @@
 <template>
-  <header class="b-header" :class="[{active : showMenu}, {scroll: fixedMenu}, { 'hidden-scroll': !showNavbar }, { 'no-scroll': noScroll }]">
+  <header class="b-header" :class="{active : showMenu, scroll: fixedMenu, 'hidden-scroll': !showNavbar, 'no-scroll': noScroll}">
     <div class="container">
       <a class="logo-wrapper" href="#main" @click="hideMenu('#main')">
         <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
@@ -11,7 +11,7 @@
       </div>
       <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
       <!--<a class="submit default" href="#price">Оставить заявку</a>-->
-      <a class="submit menu" href="#price" @click="hideMenu('#price')">{{$t('submit-application')}}</a>
+      <a class="submit menu" href="#contacts" @click="hideMenu('#contacts')">{{$t('submit-application')}}</a>
       <button class="burger" @click="menu">
         <span></span>
         <span></span>
@@ -35,7 +35,7 @@
         <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('contacts')}}</a>
       </li>
       <li class="item item--submit">
-        <a href="#price" class="link" @click="menuLink('#price')">{{$t('submit-application')}}</a>
+        <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('submit-application')}}</a>
       </li>
     </ul>
   </header>

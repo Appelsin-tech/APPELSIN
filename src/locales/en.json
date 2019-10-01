@@ -1,5 +1,6 @@
 {
   "submit-application": "Start a project",
+  "submit-success": "Application sent",
   "about": "About us",
   "services": "Services",
   "our-work": "Cases",
@@ -170,8 +171,6 @@
     "target-audience-questions-1-example": "Moscow; Kazakhstan; The whole world",
     "target-audience-questions-2": "Scope of the company",
     "target-audience-questions-2-example": "the property",
-    "target-audience-questions-3": "What are the benefits of your project?",
-    "target-audience-questions-3-example": "lower cost, delivery availability, tech support",
     "target-audience-questions-4": "Customer avatar",
     "target-audience-questions-4-example": "age, gender, income, interests, etc.",
     "project": "Ongoing project",

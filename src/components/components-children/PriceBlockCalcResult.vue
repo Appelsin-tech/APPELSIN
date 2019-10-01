@@ -1,5 +1,5 @@
 <template>
-  <form class="result-form" @submit.prevent="onSubmit" :class="[{success: success}, {error: error.server}, {waiting: waiting}]">
+  <form class="result-form" @submit.prevent="onSubmit" :class="{success: success || disabledForm.statusMail, waiting: waiting}">
     <div class="col col--price">
       <div class="price-wrapper">
         <div class="steps-num">
@@ -30,11 +30,17 @@
         </div>
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
-        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >{{$t('mail-form.order-project')}}</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >
+          <span v-if="!disabledForm.statusMail">{{$t('mail-form.order-project')}}</span>
+          <span v-else class="success">{{$t('submit-success')}}</span>
+        </button>
         <div class="error-tooltip error-tooltip--submit">
           <span>{{$t('mail-form.error.default')}}</span>
         </div>
-        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">{{$t('mail-form.order-project')}}</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">
+          <span v-if="!disabledForm.statusMail">{{$t('mail-form.order-project')}}</span>
+          <span v-else class="success">{{$t('submit-success')}}</span>
+        </button>
       </div>
     </div>
     <div class="col col--input" :class="{active : showForm}">
@@ -95,7 +101,10 @@
         <button class="btn-wrapper__btn btn-wrapper__btn--back" type="button" @click="showForm = !showForm">
           <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
         </button>
-        <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">{{$t('mail-form.send')}}</button>
+        <button class="btn-wrapper__btn btn-wrapper__btn--mobile" type="submit">
+          <span v-if="!disabledForm.statusMail">{{$t('mail-form.send')}}</span>
+          <span v-else class="success">{{$t('submit-success')}}</span>
+        </button>
         <div class="error-tooltip error-tooltip--submit">
           <span>{{$t('mail-form.error.default')}}</span>
         </div>
@@ -108,10 +117,12 @@
 <script>
 
   import axios from 'axios'
+  import {eventBus} from '../components-helpers/eventBus'
 
   export default {
     name: "PriceBlockCalcResult",
     props: ['answers', 'steps', 'activeSteps', 'questions'],
+    inject: ['disabledForm'],
     data() {
       return {
         showForm: false,
@@ -143,61 +154,65 @@
     methods: {
       onSubmit() {
         //validation
-
-        if (this.form.name.length < 1) {
-          this.hideError('name')
-        } else if (this.form.phone.length < 4) {
-          this.hideError('phone')
-        } else if (this.form.email.length < 4) {
-          this.hideError('email')
-        } else if (this.form.message.length < 4) {
-          this.hideError('message')
-        } else if (!this.form.checkedPersonalData) {
-          this.hideError('checked')
+        if (this.disabledForm.statusMail) {
+          return false
         } else {
-          this.waiting = true;
-          this.$recaptcha('login').then((token) => {
-            this.token = token
-            let formData = new FormData();
-            formData.append('token', this.token);
-            formData.append('nameForm', this.form.nameForm);
-            formData.append('name', this.form.name);
-            formData.append('phone', this.form.phone);
-            formData.append('email', this.form.email);
-            formData.append('message', this.form.message);
-            formData.append('file', this.form.file);
-            formData.append('checked', this.form.checkedPersonalData);
-            formData.append('questions', JSON.stringify(this.questionsName));
-            formData.append('price', this.price);
-            axios.post('/mail.php', formData, {
-              headers: {
-                'Content-Type': 'multipart/form-data'
-              },
-              onUploadProgress: (progressEvent) => {
-                this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-              }
-            })
-              .then(response => {
-                this.waiting = false;
-                if (response.data.type === 'error' || response.data.type === 'server') {
-                  if(response.data.input_name) {
-                    this.errorName = response.data.input_name
-                  }
-                  this.errorName = 'server'
-                  this.hideError(this.errorName)
-                } else {
-                  this.success = true;
-                  this.$modal.show('modal-response', {
-                    data: this.form,
-                    status: 'success',
-                    hashClass: 'pink'
-                  })
+          if (this.form.name.length < 1) {
+            this.hideError('name')
+          } else if (this.form.phone.length < 4) {
+            this.hideError('phone')
+          } else if (this.form.email.length < 4) {
+            this.hideError('email')
+          } else if (this.form.message.length < 4) {
+            this.hideError('message')
+          } else if (!this.form.checkedPersonalData) {
+            this.hideError('checked')
+          } else {
+            this.waiting = true;
+            this.$recaptcha('login').then((token) => {
+              this.token = token
+              let formData = new FormData();
+              formData.append('token', this.token);
+              formData.append('nameForm', this.form.nameForm);
+              formData.append('name', this.form.name);
+              formData.append('phone', this.form.phone);
+              formData.append('email', this.form.email);
+              formData.append('message', this.form.message);
+              formData.append('file', this.form.file);
+              formData.append('checked', this.form.checkedPersonalData);
+              formData.append('questions', JSON.stringify(this.questionsName));
+              formData.append('price', this.price);
+              axios.post('/mail.php', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress: (progressEvent) => {
+                  this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
                 }
               })
-              .catch(error => {
-                console.log(error)
-              })
-          })
+                .then(response => {
+                  this.waiting = false;
+                  if (response.data.type === 'error' || response.data.type === 'server') {
+                    if (response.data.input_name) {
+                      this.errorName = response.data.input_name
+                    }
+                    this.errorName = 'server'
+                    this.hideError(this.errorName)
+                  } else {
+                    eventBus.$emit('success-mail');
+                    this.success = true;
+                    this.$modal.show('modal-response', {
+                      data: this.form,
+                      status: 'success',
+                      hashClass: 'pink'
+                    })
+                  }
+                })
+                .catch(error => {
+                  console.log(error)
+                })
+            })
+          }
         }
       },
       handleFile (e) {
@@ -280,7 +295,8 @@
     &.waiting {
       .col {
         .btn-wrapper__btn--default,
-        .btn-wrapper__btn--mobile {
+        .btn-wrapper__btn--mobile,
+        .btn-wrapper__btn--next {
           pointer-events: none;
           opacity: 0.7;
         }
@@ -681,6 +697,23 @@
           background: #000;
           text-transform: uppercase;
           cursor: pointer;
+          &--default,
+          &--next,
+          &--mobile {
+            span.success {
+              position: relative;
+              &::before {
+                content: '';
+                display: inline-block;
+                margin-right: 25px;
+                transform: rotate(40deg);
+                width: 8px;
+                height: 18px;
+                border-bottom: 2px solid #fff;
+                border-right: 2px solid #fff;
+              }
+            }
+          }
           &--default {
             padding-left: 50px;
             .sm-block({ display: none;});

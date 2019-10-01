@@ -28,19 +28,18 @@
     <main>
       <full-page ref="fullpage" :options="options" id="fullpage">
         <main-hero/>
-        <main-services :fullPageReady="fullPageReady" :resize="resize"/>
-        <main-cases :fullPageReady="fullPageReady" :resize="resize"/>
+        <main-services :fullPageReady="fullPageReady" :resize="resize" />
+        <main-cases :fullPageReady="fullPageReady" :resize="resize" :statusMail="statusMail" v-on:send-mail="mailSend"/>
         <main-about :fullPageReady="fullPageReady" :resize="resize"/>
         <main-price/>
-        <main-contacts/>
+        <main-contacts :statusMail="statusMail" v-on:send-mail="mailSend"/>
       </full-page>
     </main>
   </div>
 </template>
 
 <script>
-
-
+  import {eventBus} from './components-helpers/eventBus'
   import MainHero from './components-children/MainHero'
   import MainServices from './components-children/MainServices'
   import MainAbout from './components-children/MainAbout'
@@ -58,11 +57,20 @@
       MainCases,
       MainContacts,
     },
+    provide() {
+      const disabledForm = {}
+      Object.defineProperty(disabledForm, 'statusMail', {
+        enumerable: true,
+        get: () => this.statusMail,
+      })
+      return { disabledForm }
+    },
     data() {
       return {
         resize: true,
         windowWidth: window.innerWidth,
         fullPageReady: false,
+        statusMail: false,
         options: {
           licenseKey: '',
           verticalCentered: true,
@@ -98,6 +106,9 @@
       },
       resizeSwiper() {
         this.windowWidth = window.innerWidth
+      },
+      mailSend(event) {
+        this.statusMail = !this.statusMail
       }
     },
     created() {
@@ -105,6 +116,11 @@
     },
     destroyed() {
       window.removeEventListener('resize', this.resizeSwiper)
+    },
+    mounted () {
+      eventBus.$on('success-mail', () => {
+        this.statusMail = !this.statusMail
+      });
     },
     watch: {
       windowWidth(newVal, oldVal) {
