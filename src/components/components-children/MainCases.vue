@@ -177,8 +177,8 @@
                     </div>
                   </div>
                   <div class="file-wrapper" :class="{errorTooltip: error.file}">
-                    <input type="file" name="file" id="file_contacts" v-on:change="handleFile" class="visually-hidden"/>
-                    <label class="file-link" v-if="!showFileName" for="file_contacts">
+                    <input type="file" name="file" id="file_cases" v-on:change="handleFile" class="visually-hidden"/>
+                    <label class="file-link" v-if="!showFileName" for="file_cases">
                       <span class="file-text--big">{{$t('mail-form.file')}}</span>
                       <span class="file-text--small">({{$t('mail-form.file-size')}})</span>
                     </label>
