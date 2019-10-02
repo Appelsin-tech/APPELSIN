@@ -8,7 +8,7 @@
       </div>
       <div class="wrapper-overflow">
         <div class="title-wrapper">
-          <h2 class="title">{{$t('brief.title')}}у</h2>
+          <h2 class="title">{{$t('brief.title')}}</h2>
         </div>
         <form class="form-response" @submit.prevent="onSubmit" :class="[{disabled: disabled}, hashClass]">
           <div class="status">
