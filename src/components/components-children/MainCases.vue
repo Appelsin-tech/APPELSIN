@@ -1,5 +1,5 @@
 <template>
-  <section class="s-case fullpage-section">
+  <section class="s-case fullpage-section fp-auto-height-responsive">
     <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
@@ -415,8 +415,11 @@
       flex-grow: 2;
       padding: 88px 50px 30px;
       background: #fff;
+      .lg-w__sm-h({ padding: 50px 40px;});
       .md-block({ padding: 70px 40px; });
+      .md-w__sm-h({ padding: 50px 40px;});
       .sm-block({ padding: 40px 30px; });
+      .sm-w__sm-h({ padding: 40px 30px;});
       .xs-block({ padding: 40px 25px; });
       .col {
         color: #000;
@@ -449,6 +452,7 @@
           font-weight: bold;
           font-size: 4.5rem;
           letter-spacing: 1.3rem;
+          .sm-max-height({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 1rem;});
           .sm-block({ margin-bottom: 30px; font-size: 3rem; letter-spacing: 1rem; });
           .xs-block({font-size: 2.4rem; letter-spacing: 0.7rem; });
         }

@@ -1,43 +1,45 @@
 <template>
   <header class="b-header" :class="{active : showMenu, scroll: fixedMenu, 'hidden-scroll': !showNavbar, 'no-scroll': noScroll}">
-    <div class="container">
-      <a class="logo-wrapper" href="#main" @click="hideMenu('#main')">
-        <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
-        <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
-      </a>
-      <span class="agency">Digital agency</span>
-      <div class="lang-wrapper">
-        <lang-select :options="languageSelect" :classOnScroll="noScroll" :activeMenu="showMenu" :selected="selected" v-on:updateOption="newLocale"></lang-select>
+    <div class="bg-wrapper">
+      <div class="container">
+        <a class="logo-wrapper" href="#main" @click="hideMenu('#main')">
+          <img svg-inline src="../../assets/img/icon/logoApp.svg" alt="">
+          <img svg-inline src="../../assets/img/appelsin/appelsin-logo.svg" alt="">
+        </a>
+        <span class="agency">Digital agency</span>
+        <div class="lang-wrapper">
+          <lang-select :options="languageSelect" :classOnScroll="noScroll" :activeMenu="showMenu" :selected="selected" v-on:updateOption="newLocale"></lang-select>
+        </div>
+        <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
+        <!--<a class="submit default" href="#price">Оставить заявку</a>-->
+        <a class="submit menu" href="#contacts" @click="hideMenu('#contacts')">{{$t('submit-application')}}</a>
+        <button class="burger" @click="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
-      <!--<a class="submit default" href="#price">Оставить заявку</a>-->
-      <a class="submit menu" href="#contacts" @click="hideMenu('#contacts')">{{$t('submit-application')}}</a>
-      <button class="burger" @click="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <ul class="menu-list">
+        <li class="item">
+          <a href="#about" class="link" @click="menuLink('#about')">{{$t('about')}}</a>
+        </li>
+        <li class="item">
+          <a href="#services" class="link" @click="menuLink('#services')">{{$t('services')}}</a>
+        </li>
+        <li class="item">
+          <a href="#cases" class="link" @click="menuLink('#cases')">{{$t('our-work')}}</a>
+        </li>
+        <li class="item">
+          <a href="#price" class="link" @click="menuLink('#price')">{{$t('cost-calculation')}}</a>
+        </li>
+        <li class="item">
+          <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('contacts')}}</a>
+        </li>
+        <li class="item item--submit">
+          <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('submit-application')}}</a>
+        </li>
+      </ul>
     </div>
-    <ul class="menu-list">
-      <li class="item">
-        <a href="#about" class="link" @click="menuLink('#about')">{{$t('about')}}</a>
-      </li>
-      <li class="item">
-        <a href="#services" class="link" @click="menuLink('#services')">{{$t('services')}}</a>
-      </li>
-      <li class="item">
-        <a href="#cases" class="link" @click="menuLink('#cases')">{{$t('our-work')}}</a>
-      </li>
-      <li class="item">
-        <a href="#price" class="link" @click="menuLink('#price')">{{$t('cost-calculation')}}</a>
-      </li>
-      <li class="item">
-        <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('contacts')}}</a>
-      </li>
-      <li class="item item--submit">
-        <a href="#contacts" class="link" @click="menuLink('#contacts')">{{$t('submit-application')}}</a>
-      </li>
-    </ul>
   </header>
 </template>
 
@@ -90,7 +92,7 @@
           this.noScroll = true
           return
         }
-        if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+        if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 10) {
           return
         }
         this.noScroll = false
@@ -137,7 +139,6 @@
   @import "../../assets/less/_variables";
   .b-header {
     position: fixed;
-    padding-top: 30px;
     top: 0;
     left: 0;
     right: 0;
@@ -146,10 +147,9 @@
     z-index: 997;
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
-    .md-max-height({ padding-top: 15px; });
-    .xs-max-height({ padding-top: 10px; });
-    .md-block({ position: absolute; padding-top: 15px; height: 50px;});
-    .sm-block({ padding-top: 0; position: fixed;  height: 50px;});
+    .md-block({ position: absolute;});
+    .md-max-height({ position: fixed;});
+    .sm-block({ position: fixed;});
     &::after {
       content: '';
       display: block;
@@ -166,13 +166,23 @@
       transition: all 0.3s ease-in-out;
       z-index: 1;
     }
+    .bg-wrapper {
+      padding-top: 30px;
+      background: transparent;
+      transition: all 0.3s ease-in-out;
+      .sm-max-height({ padding-top: 10px;});
+      .md-block({ padding-top: 15px; height: 50px;});
+      .md-max-height({ padding-top: 10px; height: 50px; background: rgba(0,0,0,0.8);});
+      .sm-block({padding-top: 10px;  height: 40px; background: rgba(0,0,0,0.8);});
+    }
     &.no-scroll {
-      .container {
+      .bg-wrapper {
         background: transparent;
       }
     }
     &.hidden-scroll {
       .sm-block({transform: translateY(-100%);});
+      .md-max-height({transform: translateY(-100%);});
     }
     &.active {
       position: fixed;
@@ -260,7 +270,8 @@
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease-in-out;
-    .sm-block({ background: rgba(0,0,0,0.8); height: 50px;})
+    /*.sm-block({ background: rgba(0,0,0,0.8); height: 50px;});
+    .md-height({ background: rgba(0,0,0,0.8); height: 50px;});*/
   }
   .logo-wrapper {
     display: flex;
@@ -353,7 +364,6 @@
     transform: translateY(-50%);
     flex-direction: column;
     align-items: center;
-    .sm-width__xs-height({transform: translateY(-60%);});
     .item {
       margin-bottom: 25px;
       text-align: center;

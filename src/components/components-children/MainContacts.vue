@@ -1,5 +1,5 @@
 <template>
-  <section class="s-contacts fullpage-section">
+  <section class="s-contacts fullpage-section fp-auto-height-responsive">
     <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">

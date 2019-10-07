@@ -401,6 +401,7 @@
               font-size: 3rem;
               line-height: 4rem;
               letter-spacing: 0.7rem;
+              .lg-w__sm-h({ margin-bottom: 25px; font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem;});
               .xs-block({ font-size: 2.4rem; letter-spacing: 0.5rem; line-height: 3rem; })
             }
             .ans {
@@ -416,6 +417,7 @@
                 line-height: 1;
                 letter-spacing: 2rem;
                 color: #db4954;
+                .lg-w__sm-h({font-size: 5.5rem; letter-spacing: 1.5rem;});
                 .md-block({ font-size: 5.5rem; letter-spacing: 1.5rem; });
                 .xs-block({ font-size: 4rem; letter-spacing: 1.1rem; });
               }

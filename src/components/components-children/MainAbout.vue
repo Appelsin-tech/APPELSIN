@@ -1,5 +1,5 @@
 <template>
-  <section class="s-about fullpage-section">
+  <section class="s-about fullpage-section fp-auto-height-responsive">
     <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper default-margin-bottom">
@@ -236,9 +236,11 @@
         background: #fff;
         .slide-wrapper {
           padding: 80px 75px 80px 60px;
+          .lg-w__lg-h({padding: 60px 40px;});
           .md-block({ padding: 60px 40px; });
           .sm-block({ padding: 40px 30px; });
           .xs-block({ padding: 30px 25px; });
+          .sm-max-height({ padding: 40px 30px;;});
           &.main-slide {
             display: flex;
             justify-content: space-between;
@@ -331,6 +333,7 @@
                 font-size: 4.5rem;
                 letter-spacing: 1.3rem;
                 color: #000;
+                .lg-w__lg-h({font-size: 3rem; letter-spacing: 1rem;});
                 .md-block({ font-size: 3rem; letter-spacing: 1rem; });
                 .sm-block({ margin-right: 10px;});
                 .xs-block({font-size: 2.4rem; letter-spacing: 0.5rem; })
@@ -355,6 +358,7 @@
           display: flex;
           height: 200px;
           border-top: 1px solid @colorBorder;
+          .lg-w__lg-h({ height: 120px;});
           .lg-block({ height: 150px; });
           .md-block({ height: 100px; });
           .sm-block({ height: 60px; });

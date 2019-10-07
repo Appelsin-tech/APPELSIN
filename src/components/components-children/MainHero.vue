@@ -1,5 +1,5 @@
 <template>
-  <section class="s-main fullpage-section active">
+  <section class="s-main fullpage-section active fp-auto-height-responsive">
     <div class="wrapper-container bg-wrapper">
       <div class="bg-small"></div>
       <div class="bg-big"></div>
@@ -8,36 +8,36 @@
         <div class="app-wrapper">
           <img svg-inline src="../../assets/img/appelsin/app.svg" alt="">
         </div>
+        <div class="desc-wrapper">
+          <h1 class="visually-hidden">{{$t('title-main')}}</h1>
+          <p class="desc-caption">
+            <span class="symbol">{{$t('title-main--1')}}</span>
+            <br>
+            <span class="symbol">IT</span>
+            <span class="dash">-</span>
+            <span class="symbol">{{$t('title-main--2')}}</span>
+            <span class="underscore"></span>
+          </p>
+          <ul class="servises-list">
+            <li class="item">
+              <p class="item-link">{{$t('server-solutions')}}</p>
+            </li>
+            <li class="item">
+              <p class="item-link">{{$t('web-dev')}}</p>
+            </li>
+            <li class="item">
+              <p class="item-link">{{$t('mobile-game-and-app')}}</p>
+            </li>
+            <li class="item">
+              <p class="item-link">{{$t('advertising-and-promotion')}}</p>
+            </li>
+            <li class="item">
+              <p class="item-link">{{$t('design-and-branding')}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      </div>
-      <div class="desc-wrapper">
-        <h1 class="visually-hidden">{{$t('title-main')}}</h1>
-        <p class="desc-caption">
-          <span class="symbol">{{$t('title-main--1')}}</span>
-          <br>
-          <span class="symbol">IT</span>
-          <span class="dash">-</span>
-          <span class="symbol">{{$t('title-main--2')}}</span>
-          <span class="underscore"></span>
-        </p>
-        <ul class="servises-list">
-          <li class="item">
-            <p class="item-link">{{$t('server-solutions')}}</p>
-          </li>
-          <li class="item">
-            <p class="item-link">{{$t('web-dev')}}</p>
-          </li>
-          <li class="item">
-            <p class="item-link">{{$t('mobile-game-and-app')}}</p>
-          </li>
-          <li class="item">
-            <p class="item-link">{{$t('advertising-and-promotion')}}</p>
-          </li>
-          <li class="item">
-            <p class="item-link">{{$t('design-and-branding')}}</p>
-          </li>
-        </ul>
-      </div>
     </div>
     <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
   </section>
@@ -55,12 +55,12 @@
   .s-main {
     background: #ffba00;
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
-
+    .sm-max-height({ padding-top: 0px; });
+    .sm-block({ padding-top: 0px;});
     .wrapper-container {
       position: relative;
       display: flex;
       width: 100%;
-      height: 100vh;
       align-items: center;
       justify-content: flex-start;
       background-image: url("../../assets/img/appelsin-small-11.png"),
@@ -68,6 +68,8 @@
       background-repeat: no-repeat;
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
+      .sm-max-height({ padding-top: 60px;});
+      .sm-block({ padding-top: 60px; });
       .xs-block({background-position: 0% 0%, 95% 80%; height: 100%;});
       .bg-small {
         position: absolute;
@@ -85,10 +87,10 @@
         background-repeat: no-repeat;
         background-position: 45% 100%;
         z-index: 9;
-        .xl-max-height({background-position: 55% 130%;});
-        .lg-width__lg-height({background-position: 45% 250px;});
-        .md-width__xl-height({background-position: 60% 320px;});
-        .md-width__lg-height({background-position: 60% 230px;});
+        @media (min-width: 1170px) and (max-height: 1080px){
+          background-position: 55% 130%;
+        }
+        .lg-max-height({background-position: 45% 250px;});
         .md-max-height({ display: none;});
         .xs-block({ display: none;});
       }
@@ -96,40 +98,32 @@
         max-width: 1210px;
         z-index: 8;
         display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         width: 100%;
         box-sizing: border-box;
-        .md-width__md-height({width:auto; margin: 0 ;});
+        .lg-block({ align-items: center;});
         .md-block({ width: auto; margin: 0;});
-        .sm-block({ display: none;});
         .app-wrapper {
           height: 100%;
           max-height: 100%;
           box-sizing: border-box;
-          .lg-max-height({ height:100%; });
-          .md-width__md-height({ width:100%;});
+          flex-shrink: 0;
+          .lg-block({max-width: 35%;});
+          .md-block({ display: none;});
           svg {
             max-width: 100%;
             max-height: 100%;
             height: 100%;
-            .xl-max-height({  height: 100%;});
           }
         }
-
       }
       .desc-wrapper {
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        transform: translate(520px, -290px);
         z-index: 10;
-        .lg-width__lg-height({transform: translate(520px, -260px);});
-        .md-max-height({transform: translate(400px, -50%);});
-        .lg-block({ transform: translate(380px, -240px);});
-        .md-block({ transform: translate(0, 0); position: relative; top: auto; right:auto; padding: 0 20px;});
-        .md-width__md-height({ position: relative; transform: translate(0, 0px); top: auto; left: auto; right:auto; flex-shrink: 0; padding-left: 70px; padding-right: 20px;});
-        .sm-block({transform: translateY(-80px)});
-        .xs-block({transform: translateY(0px); left: 10%;});
-        .xs-max-height({transform: translateY(0px);});
+        padding-top: 80px;
+        margin-left: 10vw;
+        flex-shrink: 0;
+        .lg-block({ padding-top: 0px;});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;

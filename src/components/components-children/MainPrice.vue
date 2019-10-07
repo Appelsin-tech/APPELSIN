@@ -1,5 +1,5 @@
 <template>
-  <section class="s-price fullpage-section">
+  <section class="s-price fullpage-section fp-auto-height-responsive">
     <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper">
@@ -616,6 +616,7 @@
             letter-spacing: 1.3rem;
             color: #000;
             text-transform: uppercase;
+            .lg-w__sm-h({margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem;});
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 30px; padding-right: 20px; });
             .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 0; padding-left: 25px; padding-right: 15px; height: 65px;});
@@ -678,6 +679,7 @@
                   flex-grow: 1;
                   flex-direction: column;
                   align-items: flex-start;
+                  .lg-w__sm-h({ padding-top: 30px; padding-left: 30px;});
                   .md-block({ padding-top: 25px; padding-left: 40px; padding-right: 25px;});
                   .sm-block({ padding-left: 30px; padding-top: 0; flex-direction: row; align-items: center; });
                   .xs-block({ padding: 0 15px 0 25px;});
@@ -687,6 +689,7 @@
                     height: 85px;
                     background-repeat: no-repeat;
                     background-size: contain;
+                    .lg-w__sm-h({ width: 50px; height: 50px;});
                     .md-block({ width: 45px; height: 45px; });
                     .sm-block({ width: 35px; height: 35px; margin-bottom: 0; margin-right: 10px; });
                     .xs-block({ width: 25px; height: 25px;});
@@ -738,6 +741,7 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
+                .lg-w__sm-h({ padding-top: 30px;});
                 .xs-block({ flex-direction: row-reverse; align-items: center; justify-content: center; padding: 15px 0;});
                 .img {
                   margin-bottom: 50px;

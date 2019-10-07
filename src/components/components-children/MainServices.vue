@@ -1,5 +1,5 @@
 <template>
-  <section class="s-services fullpage-section">
+  <section class="s-services fullpage-section fp-auto-height-responsive">
     <div class="wrapper-container">
       <div class="container section">
         <div class="caption-wrapper">

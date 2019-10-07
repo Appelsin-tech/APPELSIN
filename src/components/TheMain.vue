@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div id="nav-menu" class="navigation-wrapper">
       <button class="arrow next-slide" @click="prevSlide"></button>
       <ul id="mainMenu" class="main-nav-menu">
@@ -87,8 +86,6 @@
               this.fullPageReady = false
             }, 100)
           },
-          // autoScrolling:false,
-          // scrollOverflow:true,
           sectionSelector: '.fullpage-section',
           normalScrollElements: '.fancybox-container, .wrapper-overflow, .paragraph, .form-response, .form-response *, .g-item-form__label',
         }
@@ -178,7 +175,7 @@
       display: flex;
       flex-direction: column;
       margin: 35px 0;
-      .sm-height({ margin: 15px 0;});
+      .sm-max-height({ margin: 15px 0;});
       li {
         margin-bottom: 10px;
         &:last-child {
@@ -196,7 +193,7 @@
         height: 25px;
         background: linear-gradient(to right, #fff, #fff) no-repeat center;
         background-size: 20px 1px;
-        .sm-height({ height: 18px;});
+        .sm-max-height({ height: 18px;});
       }
     }
   }

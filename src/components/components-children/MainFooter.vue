@@ -29,11 +29,11 @@
     transition-delay: 0.7s;
     .sm-block({ display: none; padding-bottom: 50px; opacity: 0; transform: translateX(50px);});
     .xs-block({ display: none;  opacity: 0; transform: translateX(50px);});
-    .xs-max-height({ display: none;  opacity: 0; transform: translateX(50px);});
+    .sm-max-height({ display: none;  opacity: 0; transform: translateX(50px);});
     &.active {
       display: block;
       opacity: 1;
-      .xs-max-height({ transform: translateX(0);});
+      .md-max-height({ transform: translateX(0);});
       .sm-block({    transform: translateX(0);});
       .container {
         .sm-block({flex-direction: column;

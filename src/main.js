@@ -21,7 +21,7 @@ Vue.use(VueFullPage);
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 Vue.use(VueModal, {dialog: true, dynamic: true, injectModalsContainer: true})
 
 
