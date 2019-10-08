@@ -520,7 +520,7 @@
     background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 1) 0%, rgba(0, 0, 0, 0) 60%),
     radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 1) 5%, rgba(0, 0, 0, 0) 40%) #d94950;
     .xs-block({background: radial-gradient(circle farthest-corner at top right, rgba(230, 74, 110, 0.8) 0%, rgba(0, 0, 0, 0) 80%),
-    radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 0.8) 5%, rgba(0, 0, 0, 0) 40%) #d94950;});
+                          radial-gradient(circle farthest-corner at -10% 110%, rgba(232, 91, 124, 0.8) 5%, rgba(0, 0, 0, 0) 40%) #d94950;});
     .caption-wrapper {
       .text-wrapper {
         display: flex;
@@ -540,8 +540,8 @@
     }
     .steps-wrapper {
       flex-basis: 100%;
-      max-height: 560px;
-      .xs-block({max-height: 445px;});
+      /*max-height: 560px;
+      .xs-block({max-height: 445px;});*/
       .steps {
         display: flex;
         padding-top: 45px;
@@ -619,7 +619,7 @@
             .lg-w__sm-h({margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem;});
             .md-block({ margin-bottom: 40px; font-size: 3rem; letter-spacing: 1rem; padding-left: 40px; padding-right: 20px; });
             .sm-block({ margin-bottom: 20px; font-size: 2.5rem; letter-spacing: 0.5rem; padding-left: 30px; padding-right: 20px; });
-            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: 0; padding-left: 25px; padding-right: 15px; height: 65px;});
+            .xs-block({ font-size: 2.2rem; letter-spacing: 0.65rem; margin-bottom: auto; padding-left: 25px; padding-right: 15px; height: 65px;});
             .to(360px, { font-size: 2rem; letter-spacing: 0.4rem;});
           }
           .variant-wrapper {
