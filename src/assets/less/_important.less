@@ -22,6 +22,10 @@ button {
   padding: 0;
   background: none;
   outline: none;
+  &:focus,
+  &:active {
+    outline: none;
+  }
 }
 .wrapper-container {
   width: 100%;
@@ -54,6 +58,8 @@ button {
       max-width: 100%;
       min-height: 0;
       max-height: 100%;
+      .xxs-w__lg-h({ height: 545px;});
+      .xxs-w__lg-h({ height: 425px;});
       .swiper-slide {
         height: auto;
       }

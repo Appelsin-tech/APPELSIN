@@ -57,6 +57,10 @@
     box-shadow: inset 0px 0px 300px 50px rgb(245, 151, 16);
     .sm-max-height({ padding-top: 0px; });
     .sm-block({ padding-top: 0px;});
+    &.fullpage-section {
+      .sm-max-height({ padding-bottom: 0px;});
+      .sm-block({ padding-bottom: 0px;});
+    }
     .wrapper-container {
       position: relative;
       display: flex;
@@ -69,7 +73,7 @@
       background-position: 0% 0%, 95% 10%;
       box-sizing: border-box;
       .sm-max-height({ padding-top: 60px;});
-      .sm-block({ padding-top: 60px; });
+      .sm-block({ padding-top: 60px; padding-bottom: 60px; min-height: 100vh;});
       .xs-block({background-position: 0% 0%, 95% 80%; height: 100%;});
       .bg-small {
         position: absolute;
