@@ -201,6 +201,7 @@
                     this.errorName = 'server'
                     this.hideError(this.errorName)
                   } else {
+                    ym(54742102, 'reachGoal', 'SendOrder');
                     this.$emit('send-mail')
                     this.success = true;
                     this.$modal.show('modal-response', {

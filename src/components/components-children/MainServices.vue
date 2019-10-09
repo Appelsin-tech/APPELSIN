@@ -9,7 +9,7 @@
               <span class="underscore"></span>
             </div>
           </div>
-          <div class="nav-slider">
+          <div class="nav-slider" :class="{anim: animationArrow}">
             <button class="next">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
@@ -106,6 +106,9 @@
       fullPageReady: {
         type: Boolean
       },
+      animationButton: {
+        type: String
+      },
       resize: {
         type: Boolean
       },
@@ -119,6 +122,9 @@
         swiperOptions: {
           slidesPerView: 3,
           speed: 300,
+          autoplay: {
+            delay: 2000
+          },
           navigation: {
             nextEl: '.s-services .prev',
             prevEl: '.s-services .next',
@@ -153,6 +159,10 @@
     computed: {
       mySwiperServices() {
         return this.$refs.mySwiperServices.swiper
+      },
+      animationArrow() {
+        let a = this.animationButton === 'services' ? true : false
+        return a
       }
     }
   }

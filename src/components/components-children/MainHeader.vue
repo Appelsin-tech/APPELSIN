@@ -12,7 +12,7 @@
         </div>
         <a class="phone" href="tel:+79644952929">+7 (964) 495-29-29</a>
         <!--<a class="submit default" href="#price">Оставить заявку</a>-->
-        <a class="submit menu" href="#contacts" @click="hideMenu('#contacts')">{{$t('submit-application')}}</a>
+        <a class="submit menu" href="#contacts" @click="customMenuLink">{{$t('submit-application')}}</a>
         <button class="burger" @click="menu">
           <span></span>
           <span></span>
@@ -68,6 +68,10 @@
     methods: {
       newLocale(val) {
         this.selected = val
+      },
+      customMenuLink() {
+        this.hideMenu('#contacts')
+        ym(54742102, 'reachGoal', 'StartAProjectMenuClick');
       },
       menuLink(anchor) {
         this.$emit('menu')
