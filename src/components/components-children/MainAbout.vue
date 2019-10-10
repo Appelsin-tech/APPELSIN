@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="nav-slider">
-            <button id="about-next" class="next">
+            <button id="about-prev" class="prev">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button  id="about-prev" class="prev">
+            <button  id="about-next" class="next">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
@@ -128,10 +128,10 @@
               <div class="num-slides">
                 <div id='about-child-pagination' class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
                 <div class="nav-slider item">
-                  <button id="about-child-next" class="next next-insert">
+                  <button id="about-child-prev" class="prev prev-insert">
                     <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
-                  <button id="about-child-prev" class="prev prev-insert">
+                  <button id="about-child-next" class="next next-insert">
                     <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
                   </button>
                 </div>
@@ -169,8 +169,8 @@
           speed: 300,
           threshold: 8,
           navigation: {
-            nextEl: '#about-prev',
-            prevEl: '#about-next',
+            nextEl: '#about-next',
+            prevEl: '#about-prev',
           },
           breakpoints: {
           }
@@ -179,8 +179,8 @@
           slidesPerView: 1,
           speed: 300,
           navigation: {
-            nextEl: '#about-child-prev',
-            prevEl: '#about-child-next',
+            nextEl: '#about-child-next',
+            prevEl: '#about-child-prev',
           },
           pagination: {
             el: '#about-child-pagination',

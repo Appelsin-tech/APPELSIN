@@ -5,92 +5,95 @@
         <div class="caption-wrapper">
           <div class="g-caption-block">
             <div class="wrapper-baseline">
-              <h2 class="g-caption">{{$t('services')}}</h2>
+              <h2 class="g-caption">{{$t('services')}} </h2>
               <span class="underscore"></span>
             </div>
           </div>
-          <div class="nav-slider" :class="{anim: animationArrow}">
-            <button class="next">
+          <div class="nav-slider">
+            <button class="prev">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button class="prev">
+            <button class="next" :class="{anim: animationArrow}">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
         </div>
-        <swiper :options="swiperOptions" ref="mySwiperServices">
-          <swiper-slide>
-            <div class="wrapper wrapper-1">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('server-solutions')}}</h3>
-                  <p class="desc">{{$t('server-solutions-desc')}}</p>
+        <div class="wrapper-slider" @mouseover="mySwiperServices.autoplay.stop()" @mouseleave="mySwiperServices.autoplay.start()">
+          <swiper :options="swiperOptions" ref="mySwiperServices">
+            <swiper-slide>
+              <div class="wrapper wrapper-1">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('server-solutions')}}</h3>
+                    <p class="desc">{{$t('server-solutions-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
                 </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
               </div>
-            </div>
 
-          </swiper-slide>
-          <swiper-slide>
-            <div class="wrapper wrapper-2">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('web-dev')}}</h3>
-                  <p class="desc">{{$t('web-dev-desc')}}</p>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-2">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('web-dev')}}</h3>
+                    <p class="desc">{{$t('web-dev-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
                 </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
               </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="wrapper wrapper-3">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('mobile-game-and-app')}}</h3>
-                  <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-3">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('mobile-game-and-app')}}</h3>
+                    <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
                 </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
               </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="wrapper wrapper-5">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('advertising-and-promotion')}}</h3>
-                  <p class="desc">{{$t('advertising-and-promotion-desc')}}</p>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-5">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('advertising-and-promotion')}}</h3>
+                    <p class="desc">{{$t('advertising-and-promotion-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
                 </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
               </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="wrapper wrapper-6">
-              <div class="grow"></div>
-              <div class="services-item">
-                <div class="text-wrapper">
-                  <h3 class="caption-services">{{$t('design-and-branding')}}</h3>
-                  <p class="desc">{{$t('design-and-branding-desc')}}</p>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-6">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('design-and-branding')}}</h3>
+                    <p class="desc">{{$t('design-and-branding-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
                 </div>
-                <a class="circle-btn" href="#price">
-                  <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                </a>
               </div>
-            </div>
-          </swiper-slide>
-        </swiper>
+            </swiper-slide>
+          </swiper>
+        </div>
+
       </div>
     </div>
   </section>
@@ -123,11 +126,12 @@
           slidesPerView: 3,
           speed: 300,
           autoplay: {
-            delay: 2000
+            delay: 3000,
+            disableOnInteraction: false
           },
           navigation: {
-            nextEl: '.s-services .prev',
-            prevEl: '.s-services .next',
+            nextEl: '.s-services .next',
+            prevEl: '.s-services .prev',
           },
           breakpoints: {
             // when window width is <= 320px
@@ -187,6 +191,10 @@
         .md-block({ margin-bottom: 30px; });
       }
     }
+  }
+  .wrapper-slider {
+    display: flex;
+    flex-grow: 1;
   }
   .swiper-container {
     padding: 30px 0;

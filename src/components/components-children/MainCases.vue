@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="nav-slider">
-            <button class="next">
+            <button class="prev">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button class="prev">
+            <button class="next">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
@@ -257,8 +257,8 @@
           loadPrevNext: true,
           watchSlidesVisibility: true,
           navigation: {
-            nextEl: '.s-case .prev',
-            prevEl: '.s-case .next',
+            nextEl: '.s-case .next',
+            prevEl: '.s-case .prev',
           },
         },
         showForm: false,
