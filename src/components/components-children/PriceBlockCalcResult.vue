@@ -7,11 +7,11 @@
           <span>{{$t('step')}} </span>
           <span class="red">{{activeSteps + 1}} {{$t('step-from')}} {{steps.length + 1}}</span>
         </div>
-        <div class="sum-wrapper" v-if="price !== 0">
-          <p class="description">{{$t('price-desc')}}</p>
-          <p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">{{$t('currency')}}</span></p>
-        </div>
-        <div class="wrapper-secondary" v-if="price === 0">
+        <!--<div class="sum-wrapper" v-if="price !== 0">-->
+          <!--<p class="description">{{$t('price-desc')}}</p>-->
+          <!--<p class="price-num"><strong class="price">{{price}}</strong> <span class="currency">{{$t('currency')}}</span></p>-->
+        <!--</div>-->
+        <div class="wrapper-secondary">
           <p class="description">{{$t('contacts-desc')}}</p>
           <ul class="list-contacts">
             <li>
@@ -31,14 +31,14 @@
       </div>
       <div class="btn-wrapper btn-wrapper--desktop" :class="{errorTooltip: error.server}">
         <button class="btn-wrapper__btn btn-wrapper__btn--default" type="submit" >
-          <span v-if="!disabledForm.statusMail">{{$t('mail-form.order-project')}}</span>
+          <span v-if="!disabledForm.statusMail">{{$t('mail-form.get-price')}}</span>
           <span v-else class="success">{{$t('submit-success')}}</span>
         </button>
         <div class="error-tooltip error-tooltip--submit">
           <span>{{$t('mail-form.error.default')}}</span>
         </div>
         <button class="btn-wrapper__btn btn-wrapper__btn--next" type="button" @click="showForm = !showForm">
-          <span v-if="!disabledForm.statusMail">{{$t('mail-form.order-project')}}</span>
+          <span v-if="!disabledForm.statusMail">{{$t('mail-form.get-price')}}</span>
           <span v-else class="success">{{$t('submit-success')}}</span>
         </button>
       </div>

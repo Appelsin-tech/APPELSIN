@@ -13,26 +13,24 @@
           <p class="desc-caption">
             <span class="symbol">{{$t('title-main--1')}}</span>
             <br>
-            <span class="symbol">IT</span>
-            <span class="dash">-</span>
             <span class="symbol">{{$t('title-main--2')}}</span>
             <span class="underscore"></span>
           </p>
           <ul class="servises-list">
             <li class="item">
-              <p class="item-link">{{$t('server-solutions')}}</p>
+              <p class="item-link">{{$t('hero-desс-1')}}</p>
             </li>
             <li class="item">
-              <p class="item-link">{{$t('web-dev')}}</p>
+              <p class="item-link">{{$t('hero-desс-2--1')}} <br> {{$t('hero-desс-2--2')}}</p>
             </li>
             <li class="item">
-              <p class="item-link">{{$t('mobile-game-and-app')}}</p>
+              <p class="item-link">{{$t('hero-desс-3')}}</p>
             </li>
             <li class="item">
-              <p class="item-link">{{$t('advertising-and-promotion')}}</p>
+              <p class="item-link">{{$t('hero-desс-4')}}</p>
             </li>
             <li class="item">
-              <p class="item-link">{{$t('design-and-branding')}}</p>
+              <p class="item-link">{{$t('hero-desс-5--1')}} <br> {{$t('hero-desс-5--2')}}</p>
             </li>
           </ul>
         </div>
@@ -89,10 +87,13 @@
         left: 0;
         background-image: url("../../assets/img/appelsin.png");
         background-repeat: no-repeat;
-        background-position: 45% 100%;
+        background-position: 45% 105%;
         z-index: 9;
         @media (min-width: 1170px) and (max-height: 1080px){
           background-position: 55% 130%;
+        }
+        @media (min-width: 990px) and (max-height: 1080px){
+          background-position: 55% 140%;
         }
         .lg-max-height({background-position: 45% 250px;});
         .md-max-height({ display: none;});
@@ -127,22 +128,24 @@
         padding-top: 80px;
         margin-left: 10vw;
         flex-shrink: 0;
+        max-width: 50%;
         .lg-block({ padding-top: 0px;});
+        .md-block({max-width: 100%;});
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 5.7rem;
+          font-size: 3.7rem;
           text-transform: uppercase;
-          .md-max-height({ font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
-          .lg-block({font-size: 4rem; letter-spacing: 1.3rem; margin-bottom: 30px;});
-          .sm-block({ font-size: 3rem; letter-spacing: 0.8rem; margin-bottom: 20px;});
+          .md-max-height({ font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
+          .lg-block({font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
+          .sm-block({ font-size: 2.2rem; letter-spacing: 0.6rem; margin-bottom: 20px;});
           .symbol {
-            letter-spacing: 1.6rem;
-            .md-max-height({letter-spacing: 1.3rem; });
-            .lg-block({letter-spacing: 1.3rem;});
-            .sm-block({letter-spacing: 0.8rem;});
+            letter-spacing: 1.1rem;
+            .md-max-height({letter-spacing: 1rem; });
+            .lg-block({letter-spacing: 1rem;});
+            .sm-block({letter-spacing: 0.5rem;});
           }
           .dash {
             margin-left: 15px;

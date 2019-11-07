@@ -27,10 +27,10 @@
     <main>
       <full-page ref="fullpage" :options="options" id="fullpage">
         <main-hero/>
-        <main-services :fullPageReady="fullPageReady" :resize="resize" :animationButton="dddd"/>
+        <main-services :fullPageReady="fullPageReady" :resize="resize"/>
         <main-cases :fullPageReady="fullPageReady" :resize="resize" :statusMail="statusMail" v-on:send-mail="mailSend"/>
-        <main-about :fullPageReady="fullPageReady" :resize="resize"/>
         <main-price/>
+        <main-about :fullPageReady="fullPageReady" :resize="resize"/>
         <main-contacts :statusMail="statusMail" v-on:send-mail="mailSend"/>
       </full-page>
     </main>
@@ -66,7 +66,6 @@
     },
     data() {
       return {
-        dddd: '',
         resize: true,
         windowWidth: window.innerWidth,
         fullPageReady: false,
@@ -100,7 +99,6 @@
         fullpage_api.moveSectionDown();
       },
       getActiveSlideCustom(origin, destination) {
-        this.dddd = destination.anchor
         this.$emit('updateOption', destination.anchor);
       },
       resizeSwiper() {

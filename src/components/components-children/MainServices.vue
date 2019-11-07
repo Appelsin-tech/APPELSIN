@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="nav-slider">
-            <button class="prev">
+            <button class="prev" @click="animationArrow = false">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button class="next" :class="{anim: animationArrow}">
+            <button class="next" :class="{anim: animationArrow}" @click="animationArrow = false">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
@@ -21,41 +21,12 @@
         <div class="wrapper-slider" @mouseover="mySwiperServices.autoplay.stop()" @mouseleave="mySwiperServices.autoplay.start()">
           <swiper :options="swiperOptions" ref="mySwiperServices">
             <swiper-slide>
-              <div class="wrapper wrapper-1">
-                <div class="grow"></div>
-                <div class="services-item">
-                  <div class="text-wrapper">
-                    <h3 class="caption-services">{{$t('server-solutions')}}</h3>
-                    <p class="desc">{{$t('server-solutions-desc')}}</p>
-                  </div>
-                  <a class="circle-btn" href="#price">
-                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                  </a>
-                </div>
-              </div>
-
-            </swiper-slide>
-            <swiper-slide>
               <div class="wrapper wrapper-2">
                 <div class="grow"></div>
                 <div class="services-item">
                   <div class="text-wrapper">
                     <h3 class="caption-services">{{$t('web-dev')}}</h3>
                     <p class="desc">{{$t('web-dev-desc')}}</p>
-                  </div>
-                  <a class="circle-btn" href="#price">
-                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
-                  </a>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="wrapper wrapper-3">
-                <div class="grow"></div>
-                <div class="services-item">
-                  <div class="text-wrapper">
-                    <h3 class="caption-services">{{$t('mobile-game-and-app')}}</h3>
-                    <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
                   </div>
                   <a class="circle-btn" href="#price">
                     <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
@@ -91,6 +62,35 @@
                 </div>
               </div>
             </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-3">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('mobile-game-and-app')}}</h3>
+                    <p class="desc">{{$t('mobile-game-and-app-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="wrapper wrapper-1">
+                <div class="grow"></div>
+                <div class="services-item">
+                  <div class="text-wrapper">
+                    <h3 class="caption-services">{{$t('server-solutions')}}</h3>
+                    <p class="desc">{{$t('server-solutions-desc')}}</p>
+                  </div>
+                  <a class="circle-btn" href="#price">
+                    <img svg-inline src="../../assets/img/icon/arrow-slider-items.svg" alt="">
+                  </a>
+                </div>
+              </div>
+
+            </swiper-slide>
           </swiper>
         </div>
 
@@ -109,9 +109,6 @@
       fullPageReady: {
         type: Boolean
       },
-      animationButton: {
-        type: String
-      },
       resize: {
         type: Boolean
       },
@@ -122,6 +119,7 @@
     },
     data() {
       return {
+        animationArrow: true,
         swiperOptions: {
           slidesPerView: 3,
           speed: 300,
@@ -164,10 +162,6 @@
       mySwiperServices() {
         return this.$refs.mySwiperServices.swiper
       },
-      animationArrow() {
-        let a = this.animationButton === 'services' ? true : false
-        return a
-      }
     }
   }
 </script>
@@ -184,7 +178,6 @@
                             radial-gradient(circle farthest-corner at top right, #02d8d5 5%, rgba(0, 0, 0, 0) 50%),
                             radial-gradient(circle farthest-corner at 20% 110%, #02d8d5 0%, rgba(0, 0, 0, 0) 45%) #23ade0;});
     .container {
-
       box-sizing: border-box;
       .caption-wrapper {
         .md-max-height({ margin-bottom: 30px; });

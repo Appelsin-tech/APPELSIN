@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="nav-slider">
-            <button id="about-prev" class="prev">
+            <button id="about-prev" class="prev" @click="animationArrow = false">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
-            <button  id="about-next" class="next">
+            <button  id="about-next" class="next" :class="{anim: animationArrow}" @click="animationArrow = false">
               <img svg-inline src="../../assets/img/icon/arrow-slider.svg" alt="">
             </button>
           </div>
@@ -164,6 +164,7 @@
     },
     data() {
       return {
+        animationArrow: true,
         swiperOption: {
           slidesPerView: 1,
           speed: 300,

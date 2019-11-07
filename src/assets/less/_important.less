@@ -75,14 +75,17 @@ button {
   button {
     cursor: pointer;
     &.anim {
-      animation: scale 0.3s linear 0s;
+      animation: scale 2.5s linear 3s infinite;
       animation-delay: 1s;
       @keyframes scale {
         0% {
           transform: scale(1);
         }
-        50% {
+        7% {
           transform: scale(1.4);
+        }
+        14% {
+          transform: scale(1);
         }
         100% {
           transform: scale(1);
@@ -96,6 +99,7 @@ button {
       }
     }
     &.swiper-button-disabled {
+      pointer-events: none;
       svg {
         opacity: 0.7;
       }
