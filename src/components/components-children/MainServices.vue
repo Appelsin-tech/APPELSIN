@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <div class="wrapper-slider" @mouseover="mySwiperServices.autoplay.stop()" @mouseleave="mySwiperServices.autoplay.start()">
+        <div class="wrapper-slider">
           <swiper :options="swiperOptions" ref="mySwiperServices">
             <swiper-slide>
               <div class="wrapper wrapper-2">
@@ -123,10 +123,7 @@
         swiperOptions: {
           slidesPerView: 3,
           speed: 300,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-          },
+          autoplay: false,
           navigation: {
             nextEl: '.s-services .next',
             prevEl: '.s-services .prev',

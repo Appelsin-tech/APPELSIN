@@ -126,6 +126,8 @@
         this.selected = {label: 'Ru', value: 'ru-RU'}
       } else if (langLocal === 'en-US') {
         this.selected = {label: 'En', value: 'en-US'}
+      } else {
+        this.selected = {label: 'En', value: 'en-US'}
       }
     },
     mounted () {

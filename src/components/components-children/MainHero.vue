@@ -18,19 +18,24 @@
           </p>
           <ul class="servises-list">
             <li class="item">
+              <img svg-inline class="svg" src="../../assets/img/icon/check-mark.svg" alt="">
               <p class="item-link">{{$t('hero-desс-1')}}</p>
             </li>
             <li class="item">
+              <img svg-inline class="svg" src="../../assets/img/icon/check-mark.svg" alt="">
               <p class="item-link">{{$t('hero-desс-2--1')}} <br> {{$t('hero-desс-2--2')}}</p>
             </li>
             <li class="item">
+              <img svg-inline class="svg" src="../../assets/img/icon/check-mark.svg" alt="">
               <p class="item-link">{{$t('hero-desс-3')}}</p>
             </li>
             <li class="item">
+              <img svg-inline class="svg" src="../../assets/img/icon/check-mark.svg" alt="">
               <p class="item-link">{{$t('hero-desс-4')}}</p>
             </li>
             <li class="item">
-              <p class="item-link">{{$t('hero-desс-5--1')}} <br> {{$t('hero-desс-5--2')}}</p>
+              <img svg-inline class="svg" src="../../assets/img/icon/check-mark.svg" alt="">
+              <p class="item-link">{{$t('hero-desс-5')}}</p>
             </li>
           </ul>
         </div>
@@ -128,9 +133,11 @@
         padding-top: 80px;
         margin-left: 10vw;
         flex-shrink: 0;
-        max-width: 50%;
         .lg-block({ padding-top: 0px;});
-        .md-block({max-width: 100%;});
+        .xs-block({margin-top: -50px;});
+        @media (max-width: 425px) and (max-height: 500px){
+          margin-top: 0;
+        }
         .desc-caption {
           display: inline-block;
           margin-bottom: 40px;
@@ -140,7 +147,7 @@
           text-transform: uppercase;
           .md-max-height({ font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
           .lg-block({font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
-          .sm-block({ font-size: 2.2rem; letter-spacing: 0.6rem; margin-bottom: 20px;});
+          .sm-block({ font-size: 2.8rem; letter-spacing: 0.6rem; margin-bottom: 20px;});
           .symbol {
             letter-spacing: 1.1rem;
             .md-max-height({letter-spacing: 1rem; });
@@ -168,8 +175,24 @@
           }
         }
         .servises-list {
+          max-width: 430px;
+          .lg-block({ max-width: 380px;});
+          .sm-block({max-width: 300px;});
+          .xs-block({max-width: 280px;});
           .item {
             margin-bottom: 22px;
+            display: flex;
+            .svg {
+              width: 15px;
+              height: 15px;
+              margin-right: 10px;
+              margin-top: 5px;
+              .lg-block({margin-top: 3px});
+              .sm-block({width: 12px; height: 12px; margin-top: 2px;});
+              path {
+                fill: #fff;
+              }
+            }
             &:last-child {
               margin-bottom: 0;
             }
