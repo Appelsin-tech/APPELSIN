@@ -44,7 +44,8 @@
           transition: color, border-bottom-color 0.3s ease-out;
           transition-delay: 0.2s;
           border-bottom: 1px solid #000;
-          .sm-block({ order: 3; });
+          margin-right: 0;
+          .sm-block({ order: 3; margin-right: 0;});
         }
         .phone {
           color: #000;
@@ -76,11 +77,16 @@
         .bottom-hover();
       }
       .policy {
+        display: inline-block;
         font-size: 1.7rem;
         font-weight: 300;
         color: #fff;
         transition: 0.3s;
         border-bottom: 1px solid #fff;
+        margin-right: 150px;
+        @media (max-width: 1650px) {
+          margin-right: 350px;
+        }
         .sm-block({ display: none;});
         &:hover {
           border-bottom-color: transparent;
