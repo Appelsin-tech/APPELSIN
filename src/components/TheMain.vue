@@ -75,7 +75,7 @@
           verticalCentered: true,
           controlArrows: true,
           fixedElements: '#nav-menu',
-          anchors: ['main', 'services', 'cases', 'about', 'price', 'contacts'],
+          anchors: ['main', 'services', 'cases', 'price', 'about', 'contacts'],
           menu: '#mainMenu',
           responsiveHeight: 750,
           responsiveWidth: 750,

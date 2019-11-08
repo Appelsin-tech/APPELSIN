@@ -38,6 +38,9 @@
               <p class="item-link">{{$t('hero-desс-5')}}</p>
             </li>
           </ul>
+          <a href="#contacts" class="btn-hero">
+            <span>{{$t('mail-form.order-project')}}</span>
+          </a>
         </div>
       </div>
 
@@ -114,6 +117,8 @@
         box-sizing: border-box;
         .lg-block({ align-items: center;});
         .md-block({ width: auto; margin: 0;});
+        .sm-block({position: relative;
+          z-index: 12;});
         .app-wrapper {
           height: 100%;
           max-height: 100%;
@@ -143,11 +148,11 @@
           margin-bottom: 40px;
           font-family: @fontBebas;
           font-weight: bold;
-          font-size: 3.7rem;
+          font-size: 4.5rem;
           text-transform: uppercase;
-          .md-max-height({ font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
-          .lg-block({font-size: 3rem; letter-spacing: 1rem; margin-bottom: 30px;});
-          .sm-block({ font-size: 2.8rem; letter-spacing: 0.6rem; margin-bottom: 20px;});
+          .md-max-height({ font-size: 4rem; letter-spacing: 1rem; margin-bottom: 30px;});
+          .lg-block({font-size: 4rem; letter-spacing: 1rem; margin-bottom: 30px;});
+          .sm-block({ font-size: 4rem; letter-spacing: 0.6rem; margin-bottom: 20px;});
           .symbol {
             letter-spacing: 1.1rem;
             .md-max-height({letter-spacing: 1rem; });
@@ -177,7 +182,8 @@
         .servises-list {
           max-width: 430px;
           .lg-block({ max-width: 380px;});
-          .sm-block({max-width: 300px;});
+          .sm-block({max-width: 300px;
+            margin-bottom: 40px;});
           .xs-block({max-width: 280px;});
           .item {
             margin-bottom: 22px;
@@ -206,6 +212,25 @@
             }
           }
         }
+      }
+      .btn-hero {
+        display: none;
+        width: 100%;
+        height: 85px;
+        align-items: center;
+        justify-content: center;
+        font-family: @fontBebas;
+        font-weight: bold;
+        font-size: 2.4rem;
+        letter-spacing: 0.6rem;
+        color: #fff;
+        background: #000;
+        text-transform: uppercase;
+        cursor: pointer;
+        .sm-block({
+          display: flex;});
+        .md-block({ height: 70px; });
+        .xs-block({ height: 55px; });
       }
     }
     .phone {
