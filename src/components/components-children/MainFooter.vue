@@ -24,7 +24,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 998;
+    z-index: 997;
     transition: all 0.3s ease-out;
     transition-delay: 0.7s;
     .sm-block({ display: none; padding-bottom: 50px; opacity: 0; transform: translateX(50px);});
@@ -44,8 +44,9 @@
           transition: color, border-bottom-color 0.3s ease-out;
           transition-delay: 0.2s;
           border-bottom: 1px solid #000;
-          margin-right: 0;
-          .sm-block({ order: 3; margin-right: 0;});
+          margin-right: 350px;
+          .sm-block({ order: 3;
+            margin-right: 0;});
         }
         .phone {
           color: #000;

@@ -150,7 +150,7 @@
     right: 0;
     height: 70px;
     bottom: auto;
-    z-index: 997;
+    z-index: 996;
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
     .md-block({ position: absolute;});
